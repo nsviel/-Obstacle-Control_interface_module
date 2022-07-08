@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
 from param import param_py
 from param import param_hu
 from param import param_li
@@ -11,24 +12,28 @@ import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    dpg.add_node_link("hu_httpd_port", "co_client", tag="link_co_hu")
+    dpg.add_node_link("co_http_client", "hu_http_server", tag="link_co_hu")
+    dpg.add_node_link("co_http_client", "ed_http_server", tag="link_co_ed")
 
-    dpg.add_node_link("py_port_sock", "hu_sock_port_server_in", tag="link_py_hu_sock")
-    dpg.add_node_link("py_port_http", "hu_http_client", tag="link_py_hu_http")
+    dpg.add_node_link("py_sock_client", "hu_sock_server_in", tag="link_py_hu_sock")
+    dpg.add_node_link("py_http_server", "hu_http_client", tag="link_py_hu_http")
     dpg.add_node_link("py_server", "ssd_input", tag="link_py_ssd")
     dpg.add_node_link("py_device_l1", "l1_input", tag="link_py_l1")
     dpg.add_node_link("py_device_l2", "l2_input", tag="link_py_l2")
     dpg.add_node_link("py_server", "geo_input", tag="link_py_geo")
 
     dpg.add_node_link("hu_mqtt", "sncf_mqtt_port", tag="link_hu_sncf")
-    dpg.add_node_link("hu_sock_port_client", "ed_server", tag="link_hu_ed")
-    dpg.add_node_link("hu_sock_port_server_out", "ed_client", tag="link_ed_hu")
-    dpg.add_node_link("hu_sock_port_client", "ve_input", tag="link_hu_ve")
+    dpg.add_node_link("hu_sock_client", "ed_server", tag="link_hu_ed")
+    dpg.add_node_link("hu_sock_server_out", "ed_client", tag="link_ed_hu")
+    dpg.add_node_link("hu_sock_client", "ve_input", tag="link_hu_ve")
     dpg.add_node_link("hu_stockage", "ai_input", tag="link_hu_ai")
 
-    dpg.add_node_link("va_httpd_port", "hu_httpd_port", tag="link_va_hu")
+    dpg.add_node_link("va_httpd_port", "hu_http_server", tag="link_va_hu")
 
 def update_link_color():
+    # Controlium connections
+    update_link(param_co.http_connected, "link_co_hu")
+
     # Pywardium connections
     update_link(param_py.http_connected, "link_py_hu_http")
     update_link(param_py.socket_connected, "link_py_hu_sock")

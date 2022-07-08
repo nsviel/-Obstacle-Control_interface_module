@@ -5,12 +5,6 @@ from param import param_py
 from param import param_hu
 from param import param_li
 
-from src import saving
-from src import device
-from src import socket
-from src import http
-from src import capture
-
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
 
@@ -33,8 +27,6 @@ def callback_demo():
         demo.show_demo()
 
 def callback_connection():
-    http.test_connection()
-    socket.test_socket_connection()
     if(param_py.http_connected):
         dpg.set_value("httpconn", "ON")
     else:
@@ -50,18 +42,13 @@ def callback_close():
 def callback_path():
     param_py.ssd_path = dpg.get_value("ssdp")
     param_li.path_name = dpg.get_value("pnam")
-    saving.determine_path()
 
 def callback_choice_device():
     param_li.device_l1 = str(dpg.get_value("l1d"))
     param_li.device_l2 = str(dpg.get_value("l2d"))
-    capture.stop_lidar_capture()
-    capture.start_lidar_capture()
 
 def callback_refresh_device():
-    devices = device.get_all_device()
-    dpg.set_value("l1d", devices)
-    dpg.set_value("l2d", devices)
+    devices = 1
 
 def callback_comboip():
     adress = dpg.get_value("comboip")

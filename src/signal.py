@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_py
+from param import param_co
 
 import signal
 import time
@@ -9,6 +9,6 @@ import time
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    param_py.run_loop = False
+    param_co.run_loop = False
 
 signal.signal(signal.SIGINT, handler)

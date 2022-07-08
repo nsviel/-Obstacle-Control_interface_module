@@ -3,9 +3,9 @@
 
 from param import param_co
 
-#from src import loop
+from src import loop
 
-#from gui import gui_loop
+from gui import gui_loop
 from gui import gui_build
 
 import dearpygui.dearpygui as dpg
@@ -28,16 +28,16 @@ def program():
     dpg.set_primary_window("window", True)
 
     # Init variables
-    #loop.init()
+    loop.init()
 
     # Start main loop program
     while param_co.run_loop and dpg.is_dearpygui_running():
-        #loop.loop()
-        #gui_loop.loop()
+        loop.loop()
+        gui_loop.loop()
         dpg.render_dearpygui_frame()
 
     # End thread
-    #loop.end()
+    loop.end()
 
     # Finish program
     dpg.destroy_context()

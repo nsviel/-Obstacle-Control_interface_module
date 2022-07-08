@@ -15,7 +15,13 @@ def color_green():
     with dpg.theme_component(dpg.mvNodeLink, parent=green):
         link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_Link, (20, 255, 20), category=dpg.mvThemeCat_Nodes)
     return green
-    
+
+def color_layer_control():
+    layer_control = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_control):
+        link_theme_color = dpg.add_theme_color(dpg.mvNodeCol_TitleBar, (100, 20, 20), category=dpg.mvThemeCat_Nodes)
+    return layer_control
+
 def color_layer_train():
     layer_train = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_train):

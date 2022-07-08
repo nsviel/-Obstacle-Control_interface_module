@@ -4,11 +4,6 @@
 from param import param_py
 from param import param_hu
 from param import param_li
-from src import device
-from src import io
-from src import lidar
-from src import saving
-from src import loop
 
 from gui import gui_callback
 from gui import gui_runtime
@@ -34,7 +29,6 @@ def build_option():
         dpg.add_checkbox(tag="cwws", label="With writing on SSD", default_value=param_li.with_writing, callback=gui_callback.callback_parameter);
 
         dpg.add_text("")
-        saving.read_wallet()
         dpg.add_combo(param_py.wallet_add, tag="comboip", label="Adresse", default_value="localhost", width=125, callback=gui_callback.callback_comboip)
         dpg.add_input_text(tag="hubiump", label="Hubium IP", default_value=param_hu.hubium_ip, width=125, callback=gui_callback.callback_parameter);
         dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=param_hu.hubium_sock_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
@@ -51,14 +45,13 @@ def build_device():
             dpg.add_text("Device", color=(125, 125, 125))
             dpg.add_button(label="Refresh", callback=gui_callback.callback_refresh_device)
         with dpg.group(horizontal=True):
-            devices = device.get_all_device()
             with dpg.group():
                 dpg.add_text("Lidar 1")
-                dpg.add_listbox(devices, tag="l1d", callback=gui_callback.callback_choice_device, default_value=param_li.device_l1, width=150, num_items=len(devices))
+                #dpg.add_listbox(devices, tag="l1d", callback=gui_callback.callback_choice_device, default_value=param_li.device_l1, width=150, num_items=len(devices))
 
             with dpg.group():
                 dpg.add_text("Lidar 2")
-                dpg.add_listbox(devices, tag="l2d", callback=gui_callback.callback_choice_device, default_value=param_li.device_l2, width=150, num_items=len(devices))
+                #dpg.add_listbox(devices, tag="l2d", callback=gui_callback.callback_choice_device, default_value=param_li.device_l2, width=150, num_items=len(devices))
 
 def build_saving():
     dpg.add_separator()
