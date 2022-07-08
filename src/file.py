@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
 from param import param_hu
 from param import param_py
 from param import param_li
@@ -13,16 +14,16 @@ def init_state():
     update_state_file()
 
 def upload_config_file():
-    param_py.socket_listen = parser_json.upload_state_lvl2_json(param_py.path_config, "pywardium", "socket_listen")
-    param_py.with_two_lidar = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "with_two_lidar")
-    param_py.with_writing = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "with_writing")
-    param_py.ip_l1 = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "ip_l1")
-    param_py.ip_l2 = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "ip_l2")
-    param_py.device_l1 = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "device_l1")
-    param_py.device_l2 = parser_json.upload_state_lvl2_json(param_py.path_config, "lidar", "device_l2")
-    param_hu.hubium_ip = parser_json.upload_state_lvl2_json(param_py.path_config, "hubium", "ip")
-    param_hu.hubium_sock_port = parser_json.upload_state_lvl2_json(param_py.path_config, "hubium", "port_sock")
-    param_hu.hubium_httpd_port = parser_json.upload_state_lvl2_json(param_py.path_config, "hubium", "port_http")
+    param_py.socket_listen = parser_json.upload_state_lvl2_json(param_co.path_config, "pywardium", "socket_listen")
+    param_py.with_two_lidar = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "with_two_lidar")
+    param_py.with_writing = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "with_writing")
+    param_py.ip_l1 = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "ip_l1")
+    param_py.ip_l2 = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "ip_l2")
+    param_py.device_l1 = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "device_l1")
+    param_py.device_l2 = parser_json.upload_state_lvl2_json(param_co.path_config, "lidar", "device_l2")
+    param_hu.hubium_ip = parser_json.upload_state_lvl2_json(param_co.path_config, "hubium", "ip")
+    param_hu.hubium_sock_port = parser_json.upload_state_lvl2_json(param_co.path_config, "hubium", "port_sock")
+    param_hu.hubium_httpd_port = parser_json.upload_state_lvl2_json(param_co.path_config, "hubium", "port_http")
 
 def upload_hu_state():
     param_hu.hubium_status = parser_json.upload_state_lvl1_json(param_py.path_state_hu, "status")

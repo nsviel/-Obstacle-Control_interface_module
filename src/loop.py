@@ -5,6 +5,7 @@ from param import param_co
 
 from src import connection
 from src import file
+from src import signal
 
 
 def init():
@@ -14,6 +15,7 @@ def init():
 
 def loop():
     a=1
+    #signal.action_keyboard()
 
 def end():
     param_co.status = "Offline"

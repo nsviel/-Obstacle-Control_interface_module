@@ -40,6 +40,8 @@ def node_controlium():
             dpg.add_text("HTTP client");
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             dpg.add_button(label="False alarm", tag="but_fal", callback=scheme_callback.callback_false_alarm)
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            dpg.add_button(label="Change Edge", tag="but_ched", callback=scheme_callback.callback_false_alarm)
 
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):

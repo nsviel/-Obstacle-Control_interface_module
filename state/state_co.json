@@ -11,7 +11,7 @@
         "port": 314
     },
     "mqtt": {
-        "connected": false,
+        "connected": true,
         "ip": "127.0.0.1",
         "port": 1883
     },
@@ -27,7 +27,7 @@
     "edge": {
         "connected": false,
         "ip": "127.0.0.1",
-        "port": 315
+        "port": 316
     },
     "ai": {
         "connected": false

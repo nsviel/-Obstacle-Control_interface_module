@@ -7,6 +7,7 @@ from src import loop
 
 from gui import gui_loop
 from gui import gui_build
+from gui import gui_theme
 
 import dearpygui.dearpygui as dpg
 
@@ -19,7 +20,7 @@ def program():
         gui_build.build()
 
     #Main GUI theme
-    gui_build.build_theme()
+    gui_theme.build_theme()
 
     # Setup GUI
     dpg.create_viewport(title='Controlium', width=param_co.gui_width, height=param_co.gui_height)

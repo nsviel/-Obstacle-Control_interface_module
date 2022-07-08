@@ -5,8 +5,12 @@
 
 
 # State
+#--------------------
 status = "Offline"
 pywardium_ip = "127.0.0.1"
+#--------------------
+
+# HTTP
 http_connected = False
 
 # Parameter
@@ -15,6 +19,7 @@ gui_height = 800
 scheme_height = 500
 path_state_py = "state/state_py.json"
 path_state_hu = "state/state_hu.json"
+path_state_co = "state/state_co.json"
 path_config = "param/config.json"
 
 # Thread

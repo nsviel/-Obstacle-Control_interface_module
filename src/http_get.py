@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_hu
-from param import param_py
+from param import param_co
 
 from src import http
 from src import connection
@@ -14,7 +14,7 @@ import http.client as client
 
 
 def get_falsealarm():
-    if(param_py.http_connected):
+    if(param_co.http_connected):
         try:
             sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_httpd_port, timeout=1)
             sock.request("GET", "/falsealarm")
@@ -24,17 +24,14 @@ def get_falsealarm():
 
 def get_state():
     is_loaded = False
-    if(param_py.http_connected):
+    if(param_co.http_connected):
         try:
             sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_httpd_port, timeout=1)
             sock.request("GET", "/state")
             response = sock.getresponse()
             data = response.read()
-            parser_json.upload_json_file(param_py.path_state_hu, data)
+            parser_json.upload_json_file(param_co.path_state_hu, data)
             sock.close()
             is_loaded = True
         except:
             http.connection_closed()
-
-        #if(is_loaded):
-            #connection.parse_state_json()
