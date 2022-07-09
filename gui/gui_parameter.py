@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
 from param import param_py
 from param import param_hu
 from param import param_li
@@ -29,10 +30,10 @@ def build_option():
         dpg.add_checkbox(tag="cwws", label="With writing on SSD", default_value=param_li.with_writing, callback=gui_callback.callback_parameter);
 
         dpg.add_text("")
-        dpg.add_combo(param_py.wallet_add, tag="comboip", label="Adresse", default_value="localhost", width=125, callback=gui_callback.callback_comboip)
-        dpg.add_input_text(tag="hubiump", label="Hubium IP", default_value=param_hu.hubium_ip, width=125, callback=gui_callback.callback_parameter);
-        dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=param_hu.hubium_sock_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
-        dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=param_hu.hubium_httpd_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
+        dpg.add_combo(param_co.wallet_add, tag="comboip", label="Adresse", default_value="localhost", width=125, callback=gui_callback.callback_comboip)
+        dpg.add_input_text(tag="hubiump", label="Hubium IP", default_value=param_hu.ip, width=125, callback=gui_callback.callback_parameter);
+        dpg.add_input_int(tag="hubiumpos", label="Hubium socket port", default_value=param_hu.sock_server_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
+        dpg.add_input_int(tag="hubiumpoh", label="Hubium HTTP port", default_value=param_hu.http_server_port, min_value=0, min_clamped=True, width=125, callback=gui_callback.callback_parameter);
 
 def build_lidar():
     dpg.add_input_int(tag="ls", label="Lidar speed", default_value=param_li.lidar_speed, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=gui_callback.callback_parameter);
@@ -60,7 +61,7 @@ def build_saving():
         dpg.add_text("Capture ID: [")
         dpg.add_text(param_li.capture_ID, color=(31, 140, 250))
         dpg.add_text("]")
-    dpg.add_input_text(tag="ssdp", label="Path SSD", default_value=param_py.ssd_path, width=200, callback=gui_callback.callback_path);
+    dpg.add_input_text(tag="ssdp", label="Path SSD", default_value=param_co.ssd_path, width=200, callback=gui_callback.callback_path);
     dpg.add_input_text(tag="pnam", label="Path name", default_value=param_li.path_name, width=200, callback=gui_callback.callback_path);
     dpg.add_text(param_li.path_file_l1, tag="l1p", color=(31, 140, 250));
     dpg.add_text(param_li.path_file_l2, tag="l2p", color=(31, 140, 250));

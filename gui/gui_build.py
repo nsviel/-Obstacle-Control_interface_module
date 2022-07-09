@@ -4,7 +4,8 @@
 from gui import gui_callback
 from gui import gui_parameter
 from gui import gui_runtime
-from gui import scheme
+
+from scheme import scheme
 
 import dearpygui.dearpygui as dpg
 

@@ -14,9 +14,9 @@ def callback_parameter():
     param_li.with_writing = dpg.get_value("cwws")
     param_li.lidar_speed = dpg.get_value("ls")
 
-    param_hu.hubium_ip = dpg.get_value("hubiump")
-    param_hu.hubium_sock_port = dpg.get_value("hubiumpos")
-    param_hu.hubium_httpd_port = dpg.get_value("hubiumpoh")
+    param_hu.ip = dpg.get_value("hubiump")
+    param_hu.sock_server_port = dpg.get_value("hubiumpos")
+    param_hu.http_server_port = dpg.get_value("hubiumpoh")
 
     param_li.ip_l1 = dpg.get_value("l1ip")
     param_li.ip_l2 = dpg.get_value("l2ip")
@@ -54,5 +54,5 @@ def callback_comboip():
     adress = dpg.get_value("comboip")
     for i in range(0, len(param_py.wallet_add)):
         if(adress == param_py.wallet_add[i]):
-            param_hu.hubium_ip = param_py.wallet_ip[i]
-    dpg.set_value("hubiump", param_hu.hubium_ip)
+            param_hu.ip = param_py.wallet_ip[i]
+    dpg.set_value("hubiump", param_hu.ip)

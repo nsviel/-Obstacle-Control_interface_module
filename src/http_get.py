@@ -16,7 +16,7 @@ import http.client as client
 def get_falsealarm():
     if(param_co.http_connected):
         try:
-            sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_httpd_port, timeout=1)
+            sock = client.HTTPConnection(param_hu.ip, param_hu.http_server_port, timeout=1)
             sock.request("GET", "/falsealarm")
             print("[#] False alarm sended")
         except:
@@ -26,7 +26,7 @@ def get_state():
     is_loaded = False
     if(param_co.http_connected):
         try:
-            sock = client.HTTPConnection(param_hu.hubium_ip, param_hu.hubium_httpd_port, timeout=1)
+            sock = client.HTTPConnection(param_hu.ip, param_hu.http_server_port, timeout=1)
             sock.request("GET", "/state")
             response = sock.getresponse()
             data = response.read()

@@ -2,7 +2,6 @@
 #---------------------------------------------
 
 from param import param_co
-from param import param_hu
 
 from src import http
 from src import http_get
@@ -38,10 +37,3 @@ def thread_test_connection():
 def stop_thread():
     param_co.run_loop = False
     param_co.run_thread_con = False
-
-def parse_state_json():
-    param_hu.mqtt_connected = param_hu.hubium_json["mqtt"]["connected"]
-    param_hu.velo_connected = param_hu.hubium_json["velodium"]["connected"]
-    param_hu.vale_connected = param_hu.hubium_json["valeo"]["connected"]
-    param_hu.edge_connected = param_hu.hubium_json["edge"]["connected"]
-    param_hu.ai_connected = param_hu.hubium_json["ai"]["connected"]

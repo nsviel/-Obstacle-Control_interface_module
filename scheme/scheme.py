@@ -3,9 +3,9 @@
 
 from param import param_co
 
-from gui import scheme_link
-from gui import scheme_node
-from gui import scheme_color
+from scheme import scheme_link
+from scheme import scheme_node
+from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
 
@@ -16,7 +16,7 @@ def build_scheme():
 
 def create_scheme():
     # Construct node editor
-    with dpg.node_editor(height = param_co.scheme_height):
+    with dpg.node_editor(height = param_co.gui_scheme_height):
         scheme_node.node_controlium()
         scheme_node.node_pywardium()
         scheme_node.node_hubium()

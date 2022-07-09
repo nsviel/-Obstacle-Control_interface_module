@@ -6,13 +6,13 @@ from param import param_py
 from param import param_hu
 from param import param_li
 
-from gui import scheme_color
+from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    dpg.add_node_link("co_http_client", "hu_http_server", tag="link_co_hu")
+    dpg.add_node_link("co_http_client", "hu_http_server", tag="link_co_hu_http")
     dpg.add_node_link("co_http_client", "ed_http_server", tag="link_co_ed")
 
     dpg.add_node_link("py_sock_client", "hu_sock_server_in", tag="link_py_hu_sock")
@@ -23,16 +23,17 @@ def create_link():
     dpg.add_node_link("py_server", "geo_input", tag="link_py_geo")
 
     dpg.add_node_link("hu_mqtt", "sncf_mqtt_port", tag="link_hu_sncf")
-    dpg.add_node_link("hu_sock_client", "ed_server", tag="link_hu_ed")
+    dpg.add_node_link("hu_sock_client_out", "ed_server", tag="link_hu_ed")
     dpg.add_node_link("hu_sock_server_out", "ed_client", tag="link_ed_hu")
-    dpg.add_node_link("hu_sock_client", "ve_input", tag="link_hu_ve")
+    dpg.add_node_link("hu_sock_client_out", "ve_input", tag="link_hu_ve")
     dpg.add_node_link("hu_stockage", "ai_input", tag="link_hu_ai")
+    dpg.add_node_link("hu_sock_client_in", "co_sock_server", tag="link_co_hu_sock")
 
     dpg.add_node_link("va_httpd_port", "hu_http_server", tag="link_va_hu")
 
 def update_link_color():
     # Controlium connections
-    update_link(param_co.http_connected, "link_co_hu")
+    update_link(param_co.http_connected, "link_co_hu_http")
 
     # Pywardium connections
     update_link(param_py.http_connected, "link_py_hu_http")
@@ -45,11 +46,6 @@ def update_link_color():
     update_link(param_hu.mqtt_connected, "link_hu_sncf")
     update_link(param_hu.velo_connected, "link_hu_ve")
 
-
-    #update_link(param_hu.hubium_json['velo_connected'], "link_hu_ve")
-    #update_link(param_hu.hubium_json['vale_connected'], "link_va_hu")
-    #update_link(param_hu.hubium_json['ia_connectes'], "link_hu_ai")
-    #update_link(param_hu.hubium_json['edge_conncted'], "link_hu_ed")
 
 def update_link(state, tag):
     if(state):
