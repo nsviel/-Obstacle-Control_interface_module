@@ -73,6 +73,7 @@ def add_geolocalization():
 # Lidar stuff
 def add_lidar_device(text, devices, default, tag_con, tag_list):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
         dpg.add_text(text)
         dpg.add_listbox(devices, tag=tag_list, callback=scheme_callback.callback_choice_device, default_value=default, width=150, num_items=len(devices))
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
@@ -80,7 +81,7 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label);
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, callback=scheme_callback.callback_ssd);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
@@ -106,15 +107,17 @@ def add_topic(tag_):
             dpg.add_text("-", tag= tag_, color=color_info);
 
 # SSD stuff
-def add_ssd(tag_con, tag_active, tag_path, tag_path_add, tag_used, tag_tot):
+def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         with dpg.group(horizontal=True):
             dpg.add_text("SSD");
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, callback=scheme_callback.callback_ssd);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd);
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_text("-", tag=tag_path, color=color_info)
+        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=150, callback=scheme_callback.callback_ssd);
         with dpg.group(horizontal=True):
-            dpg.add_text("-", tag=tag_path, color=color_info)
-        with dpg.group(horizontal=True):
-            dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=150, callback=scheme_callback.callback_ssd);
+            dpg.add_text("Name")
+            dpg.add_text("-", tag=tag_name, color=color_info)
         with dpg.group(horizontal=True):
             dpg.add_text("Size:");
             dpg.add_text(0, tag=tag_used, color=color_info);

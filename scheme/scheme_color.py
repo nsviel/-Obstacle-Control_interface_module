@@ -4,6 +4,17 @@
 import dearpygui.dearpygui as dpg
 
 
+def color_checkbox():
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        color_1 = (255, 255, 255)
+        color_2 = (0, 0, 0)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBg, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBgHovered, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_CheckMark, color_1, category=dpg.mvThemeCat_Core)
+    return theme
+
 def color_red():
     red = dpg.add_theme()
     with dpg.theme_component(dpg.mvNodeLink, parent=red):

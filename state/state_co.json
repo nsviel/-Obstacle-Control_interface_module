@@ -1,10 +1,11 @@
 {
     "status": "Online",
+    "ip": "127.0.0.1",
     "self": {
         "ip": "127.0.0.1",
         "port_sock_server": 321
     },
-    "edge": {
+    "hubium": {
         "ip": "127.0.0.1",
         "port_sock_client": 315,
         "port_http_server": 316

@@ -7,6 +7,7 @@ from src import loop
 
 from scheme import scheme
 from scheme import scheme_loop
+from scheme import scheme_theme
 
 from gui import gui_menu
 from gui import gui_theme
@@ -23,7 +24,7 @@ def program():
         scheme.build_scheme()
 
     #Main GUI theme
-    gui_theme.build_theme()
+    scheme_theme.global_theme()
 
     # Setup GUI
     dpg.create_viewport(title='Controlium', width=param_co.gui_width, height=param_co.gui_height)

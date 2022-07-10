@@ -4,10 +4,14 @@
 from param import param_co
 from param import param_li
 
+from src import saving
 from src import http_get
 
 import dearpygui.dearpygui as dpg
 
+
+def callback_update_conf():
+    a=1
 
 def callback_lidar():
     param_li.with_two_lidar = dpg.get_value("cwtl")
@@ -22,7 +26,8 @@ def callback_false_alarm():
 
 def callback_ssd():
     param_co.ssd_path = dpg.get_value("ssd_path")
-    param_li.path_name = dpg.get_value("ssd_path_add")
+    param_li.path_add = dpg.get_value("ssd_path_add")
+    saving.determine_path()
 
 def callback_choice_device():
     param_li.device_l1 = str(dpg.get_value("l1d"))

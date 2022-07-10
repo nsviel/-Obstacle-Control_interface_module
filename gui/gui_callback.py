@@ -1,6 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
+
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
 

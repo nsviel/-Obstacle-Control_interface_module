@@ -1,6 +1,11 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from scheme import scheme_color
+
+import dearpygui.dearpygui as dpg
+
+
 import dearpygui.dearpygui as dpg
 
 color_node_grid_line = (30, 30, 30)
@@ -10,13 +15,14 @@ color_node_pin = (200, 200, 10)
 color_node_link = (255, 255, 255)
 
 
-def build_theme():
+def global_theme():
     with dpg.theme() as global_theme:
         with dpg.theme_component(dpg.mvAll):
             # Divers
             dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (20, 20, 20), category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_Text, (255, 255, 255), category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_Button, (100, 100, 100))
+            dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
 
             # Node background
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color_node_bkg, category=dpg.mvThemeCat_Nodes)
@@ -41,5 +47,31 @@ def build_theme():
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelector, (0, 0, 0, 100), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelectorOutline, (175, 175, 175), category=dpg.mvThemeCat_Nodes)
 
-
     dpg.bind_theme(global_theme)
+
+def colorize():
+    colorize_node()
+    colorize_item()
+
+def colorize_node():
+    layer_control = scheme_color.color_layer_control()
+    layer_train = scheme_color.color_layer_train()
+    layer_edge = scheme_color.color_layer_edge()
+    layer_cloud = scheme_color.color_layer_cloud()
+
+    dpg.bind_item_theme("node_co", layer_control)
+    dpg.bind_item_theme("node_py", layer_train)
+    dpg.bind_item_theme("node_train", layer_train)
+    dpg.bind_item_theme("node_hu", layer_edge)
+    dpg.bind_item_theme("node_local", layer_edge)
+    dpg.bind_item_theme("node_ed", layer_cloud)
+    dpg.bind_item_theme("node_sncf", layer_cloud)
+    dpg.bind_item_theme("node_valeo", layer_cloud)
+    dpg.bind_item_theme("node_ssd", layer_control)
+
+def colorize_item():
+    checkbox = scheme_color.color_checkbox()
+
+    dpg.bind_item_theme("ssd_active", checkbox)
+    dpg.bind_item_theme("l1_active", checkbox)
+    dpg.bind_item_theme("l2_active", checkbox)

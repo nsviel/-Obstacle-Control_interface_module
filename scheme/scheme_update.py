@@ -22,8 +22,9 @@ def update_ssd_info():
     dpg.set_value("ssd_path", param_co.ssd_path)
     dpg.set_value("ssd_total", param_co.ssd_space_total)
     dpg.set_value("ssd_used", param_co.ssd_space_used)
-    dpg.set_value("l1_file_path", param_li.path_file_l1)
-    dpg.set_value("l2_file_path", param_li.path_file_l2)
+    dpg.set_value("l1_file_path", param_li.path_dir_l1)
+    dpg.set_value("l2_file_path", param_li.path_dir_l2)
+    dpg.set_value("file_name", param_li.file_name)
 
 def update_train():
     dpg.set_value("l1_ip", param_li.l1_ip)

@@ -29,9 +29,10 @@ time_capture = 0
 capture_ID = 0
 
 # Path
-path_capture = "-"
-path_dir_l1 = "-"
-path_dir_l2 = "-"
-path_file_l1 = "-"
-path_file_l2 = "-"
-path_name = "-"
+path_capture = ""
+path_dir_l1 = ""
+path_dir_l2 = ""
+path_file_l1 = ""
+path_file_l2 = ""
+path_add = ""
+file_name = ""

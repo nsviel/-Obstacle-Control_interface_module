@@ -1,5 +1,6 @@
 {
     "status": "Offline",
+    "ip": "127.0.0.1",
     "pywardium": {
         "socket_listen": 314
     },

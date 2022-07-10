@@ -1,5 +1,6 @@
 {
     "status": "Online",
+    "ip": "127.0.0.1",
     "hubium": {
         "sock_client": 317,
         "sock_listen": 315,
@@ -7,17 +8,14 @@
         "httpd_port": 316
     },
     "pywardium": {
+        "connected": false,
         "ip": "127.0.0.1",
         "port": 314
     },
-    "mqtt": {
+    "sncf": {
         "connected": false,
         "ip": "127.0.0.1",
         "port": 1883
-    },
-    "velodium": {
-        "connected": false,
-        "port": 2370
     },
     "valeo": {
         "connected": false,
@@ -28,6 +26,10 @@
         "connected": false,
         "ip": "127.0.0.1",
         "port": 315
+    },
+    "velodium": {
+        "connected": false,
+        "port": 2370
     },
     "ai": {
         "connected": false

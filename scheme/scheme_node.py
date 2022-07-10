@@ -12,15 +12,15 @@ from scheme import scheme_callback
 
 import dearpygui.dearpygui as dpg
 
-coord_controlium = [275, 425]
+coord_controlium = [350, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [625, 100]
+coord_hubium = [700, 250]
 coord_train = [10, 10]
-coord_edge = [925, 300]
-coord_local = [925, 10]
-coord_sncf = [925, 150]
-coord_valeo = [10, 300]
-coord_ssd = [10, 425]
+coord_edge = [1000, 500]
+coord_local = [1000, 10]
+coord_sncf = [1000, 175]
+coord_valeo = [1000, 350]
+coord_ssd = [10, 500]
 
 
 def node_controlium():
@@ -113,11 +113,11 @@ def node_valeo():
     with dpg.node(label="Valeo", tag="node_valeo", pos=coord_valeo):
         scheme_function.add_ip("va_ip")
 
-        scheme_connection.add_http_client_o("va_http_client")
+        scheme_connection.add_http_client_i("va_http_client")
         scheme_function.add_port("va_http_client_port")
 
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd", pos=coord_ssd):
-        scheme_function.add_ssd("ssd_input", "ssd_active", "ssd_path", "ssd_path_add", "ssd_used", "ssd_total")
+        scheme_function.add_ssd("ssd_input", "ssd_active", "ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total")
         scheme_function.add_file_info("Lidar 1", "l1_file_path", "l1_file_size")
         scheme_function.add_file_info("Lidar 2", "l2_file_path", "l2_file_size")

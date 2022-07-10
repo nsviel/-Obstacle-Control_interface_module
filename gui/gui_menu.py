@@ -10,4 +10,4 @@ def menu():
     with dpg.menu_bar():
         with dpg.menu(label="Menu"):
             dpg.add_menu_item(label="Demo", callback=gui_callback.callback_demo)
-            dpg.add_menu_item(label="Close", callback=gui_callback.callback_close)
+        dpg.add_button(label="Close", callback=gui_callback.callback_close)

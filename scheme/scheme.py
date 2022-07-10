@@ -6,13 +6,14 @@ from param import param_co
 from scheme import scheme_link
 from scheme import scheme_node
 from scheme import scheme_color
+from scheme import scheme_theme
 
 import dearpygui.dearpygui as dpg
 
 
 def build_scheme():
     create_scheme()
-    init_scheme()
+    scheme_theme.colorize()
 
 def create_scheme():
     # Construct node editor
@@ -27,19 +28,3 @@ def create_scheme():
         scheme_node.node_valeo()
         scheme_node.node_ssd()
         scheme_link.create_link()
-
-def init_scheme():
-    layer_control = scheme_color.color_layer_control()
-    layer_train = scheme_color.color_layer_train()
-    layer_edge = scheme_color.color_layer_edge()
-    layer_cloud = scheme_color.color_layer_cloud()
-
-    dpg.bind_item_theme("node_co", layer_control)
-    dpg.bind_item_theme("node_py", layer_train)
-    dpg.bind_item_theme("node_train", layer_train)
-    dpg.bind_item_theme("node_hu", layer_edge)
-    dpg.bind_item_theme("node_local", layer_edge)
-    dpg.bind_item_theme("node_ed", layer_cloud)
-    dpg.bind_item_theme("node_sncf", layer_cloud)
-    dpg.bind_item_theme("node_valeo", layer_cloud)
-    dpg.bind_item_theme("node_ssd", layer_control)
