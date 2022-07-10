@@ -16,7 +16,7 @@ def build_scheme():
 
 def create_scheme():
     # Construct node editor
-    with dpg.node_editor(height = param_co.gui_scheme_height):
+    with dpg.node_editor():
         scheme_node.node_controlium()
         scheme_node.node_pywardium()
         scheme_node.node_hubium()
@@ -25,6 +25,7 @@ def create_scheme():
         scheme_node.node_edge_local()
         scheme_node.node_sncf()
         scheme_node.node_valeo()
+        scheme_node.node_ssd()
         scheme_link.create_link()
 
 def init_scheme():
@@ -41,3 +42,4 @@ def init_scheme():
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)
+    dpg.bind_item_theme("node_ssd", layer_control)

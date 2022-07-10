@@ -16,15 +16,10 @@ ip = "127.0.0.1"
 http_connected = False
 port_sock_server = 1
 
-# Destinataire - Edge
-edge_ip = "127.0.0.1"
-edge_port_sock_client = 1
-edge_port_http_server = 1
-
 # Parameter
-gui_width = 1000
+gui_width = 1200
 gui_height = 800
-gui_scheme_height = 600
+gui_scheme_height = 700
 
 # Path
 path_state_co = "state/state_co.json"

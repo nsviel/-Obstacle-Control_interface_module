@@ -7,7 +7,7 @@ from src import http
 from src import http_get
 from src import file
 
-from gui import gui_update
+from scheme import scheme_update
 
 from threading import Thread
 
@@ -24,9 +24,9 @@ def thread_test_connection():
         # Test connections
         http.test_connection()
         http_get.get_state()
-        gui_update.update_gui()
 
         # Update state
+        scheme_update.update()
         file.update_state_file()
         file.upload_hu_state()
 

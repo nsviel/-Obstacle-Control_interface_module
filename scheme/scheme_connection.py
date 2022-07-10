@@ -1,0 +1,71 @@
+#! /usr/bin/python
+#---------------------------------------------
+
+from scheme import scheme_function
+
+import dearpygui.dearpygui as dpg
+
+color_line = (255, 255, 255, 50)
+color_info = (0, 200, 200)
+color_status = (0, 200, 50)
+
+
+def add_sock_server_i(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket server");
+def add_sock_server_o(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket server");
+def add_sock_server_io(tag_i, tag_o):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket server");
+    with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        a=1
+
+def add_sock_client_i(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+def add_sock_client_o(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+def add_sock_client_io(tag_i, tag_o):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+    with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        a=1
+
+def add_http_client_i(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP client");
+def add_http_client_o(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP client");
+def add_http_client_io(tag_i, tag_o):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP client");
+    with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        a=1
+
+def add_http_server_i(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP server");
+def add_http_server_o(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP server");
+def add_http_server_io(tag_i, tag_o):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("HTTP server");
+    with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        a=1
