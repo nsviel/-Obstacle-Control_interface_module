@@ -2,10 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from param import param_py
-from param import param_hu
-from param import param_li
-
+from classes import classes
 from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
@@ -35,17 +32,18 @@ def create_link():
 def update_link_color():
     # Controlium connections
     update_link(param_co.http_connected, "link_co_hu_http")
+    update_link(param_co.ssd_connected, "link_co_ssd")
 
     # Pywardium connections
-    update_link(param_py.http_connected, "link_py_hu_http")
-    update_link(param_py.socket_connected, "link_py_hu_sock")
-    update_link(param_py.ssd_connected, "link_co_ssd")
-    #update_link(param_li.l1_connected, "link_py_l1")
-    #update_link(param_li.l2_connected, "link_py_l2")
+    update_link(classes.pyward.http_connected, "link_py_hu_http")
+    update_link(classes.pyward.socket_connected, "link_py_hu_sock")
+
+    #update_link(classes.lidars.l1_connected, "link_py_l1")
+    #update_link(classes.lidars.l2_connected, "link_py_l2")
 
     # Hubium connections
-    update_link(param_hu.mqtt_connected, "link_hu_sncf_mqtt")
-    update_link(param_hu.velo_connected, "link_hu_ve_sock")
+    update_link(classes.hubium.mqtt_connected, "link_hu_sncf_mqtt")
+    update_link(classes.hubium.velo_connected, "link_hu_ve_sock")
 
 
 def update_link(state, tag):

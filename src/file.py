@@ -2,9 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from param import param_hu
-from param import param_py
-from param import param_li
+from classes import classes
 
 from src import parser_json
 
@@ -30,5 +28,5 @@ def update_state_file():
     parser_json.update_state_lvl2_json(param_co.path_state_co, "hubium", "port_http_server", param_co.edge_port_http_server)
 
 def upload_hu_state():
-    param_hu.status = parser_json.upload_state_lvl1_json(param_co.path_state_hu, "status")
-    param_hu.ip = parser_json.upload_state_lvl1_json(param_co.path_state_hu, "ip")
+    classes.hubium.status = parser_json.upload_state_lvl1_json(param_co.path_state_hu, "status")
+    classes.hubium.ip = parser_json.upload_state_lvl1_json(param_co.path_state_hu, "ip")

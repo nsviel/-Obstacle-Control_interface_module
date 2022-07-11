@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_py
-
 import json
 
 
@@ -39,8 +37,8 @@ def update_state_lvl2_json(path, lvl1, lvl2, state):
         json.dump(data, file, indent=4)
         file.truncate()
 
-def get_json_encoded():
-    file = open(param_py.path_state_hu)
+def get_json_encoded(path):
+    file = open(path)
     data = json.load(file)
     data_encoded = json.dumps(data).encode(encoding='utf_8')
     return data_encoded

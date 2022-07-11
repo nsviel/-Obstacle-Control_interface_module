@@ -5,9 +5,6 @@ from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
 
-
-import dearpygui.dearpygui as dpg
-
 color_node_grid_line = (30, 30, 30)
 color_node_grid_bkg = (40, 40, 40)
 color_node_bkg = (25, 25, 25)
@@ -71,7 +68,10 @@ def colorize_node():
 
 def colorize_item():
     checkbox = scheme_color.color_checkbox()
+    input_text = scheme_color.color_input_text()
 
     dpg.bind_item_theme("ssd_active", checkbox)
     dpg.bind_item_theme("l1_active", checkbox)
     dpg.bind_item_theme("l2_active", checkbox)
+    dpg.bind_item_theme("ssd_path_add", input_text)
+    dpg.bind_item_theme("ssd_path", input_text)

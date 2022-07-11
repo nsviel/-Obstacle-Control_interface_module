@@ -1,8 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_hu
 from param import param_co
+from classes import classes
 
 from src import http
 from src import connection
@@ -16,7 +16,7 @@ import http.client as client
 def get_falsealarm():
     if(param_co.http_connected):
         try:
-            sock = client.HTTPConnection(param_hu.ip, param_hu.http_server_port, timeout=1)
+            sock = client.HTTPConnection(classes.hubium.ip, classes.hubium.http_server_port, timeout=1)
             sock.request("GET", "/falsealarm")
             print("[#] False alarm sended")
         except:
@@ -26,7 +26,7 @@ def get_state():
     is_loaded = False
     if(param_co.http_connected):
         try:
-            sock = client.HTTPConnection(param_hu.ip, param_hu.http_server_port, timeout=1)
+            sock = client.HTTPConnection(classes.hubium.ip, classes.hubium.http_server_port, timeout=1)
             sock.request("GET", "/state")
             response = sock.getresponse()
             data = response.read()

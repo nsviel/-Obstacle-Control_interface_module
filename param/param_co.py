@@ -19,7 +19,6 @@ port_sock_server = 1
 # Parameter
 gui_width = 1200
 gui_height = 800
-gui_scheme_height = 700
 
 # Path
 path_state_co = "state/state_co.json"
@@ -32,6 +31,8 @@ run_loop = True;
 run_thread_con = False
 
 # SSD
+ssd_connected = False
+ssd_activated = True
 ssd_path = "/media/" + os.getlogin() + "/lidar_ssd"
 ssd_space_total = 0
 ssd_space_used = 0

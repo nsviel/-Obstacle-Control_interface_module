@@ -2,9 +2,6 @@
 #---------------------------------------------
 
 from param import param_co
-from param import param_py
-from param import param_hu
-from param import param_li
 
 from scheme import scheme_function
 from scheme import scheme_connection
@@ -12,7 +9,7 @@ from scheme import scheme_callback
 
 import dearpygui.dearpygui as dpg
 
-coord_controlium = [350, 500]
+coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
 coord_hubium = [700, 250]
 coord_train = [10, 10]
@@ -74,7 +71,7 @@ def node_hubium():
 
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
-        scheme_function.add_geolocalization()
+        scheme_function.add_geolocalization("geo_country")
         scheme_function.add_lidar("Lidar 1", "l1_input", "l1_active", "l1_speed", "l1_ip", "l1_packet")
         scheme_function.add_lidar("Lidar 2", "l2_input", "l2_active", "l2_speed", "l2_ip", "l2_packet")
         scheme_function.add_variable("Time:", "capture_time")

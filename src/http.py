@@ -2,8 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from param import param_hu
-from param import param_py
+from classes import classes
 
 import json
 import http.client as client
@@ -11,7 +10,9 @@ import http.client as client
 
 def test_connection():
     if(param_co.http_connected == False):
-        sock = client.HTTPConnection(param_hu.ip, param_hu.http_server_port, timeout=0.1)
+        ip = classes.hubium.ip
+        port = classes.hubium.http_server_port
+        sock = client.HTTPConnection(ip, port, timeout=0.1)
         try:
             sock.request("GET", "/test")
             param_co.http_connected = True
@@ -21,5 +22,5 @@ def test_connection():
 
 def connection_closed():
     param_co.http_connected = False
-    param_py.http_connected = False
-    param_hu.mqtt_connected = False
+    classes.pyward.http_connected = False
+    classes.hubium.reset()

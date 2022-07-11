@@ -6,6 +6,7 @@ from param import param_co
 from src import http
 from src import http_get
 from src import file
+from src import saving
 
 from scheme import scheme_update
 
@@ -24,6 +25,7 @@ def thread_test_connection():
         # Test connections
         http.test_connection()
         http_get.get_state()
+        saving.test_ssd_con()
 
         # Update state
         scheme_update.update()

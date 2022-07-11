@@ -10,7 +10,6 @@ from scheme import scheme_loop
 from scheme import scheme_theme
 
 from gui import gui_menu
-from gui import gui_theme
 
 import dearpygui.dearpygui as dpg
 
