@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from classes import classes
+from param import classes
 
 from datetime import datetime
 
@@ -25,8 +25,8 @@ def test_ssd_con():
 def determine_path():
     date = get_formated_time()
     classes.lidars.path_capture = os.path.join(param_co.ssd_path, "capture")
-    classes.lidars.path_dir_l1 = os.path.join(param_co.ssd_path, "lidar_1")
-    classes.lidars.path_dir_l2 = os.path.join(param_co.ssd_path, "lidar_2")
+    classes.lidars.path_dir_l1 = os.path.join(classes.lidars.path_capture, "lidar_1")
+    classes.lidars.path_dir_l2 = os.path.join(classes.lidars.path_capture, "lidar_2")
     classes.lidars.file_name = classes.lidars.path_add + "_" + date + ".pcap"
     classes.lidars.path_file_l1 = os.path.join(classes.lidars.path_dir_l1, classes.lidars.file_name)
     classes.lidars.path_file_l2 = os.path.join(classes.lidars.path_dir_l2, classes.lidars.file_name)

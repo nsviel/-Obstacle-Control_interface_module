@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from classes import classes
+from param import classes
 from scheme import scheme_link
 
 import dearpygui.dearpygui as dpg

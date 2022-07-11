@@ -14,7 +14,7 @@ ip = "127.0.0.1"
 
 # Connection
 http_connected = False
-port_sock_server = 1
+sock_server_port = 1
 
 # Parameter
 gui_width = 1200

@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from classes import classes
+from param import classes
 
 import json
 import http.client as client

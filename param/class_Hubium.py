@@ -39,20 +39,8 @@ class Hubium:
 
     def reset(self):
             self.status = "Offline"
-            self.ip = "127.0.0.1"
-            self.sock_server_port = 1
-            self.sock_client_port = 1
-            self.http_server_port = 1
             self.mqtt_connected = False
-            self.mqtt_topic = "ai_obstacle"
-            self.mqtt_ip = "127.0.0.1"
-            self.mqtt_port = 1
             self.edge_connected = False
-            self.edge_ip = "127.0.0.1"
-            self.edge_port = 1
             self.vale_connected = False
-            self.valeo_ip = "127.0.0.1"
-            self.valeo_port = 1
             self.velo_connected = False
-            self.velo_port = 1
             self.ai_connected = False

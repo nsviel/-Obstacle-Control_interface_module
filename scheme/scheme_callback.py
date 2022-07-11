@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from classes import classes
+from param import classes
 
 from src import saving
 from src import http_get

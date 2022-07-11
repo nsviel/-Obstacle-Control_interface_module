@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from classes import classes
+from param import classes
 
 import dearpygui.dearpygui as dpg
 

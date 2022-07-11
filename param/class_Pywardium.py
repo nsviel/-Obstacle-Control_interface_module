@@ -23,11 +23,6 @@ class Pywardium:
 
     def reset(self):
             self.status = "Offline"
-            self.ip = "127.0.0.1"
             self.http_connected = False
             self.socket_connected = False
-
-            self.http_server_port = 1
-            self.sock_server_port = 1
-            self.sock_client = None
             self.geo_country = "France"
