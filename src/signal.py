@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 import signal
 import time
@@ -10,7 +10,7 @@ import keyboard
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    classes.contro.run_loop = False
+    cla.contro.run_loop = False
 
 signal.signal(signal.SIGINT, handler)
 
@@ -18,6 +18,6 @@ signal.signal(signal.SIGINT, handler)
 def action_keyboard():
     try:
         if keyboard.is_pressed('esc'):
-            classes.contro.run_loop = False
+            cla.contro.run_loop = False
     except:
         a=1

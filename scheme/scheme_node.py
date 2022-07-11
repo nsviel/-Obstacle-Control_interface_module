@@ -108,9 +108,7 @@ def node_sncf():
 def node_valeo():
     with dpg.node(label="Valeo", tag="node_valeo", pos=coord_valeo):
         scheme_function.add_ip("va_ip")
-
         scheme_connection.add_http_client_i("va_http_client")
-        scheme_function.add_port("va_http_client_port")
 
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd", pos=coord_ssd):

@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
@@ -30,19 +30,19 @@ def create_link():
 
 def update_link_color():
     # Controlium connections
-    update_link(classes.contro.http_connected, "link_co_hu_http")
-    update_link(classes.contro.ssd_connected, "link_co_ssd")
+    update_link(cla.contro.http_connected, "link_co_hu_http")
+    update_link(cla.contro.ssd_connected, "link_co_ssd")
 
     # Pywardium connections
-    update_link(classes.pyward.http_connected, "link_py_hu_http")
-    update_link(classes.pyward.socket_connected, "link_py_hu_sock")
+    update_link(cla.pyward.http_connected, "link_py_hu_http")
+    update_link(cla.pyward.socket_connected, "link_py_hu_sock")
 
-    #update_link(classes.lidars.l1_connected, "link_py_l1")
-    #update_link(classes.lidars.l2_connected, "link_py_l2")
+    #update_link(cla.lidars.l1_connected, "link_py_l1")
+    #update_link(cla.lidars.l2_connected, "link_py_l2")
 
     # Hubium connections
-    update_link(classes.hubium.mqtt_connected, "link_hu_sncf_mqtt")
-    update_link(classes.hubium.velo_connected, "link_hu_ve_sock")
+    update_link(cla.hubium.mqtt_connected, "link_hu_sncf_mqtt")
+    update_link(cla.hubium.velo_connected, "link_hu_ve_sock")
 
 
 def update_link(state, tag):

@@ -1,25 +1,25 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 import json
 import http.client as client
 
 
 def test_connection():
-    if(classes.contro.http_connected == False):
-        ip = classes.hubium.ip
-        port = classes.hubium.http_server_port
+    if(cla.contro.http_connected == False):
+        ip = cla.hubium.ip
+        port = cla.hubium.http_server_port
         sock = client.HTTPConnection(ip, port, timeout=0.1)
         try:
             sock.request("GET", "/test")
-            classes.contro.http_connected = True
+            cla.contro.http_connected = True
         except:
             connection_closed()
         sock.close()
 
 def connection_closed():
-    classes.contro.http_connected = False
-    classes.pyward.http_connected = False
-    classes.hubium.reset()
+    cla.contro.http_connected = False
+    cla.pyward.http_connected = False
+    cla.hubium.reset()

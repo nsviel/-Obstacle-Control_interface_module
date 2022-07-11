@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
 from src import loop
 
@@ -28,7 +28,7 @@ def program():
     scheme_theme.global_theme()
 
     # Setup GUI
-    dpg.create_viewport(title='Controlium', width=classes.contro.gui_width, height=classes.contro.gui_height)
+    dpg.create_viewport(title='Controlium', width=cla.contro.gui_width, height=cla.contro.gui_height)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("window", True)
@@ -37,7 +37,7 @@ def program():
     loop.init()
 
     # Start main loop program
-    while classes.contro.run_loop and dpg.is_dearpygui_running():
+    while cla.contro.run_loop and dpg.is_dearpygui_running():
         loop.loop()
         scheme_loop.loop()
         dpg.render_dearpygui_frame()

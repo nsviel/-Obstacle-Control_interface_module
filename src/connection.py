@@ -1,10 +1,10 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import classes
+from param import cla
 
-from src import http
-from src import http_get
+from src import http_client
+from src import http_client_get
 from src import file
 from src import saving
 
@@ -16,15 +16,15 @@ import time
 
 
 def start_thread_test_conn():
-    classes.contro.run_thread_con = True
+    cla.contro.run_thread_con = True
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
 
 def thread_test_connection():
-    while classes.contro.run_thread_con:
+    while cla.contro.run_thread_con:
         # Test connections
-        http.test_connection()
-        http_get.get_state()
+        http_client.test_connection()
+        http_client_get.get_state()
         saving.test_ssd_con()
 
         # Update state
@@ -37,5 +37,5 @@ def thread_test_connection():
         pass
 
 def stop_thread():
-    classes.contro.run_loop = False
-    classes.contro.run_thread_con = False
+    cla.contro.run_loop = False
+    cla.contro.run_thread_con = False
