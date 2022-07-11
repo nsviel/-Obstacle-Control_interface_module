@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
+from param import classes
 
 from scapy.all import *
 
@@ -10,7 +10,7 @@ import pcapy
 
 
 def write_lidar_data(path, packet):
-    if(param_co.ssd_activated and param_co.ssd_connected and packet != None):
+    if(classes.contro.ssd_activated and classes.contro.ssd_connected and packet != None):
         wrpcap(path, packet, append=True)
 
 def open_pcap(path):

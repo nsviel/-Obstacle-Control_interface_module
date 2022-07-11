@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
 from param import classes
 
 from src import saving
@@ -23,8 +22,8 @@ def callback_false_alarm():
     http_get.get_falsealarm()
 
 def callback_ssd():
-    param_co.ssd_path = dpg.get_value("ssd_path")
-    param_co.ssd_activated = dpg.get_value("ssd_active")
+    classes.contro.ssd_path = dpg.get_value("ssd_path")
+    classes.contro.ssd_activated = dpg.get_value("ssd_active")
     classes.lidars.path_add = dpg.get_value("ssd_path_add")
     saving.determine_path()
 

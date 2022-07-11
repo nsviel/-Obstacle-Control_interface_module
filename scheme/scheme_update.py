@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
 from param import classes
 from scheme import scheme_link
 
@@ -16,9 +15,9 @@ def update():
     update_train()
 
 def update_ssd_info():
-    dpg.set_value("ssd_path", param_co.ssd_path)
-    dpg.set_value("ssd_total", param_co.ssd_space_total)
-    dpg.set_value("ssd_used", param_co.ssd_space_used)
+    dpg.set_value("ssd_path", classes.contro.ssd_path)
+    dpg.set_value("ssd_total", classes.contro.ssd_space_total)
+    dpg.set_value("ssd_used", classes.contro.ssd_space_used)
     dpg.set_value("l1_file_path", classes.lidars.path_dir_l1)
     dpg.set_value("l2_file_path", classes.lidars.path_dir_l2)
     dpg.set_value("file_name", classes.lidars.file_name)
@@ -30,7 +29,7 @@ def update_train():
 
 def update_port():
     # Controlium
-    dpg.set_value("co_sock_server_port", param_co.port_sock_server)
+    dpg.set_value("co_sock_server_port", classes.contro.port_sock_server)
 
     # Hubium
     dpg.set_value("va_http_client_port", classes.hubium.valeo_port)
@@ -49,9 +48,9 @@ def update_port():
     #dpg.set_value("py_device_l2_port", classes.lidars.l2_device)
 
 def update_status():
-    dpg.set_value("co_status", param_co.status)
+    dpg.set_value("co_status", classes.contro.status)
     dpg.set_value("py_status", classes.pyward.status)
     dpg.set_value("hu_status", classes.hubium.status)
-    dpg.set_value("co_ip", param_co.ip)
+    dpg.set_value("co_ip", classes.contro.ip)
     dpg.set_value("py_ip", classes.pyward.ip)
     dpg.set_value("hu_ip", classes.hubium.ip)

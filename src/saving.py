@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
 from param import classes
 
 from datetime import datetime
@@ -12,19 +11,19 @@ import os
 
 
 def test_ssd_con():
-    if(os.path.exists(param_co.ssd_path)):
-        param_co.ssd_connected = True
-        hdd = psutil.disk_usage(param_co.ssd_path)
-        param_co.ssd_space_used = int(hdd.used / (2**30))
-        param_co.ssd_space_total = int(hdd.total / (2**30))
+    if(os.path.exists(classes.contro.ssd_path)):
+        classes.contro.ssd_connected = True
+        hdd = psutil.disk_usage(classes.contro.ssd_path)
+        classes.contro.ssd_space_used = int(hdd.used / (2**30))
+        classes.contro.ssd_space_total = int(hdd.total / (2**30))
     else:
-        param_co.ssd_connected = False
-        param_co.ssd_space_used = 0
-        param_co.ssd_space_total = 0
+        classes.contro.ssd_connected = False
+        classes.contro.ssd_space_used = 0
+        classes.contro.ssd_space_total = 0
 
 def determine_path():
     date = get_formated_time()
-    classes.lidars.path_capture = os.path.join(param_co.ssd_path, "capture")
+    classes.lidars.path_capture = os.path.join(classes.contro.ssd_path, "capture")
     classes.lidars.path_dir_l1 = os.path.join(classes.lidars.path_capture, "lidar_1")
     classes.lidars.path_dir_l2 = os.path.join(classes.lidars.path_capture, "lidar_2")
     classes.lidars.file_name = classes.lidars.path_add + "_" + date + ".pcap"

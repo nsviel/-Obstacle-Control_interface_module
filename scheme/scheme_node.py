@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
-
 from scheme import scheme_function
 from scheme import scheme_connection
 from scheme import scheme_callback
@@ -18,6 +16,7 @@ coord_local = [1000, 10]
 coord_sncf = [1000, 175]
 coord_valeo = [1000, 350]
 coord_ssd = [10, 500]
+coord_image = [600, 10]
 
 
 def node_controlium():
@@ -118,3 +117,7 @@ def node_ssd():
         scheme_function.add_ssd("ssd_input", "ssd_active", "ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total")
         scheme_function.add_file_info("Lidar 1", "l1_file_path", "l1_file_size")
         scheme_function.add_file_info("Lidar 2", "l2_file_path", "l2_file_size")
+
+def node_image():
+    with dpg.node(label="Image", tag="node_image", pos=coord_image):
+        scheme_function.add_image("image_in")

@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
 from param import classes
 
 from src import http
@@ -14,7 +13,7 @@ import http.client as client
 
 
 def get_falsealarm():
-    if(param_co.http_connected):
+    if(classes.contro.http_connected):
         try:
             ip = classes.hubium.ip
             port = classes.hubium.http_server_port
@@ -26,7 +25,7 @@ def get_falsealarm():
 
 def get_state():
     is_loaded = False
-    if(param_co.http_connected):
+    if(classes.contro.http_connected):
         try:
             ip = classes.hubium.ip
             port = classes.hubium.http_server_port
@@ -34,7 +33,26 @@ def get_state():
             sock.request("GET", "/state")
             response = sock.getresponse()
             data = response.read()
-            parser_json.upload_json_file(param_co.path_state_hu, data)
+            parser_json.upload_json_file(classes.contro.path_state_hu, data)
+            sock.close()
+            is_loaded = True
+        except:
+            http.connection_closed()
+
+def get_image():
+    is_loaded = False
+    print("get image")
+    if(classes.contro.http_connected):
+        try:
+            ip = classes.hubium.ip
+            port = classes.hubium.http_server_port
+            sock = client.HTTPConnection(ip, port, timeout=1)
+            sock.request("GET", "/image")
+            response = sock.getresponse()
+            data = response.read()
+            print("data received")
+            print(len(data))
+
             sock.close()
             is_loaded = True
         except:

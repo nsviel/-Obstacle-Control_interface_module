@@ -61,6 +61,7 @@ def colorize_node():
     dpg.bind_item_theme("node_train", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
     dpg.bind_item_theme("node_local", layer_edge)
+    dpg.bind_item_theme("node_image", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)

@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
-
 from scheme import scheme_link
 from scheme import scheme_node
 from scheme import scheme_color
@@ -27,4 +25,5 @@ def create_scheme():
         scheme_node.node_sncf()
         scheme_node.node_valeo()
         scheme_node.node_ssd()
+        scheme_node.node_image()
         scheme_link.create_link()

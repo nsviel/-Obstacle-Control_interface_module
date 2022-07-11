@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
+from param import classes
 
 from src import connection
 from src import file
@@ -13,13 +13,13 @@ def init():
     file.init_state()
     saving.determine_path()
     connection.start_thread_test_conn()
-    param_co.status = "Online"
+    classes.contro.status = "Online"
 
 def loop():
     a=1
     #signal.action_keyboard()
 
 def end():
-    param_co.status = "Offline"
+    classes.contro.status = "Offline"
     file.update_state_file()
     connection.stop_thread()

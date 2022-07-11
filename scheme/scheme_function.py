@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
-
 from scheme import scheme_callback
 
 from math import sin
@@ -85,6 +83,9 @@ def add_geolocalization(tag_):
             dpg.add_text("Geo: [")
             dpg.add_text("", tag=tag_, color=color_info)
             dpg.add_text("]")
+def add_image(tag):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_image(tag, width=300, height=175)
 
 # Lidar stuff
 def add_lidar_device(text, devices, default, tag_con, tag_list):

@@ -1,7 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import param_co
 from param import classes
 from scheme import scheme_color
 
@@ -31,8 +30,8 @@ def create_link():
 
 def update_link_color():
     # Controlium connections
-    update_link(param_co.http_connected, "link_co_hu_http")
-    update_link(param_co.ssd_connected, "link_co_ssd")
+    update_link(classes.contro.http_connected, "link_co_hu_http")
+    update_link(classes.contro.ssd_connected, "link_co_ssd")
 
     # Pywardium connections
     update_link(classes.pyward.http_connected, "link_py_hu_http")
