@@ -19,15 +19,22 @@ class Controlium:
     gui_width = 1200
     gui_height = 800
 
+    # Image
+    image_width = 0
+    image_height = 0
+    image_data = None
+
     # Path
     path_state_co = "state/state_co.json"
     path_state_hu = "state/state_hu.json"
     path_state_py = "state/state_py.json"
+    path_image = "state/image"
     path_config = "param/config.json"
 
     # Thread
     run_loop = True;
     run_thread_con = False
+    run_thread_image = False
 
     # SSD
     ssd_connected = False

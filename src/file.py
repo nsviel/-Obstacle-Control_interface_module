@@ -27,5 +27,18 @@ def update_state_file():
     parser_json.update_state_lvl2_json(cla.contro.path_state_co, "hubium", "http_server_port", cla.hubium.http_server_port)
 
 def upload_hu_state():
-    cla.hubium.status = parser_json.upload_state_lvl1_json(cla.contro.path_state_hu, "status")
-    cla.hubium.ip = parser_json.upload_state_lvl1_json(cla.contro.path_state_hu, "ip")
+    # Self
+    cla.hubium.status = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "status")
+    cla.hubium.ip = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "ip")
+    cla.hubium.sock_server_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "sock_server_port")
+    cla.hubium.nb_frame = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "nb_frame")
+    cla.hubium.nb_prediction = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "nb_prediction")
+
+    # SNCF
+    cla.hubium.sncf_broker_connected = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "connected")
+    cla.hubium.sncf_broker_ip = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "broker_ip")
+    cla.hubium.sncf_broker_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "broker_port")
+
+    # Velodium
+    cla.hubium.velo_connected = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "velodium", "connected")
+    cla.hubium.velo_sock_server_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "velodium", "sock_server_port")

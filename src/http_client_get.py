@@ -40,8 +40,6 @@ def get_state():
             http_client.connection_closed()
 
 def get_image():
-    is_loaded = False
-    print("get image")
     if(cla.contro.http_connected):
         try:
             ip = cla.hubium.ip
@@ -49,11 +47,13 @@ def get_image():
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("GET", "/image")
             response = sock.getresponse()
-            data = response.read()
-            print("data received")
-            print(len(data))
+            data_binary = response.read()
+
+            # Save image
+            img = open(cla.contro.path_image, "wb")
+            img.write(data_binary)
+            img.close()
 
             sock.close()
-            is_loaded = True
         except:
             http_client.connection_closed()

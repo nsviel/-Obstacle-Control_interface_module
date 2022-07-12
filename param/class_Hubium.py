@@ -13,12 +13,14 @@ class Hubium:
     sock_server_port = 1
     sock_client_port = 1
     http_server_port = 1
+    nb_frame = 0
+    nb_prediction = 0
 
-    # MQTT
-    mqtt_connected = False
-    mqtt_topic = "ai_obstacle"
-    mqtt_ip = "127.0.0.1"
-    mqtt_port = 1
+    # SNCF
+    sncf_broker_connected = False
+    sncf_broker_ip = "127.0.0.1"
+    sncf_broker_port = 1
+    sncf_mqtt_topic = "ai_obstacle"
 
     # Edge
     edge_connected = False
@@ -32,14 +34,14 @@ class Hubium:
 
     # Velodium
     velo_connected = False
-    velo_port = 1
+    velo_sock_server_port = 1
 
     # AI
     ai_connected = False
 
     def reset(self):
             self.status = "Offline"
-            self.mqtt_connected = False
+            self.sncf_broker_connected = False
             self.edge_connected = False
             self.vale_connected = False
             self.velo_connected = False

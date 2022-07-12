@@ -10,6 +10,7 @@ import dearpygui.dearpygui as dpg
 color_line = (255, 255, 255, 50)
 color_info = (0, 200, 200)
 color_status = (0, 200, 50)
+color_title = (200, 200, 200)
 
 
 # Generic stuff
@@ -22,6 +23,11 @@ def add_attribute(text):
 def add_variable(text, tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
+        with dpg.group(horizontal=True):
+            dpg.add_text(text);
+            dpg.add_text(0, tag=tag_, color=color_info);
+def add_variable_simple(text, tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text(text);
             dpg.add_text(0, tag=tag_, color=color_info);
@@ -50,6 +56,11 @@ def add_port(tag_):
             a = dpg.add_text(1, tag=tag_, color=color_info);
             dpg.add_button(arrow=True, direction=dpg.mvDir_Left, user_data=a, callback=lambda s, a, u: dpg.set_value(u, int(dpg.get_value(u))-1))
             dpg.add_button(arrow=True, direction=dpg.mvDir_Right, user_data=a, callback=lambda s, a, u: dpg.set_value(u, int(dpg.get_value(u))+1))
+def add_port_fixe(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_, color=color_info);
 def add_plot():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         # creating data
@@ -66,13 +77,13 @@ def add_plot():
             dpg.add_line_series(sindatax, sindatay, label="0.5 + 0.5 * sin(x)", parent="y_axis")
 
 # Specific stuff
-def add_false_alarm():
+def add_false_alarm(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="False alarm", tag="but_fal", callback=scheme_callback.callback_false_alarm)
-def add_choice_edge():
+        dpg.add_button(label="False alarm", tag=tag_, callback=scheme_callback.callback_false_alarm)
+def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
-        dpg.add_combo(edges, tag="combo_edge", label="Edge", default_value="France_1", width=125, callback=scheme_callback.callback_false_alarm)
+        dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_callback.callback_false_alarm)
 def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -91,13 +102,13 @@ def add_image(tag):
 def add_lidar_device(text, devices, default, tag_con, tag_list):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
-        dpg.add_text(text)
+        dpg.add_text(text, color=color_title)
         dpg.add_listbox(devices, tag=tag_list, callback=scheme_callback.callback_choice_device, default_value=default, width=150, num_items=len(devices))
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
-            dpg.add_text(label);
+            dpg.add_text(label, color=color_title);
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
@@ -148,9 +159,8 @@ def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag
 def add_file_info(label, tag_path, tag_size):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
-        dpg.add_text(label)
+        dpg.add_text(label, color=color_title)
         with dpg.group(horizontal=True):
-            dpg.add_text("Folder:")
             dpg.add_text("-", tag=tag_path, color=color_info)
         with dpg.group(horizontal=True):
             dpg.add_text("Size:")

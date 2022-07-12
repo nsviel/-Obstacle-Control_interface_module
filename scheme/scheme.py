@@ -25,5 +25,5 @@ def create_scheme():
         scheme_node.node_sncf()
         scheme_node.node_valeo()
         scheme_node.node_ssd()
-        scheme_node.node_image()
+        scheme_node.node_data()
         scheme_link.create_link()

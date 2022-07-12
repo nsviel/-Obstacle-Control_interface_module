@@ -29,19 +29,19 @@ def create_link():
     dpg.add_node_link("va_http_client", "hu_http_server_o", tag="link_va_hu")
 
 def update_link_color():
-    # Controlium connections
+    # Controlium
     update_link(cla.contro.http_connected, "link_co_hu_http")
     update_link(cla.contro.ssd_connected, "link_co_ssd")
 
-    # Pywardium connections
+    # Pywardium
     update_link(cla.pyward.http_connected, "link_py_hu_http")
     update_link(cla.pyward.socket_connected, "link_py_hu_sock")
 
     #update_link(cla.lidars.l1_connected, "link_py_l1")
     #update_link(cla.lidars.l2_connected, "link_py_l2")
 
-    # Hubium connections
-    update_link(cla.hubium.mqtt_connected, "link_hu_sncf_mqtt")
+    # Hubium
+    update_link(cla.hubium.sncf_broker_connected, "link_hu_sncf_mqtt")
     update_link(cla.hubium.velo_connected, "link_hu_ve_sock")
 
 
