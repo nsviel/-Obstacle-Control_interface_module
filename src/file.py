@@ -1,44 +1,26 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 
 from src import parser_json
 
 
-def init_state():
+def load_configuration():
+    load_json_file()
     upload_config_file()
-    update_state_file()
+
+def load_json_file():
+    param_co.state_co = parser_json.load_file(param_co.path_state_co)
+    param_co.state_hu = parser_json.load_file(param_co.path_state_hu)
+    param_co.state_py = parser_json.load_file(param_co.path_state_py)
 
 def upload_config_file():
-    cla.contro.ip = parser_json.upload_state_lvl2_json(cla.contro.path_config, "self", "ip")
-    cla.contro.port_sock_server = parser_json.upload_state_lvl2_json(cla.contro.path_config, "self", "sock_server_port")
+    config = parser_json.load_file(param_co.path_config)
+    param_co.state_co["self"]["sock_server_port"] = config["self"]["sock_server_port"]
+    param_co.state_co["gui"]["width"] = config["gui"]["width"]
+    param_co.state_co["gui"]["height"] = config["gui"]["height"]
 
-    cla.hubium.ip = parser_json.upload_state_lvl2_json(cla.contro.path_config, "hubium", "ip")
-    cla.hubium.sock_client_port = parser_json.upload_state_lvl2_json(cla.contro.path_config, "hubium", "sock_client_port")
-    cla.hubium.http_server_port = parser_json.upload_state_lvl2_json(cla.contro.path_config, "hubium", "http_server_port")
-
-def update_state_file():
-    parser_json.update_state_lvl2_json(cla.contro.path_state_co, "self", "ip", cla.contro.ip)
-    parser_json.update_state_lvl2_json(cla.contro.path_state_co, "self", "sock_server_port", cla.contro.sock_server_port)
-
-    parser_json.update_state_lvl2_json(cla.contro.path_state_co, "hubium", "ip", cla.hubium.edge_ip)
-    parser_json.update_state_lvl2_json(cla.contro.path_state_co, "hubium", "sock_client_port", cla.hubium.sock_client_port)
-    parser_json.update_state_lvl2_json(cla.contro.path_state_co, "hubium", "http_server_port", cla.hubium.http_server_port)
-
-def upload_hu_state():
-    # Self
-    cla.hubium.status = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "status")
-    cla.hubium.ip = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "ip")
-    cla.hubium.sock_server_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "sock_server_port")
-    cla.hubium.nb_frame = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "nb_frame")
-    cla.hubium.nb_prediction = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "self", "nb_prediction")
-
-    # SNCF
-    cla.hubium.sncf_broker_connected = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "connected")
-    cla.hubium.sncf_broker_ip = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "broker_ip")
-    cla.hubium.sncf_broker_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "sncf", "broker_port")
-
-    # Velodium
-    cla.hubium.velo_connected = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "velodium", "connected")
-    cla.hubium.velo_sock_server_port = parser_json.upload_state_lvl2_json(cla.contro.path_state_hu, "velodium", "sock_server_port")
+    param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
+    param_co.state_co["hubium"]["sock_client_port"] = config["hubium"]["sock_client_port"]
+    param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]

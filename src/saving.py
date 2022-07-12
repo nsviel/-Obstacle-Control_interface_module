@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 
 from datetime import datetime
 
@@ -11,24 +11,24 @@ import os
 
 
 def test_ssd_con():
-    if(os.path.exists(cla.contro.ssd_path)):
-        cla.contro.ssd_connected = True
-        hdd = psutil.disk_usage(cla.contro.ssd_path)
-        cla.contro.ssd_space_used = int(hdd.used / (2**30))
-        cla.contro.ssd_space_total = int(hdd.total / (2**30))
+    if(os.path.exists(param_co.ssd_path)):
+        hdd = psutil.disk_usage(param_co.ssd_path)
+        param_co.state_co["ssd"]["connected"] = True
+        param_co.state_co["ssd"]["space_used"] = int(hdd.used / (2**30))
+        param_co.state_co["ssd"]["space_total"] = int(hdd.total / (2**30))
     else:
-        cla.contro.ssd_connected = False
-        cla.contro.ssd_space_used = 0
-        cla.contro.ssd_space_total = 0
+        param_co.state_co["ssd"]["connected"] = False
+        param_co.state_co["ssd"]["space_used"] = 0
+        param_co.state_co["ssd"]["space_total"] = 0
 
 def determine_path():
     date = get_formated_time()
-    cla.lidars.path_capture = os.path.join(cla.contro.ssd_path, "capture")
-    cla.lidars.path_dir_l1 = os.path.join(cla.lidars.path_capture, "lidar_1")
-    cla.lidars.path_dir_l2 = os.path.join(cla.lidars.path_capture, "lidar_2")
-    cla.lidars.file_name = cla.lidars.path_add + "_" + date + ".pcap"
-    cla.lidars.path_file_l1 = os.path.join(cla.lidars.path_dir_l1, cla.lidars.file_name)
-    cla.lidars.path_file_l2 = os.path.join(cla.lidars.path_dir_l2, cla.lidars.file_name)
+    param_co.state_py["path"]["capture"] = os.path.join(param_co.ssd_path, "capture")
+    param_co.state_py["path"]["name"] = param_co.state_py["path"]["additional"] + "_" + date + ".pcap"
+    param_co.state_py["lidar_1"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_1")
+    param_co.state_py["lidar_2"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_2")
+    param_co.state_py["lidar_1"]["file"] = os.path.join(param_co.state_py["lidar_1"]["dir"], param_co.state_py["path"]["name"])
+    param_co.state_py["lidar_2"]["file"] = os.path.join(param_co.state_py["lidar_2"]["dir"], param_co.state_py["path"]["name"])
 
 def get_formated_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')
@@ -36,26 +36,23 @@ def get_formated_time():
 
 def read_wallet():
     X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
-    cla.pyward.wallet_add = list()
-    cla.pyward.wallet_ip = list()
+    param_co.wallet_add = list()
+    param_co.wallet_ip = list()
     for i in range(0, len(X[0])):
-        cla.pyward.wallet_add.append(str(X[0][i]))
-        cla.pyward.wallet_ip.append(str(X[1][i]))
+        param_co.wallet_add.append(str(X[0][i]))
+        param_co.wallet_ip.append(str(X[1][i]))
 
 def check_directories():
-    #Check existence, or create, directories
-    #-------------
-
-    # Create directory capture
-    if(cla.pyward.ssd_connected):
-        if(os.path.exists(cla.lidars.path_capture) == False):
-            os.mkdir(cla.lidars.path_capture)
+    connected = param_co.state_co["ssd"]["connected"]
+    if(connected):
+        if(os.path.exists(param_co.state_py["path"]["capture"]) == False):
+            os.mkdir(param_co.state_py["path"]["capture"])
             print("[\033[92mSSD\033[0m] Directory capture created")
         # Create directory 1
-        if(os.path.exists(cla.lidars.path_dir_l1) == False):
-            os.mkdir(cla.lidars.path_dir_l1)
+        if(os.path.exists(param_co.state_py["lidar_1"]["dir"]) == False):
+            os.mkdir(param_co.state_py["lidar_1"]["dir"])
             print("[\033[92mSSD\033[0m] Directory 1 created")
         # Create directory 2
-        if(os.path.exists(cla.lidars.path_dir_l2) == False):
-            os.mkdir(cla.lidars.path_dir_l2)
+        if(os.path.exists(param_co.state_py["lidar_2"]["dir"]) == False):
+            os.mkdir(param_co.state_py["lidar_2"]["dir"])
             print("[\033[92mSSD\033[0m] Directory 2 created")

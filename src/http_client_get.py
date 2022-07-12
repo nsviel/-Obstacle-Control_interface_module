@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 
 from src import http_client
 from src import connection
@@ -13,10 +13,11 @@ import http.client as client
 
 
 def get_falsealarm():
-    if(cla.contro.http_connected):
+    connected = param_co.state_co["self"]["http_connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    if(connected):
         try:
-            ip = cla.hubium.ip
-            port = cla.hubium.http_server_port
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("GET", "/falsealarm")
             print("[#] False alarm sended")
@@ -24,33 +25,34 @@ def get_falsealarm():
             http_client.connection_closed()
 
 def get_state():
-    is_loaded = False
-    if(cla.contro.http_connected):
+    connected = param_co.state_co["self"]["http_connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    if(connected):
         try:
-            ip = cla.hubium.ip
-            port = cla.hubium.http_server_port
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("GET", "/state_hu")
             response = sock.getresponse()
             data = response.read()
-            parser_json.upload_json_file(cla.contro.path_state_hu, data)
+            parser_json.upload_file_by_sock_data(param_co.path_state_hu, data)
+            #
             sock.close()
-            is_loaded = True
         except:
             http_client.connection_closed()
 
 def get_image():
-    if(cla.contro.http_connected):
+    connected = param_co.state_co["self"]["http_connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    if(connected):
         try:
-            ip = cla.hubium.ip
-            port = cla.hubium.http_server_port
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("GET", "/image")
             response = sock.getresponse()
             data_binary = response.read()
 
             # Save image
-            img = open(cla.contro.path_image, "wb")
+            img = open(param_co.path_image, "wb")
             img.write(data_binary)
             img.close()
 

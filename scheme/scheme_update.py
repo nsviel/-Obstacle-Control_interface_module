@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 from scheme import scheme_link
 
 import dearpygui.dearpygui as dpg
@@ -16,17 +16,17 @@ def update():
     update_data()
 
 def update_ssd_info():
-    dpg.set_value("ssd_path", cla.contro.ssd_path)
-    dpg.set_value("ssd_total", cla.contro.ssd_space_total)
-    dpg.set_value("ssd_used", cla.contro.ssd_space_used)
-    dpg.set_value("l1_file_path", cla.lidars.path_dir_l1)
-    dpg.set_value("l2_file_path", cla.lidars.path_dir_l2)
-    dpg.set_value("file_name", cla.lidars.file_name)
+    dpg.set_value("ssd_path", param_co.ssd_path)
+    dpg.set_value("ssd_total", param_co.state_co["ssd"]["space_total"])
+    dpg.set_value("ssd_used", param_co.state_co["ssd"]["space_used"])
+    dpg.set_value("l1_file_path", param_co.state_py["lidar_1"]["dir"])
+    dpg.set_value("l2_file_path", param_co.state_py["lidar_2"]["dir"])
+    dpg.set_value("file_name", param_co.state_py["path"]["name"])
 
 def update_train():
-    dpg.set_value("l1_ip", cla.lidars.l1_ip)
-    dpg.set_value("l2_ip", cla.lidars.l2_ip)
-    dpg.set_value("geo_country", cla.pyward.geo_country)
+    dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
+    dpg.set_value("l2_ip", param_co.state_py["lidar_1"]["ip"])
+    dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 
 def update_port():
     # Controlium

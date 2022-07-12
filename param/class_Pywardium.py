@@ -4,10 +4,9 @@
 
 class Pywardium:
     # State
-    #--------------------
     status = "Offline"
     ip = "127.0.0.1"
-    #--------------------
+    jstat = {}
 
     # Connection
     http_connected = False

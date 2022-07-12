@@ -4,10 +4,9 @@
 
 class Hubium:
     # State
-    #--------------------
     status = "Offline"
     ip = "127.0.0.1"
-    #--------------------
+    jstat = {}
 
     # Hubium
     sock_server_port = 1
@@ -28,7 +27,7 @@ class Hubium:
     edge_port = 1
 
     # Valeo
-    vale_connected = False
+    valeo_connected = False
     valeo_ip = "127.0.0.1"
     valeo_port = 1
 

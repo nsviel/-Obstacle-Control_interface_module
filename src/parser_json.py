@@ -4,11 +4,6 @@
 import json
 
 
-def upload_json_file(path, data):
-    file = open(path, 'w')
-    data_loaded = json.loads(data)
-    json.dump(data_loaded, file, indent=4)
-
 def upload_state_lvl1_json(path, lvl1):
     file = open(path, "r")
     data = json.load(file)
@@ -47,3 +42,17 @@ def parse_json(path):
     f = open(path)
     data = json.dumps(json.load(f))
     return data
+
+def upload_file_by_sock_data(path, data):
+    file = open(path, 'w')
+    data_loaded = json.loads(data)
+    json.dump(data_loaded, file, indent=4)
+
+def load_file(path):
+    file = open(path, "r")
+    data = json.load(file)
+    return data
+
+def upload_file(path, data):
+    file = open(path, "w")
+    json.dump(data, file, indent=4)

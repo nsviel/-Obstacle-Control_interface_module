@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 
 from src import http_client
 from src import http_client_get
@@ -16,12 +16,12 @@ import time
 
 
 def start_thread_test_conn():
-    cla.contro.run_thread_con = True
+    param_co.run_thread_con = True
     thread_con = Thread(target = thread_test_connection)
     thread_con.start()
 
 def thread_test_connection():
-    while cla.contro.run_thread_con:
+    while param_co.run_thread_con:
         # Test connections
         http_client.test_connection()
         http_client_get.get_state()
@@ -37,5 +37,6 @@ def thread_test_connection():
         pass
 
 def stop_thread():
-    cla.contro.run_loop = False
-    cla.contro.run_thread_con = False
+    param_co.run_loop = False
+    param_co.run_thread_con = False
+    param_co.run_thread_image = False
