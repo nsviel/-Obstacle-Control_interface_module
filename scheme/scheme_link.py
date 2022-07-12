@@ -29,6 +29,7 @@ def create_link():
     dpg.add_node_link("va_http_client", "hu_http_server_o", tag="link_va_hu")
 
 def update_link_color():
+    pass
     # Controlium
     update_link(param_co.state_co["self"]["http_connected"], "link_co_hu_http")
     update_link(param_co.state_co["ssd"]["connected"], "link_co_ssd")

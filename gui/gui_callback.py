@@ -1,7 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
+from param import param_co
 from src import http_client_get
 
 import dearpygui.dearpygui as dpg
@@ -12,7 +12,7 @@ def callback_demo():
     demo.show_demo()
 
 def callback_close():
-    cla.contro.run_loop = False
+    param_co.run_loop = False
 
 def callback_test():
     http_client_get.get_image()

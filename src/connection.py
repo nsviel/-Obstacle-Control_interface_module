@@ -29,8 +29,6 @@ def thread_test_connection():
 
         # Update state
         scheme_update.update()
-        file.update_state_file()
-        file.upload_hu_state()
 
         # Wait for 1 second
         time.sleep(1)

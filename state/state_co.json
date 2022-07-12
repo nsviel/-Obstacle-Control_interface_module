@@ -1,13 +1,13 @@
 {
     "self": {
-      "status": "Online",
+        "status": "Offline",
         "ip": "127.0.0.1",
         "sock_server_port": 321,
         "http_connected": false
     },
-    "gui":{
-      "width": 1200,
-      "height": 800
+    "gui": {
+        "width": 1200,
+        "height": 800
     },
     "ssd": {
         "connected": false,

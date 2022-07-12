@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #---------------------------------------------
 
-from param import cla
-
 import dearpygui.dearpygui as dpg
 
 

@@ -8,10 +8,10 @@ from src import file
 from src import signal
 from src import saving
 from src import image
+from src import parser_json
 
 
 def init():
-    file.load_configuration()
     saving.determine_path()
     connection.start_thread_test_conn()
     image.start_thread_image()

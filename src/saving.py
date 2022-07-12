@@ -11,8 +11,8 @@ import os
 
 
 def test_ssd_con():
-    if(os.path.exists(param_co.ssd_path)):
-        hdd = psutil.disk_usage(param_co.ssd_path)
+    if(os.path.exists(param_co.path_ssd)):
+        hdd = psutil.disk_usage(param_co.path_ssd)
         param_co.state_co["ssd"]["connected"] = True
         param_co.state_co["ssd"]["space_used"] = int(hdd.used / (2**30))
         param_co.state_co["ssd"]["space_total"] = int(hdd.total / (2**30))
@@ -23,7 +23,7 @@ def test_ssd_con():
 
 def determine_path():
     date = get_formated_time()
-    param_co.state_py["path"]["capture"] = os.path.join(param_co.ssd_path, "capture")
+    param_co.state_py["path"]["capture"] = os.path.join(param_co.path_ssd, "capture")
     param_co.state_py["path"]["name"] = param_co.state_py["path"]["additional"] + "_" + date + ".pcap"
     param_co.state_py["lidar_1"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_1")
     param_co.state_py["lidar_2"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_2")

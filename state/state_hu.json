@@ -16,7 +16,8 @@
     "sncf": {
         "connected": true,
         "broker_ip": "127.0.0.1",
-        "broker_port": 1883
+        "broker_port": 1883,
+        "mqtt_topic": "ai_obstacle"
     },
     "velodium": {
         "connected": false,

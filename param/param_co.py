@@ -14,7 +14,7 @@ path_state_co = "state/state_co.json"
 path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 path_image = "state/image"
-path_config = "state/config.json"
+path_config = "param/config.json"
 path_ssd = "/media/" + os.getlogin() + "/lidar_ssd"
 
 # Thread

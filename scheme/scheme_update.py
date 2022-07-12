@@ -16,7 +16,7 @@ def update():
     update_data()
 
 def update_ssd_info():
-    dpg.set_value("ssd_path", param_co.ssd_path)
+    dpg.set_value("ssd_path", param_co.path_ssd)
     dpg.set_value("ssd_total", param_co.state_co["ssd"]["space_total"])
     dpg.set_value("ssd_used", param_co.state_co["ssd"]["space_used"])
     dpg.set_value("l1_file_path", param_co.state_py["lidar_1"]["dir"])
@@ -30,38 +30,34 @@ def update_train():
 
 def update_port():
     # Controlium
-    dpg.set_value("co_sock_server_port", cla.contro.port_sock_server)
+    dpg.set_value("co_sock_server_port", param_co.state_co["self"]["sock_server_port"])
 
     # Hubium
-    dpg.set_value("ve_sock_server_port", cla.hubium.velo_sock_server_port)
-    dpg.set_value("hu_sock_server_port", cla.hubium.sock_server_port)
-    dpg.set_value("hu_http_server_port", cla.hubium.http_server_port)
-    dpg.set_value("ed_sock_client_port", cla.hubium.edge_port)
+    dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
+    dpg.set_value("hu_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
+    dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
 
     # SNCF
-    dpg.set_value("sncf_broker_port", cla.hubium.sncf_broker_port)
-    dpg.set_value("sncf_broker_port", cla.hubium.sncf_broker_port)
-    dpg.set_value("sncf_mqtt_topic", cla.hubium.sncf_mqtt_topic)
+    dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
 
     # Pywardium
-    #dpg.set_value("py_sock_client_port", cla.pyward.sock_server_port)
 
     # Lidar
-    #dpg.set_value("py_device_l1_port", cla.lidars.l1_device)
-    #dpg.set_value("py_device_l2_port", cla.lidars.l2_device)
+    dpg.set_value("py_l1_device", param_co.state_py["lidar_1"]["device"])
+    dpg.set_value("py_l2_device", param_co.state_py["lidar_2"]["device"])
 
 def update_status():
-    dpg.set_value("co_status", cla.contro.status)
-    dpg.set_value("py_status", cla.pyward.status)
-    dpg.set_value("hu_status", cla.hubium.status)
-    dpg.set_value("co_ip", cla.contro.ip)
-    dpg.set_value("py_ip", cla.pyward.ip)
-    dpg.set_value("hu_ip", cla.hubium.ip)
+    dpg.set_value("co_status", param_co.state_co["self"]["status"])
+    dpg.set_value("py_status", param_co.state_py["self"]["status"])
+    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
+    dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
+    dpg.set_value("py_ip", param_co.state_co["self"]["ip"])
+    dpg.set_value("hu_ip", param_co.state_co["self"]["ip"])
 
 def update_data():
-    dpg.set_value("nb_frame", cla.hubium.nb_frame)
-    dpg.set_value("nb_prediction", cla.hubium.nb_prediction)
+    dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])
+    dpg.set_value("nb_prediction", param_co.state_hu["self"]["nb_prediction"])
 
 def update_image():
-    width, height, channels, data = dpg.load_image(cla.contro.path_image)
+    width, height, channels, data = dpg.load_image(param_co.path_image)
     dpg.set_value("image_in", data)
