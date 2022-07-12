@@ -34,7 +34,7 @@ def add_variable_simple(text, tag_):
 def add_input(text, tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
-        dpg.add_text(text);
+        dpg.add_text(text, color=color_title);
 def add_output(text, tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()

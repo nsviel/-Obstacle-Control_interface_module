@@ -13,7 +13,7 @@ import http.client as client
 
 
 def get_falsealarm():
-    connected = param_co.state_co["self"]["http_connected"]
+    connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
     if(connected):
@@ -25,7 +25,7 @@ def get_falsealarm():
             http_client.connection_closed()
 
 def get_state():
-    connected = param_co.state_co["self"]["http_connected"]
+    connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
     if(connected):
@@ -35,13 +35,13 @@ def get_state():
             response = sock.getresponse()
             data = response.read()
             parser_json.upload_file_by_sock_data(param_co.path_state_hu, data)
-            #
+            param_co.state_hu = parser_json.load_file(param_co.path_state_hu)
             sock.close()
         except:
             http_client.connection_closed()
 
 def get_image():
-    connected = param_co.state_co["self"]["http_connected"]
+    connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
     if(connected):

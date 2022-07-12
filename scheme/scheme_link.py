@@ -31,7 +31,7 @@ def create_link():
 def update_link_color():
     pass
     # Controlium
-    update_link(param_co.state_co["self"]["http_connected"], "link_co_hu_http")
+    update_link(param_co.state_co["hubium"]["connected"], "link_co_hu_http")
     update_link(param_co.state_co["ssd"]["connected"], "link_co_ssd")
 
     # Pywardium

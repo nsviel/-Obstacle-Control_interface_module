@@ -9,13 +9,14 @@ import dearpygui.dearpygui as dpg
 
 def update():
     scheme_link.update_link_color()
-    update_ssd_info()
-    update_status()
-    update_port()
+    update_ssd()
     update_train()
+    update_controlium()
+    update_hubium()
+    update_pywardium()
     update_data()
 
-def update_ssd_info():
+def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)
     dpg.set_value("ssd_total", param_co.state_co["ssd"]["space_total"])
     dpg.set_value("ssd_used", param_co.state_co["ssd"]["space_used"])
@@ -28,31 +29,25 @@ def update_train():
     dpg.set_value("l2_ip", param_co.state_py["lidar_1"]["ip"])
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 
-def update_port():
-    # Controlium
+def update_controlium():
+    dpg.set_value("co_status", param_co.state_co["self"]["status"])
+    dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
     dpg.set_value("co_sock_server_port", param_co.state_co["self"]["sock_server_port"])
 
-    # Hubium
+def update_hubium():
+    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
+    dpg.set_value("hu_ip", param_co.state_co["self"]["ip"])
     dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
     dpg.set_value("hu_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
     dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
-
-    # SNCF
     dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
+    dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
 
-    # Pywardium
-
-    # Lidar
+def update_pywardium():
+    dpg.set_value("py_status", param_co.state_py["self"]["status"])
+    dpg.set_value("py_ip", param_co.state_co["self"]["ip"])
     dpg.set_value("py_l1_device", param_co.state_py["lidar_1"]["device"])
     dpg.set_value("py_l2_device", param_co.state_py["lidar_2"]["device"])
-
-def update_status():
-    dpg.set_value("co_status", param_co.state_co["self"]["status"])
-    dpg.set_value("py_status", param_co.state_py["self"]["status"])
-    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
-    dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
-    dpg.set_value("py_ip", param_co.state_co["self"]["ip"])
-    dpg.set_value("hu_ip", param_co.state_co["self"]["ip"])
 
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])
