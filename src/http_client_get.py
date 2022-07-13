@@ -24,7 +24,7 @@ def get_falsealarm():
         except:
             http_client.connection_closed()
 
-def get_state():
+def get_state_hu():
     connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
@@ -36,6 +36,23 @@ def get_state():
             data = response.read()
             parser_json.upload_file_by_sock_data(param_co.path_state_hu, data)
             param_co.state_hu = parser_json.load_file(param_co.path_state_hu)
+            sock.close()
+        except:
+            http_client.connection_closed()
+
+def get_state_py():
+    connected = param_co.state_hu["pywardium"]["connected"]
+    ip = param_co.state_hu["pywardium"]["ip"]
+    port = param_co.state_hu["pywardium"]["http_server_port"]
+    print(connected)
+    if(connected):
+        try:
+            sock = client.HTTPConnection(ip, port, timeout=1)
+            sock.request("GET", "/state_py")
+            response = sock.getresponse()
+            data = response.read()
+            parser_json.upload_file_by_sock_data(param_co.path_state_py, data)
+            param_co.state_py = parser_json.load_file(param_co.path_state_py)
             sock.close()
         except:
             http_client.connection_closed()

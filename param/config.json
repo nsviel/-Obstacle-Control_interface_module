@@ -3,7 +3,7 @@
         "sock_server_port": 321
     },
     "gui":{
-      "width": 1200,
+      "width": 1400,
       "height": 800
     },
     "hubium": {

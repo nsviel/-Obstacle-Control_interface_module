@@ -5,7 +5,7 @@
         "sock_server_port": 321
     },
     "gui": {
-        "width": 1200,
+        "width": 1400,
         "height": 800
     },
     "ssd": {
@@ -15,7 +15,7 @@
         "space_used": 0
     },
     "hubium": {
-        "connected": true,
+        "connected": false,
         "ip": "127.0.0.1",
         "sock_client_port": 315,
         "http_server_port": 443

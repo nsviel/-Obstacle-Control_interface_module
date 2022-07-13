@@ -9,14 +9,14 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [700, 325]
+coord_hubium = [850, 325]
 coord_train = [10, 10]
-coord_edge = [1000, 500]
-coord_local = [1000, 10]
-coord_sncf = [1000, 175]
-coord_valeo = [1000, 350]
+coord_edge = [1200, 500]
+coord_local = [1200, 10]
+coord_sncf = [1200, 175]
+coord_valeo = [1200, 350]
 coord_ssd = [10, 500]
-coord_image = [600, 10]
+coord_data = [750, 10]
 
 
 def node_controlium():
@@ -39,10 +39,7 @@ def node_pywardium():
         scheme_function.add_ip("py_ip")
 
         scheme_function.add_input("self", "py_self")
-        scheme_function.add_lidar_device("Lidar 1", ("a", "b"), "a", "py_l1_device", "py_l1_device_port")
-        scheme_function.add_lidar_device("Lidar 2", ("a", "b"), "a", "py_l2_device", "py_l2_device_port")
-
-        scheme_connection.add_sock_client_o("py_sock_client")
+        scheme_function.add_lidar_device("py_l1_in", "py_l2_in", "py_l1_out", "py_l2_out", "py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
         scheme_function.add_port("py_http_server_port")
@@ -109,7 +106,7 @@ def node_ssd():
         scheme_function.add_file_info("Lidar 2", "l2_file_path", "l2_file_size")
 
 def node_data():
-    with dpg.node(label="Data", tag="node_data", pos=coord_image):
+    with dpg.node(label="Data", tag="node_data", pos=coord_data):
         scheme_function.add_image("image_in")
         scheme_function.add_variable_simple("Frame:", "nb_frame")
         scheme_function.add_variable_simple("Prediction:", "nb_prediction")

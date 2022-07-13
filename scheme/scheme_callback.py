@@ -10,7 +10,7 @@ import dearpygui.dearpygui as dpg
 
 
 def callback_update_conf():
-    a=1
+    pass
 
 def callback_lidar():
     param_co.state_co["lidar_1"]["speed"] = dpg.get_value("l1_speed")

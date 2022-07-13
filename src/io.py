@@ -33,6 +33,13 @@ def get_size_Gb(path):
     else:
         return 0
 
+def get_list_device_from_state():
+    array = param_co.state_py["device"]
+    a= list()
+    for key, value in array.items():
+        a.append(str(value))
+    return a
+
 def write_pcap(pcap, path, is_append):
     #get file size and convert it into Gb
     if os.path.exists(path):

@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
+from src import io
 from scheme import scheme_link
 
 import dearpygui.dearpygui as dpg
@@ -46,8 +47,10 @@ def update_hubium():
 def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
     dpg.set_value("py_ip", param_co.state_co["self"]["ip"])
-    dpg.set_value("py_l1_device", param_co.state_py["lidar_1"]["device"])
-    dpg.set_value("py_l2_device", param_co.state_py["lidar_2"]["device"])
+
+    devices = io.get_list_device_from_state()
+    dpg.configure_item("py_l1_device",items=devices, num_items=len(devices))
+    dpg.configure_item("py_l2_device",items=devices, num_items=len(devices))
 
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])

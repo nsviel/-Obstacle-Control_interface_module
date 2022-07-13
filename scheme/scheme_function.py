@@ -99,11 +99,27 @@ def add_image(tag):
         dpg.add_image(tag, width=300, height=175)
 
 # Lidar stuff
-def add_lidar_device(text, devices, default, tag_con, tag_list):
-    with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+def add_lidar_device(tag_l1_in, tag_l2_in, tag_l1_out, tag_l2_out, tag_l1_dev, tag_l2_dev):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
-        dpg.add_text(text, color=color_title)
-        dpg.add_listbox(devices, tag=tag_list, callback=scheme_callback.callback_choice_device, default_value=default, width=150, num_items=len(devices))
+        dpg.add_text("device", color=color_title)
+    with dpg.node_attribute(tag=tag_l1_in, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        pass
+    with dpg.node_attribute(tag=tag_l1_out, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        pass
+    with dpg.node_attribute(tag=tag_l2_in, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        pass
+    with dpg.node_attribute(tag=tag_l2_out, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        pass
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            with dpg.group():
+                dpg.add_text("Lidar 1")
+                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_choice_device, width=125)
+            with dpg.group():
+                dpg.add_text("Lidar 2")
+                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_choice_device, width=125)
+
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
