@@ -115,11 +115,10 @@ def add_lidar_device(tag_l1_in, tag_l2_in, tag_l1_out, tag_l2_out, tag_l1_dev, t
         with dpg.group(horizontal=True):
             with dpg.group():
                 dpg.add_text("Lidar 1")
-                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_choice_device, width=125)
+                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_param_py, width=125)
             with dpg.group():
                 dpg.add_text("Lidar 2")
-                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_choice_device, width=125)
-
+                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_param_py, width=125)
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()

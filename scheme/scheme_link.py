@@ -44,6 +44,7 @@ def update_link_color():
 
     # Hubium
     update_link(param_co.state_hu["sncf"]["connected"], "link_hu_sncf_mqtt")
+    update_link(param_co.state_hu["pywardium"]["connected"], "link_py_hu_http")
     update_link(param_co.state_hu["velodium"]["connected"], "link_hu_ve_sock")
 
 

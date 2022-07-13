@@ -46,7 +46,8 @@ def update_hubium():
 
 def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
-    dpg.set_value("py_ip", param_co.state_co["self"]["ip"])
+    dpg.set_value("py_ip", param_co.state_py["self"]["ip"])
+    dpg.set_value("py_http_server_port", param_co.state_py["self"]["http_server_port"])
 
     devices = io.get_list_device_from_state()
     dpg.configure_item("py_l1_device",items=devices, num_items=len(devices))

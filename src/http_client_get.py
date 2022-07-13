@@ -44,7 +44,6 @@ def get_state_py():
     connected = param_co.state_hu["pywardium"]["connected"]
     ip = param_co.state_hu["pywardium"]["ip"]
     port = param_co.state_hu["pywardium"]["http_server_port"]
-    print(connected)
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
@@ -55,7 +54,7 @@ def get_state_py():
             param_co.state_py = parser_json.load_file(param_co.path_state_py)
             sock.close()
         except:
-            http_client.connection_closed()
+            pass
 
 def get_image():
     connected = param_co.state_co["hubium"]["connected"]

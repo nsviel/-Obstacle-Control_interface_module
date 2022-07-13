@@ -35,6 +35,11 @@ def thread_test_connection():
         time.sleep(1)
         pass
 
+def connection_closed():
+    param_co.state_co["hubium"]["connected"] = False
+    param_co.state_py["self"]["sock_connected"] = False
+    param_co.state_hu["sncf"]["connected"] = False
+
 def stop_thread():
     param_co.run_loop = False
     param_co.run_thread_con = False

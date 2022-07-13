@@ -27,4 +27,3 @@ def create_scheme():
         scheme_node.node_ssd()
         scheme_node.node_data()
         scheme_link.create_link()
-    dpg.set_value("py_ip", "coucou")
