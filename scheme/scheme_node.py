@@ -9,12 +9,12 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [850, 325]
+coord_hubium = [850, 450]
 coord_train = [10, 10]
-coord_edge = [1200, 500]
+coord_edge = [1200, 525]
 coord_local = [1200, 10]
-coord_sncf = [1200, 175]
-coord_valeo = [1200, 350]
+coord_sncf = [1200, 200]
+coord_valeo = [1200, 375]
 coord_ssd = [10, 500]
 coord_data = [750, 10]
 
@@ -48,6 +48,8 @@ def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
         scheme_function.add_status("hu_status")
         scheme_function.add_ip("hu_ip")
+        scheme_function.add_edge_id("hu_edge_id")
+        scheme_function.add_country("hu_country")
         scheme_function.add_stockage("hu_stockage")
         scheme_function.add_mqtt("hu_mqtt")
         scheme_connection.add_sock_client_io("hu_sock_client_i", "hu_sock_client_o")
@@ -68,9 +70,10 @@ def node_edge():
     with dpg.node(label="Edge", tag="node_ed", pos=coord_edge):
         scheme_function.add_status("ed_status")
         scheme_function.add_ip("ed_ip")
+        scheme_function.add_edge_id("ed_edge_id")
+        scheme_function.add_country("ed_country")
 
         scheme_connection.add_sock_client_i("ed_sock_client")
-        scheme_function.add_port_fixe("ed_sock_client_port")
 
         scheme_connection.add_sock_server_i("ed_sock_server")
         scheme_function.add_port_fixe("ed_sock_server_port")
@@ -110,3 +113,5 @@ def node_data():
         scheme_function.add_image("image_in")
         scheme_function.add_variable_simple("Frame:", "nb_frame")
         scheme_function.add_variable_simple("Prediction:", "nb_prediction")
+        scheme_function.add_plot("lidar 1", "l1_plot")
+        scheme_function.add_plot("lidar 2", "l2_plot")

@@ -21,6 +21,10 @@ def global_theme():
             dpg.add_theme_color(dpg.mvThemeCol_Button, (100, 100, 100))
             dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
 
+            # Plot
+            dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 2, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
+
             # Node background
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color_node_bkg, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color_node_bkg, category=dpg.mvThemeCat_Nodes)

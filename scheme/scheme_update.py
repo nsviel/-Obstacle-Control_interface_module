@@ -14,6 +14,7 @@ def update():
     update_train()
     update_controlium()
     update_hubium()
+    update_edge()
     update_pywardium()
     update_data()
 
@@ -38,11 +39,19 @@ def update_controlium():
 def update_hubium():
     dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
     dpg.set_value("hu_ip", param_co.state_co["self"]["ip"])
+    dpg.set_value("hu_country", param_co.state_hu["self"]["country"])
+    dpg.set_value("hu_edge_id", param_co.state_hu["self"]["edge_id"])
     dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
     dpg.set_value("hu_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
     dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
     dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
     dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
+
+def update_edge():
+    dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
+    dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
+    dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
+    dpg.set_value("ed_http_server_port", param_co.state_hu["self"]["http_server_port"])
 
 def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])

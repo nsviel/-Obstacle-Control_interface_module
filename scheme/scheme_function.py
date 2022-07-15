@@ -61,7 +61,7 @@ def add_port_fixe(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_text(1, tag=tag_, color=color_info);
-def add_plot():
+def add_plot(label, tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         # creating data
         sindatax = []
@@ -71,10 +71,31 @@ def add_plot():
             sindatay.append(0.5 + 0.5 * sin(50 * i / 1000))
 
         # create plot
-        with dpg.plot(label="Line Series", height=150, width=300):
-            dpg.add_plot_axis(dpg.mvXAxis, label="x")
-            dpg.add_plot_axis(dpg.mvYAxis, label="y", tag="y_axis")
-            dpg.add_line_series(sindatax, sindatay, label="0.5 + 0.5 * sin(x)", parent="y_axis")
+        with dpg.plot(no_menus=True, no_box_select=True, no_mouse_pos=True, height=50, width=300):
+            # Legend
+            dpg.add_plot_legend()
+
+            # create x axis
+            dpg.add_plot_axis(dpg.mvXAxis, no_gridlines=True, no_tick_marks=True, no_tick_labels=True)
+
+            # create y axis
+            dpg.add_plot_axis(dpg.mvYAxis, no_tick_labels=True, no_gridlines=True, no_tick_marks=True, tag=tag_)
+            dpg.set_axis_limits(tag_, 0, 1500)
+
+            # add series to y axis
+            dpg.add_line_series(sindatax, sindatay, label=label, parent=tag_)
+def add_edge_id(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Edge ID: [")
+            dpg.add_text("", tag=tag_, color=color_info)
+            dpg.add_text("]")
+def add_country(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Country: [")
+            dpg.add_text("", tag=tag_, color=color_info)
+            dpg.add_text("]")
 
 # Specific stuff
 def add_false_alarm(tag_):
@@ -114,10 +135,10 @@ def add_lidar_device(tag_l1_in, tag_l2_in, tag_l1_out, tag_l2_out, tag_l1_dev, t
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             with dpg.group():
-                dpg.add_text("Lidar 1")
+                dpg.add_text("Lidar 1", color=color_title)
                 dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_param_py, width=125)
             with dpg.group():
-                dpg.add_text("Lidar 2")
+                dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_param_py, width=125)
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):

@@ -9,10 +9,10 @@ import dearpygui.dearpygui as dpg
 
 def create_link():
     dpg.add_node_link("co_http_client", "hu_http_server_i", tag="link_co_hu_http")
-    dpg.add_node_link("co_http_client", "ed_http_server", tag="link_co_ed_http")
-    dpg.add_node_link("co_sock_server", "ed_sock_client", tag="link_co_ed_sock")
     dpg.add_node_link("co_sock_server", "hu_sock_client_i", tag="link_co_hu_sock")
     dpg.add_node_link("co_self", "ssd_input", tag="link_co_ssd")
+    #dpg.add_node_link("co_http_client", "ed_http_server", tag="link_co_ed_http")
+    #dpg.add_node_link("co_sock_server", "ed_sock_client", tag="link_co_ed_sock")
 
     dpg.add_node_link("py_l1_out", "hu_sock_server_i", tag="link_py_hu_l1_sock")
     dpg.add_node_link("py_l2_out", "hu_sock_server_i", tag="link_py_hu_l2_sock")

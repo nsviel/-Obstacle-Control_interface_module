@@ -11,8 +11,9 @@ import http.client as client
 def test_connection():
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
-    
-    if(http_connection(ip, port, "/test_http_conn")):
+
+    connected = http_connection(ip, port, "/test_http_conn")
+    if(connected):
         param_co.state_co["hubium"]["connected"] = True
     else:
         connection_closed()
