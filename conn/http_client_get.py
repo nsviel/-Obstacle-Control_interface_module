@@ -2,9 +2,8 @@
 #---------------------------------------------
 
 from param import param_co
-
-from src import http_client
-from src import connection
+from conn import http_client
+from conn import connection
 from src import parser_json
 
 import json
@@ -13,16 +12,7 @@ import http.client as client
 
 
 def get_falsealarm():
-    connected = param_co.state_co["hubium"]["connected"]
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
-    if(connected):
-        try:
-            sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", "/falsealarm")
-            print("[#] False alarm sended")
-        except:
-            http_client.connection_closed()
+    send_command("/falsealarm", "[#] False alarm sended")
 
 def get_state_hu():
     connected = param_co.state_co["hubium"]["connected"]
@@ -73,5 +63,17 @@ def get_image():
             img.close()
 
             sock.close()
+        except:
+            http_client.connection_closed()
+
+def send_command(command, sucess):
+    connected = param_co.state_co["hubium"]["connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    if(connected):
+        try:
+            sock = client.HTTPConnection(ip, port, timeout=1)
+            sock.request("GET", command)
+            print(sucess)
         except:
             http_client.connection_closed()

@@ -129,11 +129,11 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
         #Speed
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, label="", default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar);
+            dpg.add_input_int(tag=tag_speed, label="", default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_1);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar);
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar_1);
         # Start / Stop
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")

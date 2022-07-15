@@ -9,22 +9,22 @@
         "connected": false,
         "activated": false,
         "ip": "http://192.168.1.201/cgi/setting",
-        "device": "bluetooth0",
+        "device": "lo",
         "speed": 600,
         "nb_packet": 0,
-        "dir": "",
-        "file": "",
+        "dir": "/media/aether/lidar_ssd/capture/lidar_1",
+        "file": "/media/aether/lidar_ssd/capture/lidar_1/_13-07-2022_23h41.pcap",
         "sock_connected": false
     },
     "lidar_2": {
         "connected": false,
         "activated": false,
         "ip": "http://192.168.1.202/cgi/setting",
-        "device": "ztwdjfturv",
+        "device": "br-bf1cd95e8d83",
         "speed": 600,
         "nb_packet": 0,
-        "dir": "",
-        "file": ""
+        "dir": "/media/aether/lidar_ssd/capture/lidar_2",
+        "file": "/media/aether/lidar_ssd/capture/lidar_2/_13-07-2022_23h41.pcap"
     },
     "hubium": {
         "ip": "127.0.0.1",
@@ -48,8 +48,8 @@
         "10": "bluetooth0"
     },
     "path": {
-        "capture": "",
+        "capture": "/media/aether/lidar_ssd/capture",
         "additional": "",
-        "name": ""
+        "name": "_13-07-2022_23h41.pcap"
     }
 }

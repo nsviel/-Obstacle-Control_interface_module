@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from src import http_client_get
+from conn import http_client_get
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo

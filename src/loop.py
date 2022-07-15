@@ -2,8 +2,8 @@
 #---------------------------------------------
 
 from param import param_co
+from conn import connection
 
-from src import connection
 from src import file
 from src import signal
 from src import saving
@@ -13,15 +13,15 @@ from src import parser_json
 
 def init():
     saving.determine_path()
-    connection.start_thread_test_conn()
-    image.start_thread_image()
+    connection.start_daemon()
+    image.start_daemon()
     param_co.state_co["self"]["status"] = "Online"
 
 def loop():
-    a=1
-    #signal.action_keyboard()
+    pass
 
 def end():
     param_co.state_co["self"]["status"] = "Offline"
-    parser_json.upload_file(param_co.path_state_co, param_co.state_co)
-    connection.stop_thread()
+    parser_json.upload_state()
+    connection.stop_daemon()
+    image.stop_daemon()
