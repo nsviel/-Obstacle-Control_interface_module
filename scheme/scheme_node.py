@@ -11,12 +11,12 @@ coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
 coord_hubium = [850, 425]
 coord_train = [10, 10]
-coord_edge = [1200, 525]
+coord_edge = [1200, 375]
 coord_local = [1200, 10]
 coord_sncf = [1200, 200]
-coord_valeo = [1200, 375]
+coord_valeo = [1200, 662]
 coord_ssd = [10, 500]
-coord_data = [750, 10]
+coord_data = [775, 10]
 
 
 def node_controlium():
@@ -39,7 +39,9 @@ def node_pywardium():
         scheme_function.add_ip("py_ip")
 
         scheme_function.add_input("self", "py_self")
-        scheme_function.add_lidar_device("py_l1_in", "py_l2_in", "py_l1_out", "py_l2_out", "py_l1_device", "py_l2_device")
+        scheme_connection.add_sock_client_io("py_l1_in", "py_l1_out")
+        scheme_connection.add_sock_client_io("py_l2_in", "py_l2_out")
+        scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
         scheme_function.add_port("py_http_server_port")
@@ -78,6 +80,7 @@ def node_edge():
         scheme_connection.add_sock_server_i("ed_sock_server")
         scheme_function.add_port_fixe("ed_sock_server_port")
 
+        scheme_connection.add_http_client_i("ed_http_client")
         scheme_connection.add_http_server_i("ed_http_server")
         scheme_function.add_port_fixe("ed_http_server_port")
 
@@ -111,7 +114,20 @@ def node_ssd():
 def node_data():
     with dpg.node(label="Data", tag="node_data", pos=coord_data):
         scheme_function.add_image("image_in")
-        scheme_function.add_variable_simple("Frame:", "nb_frame")
-        scheme_function.add_variable_simple("Prediction:", "nb_prediction")
         scheme_function.add_plot("lidar 1", "l1_plot")
         scheme_function.add_plot("lidar 2", "l2_plot")
+        scheme_function.add_variable_simple("Frame:", "nb_frame")
+        scheme_function.add_variable_simple("Prediction:", "nb_prediction")
+
+def node_stats():
+    with dpg.node(label="", tag="node_stat_co", pos=[575, 650]):
+        scheme_function.add_variable_simple("Speed:", "co_speed")
+        scheme_function.add_variable_simple("Bandwidth:", "co_bw")
+
+    with dpg.node(label="", tag="node_stat_py", pos=[650, 50]):
+        scheme_function.add_variable_simple("Speed:", "py_speed")
+        scheme_function.add_variable_simple("Bandwidth:", "py_bw")
+
+    with dpg.node(label="", tag="node_stat_ed", pos=[1100, 400]):
+        scheme_function.add_variable_simple("Speed:", "ed_speed")
+        scheme_function.add_variable_simple("Bandwidth:", "ed_bw")

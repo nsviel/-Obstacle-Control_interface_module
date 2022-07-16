@@ -59,6 +59,7 @@ def colorize_node():
     layer_train = scheme_color.color_layer_train()
     layer_edge = scheme_color.color_layer_edge()
     layer_cloud = scheme_color.color_layer_cloud()
+    layer_stat = scheme_color.color_layer_stat()
 
     dpg.bind_item_theme("node_co", layer_control)
     dpg.bind_item_theme("node_py", layer_train)
@@ -70,6 +71,9 @@ def colorize_node():
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_control)
+    dpg.bind_item_theme("node_stat_co", layer_stat)
+    dpg.bind_item_theme("node_stat_py", layer_stat)
+    dpg.bind_item_theme("node_stat_ed", layer_stat)
 
 def colorize_item():
     checkbox = scheme_color.color_checkbox()
@@ -85,3 +89,8 @@ def colorize_item():
     dpg.bind_item_theme("l2_ip", input_text)
     dpg.bind_item_theme("l1_speed", input_text)
     dpg.bind_item_theme("l2_speed", input_text)
+
+    dpg.bind_item_theme("co_sock_server_port", input_text)
+    dpg.bind_item_theme("py_http_server_port", input_text)
+    dpg.bind_item_theme("hu_sock_server_port", input_text)
+    dpg.bind_item_theme("sncf_broker_port", input_text)

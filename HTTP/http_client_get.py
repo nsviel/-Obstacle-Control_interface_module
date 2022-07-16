@@ -7,13 +7,19 @@ from src import parser_json
 
 
 def get_falsealarm():
-    http_client_fct.send_command_request("/falsealarm", "[#] False alarm sended")
+    http_client_fct.send_command_request("/false_alarm", "[#] False alarm sended")
 
 def get_lidar_1_start():
     http_client_fct.send_command_request("/lidar_1_start", "[#] Lidar 1 start")
 
 def get_lidar_1_stop():
     http_client_fct.send_command_request("/lidar_1_stop", "[#] Lidar 1 stop")
+
+def get_lidar_2_start():
+    http_client_fct.send_command_request("/lidar_2_start", "[#] Lidar 2 start")
+
+def get_lidar_2_stop():
+    http_client_fct.send_command_request("/lidar_2_stop", "[#] Lidar 2 stop")
 
 def get_image():
     http_client_fct.send_image_request(param_co.path_image)

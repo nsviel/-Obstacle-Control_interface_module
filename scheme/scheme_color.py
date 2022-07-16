@@ -53,6 +53,19 @@ def color_layer_control():
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
     return layer_control
 
+def color_layer_stat():
+    layer_control = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_control):
+        color = (0, 0, 0, 0)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeOutline, color, category=dpg.mvThemeCat_Nodes)
+    return layer_control
+
 def color_layer_train():
     layer_train = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_train):

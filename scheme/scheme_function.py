@@ -118,19 +118,9 @@ def add_image(tag):
         dpg.add_image(tag, width=300, height=175)
 
 # Lidar stuff
-def add_lidar_device(tag_l1_in, tag_l2_in, tag_l1_out, tag_l2_out, tag_l1_dev, tag_l2_dev):
+def add_lidar_device(tag_l1_dev, tag_l2_dev):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
-        dpg.add_text("device", color=color_title)
-    with dpg.node_attribute(tag=tag_l1_in, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
-        pass
-    with dpg.node_attribute(tag=tag_l1_out, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
-        pass
-    with dpg.node_attribute(tag=tag_l2_in, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
-        pass
-    with dpg.node_attribute(tag=tag_l2_out, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
-        pass
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             with dpg.group():
                 dpg.add_text("Lidar 1", color=color_title)
