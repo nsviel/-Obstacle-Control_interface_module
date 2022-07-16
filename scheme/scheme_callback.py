@@ -2,13 +2,19 @@
 #---------------------------------------------
 
 from param import param_co
-from conn import http_client_get
-from conn import http_client_post
+from HTTP import http_client_get
+from HTTP import http_client_post
 from src import saving
 from src import parser_json
 
 import dearpygui.dearpygui as dpg
 
+
+def callback_choice_port():
+    http_client_post.post_param_py("controlium", "sock_server_port", str(dpg.get_value("co_sock_server_port")))
+    http_client_post.post_param_py("pywardium", "http_server_port", str(dpg.get_value("py_http_server_port")))
+    http_client_post.post_param_hu("self", "sock_server_port", str(dpg.get_value("hu_sock_server_port")))
+    http_client_post.post_param_hu("sncf", "broker_port", str(dpg.get_value("sncf_broker_port")))
 
 def callback_update_conf():
     pass
@@ -46,9 +52,8 @@ def callback_param_py():
     param_co.state_py["lidar_1"]["device"] = str(dpg.get_value("py_l1_device"))
     param_co.state_py["lidar_2"]["device"] = str(dpg.get_value("py_l2_device"))
     param_co.state_py["self"]["http_server_port"] = dpg.get_value("py_http_server_port")
-    parser_json.upload_file(param_co.path_state_py, param_co.state_py)
-    http_client_post.post_new_param_py("lidar_1", "device", str(dpg.get_value("py_l1_device")))
-    http_client_post.post_new_param_py("lidar_2", "device", str(dpg.get_value("py_l2_device")))
+    http_client_post.post_param_py("lidar_1", "device", str(dpg.get_value("py_l1_device")))
+    http_client_post.post_param_py("lidar_2", "device", str(dpg.get_value("py_l2_device")))
 
 def callback_comboip():
     adress = dpg.get_value("comboip")

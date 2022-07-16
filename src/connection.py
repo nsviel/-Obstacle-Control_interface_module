@@ -3,8 +3,8 @@
 
 from param import param_co
 
-from conn import http_client
-from conn import http_client_get
+from HTTP import http_client
+from HTTP import http_client_get
 
 from src import file
 from src import saving

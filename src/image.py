@@ -3,7 +3,7 @@
 
 from param import param_co
 from scheme import scheme_update
-from conn import http_client_get
+from HTTP import http_client_get
 
 from threading import Thread
 

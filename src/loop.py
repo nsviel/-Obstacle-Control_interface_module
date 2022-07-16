@@ -2,8 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from conn import connection
-
+from src import connection
 from src import file
 from src import signal
 from src import saving

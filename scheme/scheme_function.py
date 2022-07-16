@@ -53,9 +53,7 @@ def add_port(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
-            a = dpg.add_text(1, tag=tag_, color=color_info);
-            dpg.add_button(arrow=True, direction=dpg.mvDir_Left, user_data=a, callback=lambda s, a, u: dpg.set_value(u, int(dpg.get_value(u))-1))
-            dpg.add_button(arrow=True, direction=dpg.mvDir_Right, user_data=a, callback=lambda s, a, u: dpg.set_value(u, int(dpg.get_value(u))+1))
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_choice_port);
 def add_port_fixe(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -150,7 +148,7 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
         #Speed
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, label="", default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_1);
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_1);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
@@ -172,7 +170,7 @@ def add_topic(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Topic");
-            dpg.add_text("-", tag= tag_, color=color_info);
+            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_ssd)
 
 # SSD stuff
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):

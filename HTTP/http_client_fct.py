@@ -2,51 +2,55 @@
 #---------------------------------------------
 
 from param import param_co
-from conn import http_client
-from conn import connection
+from HTTP import http_client
+from src import connection
 from src import parser_json
 
-import json
-import requests
 import http.client as client
+import json
 
 
-def get_falsealarm():
-    send_command("/falsealarm", "[#] False alarm sended")
+def send_conn_request(command):
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    connected = False
+    sock = client.HTTPConnection(ip, port, timeout=0.1)
+    try:
+        sock.request("GET", command)
+        connected = True
+    except:
+        connected = False
+    sock.close()
+    return connected
 
-def get_state_hu():
+def send_state_request(name):
     connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", "/state_hu")
+            sock.request("GET", name)
             response = sock.getresponse()
-            data = response.read()
-            parser_json.upload_file_by_sock_data(param_co.path_state_hu, data)
-            param_co.state_hu = parser_json.load_file(param_co.path_state_hu)
+            state = response.read()
             sock.close()
-        except:
-            http_client.connection_closed()
-
-def get_state_py():
-    connected = param_co.state_hu["pywardium"]["connected"]
-    ip = param_co.state_hu["pywardium"]["ip"]
-    port = param_co.state_hu["pywardium"]["http_server_port"]
-    if(connected):
-        try:
-            sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", "/state_py")
-            response = sock.getresponse()
-            data = response.read()
-            parser_json.upload_file_by_sock_data(param_co.path_state_py, data)
-            param_co.state_py = parser_json.load_file(param_co.path_state_py)
-            sock.close()
+            return state
         except:
             pass
 
-def get_image():
+def send_command_request(command, sucess):
+    connected = param_co.state_co["hubium"]["connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    if(connected):
+        try:
+            sock = client.HTTPConnection(ip, port, timeout=1)
+            sock.request("GET", command)
+            print(sucess)
+        except:
+            http_client.connection_closed()
+
+def send_image_request(path):
     connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
@@ -58,7 +62,7 @@ def get_image():
             data_binary = response.read()
 
             # Save image
-            img = open(param_co.path_image, "wb")
+            img = open(path, "wb")
             img.write(data_binary)
             img.close()
 
@@ -66,14 +70,19 @@ def get_image():
         except:
             http_client.connection_closed()
 
-def send_command(command, sucess):
+def send_param_request(command, lvl1, lvl2, value):
     connected = param_co.state_co["hubium"]["connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
+
+    header = {"Content-type": "application/json"}
+    payload = {lvl1: {lvl2: value}}
+    file = json.dumps(payload)
+
     if(connected):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
-            sock.request("GET", command)
-            print(sucess)
+            sock.request("POST", command, file, header)
+            sock.close()
         except:
-            http_client.connection_closed()
+            print("[error] Sending new state py failed for ip: %s | port: %d"% (ip, port))

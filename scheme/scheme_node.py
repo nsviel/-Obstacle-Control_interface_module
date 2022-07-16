@@ -9,7 +9,7 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [850, 450]
+coord_hubium = [850, 425]
 coord_train = [10, 10]
 coord_edge = [1200, 525]
 coord_local = [1200, 10]

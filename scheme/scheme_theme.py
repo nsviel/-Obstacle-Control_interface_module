@@ -80,6 +80,7 @@ def colorize_item():
     dpg.bind_item_theme("l2_active", checkbox)
     dpg.bind_item_theme("ssd_path_add", input_text)
     dpg.bind_item_theme("ssd_path", input_text)
+    dpg.bind_item_theme("sncf_mqtt_topic", input_text)
     dpg.bind_item_theme("l1_ip", input_text)
     dpg.bind_item_theme("l2_ip", input_text)
     dpg.bind_item_theme("l1_speed", input_text)
