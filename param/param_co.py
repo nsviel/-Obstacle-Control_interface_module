@@ -22,6 +22,13 @@ run_loop = True;
 run_thread_con = False
 run_thread_image = False
 
+# Plot
+nb_tic = 100
+last_x = 0
+vec_x = []
+vec_y_l1 = []
+vec_y_l2 = []
+
 # Wallet
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)

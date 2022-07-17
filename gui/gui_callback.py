@@ -15,4 +15,4 @@ def callback_close():
     param_co.run_loop = False
 
 def callback_test():
-    http_client_get.get_image()
+    pass

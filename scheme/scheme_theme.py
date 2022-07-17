@@ -5,6 +5,7 @@ from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
 
+color_white = (255, 255, 255)
 color_node_grid_line = (30, 30, 30)
 color_node_grid_bkg = (40, 40, 40)
 color_node_bkg = (25, 25, 25)
@@ -17,13 +18,18 @@ def global_theme():
         with dpg.theme_component(dpg.mvAll):
             # Divers
             dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (20, 20, 20), category=dpg.mvThemeCat_Core)
-            dpg.add_theme_color(dpg.mvThemeCol_Text, (255, 255, 255), category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_Text, color_white, category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_Button, (100, 100, 100))
             dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
 
             # Plot
-            dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 2, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 1, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_Line, color_white, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_LegendBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
 
             # Node background
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color_node_bkg, category=dpg.mvThemeCat_Nodes)
@@ -35,18 +41,19 @@ def global_theme():
             dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, 1, category=dpg.mvThemeCat_Nodes)
 
-            # Node pin
+            # Node
             dpg.add_theme_color(dpg.mvNodeCol_Pin, color_node_pin, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_PinHovered, color_node_pin, category=dpg.mvThemeCat_Nodes)
-
-            # Node grid
             dpg.add_theme_color(dpg.mvNodeCol_GridBackground, color_node_grid_bkg, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_GridLine, color_node_grid_line, category=dpg.mvThemeCat_Nodes)
-
-            # Node box selector
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelector, (0, 0, 0, 100), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelectorOutline, (175, 175, 175), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_NodeCornerRounding, 1, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_NodePadding, x=8, y=4, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
 
     dpg.bind_theme(global_theme)
 
@@ -78,6 +85,7 @@ def colorize_node():
 def colorize_item():
     checkbox = scheme_color.color_checkbox()
     input_text = scheme_color.color_input_text()
+    line_yaxis = scheme_color.color_yaxis_0()
 
     dpg.bind_item_theme("ssd_active", checkbox)
     dpg.bind_item_theme("l1_active", checkbox)
@@ -94,3 +102,11 @@ def colorize_item():
     dpg.bind_item_theme("py_http_server_port", input_text)
     dpg.bind_item_theme("hu_sock_server_port", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)
+
+    dpg.bind_item_theme("py_ip", input_text)
+    dpg.bind_item_theme("hu_ip", input_text)
+    dpg.bind_item_theme("ed_ip", input_text)
+    dpg.bind_item_theme("sncf_ip", input_text)
+
+    dpg.bind_item_theme("l1_yaxis_line", line_yaxis)
+    dpg.bind_item_theme("l2_yaxis_line", line_yaxis)

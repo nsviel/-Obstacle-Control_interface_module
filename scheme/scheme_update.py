@@ -4,6 +4,7 @@
 from param import param_co
 from src import io
 from scheme import scheme_link
+from scheme import scheme_plot
 
 import dearpygui.dearpygui as dpg
 
@@ -65,6 +66,7 @@ def update_pywardium():
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])
     dpg.set_value("nb_prediction", param_co.state_hu["self"]["nb_prediction"])
+    scheme_plot.update_plot_random()
 
 def update_image():
     width, height, channels, data = dpg.load_image(param_co.path_image)

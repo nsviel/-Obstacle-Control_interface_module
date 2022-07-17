@@ -1,9 +1,8 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
 from scheme import scheme_callback
-
-from math import sin
 
 import dearpygui.dearpygui as dpg
 
@@ -49,6 +48,11 @@ def add_ip(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_, color=color_info);
+def add_ip_change(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("IP:");
+            dpg.add_input_text(tag=tag_, label="", default_value="127.0.0.1", width=100, callback=scheme_callback.callback_lidar_1);
 def add_port(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -59,29 +63,22 @@ def add_port_fixe(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_text(1, tag=tag_, color=color_info);
-def add_plot(label, tag_):
+def add_plot(label, tag_y, tag_plot):
+    x = []
+    y = []
+    for i in range(0, param_co.nb_tic):
+        x.append(i)
+        y.append(0)
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        # creating data
-        sindatax = []
-        sindatay = []
-        for i in range(0, 500):
-            sindatax.append(i / 1000)
-            sindatay.append(0.5 + 0.5 * sin(50 * i / 1000))
-
-        # create plot
         with dpg.plot(no_menus=True, no_box_select=True, no_mouse_pos=True, height=50, width=300):
-            # Legend
             dpg.add_plot_legend()
-
-            # create x axis
             dpg.add_plot_axis(dpg.mvXAxis, no_gridlines=True, no_tick_marks=True, no_tick_labels=True)
-
-            # create y axis
-            dpg.add_plot_axis(dpg.mvYAxis, no_tick_labels=True, no_gridlines=True, no_tick_marks=True, tag=tag_)
-            dpg.set_axis_limits(tag_, 0, 1500)
-
-            # add series to y axis
-            dpg.add_line_series(sindatax, sindatay, label=label, parent=tag_)
+            dpg.add_plot_axis(dpg.mvYAxis, no_tick_labels=True, no_gridlines=True, no_tick_marks=True, tag=tag_y)
+            dpg.add_plot_axis(dpg.mvYAxis, no_tick_labels=True, no_gridlines=True, no_tick_marks=True, tag=tag_y+"_0")
+            dpg.set_axis_limits(tag_y, -50, 1500)
+            dpg.set_axis_limits(tag_y+"_0", -50, 1500)
+            dpg.add_line_series(x, y, parent=tag_y+"_0", tag=tag_y+"_line")
+            dpg.add_line_series(x, y, label=label, parent=tag_y, tag=tag_plot)
 def add_edge_id(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):

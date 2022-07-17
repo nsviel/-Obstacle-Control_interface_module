@@ -9,14 +9,14 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [850, 425]
+coord_hubium = [835, 425]
 coord_train = [10, 10]
 coord_edge = [1200, 375]
 coord_local = [1200, 10]
 coord_sncf = [1200, 200]
 coord_valeo = [1200, 662]
 coord_ssd = [10, 500]
-coord_data = [775, 10]
+coord_data = [755, 10]
 
 
 def node_controlium():
@@ -36,7 +36,7 @@ def node_controlium():
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status")
-        scheme_function.add_ip("py_ip")
+        scheme_function.add_ip_change("py_ip")
 
         scheme_function.add_input("self", "py_self")
         scheme_connection.add_sock_client_io("py_l1_in", "py_l1_out")
@@ -49,7 +49,7 @@ def node_pywardium():
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
         scheme_function.add_status("hu_status")
-        scheme_function.add_ip("hu_ip")
+        scheme_function.add_ip_change("hu_ip")
         scheme_function.add_edge_id("hu_edge_id")
         scheme_function.add_country("hu_country")
         scheme_function.add_stockage("hu_stockage")
@@ -71,7 +71,7 @@ def node_train():
 def node_edge():
     with dpg.node(label="Edge", tag="node_ed", pos=coord_edge):
         scheme_function.add_status("ed_status")
-        scheme_function.add_ip("ed_ip")
+        scheme_function.add_ip_change("ed_ip")
         scheme_function.add_edge_id("ed_edge_id")
         scheme_function.add_country("ed_country")
 
@@ -94,7 +94,7 @@ def node_edge_local():
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf", pos=coord_sncf):
-        scheme_function.add_ip("sncf_ip")
+        scheme_function.add_ip_change("sncf_ip")
 
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
         scheme_function.add_port("sncf_broker_port")
@@ -114,14 +114,15 @@ def node_ssd():
 def node_data():
     with dpg.node(label="Data", tag="node_data", pos=coord_data):
         scheme_function.add_image("image_in")
-        scheme_function.add_plot("lidar 1", "l1_plot")
-        scheme_function.add_plot("lidar 2", "l2_plot")
+        scheme_function.add_plot("lidar 1", "l1_yaxis", "l1_plot")
+        scheme_function.add_plot("lidar 2", "l2_yaxis", "l2_plot")
         scheme_function.add_variable_simple("Frame:", "nb_frame")
         scheme_function.add_variable_simple("Prediction:", "nb_prediction")
 
 def node_stats():
     with dpg.node(label="", tag="node_stat_co", pos=[575, 650]):
         scheme_function.add_variable_simple("Speed:", "co_speed")
+        scheme_function.add_variable_simple("Latency:", "co_latency")
         scheme_function.add_variable_simple("Bandwidth:", "co_bw")
 
     with dpg.node(label="", tag="node_stat_py", pos=[650, 50]):

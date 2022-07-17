@@ -14,6 +14,7 @@ from scheme import scheme_update
 
 from threading import Thread
 
+import socket
 import time
 
 
@@ -45,3 +46,6 @@ def connection_closed():
     param_co.state_co["hubium"]["connected"] = False
     param_co.state_py["self"]["sock_connected"] = False
     param_co.state_hu["sncf"]["connected"] = False
+
+def get_ip_adress():
+    return socket.gethostname()

@@ -26,6 +26,13 @@ def color_input_text():
         dpg.add_theme_color(dpg.mvThemeCol_Text, color_1, category=dpg.mvThemeCat_Core)
     return theme
 
+def color_yaxis_0():
+    yaxis = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=yaxis):
+        dpg.add_theme_color(dpg.mvPlotCol_Line, (100, 100, 100), category=dpg.mvThemeCat_Plots)
+        dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 0.5, category=dpg.mvThemeCat_Plots)
+    return yaxis
+
 def color_red():
     red = dpg.add_theme()
     with dpg.theme_component(dpg.mvNodeLink, parent=red):
