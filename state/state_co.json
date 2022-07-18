@@ -1,6 +1,6 @@
 {
     "self": {
-        "status": "Online",
+        "status": "Offline",
         "ip": "127.0.0.1",
         "sock_server_port": 321
     },
@@ -15,9 +15,10 @@
         "space_used": 0
     },
     "hubium": {
-        "connected": false,
         "ip": "127.0.0.1",
-        "sock_client_port": 315,
-        "http_server_port": 443
+        "http_connected": false,
+        "http_server_port": 443,
+        "sock_connected": false,
+        "sock_client_port": 315
     }
 }

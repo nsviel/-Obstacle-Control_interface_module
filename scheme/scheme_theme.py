@@ -99,6 +99,7 @@ def colorize_item():
     dpg.bind_item_theme("l2_speed", input_text)
 
     dpg.bind_item_theme("co_sock_server_port", input_text)
+    dpg.bind_item_theme("py_sock_server_port", input_text)
     dpg.bind_item_theme("py_http_server_port", input_text)
     dpg.bind_item_theme("hu_sock_server_port", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)

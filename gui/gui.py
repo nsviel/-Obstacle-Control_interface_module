@@ -4,7 +4,7 @@
 from param import param_co
 
 from src import loop
-from src import file
+from src import state
 
 from scheme import scheme
 from scheme import scheme_loop
@@ -20,7 +20,7 @@ def program():
     dpg.create_context()
 
     #Initialization
-    file.load_configuration()
+    state.load_configuration()
     gui_image.init_image()
 
     #Build GUI

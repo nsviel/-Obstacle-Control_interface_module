@@ -9,14 +9,14 @@ import dearpygui.dearpygui as dpg
 
 def create_link():
     dpg.add_node_link("co_http_client", "hu_http_server_i", tag="link_co_hu_http")
-    dpg.add_node_link("co_sock_server", "hu_sock_client_i", tag="link_co_hu_sock")
+    dpg.add_node_link("co_sock_server", "hu_sock_client_i", tag="link_hu_co_sock")
     dpg.add_node_link("co_self", "ssd_input", tag="link_co_ssd")
 
     dpg.add_node_link("py_l1_out", "hu_sock_server_i", tag="link_py_hu_l1_sock")
     dpg.add_node_link("py_l2_out", "hu_sock_server_i", tag="link_py_hu_l2_sock")
     dpg.add_node_link("py_http_server", "hu_http_client_i", tag="link_py_hu_http")
-    dpg.add_node_link("py_l1_in", "l1_input", tag="link_py_l1")
-    dpg.add_node_link("py_l2_in", "l2_input", tag="link_py_l2")
+    dpg.add_node_link("py_l1_in", "l1_input", tag="link_l1_py")
+    dpg.add_node_link("py_l2_in", "l2_input", tag="link_l2_py")
     dpg.add_node_link("py_self", "geo_input", tag="link_py_geo")
 
     dpg.add_node_link("hu_mqtt", "sncf_mqtt_broker", tag="link_hu_sncf_mqtt")
@@ -30,23 +30,21 @@ def create_link():
     dpg.add_node_link("va_http_client", "hu_http_server_o", tag="link_va_hu")
 
 def update_link_color():
-    pass
     # Controlium
-    update_link(param_co.state_co["hubium"]["connected"], "link_co_hu_http")
+    update_link(param_co.state_co["hubium"]["http_connected"], "link_co_hu_http")
+    update_link(param_co.state_co["hubium"]["sock_connected"], "link_hu_co_sock")
     update_link(param_co.state_co["ssd"]["connected"], "link_co_ssd")
 
     # Pywardium
-    #update_link(cla.pyward.http_connected, "link_py_hu_http")
-    #update_link(cla.pyward.socket_connected, "link_py_hu_sock")
-
-    #update_link(cla.lidars.l1_connected, "link_py_l1")
-    #update_link(cla.lidars.l2_connected, "link_py_l2")
+    update_link(param_co.state_py["lidar_1"]["connected"], "link_l1_py")
+    update_link(param_co.state_py["lidar_2"]["connected"], "link_l2_py")
 
     # Hubium
     update_link(param_co.state_hu["sncf"]["connected"], "link_hu_sncf_mqtt")
-    update_link(param_co.state_hu["pywardium"]["connected"], "link_py_hu_http")
+    update_link(param_co.state_hu["pywardium"]["http_connected"], "link_py_hu_http")
+    update_link(param_co.state_hu["pywardium"]["sock_connected"], "link_py_hu_l1_sock")
+    update_link(param_co.state_hu["pywardium"]["sock_connected"], "link_py_hu_l2_sock")
     update_link(param_co.state_hu["velodium"]["connected"], "link_hu_ve_sock")
-
 
 def update_link(state, tag):
     if(state):

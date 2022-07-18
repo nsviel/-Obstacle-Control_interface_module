@@ -45,14 +45,23 @@ def read_wallet():
 def check_directories():
     connected = param_co.state_co["ssd"]["connected"]
     if(connected):
-        if(os.path.exists(param_co.state_py["path"]["capture"]) == False):
-            os.mkdir(param_co.state_py["path"]["capture"])
-            print("[\033[92mSSD\033[0m] Directory capture created")
-        # Create directory 1
-        if(os.path.exists(param_co.state_py["lidar_1"]["dir"]) == False):
-            os.mkdir(param_co.state_py["lidar_1"]["dir"])
-            print("[\033[92mSSD\033[0m] Directory 1 created")
-        # Create directory 2
-        if(os.path.exists(param_co.state_py["lidar_2"]["dir"]) == False):
-            os.mkdir(param_co.state_py["lidar_2"]["dir"])
-            print("[\033[92mSSD\033[0m] Directory 2 created")
+        # Capture directory
+        path = param_co.state_py["path"]["capture"]
+        if(os.path.exists(path) == False):
+            create_directory(path)
+        # Lidar 1 directory
+        path = param_co.state_py["lidar_1"]["dir"]
+        if(os.path.exists(path) == False):
+            create_directory(path)
+        # Lidar 2 directory
+        path = param_co.state_py["lidar_2"]["dir"]
+        if(os.path.exists(path) == False):
+            create_directory(path)
+
+def create_directory(path):
+    os.mkdir(path)
+    print("[\033[92mSSD\033[0m] Directory %s created" % path)
+
+def clear_directory(path):
+    for file in os.scandir(path):
+        os.remove(file.path)

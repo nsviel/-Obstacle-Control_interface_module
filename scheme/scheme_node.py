@@ -41,6 +41,9 @@ def node_pywardium():
         scheme_function.add_input("self", "py_self")
         scheme_connection.add_sock_client_io("py_l1_in", "py_l1_out")
         scheme_connection.add_sock_client_io("py_l2_in", "py_l2_out")
+        scheme_connection.add_sock_server("py_sock_server")
+        scheme_function.add_port("py_sock_server_port")
+
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")

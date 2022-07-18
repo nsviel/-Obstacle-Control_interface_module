@@ -10,6 +10,10 @@ color_info = (0, 200, 200)
 color_status = (0, 200, 50)
 
 
+def add_sock_server(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        scheme_function.line()
+        dpg.add_text("Socket server");
 def add_sock_server_i(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
         scheme_function.line()

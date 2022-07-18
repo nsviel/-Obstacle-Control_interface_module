@@ -6,7 +6,6 @@ from param import param_co
 from HTTP import http_client
 from HTTP import http_client_get
 
-from src import file
 from src import saving
 from src import parser_json
 
@@ -43,9 +42,12 @@ def thread_test_connection():
         pass
 
 def connection_closed():
-    param_co.state_co["hubium"]["connected"] = False
-    param_co.state_py["self"]["sock_connected"] = False
+    param_co.state_co["hubium"]["http_connected"] = False
+    param_co.state_co["hubium"]["sock_connected"] = False
     param_co.state_hu["sncf"]["connected"] = False
+    param_co.state_hu["velodium"]["connected"] = False
+    param_co.state_hu["pywardium"]["http_connected"] = False
+    param_co.state_hu["pywardium"]["sock_connected"] = False
 
 def get_ip_adress():
     return socket.gethostname()
