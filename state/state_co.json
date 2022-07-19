@@ -19,7 +19,7 @@
     },
     "hubium": {
         "ip": "127.0.0.1",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 443,
         "sock_connected": false,
         "sock_client_port": 315
