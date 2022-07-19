@@ -6,7 +6,11 @@ import dearpygui.dearpygui as dpg
 
 
 def init_image():
-    width, height, channels, data = dpg.load_image(param_co.path_image)
+    try:
+        width, height, channels, data = dpg.load_image(param_co.path_image)
 
-    with dpg.texture_registry():
-        dpg.add_dynamic_texture(width, height, data, tag="image_in")
+        with dpg.texture_registry():
+            dpg.add_dynamic_texture(width, height, data, tag="image_in")
+    except:
+        print("[error] No image !")
+        exit()

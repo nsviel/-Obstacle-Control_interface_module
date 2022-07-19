@@ -9,7 +9,7 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [835, 425]
+coord_hubium = [835, 385]
 coord_train = [10, 10]
 coord_edge = [1200, 375]
 coord_local = [1200, 10]
@@ -23,6 +23,7 @@ def node_controlium():
     with dpg.node(label="Controlium", tag="node_co", pos=coord_controlium):
         scheme_function.add_status("co_status")
         scheme_function.add_ip("co_ip")
+        scheme_function.add_nb_thread("co_thread")
 
         scheme_function.add_input("self", "co_self")
 
@@ -30,20 +31,21 @@ def node_controlium():
         scheme_function.add_false_alarm("but_fal")
         scheme_function.add_choice_edge("combo_edge")
 
-        scheme_connection.add_sock_server_o("co_sock_server")
-        scheme_function.add_port("co_sock_server_port")
+        scheme_connection.add_sock_server_o("co_sock_server_l1")
+        scheme_function.add_port("co_sock_server_l1_port")
+
+        scheme_connection.add_sock_server_o("co_sock_server_l2")
+        scheme_function.add_port("co_sock_server_l2_port")
 
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status")
         scheme_function.add_ip_change("py_ip")
+        scheme_function.add_nb_thread("py_thread")
 
         scheme_function.add_input("self", "py_self")
         scheme_connection.add_sock_client_io("py_l1_in", "py_l1_out")
         scheme_connection.add_sock_client_io("py_l2_in", "py_l2_out")
-        scheme_connection.add_sock_server("py_sock_server")
-        scheme_function.add_port("py_sock_server_port")
-
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
@@ -53,13 +55,21 @@ def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
         scheme_function.add_status("hu_status")
         scheme_function.add_ip_change("hu_ip")
+        scheme_function.add_nb_thread("hu_thread")
+
         scheme_function.add_edge_id("hu_edge_id")
         scheme_function.add_country("hu_country")
         scheme_function.add_stockage("hu_stockage")
         scheme_function.add_mqtt("hu_mqtt")
-        scheme_connection.add_sock_client_io("hu_sock_client_i", "hu_sock_client_o")
-        scheme_connection.add_sock_server_io("hu_sock_server_i", "hu_sock_server_o")
-        scheme_function.add_port("hu_sock_server_port")
+
+        scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
+        scheme_function.add_port("hu_sock_server_l1_port")
+        scheme_connection.add_sock_server_io("hu_sock_server_l2_i", "hu_sock_server_l2_o")
+        scheme_function.add_port("hu_sock_server_l2_port")
+
+        scheme_connection.add_sock_client_io("hu_sock_client_l1_i", "hu_sock_client_l1_o")
+        scheme_connection.add_sock_client_io("hu_sock_client_l2_i", "hu_sock_client_l2_o")
+
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
         scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")
         scheme_function.add_port_fixe("hu_http_server_port")
@@ -89,11 +99,11 @@ def node_edge():
 
 def node_edge_local():
     with dpg.node(label="Local", tag="node_local", pos=coord_local):
-        scheme_function.add_attribute("Velodium")
-        scheme_connection.add_sock_server_i("ve_sock_server")
+        scheme_connection.add_sock_server_i_text("Velodium", "ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
 
-        scheme_function.add_input("AI", "ai_input")
+        scheme_connection.add_http_server_i_text("AI", "ai_http_server")
+        scheme_function.add_port_fixe("ai_http_server_port")
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf", pos=coord_sncf):

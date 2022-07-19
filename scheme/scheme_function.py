@@ -91,6 +91,11 @@ def add_country(tag_):
             dpg.add_text("Country: [")
             dpg.add_text("", tag=tag_, color=color_info)
             dpg.add_text("]")
+def add_nb_thread(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Nb thread:");
+            dpg.add_text(1, tag=tag_, color=color_info);
 
 # Specific stuff
 def add_false_alarm(tag_):

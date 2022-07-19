@@ -22,6 +22,9 @@ run_loop = True;
 run_thread_con = False
 run_thread_image = False
 
+# Socket
+sock_server = None
+
 # Plot
 nb_tic = 100
 last_x = 0

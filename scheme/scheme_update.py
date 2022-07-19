@@ -29,21 +29,27 @@ def update_ssd():
 
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
-    dpg.set_value("l2_ip", param_co.state_py["lidar_1"]["ip"])
+    dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 
 def update_controlium():
     dpg.set_value("co_status", param_co.state_co["self"]["status"])
     dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
-    dpg.set_value("co_sock_server_port", param_co.state_co["self"]["sock_server_port"])
+    dpg.set_value("co_thread", param_co.state_co["self"]["nb_thread"])
+    dpg.set_value("co_sock_server_l1_port", param_co.state_co["self"]["sock_server_l1_port"])
+    dpg.set_value("co_sock_server_l2_port", param_co.state_co["self"]["sock_server_l2_port"])
 
 def update_hubium():
     dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
-    dpg.set_value("hu_ip", param_co.state_co["self"]["ip"])
+    dpg.set_value("hu_ip", param_co.state_hu["self"]["ip"])
+    dpg.set_value("hu_thread", param_co.state_hu["self"]["nb_thread"])
+
     dpg.set_value("hu_country", param_co.state_hu["self"]["country"])
     dpg.set_value("hu_edge_id", param_co.state_hu["self"]["edge_id"])
     dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
-    dpg.set_value("hu_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
+    dpg.set_value("ai_http_server_port", param_co.state_hu["ai"]["http_server_port"])
+    dpg.set_value("hu_sock_server_l1_port", param_co.state_hu["self"]["sock_server_l1_port"])
+    dpg.set_value("hu_sock_server_l2_port", param_co.state_hu["self"]["sock_server_l2_port"])
     dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
     dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
     dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
@@ -51,13 +57,13 @@ def update_hubium():
 def update_edge():
     dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
     dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
-    dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_port"])
+    dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_l1_port"])
     dpg.set_value("ed_http_server_port", param_co.state_hu["self"]["http_server_port"])
 
 def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
     dpg.set_value("py_ip", param_co.state_py["self"]["ip"])
-    dpg.set_value("py_sock_server_port", param_co.state_py["self"]["sock_server_port"])
+    dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
     dpg.set_value("py_http_server_port", param_co.state_py["self"]["http_server_port"])
 
     devices = io.get_list_device_from_state()

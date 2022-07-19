@@ -46,7 +46,6 @@ def send_command_request(command, sucess):
         try:
             sock = client.HTTPConnection(ip, port, timeout=1)
             sock.request("GET", command)
-            print(sucess)
         except:
             connection.connection_closed()
 
@@ -62,9 +61,10 @@ def send_image_request(path):
             data_binary = response.read()
 
             # Save image
-            img = open(path, "wb")
-            img.write(data_binary)
-            img.close()
+            if(len(data_binary) != 0):
+                img = open(path, "wb")
+                img.write(data_binary)
+                img.close()
 
             sock.close()
         except:

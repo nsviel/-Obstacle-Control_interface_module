@@ -51,6 +51,24 @@ def color_green():
         dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color, category=dpg.mvThemeCat_Nodes)
     return green
 
+def color_blue():
+    green = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNodeLink, parent=green):
+        color = (20, 20, 255)
+        dpg.add_theme_color(dpg.mvNodeCol_Link, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color, category=dpg.mvThemeCat_Nodes)
+    return green
+
+def color_whiteblue():
+    green = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNodeLink, parent=green):
+        color = (200, 200, 255)
+        dpg.add_theme_color(dpg.mvNodeCol_Link, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color, category=dpg.mvThemeCat_Nodes)
+    return green
+
 def color_layer_control():
     layer_control = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_control):

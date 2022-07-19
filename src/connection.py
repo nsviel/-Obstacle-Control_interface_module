@@ -13,6 +13,7 @@ from scheme import scheme_update
 
 from threading import Thread
 
+import threading
 import socket
 import time
 
@@ -36,6 +37,7 @@ def thread_test_connection():
         # Update state
         parser_json.upload_state()
         scheme_update.update()
+        update_nb_thread()
 
         # Wait for 1 second
         time.sleep(1)
@@ -51,3 +53,6 @@ def connection_closed():
 
 def get_ip_adress():
     return socket.gethostname()
+
+def update_nb_thread():
+    param_co.state_co["self"]["nb_thread"] = threading.active_count()
