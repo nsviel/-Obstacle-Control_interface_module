@@ -130,7 +130,7 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev):
             with dpg.group():
                 dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_param_py, width=125)
-def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
+def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_bandwidth):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
@@ -153,6 +153,11 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet):
         with dpg.group(horizontal=True):
             dpg.add_text("Packet:");
             dpg.add_text(0, tag=tag_packet, color=color_info);
+        # Bandwidth
+        with dpg.group(horizontal=True):
+            dpg.add_text("Bandwidth:");
+            dpg.add_text(0, tag=tag_bandwidth, color=color_info);
+            dpg.add_text("MB/s");
 
 # MQTT stuff
 def add_mqtt(tag_):

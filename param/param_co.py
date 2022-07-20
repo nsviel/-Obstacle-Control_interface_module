@@ -26,7 +26,7 @@ run_thread_image = False
 sock_server = None
 
 # Plot
-nb_tic = 100
+nb_tic = 1000
 last_x = 0
 vec_x = []
 vec_y_l1 = []

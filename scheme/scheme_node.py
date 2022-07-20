@@ -77,8 +77,8 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_active", "l1_speed", "l1_ip", "l1_packet")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_active", "l2_speed", "l2_ip", "l2_packet")
+        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_active", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth")
+        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_active", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth")
         scheme_function.add_variable("Time:", "capture_time")
 
 def node_edge():

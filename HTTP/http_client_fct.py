@@ -8,6 +8,7 @@ from src import parser_json
 
 import http.client as client
 import json
+import time
 
 
 def send_conn_request(command):

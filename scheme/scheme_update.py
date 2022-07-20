@@ -30,6 +30,8 @@ def update_ssd():
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
     dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
+    dpg.set_value("l1_bandwidth", param_co.state_py["lidar_1"]["bandwidth"])
+    dpg.set_value("l2_bandwidth", param_co.state_py["lidar_2"]["bandwidth"])
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 
 def update_controlium():
@@ -73,7 +75,7 @@ def update_pywardium():
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])
     dpg.set_value("nb_prediction", param_co.state_hu["self"]["nb_prediction"])
-    scheme_plot.update_plot_random()
+    #scheme_plot.update_plot_random()
 
 def update_image():
     width, height, channels, data = dpg.load_image(param_co.path_image)
