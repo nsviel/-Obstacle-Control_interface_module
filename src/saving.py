@@ -23,12 +23,12 @@ def test_ssd_con():
 
 def determine_path():
     date = get_formated_time()
-    param_co.state_py["path"]["capture"] = os.path.join(param_co.path_ssd, "capture")
-    param_co.state_py["path"]["name"] = param_co.state_py["path"]["additional"] + "_" + date + ".pcap"
-    param_co.state_py["lidar_1"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_1")
-    param_co.state_py["lidar_2"]["dir"] = os.path.join(param_co.state_py["path"]["capture"], "lidar_2")
-    param_co.state_py["lidar_1"]["file"] = os.path.join(param_co.state_py["lidar_1"]["dir"], param_co.state_py["path"]["name"])
-    param_co.state_py["lidar_2"]["file"] = os.path.join(param_co.state_py["lidar_2"]["dir"], param_co.state_py["path"]["name"])
+    param_co.state_co["path"]["dir_capture"] = os.path.join(param_co.path_ssd, "capture")
+    param_co.state_co["path"]["file_name"] = param_co.state_co["path"]["file_name_add"] + "_" + date + ".pcap"
+    param_co.state_co["path"]["dir_l1"] = os.path.join(param_co.state_co["path"]["dir_capture"], "lidar_1")
+    param_co.state_co["path"]["dir_l2"] = os.path.join(param_co.state_co["path"]["dir_capture"], "lidar_2")
+    param_co.state_co["path"]["path_l1_file"] = os.path.join(param_co.state_co["path"]["dir_l1"], param_co.state_co["path"]["file_name"])
+    param_co.state_co["path"]["path_l2_file"] = os.path.join(param_co.state_co["path"]["dir_l2"], param_co.state_co["path"]["file_name"])
 
 def get_formated_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')
@@ -46,15 +46,15 @@ def check_directories():
     connected = param_co.state_co["ssd"]["connected"]
     if(connected):
         # Capture directory
-        path = param_co.state_py["path"]["capture"]
+        path = param_co.state_co["path"]["dir_capture"]
         if(os.path.exists(path) == False):
             create_directory(path)
         # Lidar 1 directory
-        path = param_co.state_py["lidar_1"]["dir"]
+        path = param_co.state_co["path"]["dir_l1"]
         if(os.path.exists(path) == False):
             create_directory(path)
         # Lidar 2 directory
-        path = param_co.state_py["lidar_2"]["dir"]
+        path = param_co.state_co["path"]["dir_l2"]
         if(os.path.exists(path) == False):
             create_directory(path)
 

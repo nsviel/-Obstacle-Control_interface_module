@@ -46,7 +46,7 @@ def callback_false_alarm():
 def callback_ssd():
     param_co.path_ssd = dpg.get_value("ssd_path")
     param_co.state_co["ssd"]["activated"] = dpg.get_value("ssd_active")
-    param_co.state_py["path"]["additional"] = dpg.get_value("ssd_path_add")
+    param_co.state_co["path"]["file_name_add"] = dpg.get_value("ssd_path_add")
     saving.determine_path()
 
 def callback_param_py():

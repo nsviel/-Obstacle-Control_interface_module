@@ -11,10 +11,10 @@
         "height": 825
     },
     "ssd": {
-        "connected": false,
+        "connected": true,
         "activated": true,
-        "space_total": 0,
-        "space_used": 0
+        "space_total": 1862,
+        "space_used": 371
     },
     "hubium": {
         "add": "Mine_Nathan",
@@ -23,5 +23,14 @@
         "http_server_port": 443,
         "sock_l1_connected": false,
         "sock_l2_connected": false
+    },
+    "path": {
+        "dir_capture": "/media/aether/lidar_ssd/capture",
+        "dir_l1": "/media/aether/lidar_ssd/capture/lidar_1",
+        "dir_l2": "/media/aether/lidar_ssd/capture/lidar_2",
+        "file_name_add": "kkkkk",
+        "file_name": "kkkkk_21-07-2022_17h56.pcap",
+        "path_l1_file": "/media/aether/lidar_ssd/capture/lidar_1/kkkkk_21-07-2022_17h56.pcap",
+        "path_l2_file": "/media/aether/lidar_ssd/capture/lidar_2/kkkkk_21-07-2022_17h56.pcap"
     }
 }

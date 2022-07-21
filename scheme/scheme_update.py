@@ -23,9 +23,9 @@ def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)
     dpg.set_value("ssd_total", param_co.state_co["ssd"]["space_total"])
     dpg.set_value("ssd_used", param_co.state_co["ssd"]["space_used"])
-    dpg.set_value("l1_file_path", param_co.state_py["lidar_1"]["dir"])
-    dpg.set_value("l2_file_path", param_co.state_py["lidar_2"]["dir"])
-    dpg.set_value("file_name", param_co.state_py["path"]["name"])
+    dpg.set_value("l1_file_path", param_co.state_co["path"]["dir_l1"])
+    dpg.set_value("l2_file_path", param_co.state_co["path"]["dir_l2"])
+    dpg.set_value("file_name", param_co.state_co["path"]["file_name"])
 
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
