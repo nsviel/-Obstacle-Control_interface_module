@@ -8,7 +8,7 @@ from threading import Thread
 
 
 def start_daemon():
-    thread_con = Thread(target = sock_server_fct.thread_socket_server)
+    thread_con = Thread(target = sock_server_fct.thread_socket_l1_server)
     thread_con.start()
     print("[\033[1;32mOK\033[0m] Start socket server daemon")
 

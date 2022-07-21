@@ -1,6 +1,7 @@
 {
     "self": {
-        "sock_server_port": 321
+        "sock_server_l1_port": 321,
+        "sock_server_l2_port": 322
     },
     "gui":{
       "width": 1400,

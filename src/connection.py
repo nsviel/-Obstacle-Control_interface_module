@@ -48,11 +48,13 @@ def thread_test_connection():
 
 def connection_closed():
     param_co.state_co["hubium"]["http_connected"] = False
-    param_co.state_co["hubium"]["sock_connected"] = False
+    param_co.state_co["hubium"]["sock_l1_connected"] = False
+    param_co.state_co["hubium"]["sock_l2_connected"] = False
     param_co.state_hu["sncf"]["connected"] = False
     param_co.state_hu["velodium"]["connected"] = False
     param_co.state_hu["pywardium"]["http_connected"] = False
-    param_co.state_hu["pywardium"]["sock_connected"] = False
+    param_co.state_hu["pywardium"]["sock_l1_connected"] = False
+    param_co.state_hu["pywardium"]["sock_l2_connected"] = False
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

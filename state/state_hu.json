@@ -1,7 +1,7 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "10.201.20.131",
+        "ip": "192.168.153.147",
         "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
@@ -9,20 +9,19 @@
         "sock_server_l2_port": 345,
         "http_server_port": 443,
         "nb_frame": 0,
-        "nb_prediction": 0,
-        "sock_server_port": 344
+        "nb_prediction": 0
     },
     "pywardium": {
         "add": "localhost",
         "ip": "127.0.0.1",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
-        "sock_connected": false,
-        "sock_server_port": 320,
+        "sock_l1_connected": false,
+        "sock_l2_connected": false,
         "connected": false
     },
     "controlium": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.147",
         "sock_server_port": 321
     },
     "velodium": {

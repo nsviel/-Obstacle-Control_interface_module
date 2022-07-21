@@ -4,8 +4,7 @@
         "ip": "192.168.153.147",
         "nb_thread": 4,
         "sock_server_l1_port": 321,
-        "sock_server_l2_port": 322,
-        "sock_server_port": 321
+        "sock_server_l2_port": 322
     },
     "gui": {
         "width": 1400,
@@ -22,7 +21,7 @@
         "ip": "10.201.20.131",
         "http_connected": false,
         "http_server_port": 443,
-        "sock_connected": false,
-        "sock_client_port": 315
+        "sock_l1_connected": false,
+        "sock_l2_connected": false
     }
 }

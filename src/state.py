@@ -41,13 +41,13 @@ def init_state():
 
 def load_config_file():
     config = parser_json.load_file(param_co.path_config)
-    param_co.state_co["self"]["sock_server_port"] = config["self"]["sock_server_port"]
+    param_co.state_co["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
+    param_co.state_co["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
 
     param_co.state_co["hubium"]["add"] = config["hubium"]["add"]
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
-    param_co.state_co["hubium"]["sock_client_port"] = config["hubium"]["sock_client_port"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
 
 def upload_state():
