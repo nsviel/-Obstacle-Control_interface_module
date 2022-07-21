@@ -19,12 +19,11 @@ def thread_socket_server():
 
     while param_co.run_thread_socket:
         try:
-            param_co.state_co["hubium"]["sock_connected"] = False
             data, (address, port) = param_co.sock_server.recvfrom(4096)
             param_co.state_co["hubium"]["sock_connected"] = True
             process_data(data)
         except:
-            pass
+            param_co.state_co["hubium"]["sock_connected"] = False
 
     param_co.sock_server.close()
 

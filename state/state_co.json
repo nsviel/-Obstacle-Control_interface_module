@@ -13,13 +13,14 @@
     },
     "ssd": {
         "connected": false,
-        "activated": false,
+        "activated": true,
         "space_total": 0,
         "space_used": 0
     },
     "hubium": {
+        "add": "Mine_Nathan",
         "ip": "10.201.20.131",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 443,
         "sock_connected": false,
         "sock_client_port": 315

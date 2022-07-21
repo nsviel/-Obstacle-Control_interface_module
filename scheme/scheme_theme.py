@@ -88,8 +88,8 @@ def colorize_item():
     line_yaxis = scheme_color.color_yaxis_0()
 
     dpg.bind_item_theme("ssd_active", checkbox)
-    dpg.bind_item_theme("l1_active", checkbox)
-    dpg.bind_item_theme("l2_active", checkbox)
+    dpg.bind_item_theme("l1_activated", checkbox)
+    dpg.bind_item_theme("l2_activated", checkbox)
     dpg.bind_item_theme("ssd_path_add", input_text)
     dpg.bind_item_theme("ssd_path", input_text)
     dpg.bind_item_theme("sncf_mqtt_topic", input_text)
@@ -104,6 +104,11 @@ def colorize_item():
     dpg.bind_item_theme("hu_sock_server_l1_port", input_text)
     dpg.bind_item_theme("hu_sock_server_l2_port", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)
+
+    dpg.bind_item_theme("hu_wallet", input_text)
+    dpg.bind_item_theme("py_wallet", input_text)
+    dpg.bind_item_theme("ed_wallet", input_text)
+    dpg.bind_item_theme("sncf_wallet", input_text)
 
     dpg.bind_item_theme("py_ip", input_text)
     dpg.bind_item_theme("hu_ip", input_text)

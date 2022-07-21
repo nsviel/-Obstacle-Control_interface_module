@@ -4,6 +4,7 @@
 from param import param_co
 from src import connection
 from src import parser_json
+from src import wallet
 
 
 def load_configuration():
@@ -21,7 +22,6 @@ def init_state():
     param_co.state_co["self"]["ip"] = connection.get_ip_adress()
 
     param_co.state_hu["self"]["status"] = "Offline"
-    param_co.state_hu["self"]["ip"] = "127.0.0.1"
     param_co.state_hu["self"]["nb_frame"] = 0
     param_co.state_hu["self"]["nb_prediction"] = 0
     param_co.state_hu["self"]["nb_thread"] = 0
@@ -45,6 +45,7 @@ def load_config_file():
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
 
+    param_co.state_co["hubium"]["add"] = config["hubium"]["add"]
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
     param_co.state_co["hubium"]["sock_client_port"] = config["hubium"]["sock_client_port"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]

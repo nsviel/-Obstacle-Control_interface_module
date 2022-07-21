@@ -48,11 +48,14 @@ def add_ip(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_, color=color_info);
-def add_ip_change(tag_):
+def add_ip_wallet(tag_wallet, tag_ip, default):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
+            dpg.add_text("Add:");
+            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=100, callback=scheme_callback.callback_comboip)
+        with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_, label="", default_value="127.0.0.1", width=100, callback=scheme_callback.callback_lidar_1);
+            dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
 def add_port(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -135,16 +138,16 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_ban
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_lidar);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_1);
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar_1);
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar);
         # Start / Stop
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")

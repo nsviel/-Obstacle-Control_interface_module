@@ -43,7 +43,7 @@ def update_controlium():
 
 def update_hubium():
     dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
-    dpg.set_value("hu_ip", param_co.state_hu["self"]["ip"])
+    dpg.set_value("hu_ip", param_co.state_co["hubium"]["ip"])
     dpg.set_value("hu_thread", param_co.state_hu["self"]["nb_thread"])
 
     dpg.set_value("hu_country", param_co.state_hu["self"]["country"])
@@ -66,7 +66,7 @@ def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
     dpg.set_value("py_ip", param_co.state_py["self"]["ip"])
     dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
-    dpg.set_value("py_http_server_port", param_co.state_py["self"]["http_server_port"])
+    dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))
 
     devices = io.get_list_device_from_state()
     dpg.configure_item("py_l1_device",items=devices, num_items=len(devices))

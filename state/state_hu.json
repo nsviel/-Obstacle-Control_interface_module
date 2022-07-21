@@ -1,8 +1,8 @@
 {
     "self": {
-        "status": "Online",
-        "ip": "127.0.0.1",
-        "nb_thread": 4,
+        "status": "Offline",
+        "ip": "10.201.20.131",
+        "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -13,6 +13,7 @@
         "sock_server_port": 344
     },
     "pywardium": {
+        "add": "localhost",
         "ip": "127.0.0.1",
         "http_connected": true,
         "http_server_port": 314,
@@ -35,6 +36,7 @@
         "connected": false
     },
     "sncf": {
+        "add": "localhost",
         "broker_connected": false,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
@@ -46,6 +48,7 @@
         "ip": "127.0.0.1"
     },
     "edge": {
+        "add": "localhost",
         "ip": "127.0.0.1",
         "country": "Spain",
         "edge_id": 1,

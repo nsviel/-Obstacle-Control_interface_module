@@ -5,6 +5,7 @@ from param import param_co
 
 from HTTP import http_client
 from HTTP import http_client_get
+from HTTP import http_client_post
 
 from src import saving
 from src import parser_json
@@ -33,6 +34,7 @@ def thread_test_connection():
         http_client.test_connection()
         http_client_get.get_state_hu()
         http_client_get.get_state_py()
+        http_client_post.post_param_hu("controlium", "ip", param_co.state_co["self"]["ip"])
         saving.test_ssd_con()
 
         # Update state

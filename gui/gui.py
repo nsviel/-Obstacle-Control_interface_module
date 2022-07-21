@@ -5,10 +5,12 @@ from param import param_co
 
 from src import loop
 from src import state
+from src import saving
 
 from scheme import scheme
 from scheme import scheme_loop
 from scheme import scheme_theme
+from scheme import scheme_update
 
 from gui import gui_menu
 from gui import gui_image
@@ -22,6 +24,7 @@ def program():
     #Initialization
     state.load_configuration()
     gui_image.init_image()
+    saving.read_wallet()
 
     #Build GUI
     with dpg.window(tag="window", label="Controlium"):

@@ -1,6 +1,7 @@
 #! /usr/bin/python
 #---------------------------------------------
 
+from param import param_co
 from scheme import scheme_function
 from scheme import scheme_connection
 from scheme import scheme_callback
@@ -40,7 +41,7 @@ def node_controlium():
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status")
-        scheme_function.add_ip_change("py_ip")
+        scheme_function.add_ip_wallet("py_wallet", "py_ip", param_co.state_py["self"]["add"])
         scheme_function.add_nb_thread("py_thread")
 
         scheme_function.add_input("self", "py_self")
@@ -54,7 +55,7 @@ def node_pywardium():
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
         scheme_function.add_status("hu_status")
-        scheme_function.add_ip_change("hu_ip")
+        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"])
         scheme_function.add_nb_thread("hu_thread")
 
         scheme_function.add_edge_id("hu_edge_id")
@@ -77,14 +78,14 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_active", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_active", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth")
+        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth")
+        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth")
         scheme_function.add_variable("Time:", "capture_time")
 
 def node_edge():
     with dpg.node(label="Edge", tag="node_ed", pos=coord_edge):
         scheme_function.add_status("ed_status")
-        scheme_function.add_ip_change("ed_ip")
+        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"])
         scheme_function.add_edge_id("ed_edge_id")
         scheme_function.add_country("ed_country")
 
@@ -107,7 +108,7 @@ def node_edge_local():
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf", pos=coord_sncf):
-        scheme_function.add_ip_change("sncf_ip")
+        scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
 
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
         scheme_function.add_port("sncf_broker_port")
