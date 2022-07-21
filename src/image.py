@@ -14,6 +14,7 @@ def start_daemon():
     param_co.run_thread_image = True
     thread_con = Thread(target = thread_image)
     thread_con.start()
+    print("[\033[1;32mOK\033[0m] Start image request daemon")
 
 def stop_daemon():
     param_co.run_thread_image = False

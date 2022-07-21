@@ -64,11 +64,11 @@ def node_hubium():
 
         scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
         scheme_function.add_port("hu_sock_server_l1_port")
-        scheme_connection.add_sock_server_io("hu_sock_server_l2_i", "hu_sock_server_l2_o")
+        scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
         scheme_function.add_port("hu_sock_server_l2_port")
 
         scheme_connection.add_sock_client_io("hu_sock_client_l1_i", "hu_sock_client_l1_o")
-        scheme_connection.add_sock_client_io("hu_sock_client_l2_i", "hu_sock_client_l2_o")
+        scheme_connection.add_sock_client_i("hu_sock_client_l2_i")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
         scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")

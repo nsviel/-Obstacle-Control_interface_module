@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
-from scheme import scheme_plot
+from src import data
 
 from threading import Thread
 
@@ -16,7 +16,7 @@ def thread_socket_server():
     param_co.sock_server.bind(("127.0.0.1", port))
     param_co.sock_server.settimeout(1)
     param_co.run_thread_socket = True
-    print("sock server start")
+
     while param_co.run_thread_socket:
         try:
             param_co.state_co["hubium"]["sock_connected"] = False
@@ -37,4 +37,4 @@ def process_data(data):
     if(msg == "ok"):
         param_hu.state_hu["velodium"]["connected"] = True
     else:
-        scheme_plot.update_plot(len(data))
+        data.process_lidar_1_data(data)

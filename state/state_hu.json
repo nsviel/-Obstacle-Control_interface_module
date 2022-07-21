@@ -2,13 +2,13 @@
     "self": {
         "status": "Online",
         "ip": "127.0.0.1",
-        "nb_thread": 7,
+        "nb_thread": 4,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443,
-        "nb_frame": 20,
+        "nb_frame": 0,
         "nb_prediction": 0,
         "sock_server_port": 344
     },
@@ -35,7 +35,7 @@
         "connected": false
     },
     "sncf": {
-        "broker_connected": true,
+        "broker_connected": false,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_topic": "ai_obstacle",

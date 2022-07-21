@@ -36,7 +36,7 @@ def color_yaxis_0():
 def color_red():
     red = dpg.add_theme()
     with dpg.theme_component(dpg.mvNodeLink, parent=red):
-        color = (255, 20, 20)
+        color = (255, 50, 20)
         dpg.add_theme_color(dpg.mvNodeCol_Link, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color, category=dpg.mvThemeCat_Nodes)
@@ -63,7 +63,7 @@ def color_blue():
 def color_whiteblue():
     green = dpg.add_theme()
     with dpg.theme_component(dpg.mvNodeLink, parent=green):
-        color = (200, 200, 255)
+        color = (255, 255, 255)
         dpg.add_theme_color(dpg.mvNodeCol_Link, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color, category=dpg.mvThemeCat_Nodes)
