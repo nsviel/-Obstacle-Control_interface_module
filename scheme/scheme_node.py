@@ -102,6 +102,7 @@ def node_edge_local():
     with dpg.node(label="Local", tag="node_local", pos=coord_local):
         scheme_connection.add_sock_server_i_text("Velodium", "ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
+        scheme_function.add_option("SLAM", "ve_opt_slam")
 
         scheme_connection.add_http_server_i_text("AI", "ai_http_server")
         scheme_function.add_port_fixe("ai_http_server_port")

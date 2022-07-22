@@ -69,8 +69,8 @@ def update_pywardium():
     dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))
 
     devices = io.get_list_device_from_state()
-    dpg.configure_item("py_l1_device",items=devices, num_items=len(devices))
-    dpg.configure_item("py_l2_device",items=devices, num_items=len(devices))
+    dpg.configure_item("py_l1_device", default_value=param_co.state_py["lidar_1"]["device"], items=devices, num_items=len(devices))
+    dpg.configure_item("py_l2_device", default_value=param_co.state_py["lidar_2"]["device"], items=devices, num_items=len(devices))
 
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["data"]["nb_frame"])

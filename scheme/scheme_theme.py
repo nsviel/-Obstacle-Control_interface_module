@@ -90,6 +90,8 @@ def colorize_item():
     dpg.bind_item_theme("ssd_active", checkbox)
     dpg.bind_item_theme("l1_activated", checkbox)
     dpg.bind_item_theme("l2_activated", checkbox)
+    dpg.bind_item_theme("ve_opt_slam", checkbox)
+
     dpg.bind_item_theme("ssd_path_add", input_text)
     dpg.bind_item_theme("ssd_path", input_text)
     dpg.bind_item_theme("sncf_mqtt_topic", input_text)

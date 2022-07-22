@@ -1,3 +1,11 @@
-fct qui check ip au wallet pour identifier nom de l'ip
 verifier toute les commandes controlium
 robustifier la connection lidar
+envoie de command http à velodium
+préparer config Velodium
+
+
+todo reste a terminer :
+train node
+local node
+edge node
+valeo node

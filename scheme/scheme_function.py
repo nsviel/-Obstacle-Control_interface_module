@@ -99,6 +99,11 @@ def add_nb_thread(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Nb thread:");
             dpg.add_text(1, tag=tag_, color=color_info);
+def add_option(label, tag_option):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text(label);
+            dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_velo_option);
 
 # Specific stuff
 def add_false_alarm(tag_):
@@ -179,8 +184,8 @@ def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag
             dpg.add_text("SSD");
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd)
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_callback.callback_ssd)
-        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_callback.callback_ssd)
+        dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_callback.callback_name_editing)
+        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_callback.callback_name_editing)
         with dpg.group(horizontal=True):
             dpg.add_text("File:")
             dpg.add_text("-", tag=tag_name, color=color_info)

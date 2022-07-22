@@ -17,7 +17,7 @@ def callback_choice_port():
     http_client_post.post_param_hu("self", "sock_server_port", dpg.get_value("hu_sock_server_port"))
     http_client_post.post_param_hu("sncf", "broker_port", dpg.get_value("sncf_broker_port"))
 
-def callback_update_conf():
+def callback_velo_option():
     pass
 
 def callback_lidar():
@@ -46,7 +46,12 @@ def callback_false_alarm():
 def callback_ssd():
     param_co.path_ssd = dpg.get_value("ssd_path")
     param_co.state_co["ssd"]["activated"] = dpg.get_value("ssd_active")
+
+def callback_name_editing():
+    dpg.set_value("ssd_active", False)
+    param_co.state_co["ssd"]["activated"] = False
     param_co.state_co["path"]["file_name_add"] = dpg.get_value("ssd_path_add")
+    param_co.path_ssd = dpg.get_value("ssd_path")
     saving.determine_path()
 
 def callback_param_py():

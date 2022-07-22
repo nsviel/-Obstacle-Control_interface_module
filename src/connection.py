@@ -9,13 +9,12 @@ from HTTP import http_client_post
 
 from src import saving
 from src import parser_json
+from src import status
 
 from scheme import scheme_update
 
 from threading import Thread
 
-import threading
-import socket
 import time
 
 
@@ -40,7 +39,7 @@ def thread_test_connection():
         # Update state
         parser_json.upload_state()
         scheme_update.update()
-        update_nb_thread()
+        status.update_nb_thread()
 
         # Wait for 1 second
         time.sleep(1)
@@ -55,19 +54,3 @@ def connection_closed():
     param_co.state_hu["pywardium"]["http_connected"] = False
     param_co.state_hu["pywardium"]["sock_l1_connected"] = False
     param_co.state_hu["pywardium"]["sock_l2_connected"] = False
-
-def get_ip_adress():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.settimeout(0)
-    try:
-        # doesn't even have to be reachable
-        s.connect(('10.254.254.254', 1))
-        IP = s.getsockname()[0]
-    except Exception:
-        IP = '127.0.0.1'
-    finally:
-        s.close()
-    return IP
-
-def update_nb_thread():
-    param_co.state_co["self"]["nb_thread"] = threading.active_count()

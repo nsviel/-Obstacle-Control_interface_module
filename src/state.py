@@ -4,6 +4,7 @@
 from param import param_co
 from src import connection
 from src import parser_json
+from src import status
 from src import wallet
 
 
@@ -19,7 +20,7 @@ def load_json_file():
     param_co.state_py = parser_json.load_file(param_co.path_state_py)
 
 def init_state():
-    param_co.state_co["self"]["ip"] = connection.get_ip_adress()
+    param_co.state_co["self"]["ip"] = status.get_ip_adress()
 
     param_co.state_hu["self"]["status"] = "Offline"
     param_co.state_hu["data"]["nb_frame"] = 0
