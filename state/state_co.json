@@ -19,7 +19,7 @@
     "hubium": {
         "add": "Mine_Nathan",
         "ip": "10.201.20.131",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 443,
         "sock_l1_connected": false,
         "sock_l2_connected": false
@@ -29,8 +29,8 @@
         "dir_l1": "/media/aether/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aether/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_22-07-2022_13h54.pcap",
-        "path_l1_file": "/media/aether/lidar_ssd/capture/lidar_1/_22-07-2022_13h54.pcap",
-        "path_l2_file": "/media/aether/lidar_ssd/capture/lidar_2/_22-07-2022_13h54.pcap"
+        "file_name": "_22-07-2022_14h43.pcap",
+        "path_l1_file": "/media/aether/lidar_ssd/capture/lidar_1/_22-07-2022_14h43.pcap",
+        "path_l2_file": "/media/aether/lidar_ssd/capture/lidar_2/_22-07-2022_14h43.pcap"
     }
 }
