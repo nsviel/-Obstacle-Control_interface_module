@@ -52,6 +52,6 @@ def process_packet(packet):
     except:
         pass
     if(msg == "ok"):
-        param_hu.state_hu["velodium"]["connected"] = True
+        param_hu.state_hu["velodium"]["sock_connected"] = True
     else:
         data.process_lidar_1_data(packet)

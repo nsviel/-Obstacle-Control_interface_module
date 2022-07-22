@@ -58,7 +58,7 @@ def update_link_color():
     update_link_sock(param_co.state_hu["edge"]["sock_connected"], "link_ed_hu_sock")
 
     # Valeo
-    update_link_con(param_co.state_hu["valeo"]["connected"], "link_va_hu")
+    update_link_con(param_co.state_hu["valeo"]["http_connected"], "link_va_hu")
 
     # AI
     update_link_con(param_co.state_hu["ai"]["http_connected"], "link_ai_hu_http")

@@ -22,8 +22,8 @@ def init_state():
     param_co.state_co["self"]["ip"] = connection.get_ip_adress()
 
     param_co.state_hu["self"]["status"] = "Offline"
-    param_co.state_hu["self"]["nb_frame"] = 0
-    param_co.state_hu["self"]["nb_prediction"] = 0
+    param_co.state_hu["data"]["nb_frame"] = 0
+    param_co.state_hu["data"]["nb_prediction"] = 0
     param_co.state_hu["self"]["nb_thread"] = 0
     param_co.state_hu["sncf"]["broker_connected"] = False
     param_co.state_hu["ai"]["http_connected"] = False

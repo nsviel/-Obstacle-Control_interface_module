@@ -73,8 +73,8 @@ def update_pywardium():
     dpg.configure_item("py_l2_device",items=devices, num_items=len(devices))
 
 def update_data():
-    dpg.set_value("nb_frame", param_co.state_hu["self"]["nb_frame"])
-    dpg.set_value("nb_prediction", param_co.state_hu["self"]["nb_prediction"])
+    dpg.set_value("nb_frame", param_co.state_hu["data"]["nb_frame"])
+    dpg.set_value("nb_prediction", param_co.state_hu["data"]["nb_prediction"])
     #scheme_plot.update_plot_random()
 
 def update_image():
