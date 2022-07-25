@@ -4,6 +4,7 @@
 from param import param_co
 from HTTP import http_client_get
 from HTTP import http_client_post
+from SOCK import sock_server
 from src import saving
 from src import parser_json
 from src import wallet
@@ -12,20 +13,34 @@ import dearpygui.dearpygui as dpg
 
 
 def callback_choice_port():
-    http_client_post.post_param_py("controlium", "sock_server_port", dpg.get_value("co_sock_server_port"))
-    http_client_post.post_param_py("pywardium", "http_server_port", dpg.get_value("py_http_server_port"))
-    http_client_post.post_param_hu("self", "sock_server_port", dpg.get_value("hu_sock_server_port"))
+    param_co.state_co["self"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")
+    param_co.state_co["self"]["sock_server_l2_port"] = dpg.get_value("co_sock_server_l2_port")
+    sock_server.restart_daemon()
+
+    http_client_post.post_param_hu("controlium", "sock_server_l1_port", dpg.get_value("co_sock_server_l1_port"))
+    http_client_post.post_param_hu("controlium", "sock_server_l2_port", dpg.get_value("co_sock_server_l2_port"))
+    http_client_post.post_param_hu("self", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
+    http_client_post.post_param_hu("self", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
     http_client_post.post_param_hu("sncf", "broker_port", dpg.get_value("sncf_broker_port"))
+    http_client_post.post_param_hu("sncf", "mqtt_topic", dpg.get_value("sncf_mqtt_topic"))
+
+    http_client_post.post_param_py("pywardium", "http_server_port", dpg.get_value("py_http_server_port"))
+    http_client_post.post_param_py("hubium", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
+    http_client_post.post_param_py("hubium", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
 
 def callback_velo_option():
     pass
 
-def callback_lidar():
+def callback_lidar_active():
     http_client_post.post_param_py("lidar_1", "activated", dpg.get_value("l1_activated"))
-    http_client_post.post_param_py("lidar_1", "speed", dpg.get_value("l1_speed"))
-    http_client_post.post_param_py("lidar_1", "ip", str(dpg.get_value("l1_ip")))
     http_client_post.post_param_py("lidar_2", "activated", dpg.get_value("l2_activated"))
-    http_client_post.post_param_py("lidar_2", "speed", dpg.get_value("l2_speed"))
+
+def callback_lidar_ip():
+    http_client_post.post_param_py("lidar_1", "ip", str(dpg.get_value("l1_ip")))
+    http_client_post.post_param_py("lidar_2", "ip", str(dpg.get_value("l2_ip")))
+
+def callback_lidar_speed():
+    http_client_post.post_param_py("lidar_1", "ip", str(dpg.get_value("l1_ip")))
     http_client_post.post_param_py("lidar_2", "ip", str(dpg.get_value("l2_ip")))
 
 def callback_l1_start():

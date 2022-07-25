@@ -2,9 +2,10 @@
 #---------------------------------------------
 
 from param import param_co
-from src import io
 from scheme import scheme_link
 from scheme import scheme_plot
+from src import perf
+from src import io
 
 import dearpygui.dearpygui as dpg
 
@@ -40,6 +41,7 @@ def update_controlium():
     dpg.set_value("co_thread", param_co.state_co["self"]["nb_thread"])
     dpg.set_value("co_sock_server_l1_port", param_co.state_co["self"]["sock_server_l1_port"])
     dpg.set_value("co_sock_server_l2_port", param_co.state_co["self"]["sock_server_l2_port"])
+    dpg.set_value("co_temp", perf.get_temps_core(0))
 
 def update_hubium():
     dpg.set_value("hu_status", param_co.state_hu["self"]["status"])

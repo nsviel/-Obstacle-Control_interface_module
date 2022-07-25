@@ -12,5 +12,5 @@ def init_image():
         with dpg.texture_registry():
             dpg.add_dynamic_texture(width, height, data, tag="image_in")
     except:
-        print("[error] No image !")
+        print("[\033[1;31merror\033[0m] No image at \033[1;36m%s\033[0m" % param_co.path_image)
         exit()

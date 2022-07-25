@@ -23,7 +23,8 @@ run_thread_con = False
 run_thread_image = False
 
 # Socket
-sock_server = None
+sock_server_l1 = None
+sock_server_l2 = None
 
 # Plot
 nb_tic = 1000

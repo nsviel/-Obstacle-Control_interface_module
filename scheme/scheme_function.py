@@ -19,6 +19,12 @@ def line():
 def add_attribute(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
+def add_temperature(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Temp:");
+            dpg.add_text(0, tag=tag_, color=color_info);
+            dpg.add_text("°", color=color_info);
 def add_variable(text, tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
@@ -143,16 +149,16 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_ban
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_lidar);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_lidar_active);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar);
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_speed);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar);
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar_ip);
         # Start / Stop
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")

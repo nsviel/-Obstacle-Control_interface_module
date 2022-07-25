@@ -25,6 +25,7 @@ def node_controlium():
         scheme_function.add_status("co_status")
         scheme_function.add_ip("co_ip")
         scheme_function.add_nb_thread("co_thread")
+        scheme_function.add_temperature("co_temp")
 
         scheme_function.add_input("self", "co_self")
 

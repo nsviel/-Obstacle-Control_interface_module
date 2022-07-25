@@ -1,8 +1,8 @@
 {
     "self": {
-        "status": "Online",
-        "ip": "10.201.20.131",
-        "nb_thread": 4,
+        "status": "Offline",
+        "ip": "192.168.153.147",
+        "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -10,9 +10,8 @@
         "http_server_port": 443
     },
     "pywardium": {
-        "add": "localhost",
         "ip": "127.0.0.1",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
         "sock_l2_connected": false
