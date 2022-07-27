@@ -12,21 +12,24 @@ from src import wallet
 import dearpygui.dearpygui as dpg
 
 
-def callback_choice_port():
+def callback_port_controlium():
     param_co.state_co["self"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")
     param_co.state_co["self"]["sock_server_l2_port"] = dpg.get_value("co_sock_server_l2_port")
-    sock_server.restart_daemon()
-
     http_client_post.post_param_hu("controlium", "sock_server_l1_port", dpg.get_value("co_sock_server_l1_port"))
     http_client_post.post_param_hu("controlium", "sock_server_l2_port", dpg.get_value("co_sock_server_l2_port"))
+    sock_server.restart_daemon()
+
+def callback_port_hubium():
     http_client_post.post_param_hu("self", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
     http_client_post.post_param_hu("self", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
     http_client_post.post_param_hu("sncf", "broker_port", dpg.get_value("sncf_broker_port"))
     http_client_post.post_param_hu("sncf", "mqtt_topic", dpg.get_value("sncf_mqtt_topic"))
-
-    http_client_post.post_param_py("pywardium", "http_server_port", dpg.get_value("py_http_server_port"))
     http_client_post.post_param_py("hubium", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
     http_client_post.post_param_py("hubium", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
+    http_client_get.get_restart_sock_server()
+
+def callback_port_pywardium():
+    http_client_post.post_param_py("pywardium", "http_server_port", dpg.get_value("py_http_server_port"))
 
 def callback_velo_option():
     pass

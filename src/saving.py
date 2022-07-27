@@ -5,7 +5,6 @@ from param import param_co
 
 from datetime import datetime
 
-import pandas as pd
 import psutil
 import os
 
@@ -33,14 +32,6 @@ def determine_path():
 def get_formated_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')
     return str(date)
-
-def read_wallet():
-    X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
-    param_co.wallet_add = list()
-    param_co.wallet_ip = list()
-    for i in range(0, len(X[0])):
-        param_co.wallet_add.append(str(X[0][i]))
-        param_co.wallet_ip.append(str(X[1][i]))
 
 def check_directories():
     connected = param_co.state_co["ssd"]["connected"]

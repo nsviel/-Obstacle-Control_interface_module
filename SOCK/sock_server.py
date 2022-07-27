@@ -14,12 +14,12 @@ def start_daemon():
         thread_l2 = Thread(target = sock_server_fct.thread_socket_l2_server)
         thread_l1.start()
         thread_l2.start()
-        print("[\033[1;32mOK\033[0m] Start socket server daemon")
 
 def stop_daemon():
     param_co.run_thread_socket = False
 
 def restart_daemon():
+    print("[\033[1;32mOK\033[0m] Restart socket server daemon")
     stop_daemon()
     time.sleep(1)
     start_daemon()

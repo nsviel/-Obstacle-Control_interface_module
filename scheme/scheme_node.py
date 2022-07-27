@@ -34,10 +34,10 @@ def node_controlium():
         scheme_function.add_choice_edge("combo_edge")
 
         scheme_connection.add_sock_server_o("co_sock_server_l1")
-        scheme_function.add_port("co_sock_server_l1_port")
+        scheme_function.add_port_co("co_sock_server_l1_port")
 
         scheme_connection.add_sock_server_o("co_sock_server_l2")
-        scheme_function.add_port("co_sock_server_l2_port")
+        scheme_function.add_port_co("co_sock_server_l2_port")
 
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
@@ -51,7 +51,7 @@ def node_pywardium():
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
-        scheme_function.add_port("py_http_server_port")
+        scheme_function.add_port_py("py_http_server_port")
 
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
@@ -65,9 +65,9 @@ def node_hubium():
         scheme_function.add_mqtt("hu_mqtt")
 
         scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
-        scheme_function.add_port("hu_sock_server_l1_port")
+        scheme_function.add_port_hu("hu_sock_server_l1_port")
         scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
-        scheme_function.add_port("hu_sock_server_l2_port")
+        scheme_function.add_port_hu("hu_sock_server_l2_port")
 
         scheme_connection.add_sock_client_io("hu_sock_client_l1_i", "hu_sock_client_l1_o")
         scheme_connection.add_sock_client_i("hu_sock_client_l2_i")
@@ -113,7 +113,7 @@ def node_sncf():
         scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
 
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
-        scheme_function.add_port("sncf_broker_port")
+        scheme_function.add_port_hu("sncf_broker_port")
         scheme_function.add_topic("sncf_mqtt_topic")
 
 def node_valeo():

@@ -1,11 +1,11 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "192.168.153.147",
+        "ip": "192.168.1.27",
         "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
-        "sock_server_l1_port": 344,
+        "sock_server_l1_port": 315,
         "sock_server_l2_port": 345,
         "http_server_port": 443
     },
@@ -17,7 +17,7 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "192.168.153.147",
+        "ip": "192.168.1.27",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },

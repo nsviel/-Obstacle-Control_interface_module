@@ -21,6 +21,7 @@ def load_json_file():
 
 def init_state():
     param_co.state_co["self"]["ip"] = status.get_ip_adress()
+    param_co.state_co["path"]["file_name_add"] = ""
 
     param_co.state_hu["self"]["status"] = "Offline"
     param_co.state_hu["data"]["nb_frame"] = 0

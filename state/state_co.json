@@ -1,20 +1,21 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "192.168.153.147",
+        "ip": "192.168.1.27",
         "nb_thread": 5,
         "sock_server_l1_port": 321,
-        "sock_server_l2_port": 322
+        "sock_server_l2_port": 322,
+        "file_name_add": ""
     },
     "gui": {
         "width": 1400,
         "height": 825
     },
     "ssd": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "space_total": 1862,
-        "space_used": 371
+        "space_total": 0,
+        "space_used": 0
     },
     "hubium": {
         "add": "Mine_Nathan",
@@ -28,9 +29,10 @@
         "dir_capture": "/media/aether/lidar_ssd/capture",
         "dir_l1": "/media/aether/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aether/lidar_ssd/capture/lidar_2",
-        "file_name_add": "hhhh",
-        "file_name": "hhhh_25-07-2022_18h15.pcap",
-        "path_l1_file": "/media/aether/lidar_ssd/capture/lidar_1/hhhh_25-07-2022_18h15.pcap",
-        "path_l2_file": "/media/aether/lidar_ssd/capture/lidar_2/hhhh_25-07-2022_18h15.pcap"
+        "file_name_add": "",
+        "file_name": "_27-07-2022_12h02.pcap",
+        "path_l1_file": "/media/aether/lidar_ssd/capture/lidar_1/_27-07-2022_12h02.pcap",
+        "path_l2_file": "/media/aether/lidar_ssd/capture/lidar_2/_27-07-2022_12h02.pcap",
+        "bandwidth": 0
     }
 }

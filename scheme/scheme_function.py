@@ -62,11 +62,6 @@ def add_ip_wallet(tag_wallet, tag_ip, default):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
-def add_port(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_choice_port);
 def add_port_fixe(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -132,6 +127,21 @@ def add_geolocalization(tag_):
 def add_image(tag):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_image(tag, width=300, height=175)
+def add_port_co(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_controlium);
+def add_port_hu(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_hubium);
+def add_port_py(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_pywardium);
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev):

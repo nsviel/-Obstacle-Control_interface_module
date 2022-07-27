@@ -5,7 +5,7 @@ from param import param_co
 
 from src import loop
 from src import state
-from src import saving
+from src import wallet
 
 from scheme import scheme
 from scheme import scheme_loop
@@ -14,6 +14,8 @@ from scheme import scheme_update
 
 from gui import gui_menu
 from gui import gui_image
+from gui import gui_wallet
+from gui import gui_theme
 
 import dearpygui.dearpygui as dpg
 
@@ -24,15 +26,18 @@ def program():
     #Initialization
     state.load_configuration()
     gui_image.init_image()
-    saving.read_wallet()
+    wallet.read_wallet()
 
     #Build GUI
+    with dpg.window(label="Wallet", autosize=True, no_resize=True, show=False, tag="win_wallet"):
+        gui_wallet.build_window()
     with dpg.window(tag="window", label="Controlium"):
         gui_menu.menu()
         scheme.build_scheme()
 
     #Main GUI theme
-    scheme_theme.global_theme()
+    gui_theme.gui_theme()
+    scheme_theme.scheme_theme()
 
     # Setup GUI
     gui_width = param_co.state_co["gui"]["width"]

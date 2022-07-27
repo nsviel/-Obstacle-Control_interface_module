@@ -24,7 +24,7 @@ def send_conn_request(command):
     sock.close()
     return connected
 
-def send_state_request(name):
+def send_get_state(name):
     connected = param_co.state_co["hubium"]["http_connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
@@ -39,7 +39,7 @@ def send_state_request(name):
         except:
             pass
 
-def send_command_request(command, sucess):
+def send_get_request(command, sucess):
     connected = param_co.state_co["hubium"]["http_connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
@@ -50,7 +50,7 @@ def send_command_request(command, sucess):
         except:
             connection.connection_closed()
 
-def send_image_request(path):
+def send_get_image(path):
     connected = param_co.state_co["hubium"]["http_connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]
@@ -71,7 +71,7 @@ def send_image_request(path):
         except:
             connection.connection_closed()
 
-def send_param_request(command, lvl1, lvl2, value):
+def send_post_request(command, lvl1, lvl2, value):
     connected = param_co.state_co["hubium"]["http_connected"]
     ip = param_co.state_co["hubium"]["ip"]
     port = param_co.state_co["hubium"]["http_server_port"]

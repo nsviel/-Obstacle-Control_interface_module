@@ -13,7 +13,7 @@ color_node_pin = (200, 200, 10)
 color_node_link = (255, 255, 255)
 
 
-def global_theme():
+def scheme_theme():
     with dpg.theme() as global_theme:
         with dpg.theme_component(dpg.mvAll):
             # Divers
