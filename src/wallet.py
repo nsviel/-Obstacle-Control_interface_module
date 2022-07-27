@@ -6,6 +6,25 @@ from param import param_co
 import pandas as pd
 
 
+def add_new_item(new_add, new_ip):
+    if(new_add != "" and new_ip != ""):
+        param_co.wallet_add.append(new_add)
+        param_co.wallet_ip.append(new_ip)
+        write_wallet()
+
+def remove_item(item):
+    for i in range(0, len(param_co.wallet_add)):
+        if(param_co.wallet_add[i] == item):
+            del param_co.wallet_add[i]
+            del param_co.wallet_ip[i]
+            write_wallet()
+            break
+
+def remove_item_id(id):
+    del param_co.wallet_add[int(id)]
+    del param_co.wallet_ip[int(id)]
+    write_wallet()
+
 def get_ip_from_key(key):
     for i in range(0, len(param_co.wallet_add)):
         if(param_co.wallet_add[i] == key):
@@ -26,7 +45,10 @@ def read_wallet():
         param_co.wallet_add.append(str(X[0][i]))
         param_co.wallet_ip.append(str(X[1][i]))
 
-def add_new_item(new_add, new_ip):
-    if(new_add != "" and new_ip != ""):
-        param_co.wallet_add.append(new_add)
-        param_co.wallet_ip.append(new_ip)
+def write_wallet():
+    file = open("src/wallet.txt","w")
+    for i in range(0, len(param_co.wallet_add)):
+        file.write(param_co.wallet_add[i])
+        file.write(" ")
+        file.write(param_co.wallet_ip[i])
+        file.write("\n")

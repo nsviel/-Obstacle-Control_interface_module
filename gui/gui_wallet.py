@@ -26,7 +26,9 @@ def build_table():
     with dpg.table(header_row=True, borders_innerH=True, tag="wallet_table", parent="win_wallet"):
         dpg.add_table_column(label="Address")
         dpg.add_table_column(label="IP")
+        dpg.add_table_column(label="", width_fixed=True, init_width_or_weight=20)
         for i in range(len(param_co.wallet_add)):
             with dpg.table_row():
                 dpg.add_text(param_co.wallet_add[i])
                 dpg.add_text(param_co.wallet_ip[i])
+                dpg.add_button(label="X", tag=str(i), callback=gui_callback.callback_wallet_remove)

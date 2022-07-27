@@ -5,6 +5,7 @@ from param import param_co
 from HTTP import http_client_get
 from src import wallet
 from gui import gui_wallet
+from scheme import scheme_update
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
@@ -24,3 +25,10 @@ def callback_wallet_add():
     dpg.set_value("wallet_new_ip", "")
     gui_wallet.destroy_table()
     gui_wallet.build_table()
+    scheme_update.update_combo_add()
+
+def callback_wallet_remove(sender):
+    wallet.remove_item_id(sender)
+    gui_wallet.destroy_table()
+    gui_wallet.build_table()
+    scheme_update.update_combo_add()

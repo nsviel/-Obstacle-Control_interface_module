@@ -82,3 +82,9 @@ def update_data():
 def update_image():
     width, height, channels, data = dpg.load_image(param_co.path_image)
     dpg.set_value("image_in", data)
+
+def update_combo_add():
+    dpg.configure_item("py_wallet", items=param_co.wallet_add)
+    dpg.configure_item("hu_wallet", items=param_co.wallet_add)
+    dpg.configure_item("ed_wallet", items=param_co.wallet_add)
+    dpg.configure_item("sncf_wallet", items=param_co.wallet_add)
