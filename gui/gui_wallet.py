@@ -31,4 +31,5 @@ def build_table():
             with dpg.table_row():
                 dpg.add_text(param_co.wallet_add[i])
                 dpg.add_text(param_co.wallet_ip[i])
-                dpg.add_button(label="X", tag=str(i), callback=gui_callback.callback_wallet_remove)
+                if(i > 4):
+                    dpg.add_button(label="X", tag=str(i), callback=gui_callback.callback_wallet_remove)

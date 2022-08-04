@@ -13,15 +13,9 @@ def create_link():
     dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_i", tag="link_hu_co_l2_sock")
     dpg.add_node_link("co_self", "ssd_input", tag="link_co_ssd")
 
-    dpg.add_node_link("py_l1_out", "hu_sock_server_l1_i", tag="link_py_hu_l1_sock")
-    dpg.add_node_link("py_l2_out", "hu_sock_server_l2_i", tag="link_py_hu_l2_sock")
-    dpg.add_node_link("py_http_server", "hu_http_client_i", tag="link_hu_py_http")
-    dpg.add_node_link("py_l1_in", "l1_input", tag="link_l1_py")
-    dpg.add_node_link("py_l2_in", "l2_input", tag="link_l2_py")
-    dpg.add_node_link("py_self", "geo_input", tag="link_py_geo")
-
     dpg.add_node_link("hu_mqtt", "sncf_mqtt_broker", tag="link_hu_sncf_mqtt")
     dpg.add_node_link("hu_stockage", "ai_http_server", tag="link_ai_hu_http")
+    dpg.add_node_link("hu_http_client_o", "ve_http_server", tag="link_hu_ve_http")
     dpg.add_node_link("hu_http_client_o", "ed_http_server", tag="link_hu_ed_http")
     dpg.add_node_link("hu_http_server_o", "ed_http_client", tag="link_ed_hu_http")
 
@@ -30,6 +24,13 @@ def create_link():
     dpg.add_node_link("hu_sock_server_l1_o", "ed_sock_client", tag="link_ed_hu_sock")
 
     dpg.add_node_link("va_http_client", "hu_http_server_o", tag="link_va_hu")
+
+    dpg.add_node_link("py_l1_out", "hu_sock_server_l1_i", tag="link_py_hu_l1_sock")
+    dpg.add_node_link("py_l2_out", "hu_sock_server_l2_i", tag="link_py_hu_l2_sock")
+    dpg.add_node_link("py_http_server", "hu_http_client_i", tag="link_hu_py_http")
+    dpg.add_node_link("py_l1_in", "l1_input", tag="link_l1_py")
+    dpg.add_node_link("py_l2_in", "l2_input", tag="link_l2_py")
+    dpg.add_node_link("py_self", "geo_input", tag="link_py_geo")
 
 def update_link_color():
     # Controlium

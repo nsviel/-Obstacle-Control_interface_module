@@ -6,7 +6,7 @@ from HTTP import http_client_fct
 from src import parser_json
 
 
-def get_falsealarm():
+def get_false_alarm():
     http_client_fct.send_get_request("/false_alarm", "[#] False alarm sended")
 
 def get_restart_sock_server():

@@ -51,6 +51,7 @@ def update_hubium():
     dpg.set_value("hu_country", param_co.state_hu["self"]["country"])
     dpg.set_value("hu_edge_id", param_co.state_hu["self"]["edge_id"])
     dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
+    dpg.set_value("ve_http_server_port", param_co.state_hu["velodium"]["http_server_port"])
     dpg.set_value("ai_http_server_port", param_co.state_hu["ai"]["http_server_port"])
     dpg.set_value("hu_sock_server_l1_port", param_co.state_hu["self"]["sock_server_l1_port"])
     dpg.set_value("hu_sock_server_l2_port", param_co.state_hu["self"]["sock_server_l2_port"])

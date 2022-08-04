@@ -72,7 +72,8 @@ def colorize_node():
     dpg.bind_item_theme("node_py", layer_train)
     dpg.bind_item_theme("node_train", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
-    dpg.bind_item_theme("node_local", layer_edge)
+    dpg.bind_item_theme("node_velodium", layer_edge)
+    dpg.bind_item_theme("node_ai", layer_edge)
     dpg.bind_item_theme("node_data", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
@@ -106,6 +107,8 @@ def colorize_item():
     dpg.bind_item_theme("hu_sock_server_l1_port", input_text)
     dpg.bind_item_theme("hu_sock_server_l2_port", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)
+    dpg.bind_item_theme("hu_sock_client_l1_source", input_text)
+    dpg.bind_item_theme("ve_opt_view", input_text)
 
     dpg.bind_item_theme("hu_wallet", input_text)
     dpg.bind_item_theme("py_wallet", input_text)

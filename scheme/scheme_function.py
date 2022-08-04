@@ -107,9 +107,12 @@ def add_option(label, tag_option):
             dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_velo_option);
 
 # Specific stuff
-def add_false_alarm(tag_):
+def add_false_alarm():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="False alarm", tag=tag_, callback=scheme_callback.callback_false_alarm)
+        dpg.add_button(label="False alarm", width=100, callback=scheme_callback.callback_false_alarm)
+def add_new_save():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_button(label="New save", width=100, callback=scheme_callback.callback_new_save)
 def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
@@ -142,6 +145,14 @@ def add_port_py(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_pywardium);
+def add_velo_option(tag_slam, tag_view):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("SLAM:");
+            dpg.add_checkbox(tag=tag_slam, label="", default_value=True, callback=scheme_callback.callback_velo_option);
+        with dpg.group(horizontal=True):
+            dpg.add_text("View:");
+            dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velo_option, horizontal=True)
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev):

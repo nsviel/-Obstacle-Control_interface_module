@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from scheme import scheme_function
+from scheme import scheme_callback
 
 import dearpygui.dearpygui as dpg
 
@@ -49,6 +50,23 @@ def add_sock_client_io(tag_i, tag_o):
         dpg.add_text("Socket client");
     with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         a=1
+
+def add_sock_client_source_i(tag_i, tag_source):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+        with dpg.group(horizontal=True):
+            dpg.add_text("Source:");
+            dpg.add_text("Lidar 2", tag=tag_source, color=color_info)
+def add_sock_client_source_io(tag_i, tag_o, tag_combo):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+    with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Source:");
+            choice = ("Lidar 1", "Lidar 2")
+            dpg.add_combo(choice, tag=tag_combo, label="", default_value="Lidar 1", width=80, callback=scheme_callback.callback_hubium_source)
 
 def add_http_client_i(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):

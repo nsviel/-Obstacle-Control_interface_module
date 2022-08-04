@@ -10,12 +10,13 @@ import dearpygui.dearpygui as dpg
 
 coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
-coord_hubium = [835, 385]
+coord_hubium = [835, 375]
 coord_train = [10, 10]
-coord_edge = [1200, 375]
-coord_local = [1200, 10]
-coord_sncf = [1200, 200]
-coord_valeo = [1200, 662]
+coord_edge = [1200, 250]
+coord_velodium = [1200, 550]
+coord_ai = [1200, 10]
+coord_sncf = [1200, 100]
+coord_valeo = [1200, 725]
 coord_ssd = [10, 500]
 coord_data = [755, 10]
 
@@ -30,7 +31,7 @@ def node_controlium():
         scheme_function.add_input("self", "co_self")
 
         scheme_connection.add_http_client_o("co_http_client")
-        scheme_function.add_false_alarm("but_fal")
+        scheme_function.add_false_alarm()
         scheme_function.add_choice_edge("combo_edge")
 
         scheme_connection.add_sock_server_o("co_sock_server_l1")
@@ -69,8 +70,8 @@ def node_hubium():
         scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
         scheme_function.add_port_hu("hu_sock_server_l2_port")
 
-        scheme_connection.add_sock_client_io("hu_sock_client_l1_i", "hu_sock_client_l1_o")
-        scheme_connection.add_sock_client_i("hu_sock_client_l2_i")
+        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source")
+        scheme_connection.add_sock_client_source_i("hu_sock_client_l2_i", "hu_sock_client_l2_source")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
         scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")
@@ -99,13 +100,17 @@ def node_edge():
         scheme_connection.add_http_server_i("ed_http_server")
         scheme_function.add_port_fixe("ed_http_server_port")
 
-def node_edge_local():
-    with dpg.node(label="Local", tag="node_local", pos=coord_local):
-        scheme_connection.add_sock_server_i_text("Velodium", "ve_sock_server")
+def node_velodium():
+    with dpg.node(label="Velodium", tag="node_velodium", pos=coord_velodium):
+        scheme_connection.add_sock_server_i("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
-        scheme_function.add_option("SLAM", "ve_opt_slam")
+        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
+        scheme_connection.add_http_server_i("ve_http_server")
+        scheme_function.add_port_fixe("ve_http_server_port")
 
-        scheme_connection.add_http_server_i_text("AI", "ai_http_server")
+def node_ai():
+    with dpg.node(label="AI", tag="node_ai", pos=coord_ai):
+        scheme_connection.add_http_server_i("ai_http_server")
         scheme_function.add_port_fixe("ai_http_server_port")
 
 def node_sncf():
@@ -124,6 +129,7 @@ def node_valeo():
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd", pos=coord_ssd):
         scheme_function.add_ssd("ssd_input", "ssd_active", "ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total")
+        scheme_function.add_new_save()
         scheme_function.add_file_info("Lidar 1", "l1_file_path", "l1_file_size")
         scheme_function.add_file_info("Lidar 2", "l2_file_path", "l2_file_size")
 

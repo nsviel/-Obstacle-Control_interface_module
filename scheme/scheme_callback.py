@@ -18,7 +18,6 @@ def callback_port_controlium():
     http_client_post.post_param_hu("controlium", "sock_server_l1_port", dpg.get_value("co_sock_server_l1_port"))
     http_client_post.post_param_hu("controlium", "sock_server_l2_port", dpg.get_value("co_sock_server_l2_port"))
     sock_server.restart_daemon()
-
 def callback_port_hubium():
     http_client_post.post_param_hu("self", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
     http_client_post.post_param_hu("self", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
@@ -27,56 +26,45 @@ def callback_port_hubium():
     http_client_post.post_param_py("hubium", "sock_server_l1_port", dpg.get_value("hu_sock_server_l1_port"))
     http_client_post.post_param_py("hubium", "sock_server_l2_port", dpg.get_value("hu_sock_server_l2_port"))
     http_client_get.get_restart_sock_server()
-
 def callback_port_pywardium():
     http_client_post.post_param_py("pywardium", "http_server_port", dpg.get_value("py_http_server_port"))
-
-def callback_velo_option():
-    pass
 
 def callback_lidar_active():
     http_client_post.post_param_py("lidar_1", "activated", dpg.get_value("l1_activated"))
     http_client_post.post_param_py("lidar_2", "activated", dpg.get_value("l2_activated"))
-
 def callback_lidar_ip():
     http_client_post.post_param_py("lidar_1", "ip", str(dpg.get_value("l1_ip")))
     http_client_post.post_param_py("lidar_2", "ip", str(dpg.get_value("l2_ip")))
-
 def callback_lidar_speed():
     http_client_post.post_param_py("lidar_1", "ip", str(dpg.get_value("l1_ip")))
     http_client_post.post_param_py("lidar_2", "ip", str(dpg.get_value("l2_ip")))
 
 def callback_l1_start():
     http_client_post.post_lidar_start("lidar_1")
-
 def callback_l1_stopt():
     http_client_post.post_lidar_stop("lidar_1")
-
 def callback_l2_start():
     http_client_post.post_lidar_start("lidar_2")
-
 def callback_l2_stopt():
     http_client_post.post_lidar_stop("lidar_2")
 
 def callback_false_alarm():
-    http_client_get.get_falsealarm()
-
+    http_client_get.get_false_alarm()
+def callback_new_save():
+    saving.determine_path()
 def callback_ssd():
     param_co.path_ssd = dpg.get_value("ssd_path")
     param_co.state_co["ssd"]["activated"] = dpg.get_value("ssd_active")
-
 def callback_name_editing():
     dpg.set_value("ssd_active", False)
     param_co.state_co["ssd"]["activated"] = False
     param_co.state_co["path"]["file_name_add"] = dpg.get_value("ssd_path_add")
     param_co.path_ssd = dpg.get_value("ssd_path")
     saving.determine_path()
-
 def callback_param_py():
     http_client_post.post_param_py("lidar_1", "device", str(dpg.get_value("py_l1_device")))
     http_client_post.post_param_py("lidar_2", "device", str(dpg.get_value("py_l2_device")))
     http_client_post.post_param_py("self", "http_server_port", dpg.get_value("py_http_server_port"))
-
 def callback_comboip():
     hu_ip = wallet.get_ip_from_key(dpg.get_value("hu_wallet"))
     py_ip = wallet.get_ip_from_key(dpg.get_value("py_wallet"))
@@ -98,3 +86,16 @@ def callback_comboip():
         param_co.state_hu["sncf"]["broker_ip"] = sncf_ip
         dpg.set_value("sncf_ip", sncf_ip)
         http_client_post.post_param_hu("sncf", "broker_ip", sncf_ip)
+
+def callback_hubium_source():
+    source_l1 = dpg.get_value("hu_sock_client_l1_source")
+    if(source_l1 == "Lidar 1"):
+        source_l2 = "Lidar 2"
+    else:
+        source_l2 = "Lidar 1"
+    dpg.set_value("hu_sock_client_l2_source", source_l2)
+    http_client_post.post_param_hu("self", "sock_server_l1_source", source_l1)
+    http_client_post.post_param_hu("self", "sock_server_l2_source", source_l2)
+def callback_velo_option():
+    opt_slam = dpg.get_value("ve_opt_slam")
+    opt_view = dpg.get_value("ve_opt_view")
