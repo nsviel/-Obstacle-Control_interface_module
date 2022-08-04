@@ -98,4 +98,7 @@ def callback_hubium_source():
     http_client_post.post_param_hu("self", "sock_server_l2_source", source_l2)
 def callback_velo_option():
     opt_slam = dpg.get_value("ve_opt_slam")
+    http_client_post.post_param_ve("slam", opt_slam)
+
     opt_view = dpg.get_value("ve_opt_view")
+    http_client_post.post_param_ve("view", opt_view)

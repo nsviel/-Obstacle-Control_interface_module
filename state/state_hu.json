@@ -1,11 +1,11 @@
 {
     "self": {
-        "status": "Offline",
+        "status": "Online",
         "ip": "192.168.1.27",
-        "nb_thread": 0,
+        "nb_thread": 7,
         "country": "France",
         "edge_id": 0,
-        "sock_server_l1_port": 315,
+        "sock_server_l1_port": 344,
         "sock_server_l1_source": "Lidar 1",
         "sock_server_l2_port": 345,
         "sock_server_l2_source": "Lidar 2",
@@ -25,7 +25,7 @@
     },
     "velodium": {
         "http_connected": false,
-        "http_server_port": 325,
+        "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370
     },
@@ -35,7 +35,7 @@
     },
     "sncf": {
         "add": "localhost",
-        "broker_connected": false,
+        "broker_connected": true,
         "broker_ip": "127.0.0.1",
         "broker_port": 1883,
         "mqtt_topic": "ai_obstacle"

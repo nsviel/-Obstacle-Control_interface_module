@@ -22,6 +22,23 @@ def send_get_request(command, sucess):
         except:
             connection.connection_closed()
 
+def send_post_option(command, option, value):
+    connected = param_co.state_co["hubium"]["http_connected"]
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+
+    header = {"Content-type": "application/json"}
+    payload = {option: value}
+    file = json.dumps(payload)
+
+    if(connected):
+        try:
+            sock = client.HTTPConnection(ip, port, timeout=1)
+            sock.request("POST", command, file, header)
+            sock.close()
+        except:
+            print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+
 def send_post_request(command, lvl1, lvl2, value):
     connected = param_co.state_co["hubium"]["http_connected"]
     ip = param_co.state_co["hubium"]["ip"]
