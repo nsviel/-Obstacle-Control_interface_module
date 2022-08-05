@@ -94,6 +94,7 @@ def send_get_image(path):
             sock.request("GET", "/image")
             response = sock.getresponse()
             data_binary = response.read()
+            print(len(data_binary))
 
             # Save image
             if(len(data_binary) != 0):

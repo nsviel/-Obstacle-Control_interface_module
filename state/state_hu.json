@@ -2,7 +2,7 @@
     "self": {
         "status": "Online",
         "ip": "192.168.1.27",
-        "nb_thread": 7,
+        "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,

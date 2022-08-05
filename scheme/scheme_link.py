@@ -36,6 +36,8 @@ def update_link_color():
     # Controlium
     update_link_con(param_co.state_co["hubium"]["http_connected"], "link_co_hu_http")
     update_link_con(param_co.state_co["ssd"]["connected"], "link_co_ssd")
+    update_link_sock(param_co.state_co["hubium"]["sock_l1_connected"], "link_hu_co_l1_sock")
+    update_link_sock(param_co.state_co["hubium"]["sock_l2_connected"], "link_hu_co_l2_sock")
 
     # Lidars
     update_link_sock(param_co.state_hu["pywardium"]["sock_l1_connected"], "link_py_hu_l1_sock")
@@ -51,8 +53,7 @@ def update_link_color():
     update_link_con(param_co.state_hu["edge"]["http_connected"], "link_hu_ed_http")
     update_link_sock(param_co.state_hu["edge"]["sock_connected"], "link_hu_ed_sock")
     update_link_sock(param_co.state_hu["velodium"]["sock_connected"], "link_hu_ve_sock")
-    update_link_sock(param_co.state_co["hubium"]["sock_l1_connected"], "link_hu_co_l1_sock")
-    update_link_sock(param_co.state_co["hubium"]["sock_l2_connected"], "link_hu_co_l2_sock")
+    update_link_con(param_co.state_hu["velodium"]["http_connected"], "link_hu_ve_http")
 
     # Edge
     update_link_con(param_co.state_hu["edge"]["http_connected"], "link_ed_hu_http")

@@ -43,7 +43,6 @@ def thread_test_connection():
 
         # Wait for 1 second
         time.sleep(1)
-        pass
 
 def connection_closed():
     param_co.state_co["hubium"]["http_connected"] = False

@@ -21,6 +21,8 @@ def get_state_py():
     if(state != None):
         parser_json.upload_file_by_sock_data(param_co.path_state_py, state)
         param_co.state_py = parser_json.load_file(param_co.path_state_py)
+def get_image():
+    http_client_fct.send_get_image(param_co.path_image)
 
 #Pywardium
 def get_lidar_1_start():
@@ -31,7 +33,3 @@ def get_lidar_2_start():
     http_client_fct.send_get_request("/lidar_2_start", "[#] Lidar 2 start")
 def get_lidar_2_stop():
     http_client_fct.send_get_request("/lidar_2_stop", "[#] Lidar 2 stop")
-
-#Velodium
-def get_image():
-    http_client_fct.send_get_image(param_co.path_image)
