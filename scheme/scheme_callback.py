@@ -62,8 +62,12 @@ def callback_name_editing():
     param_co.path_ssd = dpg.get_value("ssd_path")
     saving.determine_path()
 def callback_param_py():
-    http_client_post.post_param_py("lidar_1", "device", str(dpg.get_value("py_l1_device")))
-    http_client_post.post_param_py("lidar_2", "device", str(dpg.get_value("py_l2_device")))
+    l1_dev = dpg.get_value("py_l1_device")
+    l2_dev = dpg.get_value("py_l2_device")
+    param_co.state_py["lidar_1"]["device"] = l1_dev
+    param_co.state_py["lidar_2"]["device"] = l2_dev
+    http_client_post.post_param_py("lidar_1", "device", str(l1_dev))
+    http_client_post.post_param_py("lidar_2", "device", str(l2_dev))
     http_client_post.post_param_py("self", "http_server_port", dpg.get_value("py_http_server_port"))
 def callback_comboip():
     hu_ip = wallet.get_ip_from_key(dpg.get_value("hu_wallet"))
@@ -75,7 +79,7 @@ def callback_comboip():
         param_co.state_co["hubium"]["ip"] = hu_ip
         dpg.set_value("hu_ip", hu_ip)
     if(py_ip != None):
-        param_co.state_py["self"]["ip"] = py_ip
+        param_co.state_hu["pywardium"]["ip"] = py_ip
         dpg.set_value("py_ip", py_ip)
         http_client_post.post_param_hu("pywardium", "ip", py_ip)
     if(ed_ip != None):

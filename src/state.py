@@ -52,6 +52,8 @@ def load_config_file():
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
 
+    param_co.state_co["pywardium"]["add"] = config["pywardium"]["add"]
+
 def upload_state():
     parser_json.upload_file(param_co.path_state_hu, param_co.state_hu)
     parser_json.upload_file(param_co.path_state_py, param_co.state_py)

@@ -43,7 +43,7 @@ def node_controlium():
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status")
-        scheme_function.add_ip_wallet("py_wallet", "py_ip", param_co.state_py["self"]["add"])
+        scheme_function.add_ip_wallet("py_wallet", "py_ip", param_co.state_co["pywardium"]["add"])
         scheme_function.add_nb_thread("py_thread")
 
         scheme_function.add_input("self", "py_self")
@@ -102,9 +102,9 @@ def node_edge():
 
 def node_velodium():
     with dpg.node(label="Velodium", tag="node_velodium", pos=coord_velodium):
+        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
         scheme_connection.add_sock_server_i("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
-        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
         scheme_connection.add_http_server_i("ve_http_server")
         scheme_function.add_port_fixe("ve_http_server_port")
 

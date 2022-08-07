@@ -67,7 +67,7 @@ def update_edge():
 
 def update_pywardium():
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
-    dpg.set_value("py_ip", param_co.state_py["self"]["ip"])
+    dpg.set_value("py_ip", param_co.state_hu["pywardium"]["ip"])
     dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
     dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))
 
