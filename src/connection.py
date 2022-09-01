@@ -15,6 +15,7 @@ from scheme import scheme_update
 
 from threading import Thread
 
+import socket
 import time
 
 
@@ -53,3 +54,16 @@ def connection_closed():
     param_co.state_hu["pywardium"]["http_connected"] = False
     param_co.state_hu["pywardium"]["sock_l1_connected"] = False
     param_co.state_hu["pywardium"]["sock_l2_connected"] = False
+
+def get_ip_adress():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(0)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.254.254.254', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
