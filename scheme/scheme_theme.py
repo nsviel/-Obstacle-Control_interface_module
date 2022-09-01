@@ -6,11 +6,12 @@ from scheme import scheme_color
 import dearpygui.dearpygui as dpg
 
 color_white = (255, 255, 255)
-color_node_grid_line = (30, 30, 30)
-color_node_grid_bkg = (40, 40, 40)
+color_node_grid_line = (40, 40, 40)
+color_node_grid_bkg = (80, 80, 80)
 color_node_bkg = (25, 25, 25)
 color_node_pin = (200, 200, 10)
 color_node_link = (255, 255, 255)
+link_thikness = 2
 
 
 def scheme_theme():
@@ -41,7 +42,7 @@ def scheme_theme():
             dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, 1, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, link_thikness, category=dpg.mvThemeCat_Nodes)
 
             # Node
             dpg.add_theme_color(dpg.mvNodeCol_Pin, color_node_pin, category=dpg.mvThemeCat_Nodes)

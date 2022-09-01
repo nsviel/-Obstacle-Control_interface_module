@@ -1,8 +1,8 @@
 {
     "self": {
-        "status": "Online",
+        "status": "Offline",
         "ip": "192.168.1.27",
-        "nb_thread": 6,
+        "nb_thread": 0,
         "http_server_port": 314
     },
     "lidar_1": {
@@ -32,17 +32,5 @@
     "geolocalization": {
         "country": "France"
     },
-    "device": {
-        "0": "ztwdjfturv",
-        "1": "wlp2s0",
-        "2": "ztyxaz6f43",
-        "3": "lo",
-        "4": "any",
-        "5": "docker0",
-        "6": "br-bf1cd95e8d83",
-        "7": "bluetooth-monitor",
-        "8": "nflog",
-        "9": "nfqueue",
-        "10": "bluetooth0"
-    }
+    "device": {}
 }
