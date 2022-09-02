@@ -13,7 +13,7 @@
     },
     "ssd": {
         "connected": false,
-        "activated": true,
+        "activated": false,
         "space_total": 0,
         "space_used": 0
     },
@@ -29,13 +29,13 @@
         "add": "mine_nathan"
     },
     "path": {
-        "dir_capture": "/media/aeter/lidar_ssd/capture",
-        "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
-        "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
+        "dir_capture": "/media/lidar_ssd/capture",
+        "dir_l1": "/media/lidar_ssd/capture/lidar_1",
+        "dir_l2": "/media/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_01-09-2022_15h07.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_01-09-2022_15h07.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_01-09-2022_15h07.pcap",
+        "file_name": "_02-09-2022_17h09.pcap",
+        "path_l1_file": "/media/lidar_ssd/capture/lidar_1/_02-09-2022_17h09.pcap",
+        "path_l2_file": "/media/lidar_ssd/capture/lidar_2/_02-09-2022_17h09.pcap",
         "bandwidth": 0
     }
 }
