@@ -12,18 +12,18 @@ coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
 coord_hubium = [835, 375]
 coord_train = [10, 10]
-coord_edge = [1200, 250]
-coord_velodium = [1200, 550]
+coord_edge = [1200, 470]
+coord_velodium = [1200, 150]
 coord_ai = [1200, 10]
-coord_sncf = [1200, 100]
-coord_valeo = [1200, 725]
+coord_sncf = [1200, 330]
+coord_valeo = [1200, 740]
 coord_ssd = [10, 500]
 coord_data = [755, 10]
 
 
 def node_controlium():
     with dpg.node(label="Controlium", tag="node_co", pos=coord_controlium):
-        scheme_function.add_status("co_status")
+        scheme_function.add_status("co_status_but", "co_status")
         scheme_function.add_ip("co_ip")
         scheme_function.add_nb_thread("co_thread")
         scheme_function.add_temperature("co_temp")
@@ -42,7 +42,7 @@ def node_controlium():
 
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
-        scheme_function.add_status("py_status")
+        scheme_function.add_status("py_status_but", "py_status")
         scheme_function.add_ip_wallet("py_wallet", "py_ip", param_co.state_co["pywardium"]["add"])
         scheme_function.add_nb_thread("py_thread")
 
@@ -56,14 +56,13 @@ def node_pywardium():
 
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
-        scheme_function.add_status("hu_status")
+        scheme_function.add_status("hu_status_but", "hu_status")
         scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"])
         scheme_function.add_nb_thread("hu_thread")
 
         scheme_function.add_edge_id("hu_edge_id")
         scheme_function.add_country("hu_country")
-        scheme_function.add_stockage("hu_stockage")
-        scheme_function.add_mqtt("hu_mqtt")
+        scheme_function.add_mqtt("hu_mqtt_client", "hu_mqtt_client_name")
 
         scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
         scheme_function.add_port_hu("hu_sock_server_l1_port")
@@ -86,7 +85,7 @@ def node_train():
 
 def node_edge():
     with dpg.node(label="Edge", tag="node_ed", pos=coord_edge):
-        scheme_function.add_status("ed_status")
+        scheme_function.add_status("ed_status_but", "ed_status")
         scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"])
         scheme_function.add_edge_id("ed_edge_id")
         scheme_function.add_country("ed_country")
@@ -102,6 +101,7 @@ def node_edge():
 
 def node_velodium():
     with dpg.node(label="Velodium", tag="node_velodium", pos=coord_velodium):
+        scheme_function.add_status("ve_status_but", "ve_status")
         scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
         scheme_connection.add_sock_server_i("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
@@ -110,6 +110,9 @@ def node_velodium():
 
 def node_ai():
     with dpg.node(label="AI", tag="node_ai", pos=coord_ai):
+        scheme_function.add_status("ai_status_but", "ai_status")
+        scheme_function.add_ai_param_height("ai_lidar_height")
+        scheme_function.add_ai_param_thres("ai_threshold")
         scheme_connection.add_http_server_i("ai_http_server")
         scheme_function.add_port_fixe("ai_http_server_port")
 
@@ -128,6 +131,7 @@ def node_valeo():
 
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd", pos=coord_ssd):
+        scheme_function.add_status("ssd_status_but", "ssd_status")
         scheme_function.add_ssd("ssd_input", "ssd_active", "ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total")
         scheme_function.add_new_save()
         scheme_function.add_file_info("Lidar 1", "l1_file_path", "l1_file_size")

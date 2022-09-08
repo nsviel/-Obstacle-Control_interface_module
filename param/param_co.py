@@ -15,7 +15,6 @@ path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 path_image = "state/image"
 path_config = "param/config.json"
-
 path_ssd = "/media/lidar_ssd"
 
 # Thread

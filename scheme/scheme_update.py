@@ -4,6 +4,8 @@
 from param import param_co
 from scheme import scheme_link
 from scheme import scheme_plot
+from scheme import scheme_color
+from scheme import scheme_theme
 from src import perf
 from src import io
 
@@ -12,6 +14,7 @@ import dearpygui.dearpygui as dpg
 
 def update():
     scheme_link.update_link_color()
+    update_status()
     update_ssd()
     update_train()
     update_controlium()
@@ -19,6 +22,28 @@ def update():
     update_edge()
     update_pywardium()
     update_data()
+
+def zero():
+    dpg.set_value("ssd_status", param_co.state_co["ssd"]["status"])
+    dpg.set_value("co_status", param_co.state_co["self"]["status"])
+    dpg.set_value("ve_status", param_co.state_hu["velodium"]["status"])
+    dpg.set_value("ai_status", param_co.state_hu["ai"]["status"])
+    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
+    dpg.set_value("py_status", param_co.state_py["self"]["status"])
+    dpg.set_value("ed_status", param_co.state_py["self"]["status"])
+def update_status():
+    #on = scheme_color.color_status_on()
+    #off = scheme_color.color_status_off()
+    on = scheme_color.color_status_red()
+    off = scheme_color.color_status_green()
+
+    scheme_theme.colorize_status("ssd_status", param_co.state_co["ssd"]["status"], on, off)
+    scheme_theme.colorize_status("co_status", param_co.state_co["self"]["status"], on, off)
+    scheme_theme.colorize_status("ve_status", param_co.state_hu["velodium"]["status"], on, off)
+    scheme_theme.colorize_status("ai_status", param_co.state_hu["ai"]["status"], on, off)
+    scheme_theme.colorize_status("hu_status", param_co.state_hu["self"]["status"], on, off)
+    scheme_theme.colorize_status("py_status", param_co.state_py["self"]["status"], on, off)
+    scheme_theme.colorize_status("ed_status", param_co.state_py["self"]["status"], on, off)
 
 def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)
@@ -36,7 +61,6 @@ def update_train():
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 
 def update_controlium():
-    dpg.set_value("co_status", param_co.state_co["self"]["status"])
     dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
     dpg.set_value("co_thread", param_co.state_co["self"]["nb_thread"])
     dpg.set_value("co_sock_server_l1_port", param_co.state_co["self"]["sock_server_l1_port"])
@@ -44,7 +68,6 @@ def update_controlium():
     dpg.set_value("co_temp", perf.get_temps_core(0))
 
 def update_hubium():
-    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
     dpg.set_value("hu_ip", param_co.state_co["hubium"]["ip"])
     dpg.set_value("hu_thread", param_co.state_hu["self"]["nb_thread"])
 
@@ -66,7 +89,6 @@ def update_edge():
     dpg.set_value("ed_http_server_port", param_co.state_hu["self"]["http_server_port"])
 
 def update_pywardium():
-    dpg.set_value("py_status", param_co.state_py["self"]["status"])
     dpg.set_value("py_ip", param_co.state_hu["pywardium"]["ip"])
     dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
     dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))

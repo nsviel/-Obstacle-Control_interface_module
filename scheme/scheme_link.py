@@ -13,8 +13,8 @@ def create_link():
     dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_i", tag="link_hu_co_l2_sock")
     dpg.add_node_link("co_self", "ssd_input", tag="link_co_ssd")
 
-    dpg.add_node_link("hu_mqtt", "sncf_mqtt_broker", tag="link_hu_sncf_mqtt")
-    dpg.add_node_link("hu_stockage", "ai_http_server", tag="link_ai_hu_http")
+    dpg.add_node_link("hu_mqtt_client", "sncf_mqtt_broker", tag="link_hu_sncf_mqtt")
+    dpg.add_node_link("hu_http_client_o", "ai_http_server", tag="link_ai_hu_http")
     dpg.add_node_link("hu_http_client_o", "ve_http_server", tag="link_hu_ve_http")
     dpg.add_node_link("hu_http_client_o", "ed_http_server", tag="link_hu_ed_http")
     dpg.add_node_link("hu_http_server_o", "ed_http_client", tag="link_ed_hu_http")
@@ -67,16 +67,16 @@ def update_link_color():
 
 def update_link_con(state, tag):
     if(state):
-        conn = scheme_color.color_green()
+        conn = scheme_color.color_link_green()
         dpg.bind_item_theme(tag, conn)
     else:
-        disconn = scheme_color.color_red()
+        disconn = scheme_color.color_link_red()
         dpg.bind_item_theme(tag, disconn)
 
 def update_link_sock(state, tag):
     if(state):
-        conn = scheme_color.color_blue()
+        conn = scheme_color.color_link_blue()
         dpg.bind_item_theme(tag, conn)
     else:
-        disconn = scheme_color.color_whiteblue()
+        disconn = scheme_color.color_link_whiteblue()
         dpg.bind_item_theme(tag, disconn)

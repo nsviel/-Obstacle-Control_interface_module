@@ -12,6 +12,7 @@
         "height": 850
     },
     "ssd": {
+        "status": "Offline",
         "connected": false,
         "activated": false,
         "space_total": 0,
@@ -33,9 +34,9 @@
         "dir_l1": "/media/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_02-09-2022_17h09.pcap",
-        "path_l1_file": "/media/lidar_ssd/capture/lidar_1/_02-09-2022_17h09.pcap",
-        "path_l2_file": "/media/lidar_ssd/capture/lidar_2/_02-09-2022_17h09.pcap",
+        "file_name": "_08-09-2022_14h22.pcap",
+        "path_l1_file": "/media/lidar_ssd/capture/lidar_1/_08-09-2022_14h22.pcap",
+        "path_l2_file": "/media/lidar_ssd/capture/lidar_2/_08-09-2022_14h22.pcap",
         "bandwidth": 0
     }
 }

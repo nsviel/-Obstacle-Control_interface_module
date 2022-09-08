@@ -44,11 +44,13 @@ def add_output(text, tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         dpg.add_text(text);
-def add_status(tag_):
+def add_status(tag_button, tag_state):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Status:");
-            dpg.add_text("-", tag=tag_, color=color_status);
+            dpg.add_text("-", tag=tag_state, color=color_info);
+            dpg.add_button(tag=tag_button, width=15)
+
 def add_ip(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -145,6 +147,9 @@ def add_port_py(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_pywardium);
+def add_text(text):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_text(text);
 def add_velo_option(tag_slam, tag_view):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -195,14 +200,19 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_ban
             dpg.add_text("MB/s");
 
 # MQTT stuff
-def add_mqtt(tag_):
-    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
-        dpg.add_text("MQTT");
+def add_mqtt(tag_client, tag_name):
+    with dpg.node_attribute(tag=tag_client, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
+        dpg.add_text("MQTT client");
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Name");
+            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, callback=scheme_callback.callback_mqtt)
 def add_topic(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Topic");
-            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_ssd)
+            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_mqtt)
 
 # SSD stuff
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):
@@ -232,3 +242,15 @@ def add_file_info(label, tag_path, tag_size):
             dpg.add_text("Size:")
             dpg.add_text(0, tag=tag_size, color=color_info)
             dpg.add_text("Gb");
+
+# AI stuff
+def add_ai_param_height(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Height");
+            dpg.add_input_float(tag=tag_, default_value=2, width=100, step=0.1, min_value=0, callback=scheme_callback.callback_param_ai);
+def add_ai_param_thres(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Thres");
+            dpg.add_input_float(tag=tag_, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=scheme_callback.callback_param_ai);

@@ -12,3 +12,6 @@ def post_param_hu(lvl1, lvl2, value):
 
 def post_param_ve(option, value):
     http_client_fct.send_post_option("/new_param_ve", option, value)
+
+def post_param_ai(option, value):
+    http_client_fct.send_post_option("/new_param_ai", option, value)

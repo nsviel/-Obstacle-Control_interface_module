@@ -90,6 +90,12 @@ def callback_comboip():
         param_co.state_hu["sncf"]["broker_ip"] = sncf_ip
         dpg.set_value("sncf_ip", sncf_ip)
         http_client_post.post_param_hu("sncf", "broker_ip", sncf_ip)
+def callback_mqtt():
+    mqtt_topic = dpg.get_value("sncf_mqtt_topic")
+    http_client_post.post_param_hu("mqtt_topic", mqtt_topic)
+
+    mqtt_client_name = dpg.get_value("hu_mqtt_client_name")
+    http_client_post.post_param_hu("mqtt_client_name", mqtt_client_name)
 
 def callback_hubium_source():
     source_l1 = dpg.get_value("hu_sock_client_l1_source")
@@ -106,3 +112,9 @@ def callback_velo_option():
 
     opt_view = dpg.get_value("ve_opt_view")
     http_client_post.post_param_ve("view", opt_view)
+def callback_param_ai():
+    ai_height = dpg.get_value("ai_lidar_height")
+    http_client_post.post_param_ai("lidar_height", ai_height)
+
+    ai_threshold = dpg.get_value("ai_threshold")
+    http_client_post.post_param_ai("threshold", ai_threshold)

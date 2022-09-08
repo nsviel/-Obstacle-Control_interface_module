@@ -101,12 +101,15 @@ def colorize_item():
     dpg.bind_item_theme("l2_ip", input_text)
     dpg.bind_item_theme("l1_speed", input_text)
     dpg.bind_item_theme("l2_speed", input_text)
+    dpg.bind_item_theme("ai_threshold", input_text)
+    dpg.bind_item_theme("ai_lidar_height", input_text)
 
     dpg.bind_item_theme("co_sock_server_l1_port", input_text)
     dpg.bind_item_theme("co_sock_server_l2_port", input_text)
     dpg.bind_item_theme("py_http_server_port", input_text)
     dpg.bind_item_theme("hu_sock_server_l1_port", input_text)
     dpg.bind_item_theme("hu_sock_server_l2_port", input_text)
+    dpg.bind_item_theme("hu_mqtt_client_name", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)
     dpg.bind_item_theme("hu_sock_client_l1_source", input_text)
     dpg.bind_item_theme("ve_opt_view", input_text)
@@ -123,3 +126,11 @@ def colorize_item():
 
     dpg.bind_item_theme("l1_yaxis_line", line_yaxis)
     dpg.bind_item_theme("l2_yaxis_line", line_yaxis)
+
+def colorize_status(tag, value, on, off):
+    dpg.set_value(tag, value)
+    tag_but = tag + "_but"
+    if(value):
+        dpg.bind_item_theme(tag_but, on)
+    else:
+        dpg.bind_item_theme(tag_but, off)
