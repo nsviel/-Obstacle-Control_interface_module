@@ -46,6 +46,12 @@ def thread_test_connection():
         time.sleep(1)
 
 def connection_closed():
+    param_co.state_hu["self"]["status"] = "Offline"
+    param_co.state_hu["edge"]["status"] = "Offline"
+    param_co.state_hu["ai"]["status"] = "Offline"
+    param_co.state_hu["velodium"]["status"] = "Offline"
+    param_co.state_py["self"]["status"] = "Offline"
+    param_co.state_hu["edge"]["http_connected"] = False
     param_co.state_co["hubium"]["http_connected"] = False
     param_co.state_co["hubium"]["sock_l1_connected"] = False
     param_co.state_co["hubium"]["sock_l2_connected"] = False

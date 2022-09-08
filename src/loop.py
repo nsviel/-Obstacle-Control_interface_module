@@ -10,6 +10,8 @@ from src import image
 from src import parser_json
 from src import state
 
+import time
+
 
 def init():
     saving.determine_path()
@@ -29,3 +31,4 @@ def end():
     connection.stop_daemon()
     sock_server.stop_daemon()
     image.stop_daemon()
+    time.sleep(2)

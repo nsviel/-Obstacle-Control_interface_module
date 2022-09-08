@@ -6,8 +6,8 @@ from scheme import scheme_color
 import dearpygui.dearpygui as dpg
 
 color_white = (255, 255, 255)
-color_node_grid_line = (40, 40, 40)
-color_node_grid_bkg = (80, 80, 80)
+color_node_grid_line = (0, 0, 0)
+color_node_grid_bkg = (51, 51, 51)
 color_node_bkg = (25, 25, 25)
 color_node_pin = (200, 200, 10)
 color_node_link = (255, 255, 255)
@@ -128,9 +128,7 @@ def colorize_item():
     dpg.bind_item_theme("l2_yaxis_line", line_yaxis)
 
 def colorize_status(tag, value, on, off):
-    dpg.set_value(tag, value)
-    tag_but = tag + "_but"
-    if(value):
-        dpg.bind_item_theme(tag_but, on)
-    else:
-        dpg.bind_item_theme(tag_but, off)
+    if(value == "Online" or value == True):
+        dpg.bind_item_theme(tag, on)
+    elif(value == "Offline" or value == False):
+        dpg.bind_item_theme(tag, off)

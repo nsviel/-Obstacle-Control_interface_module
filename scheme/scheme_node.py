@@ -12,10 +12,10 @@ coord_controlium = [375, 500]
 coord_pywardium = [350, 10]
 coord_hubium = [835, 375]
 coord_train = [10, 10]
-coord_edge = [1200, 470]
-coord_velodium = [1200, 150]
+coord_edge = [1200, 475]
+coord_velodium = [1200, 145]
 coord_ai = [1200, 10]
-coord_sncf = [1200, 330]
+coord_sncf = [1200, 325]
 coord_valeo = [1200, 740]
 coord_ssd = [10, 500]
 coord_data = [755, 10]
@@ -79,8 +79,8 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth")
+        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth", "l1_status_but")
+        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth", "l2_status_but")
         scheme_function.add_variable("Time:", "capture_time")
 
 def node_edge():
@@ -118,8 +118,8 @@ def node_ai():
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf", pos=coord_sncf):
+        scheme_function.add_status("sncf_status_but", "sncf_status")
         scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
-
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
         scheme_function.add_port_hu("sncf_broker_port")
         scheme_function.add_topic("sncf_mqtt_topic")

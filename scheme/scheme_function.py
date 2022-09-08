@@ -170,11 +170,12 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev):
             with dpg.group():
                 dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_param_py, width=125)
-def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_bandwidth):
+def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_bandwidth, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
+            dpg.add_button(tag=tag_status, width=15)
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_lidar_active);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
@@ -218,7 +219,7 @@ def add_topic(tag_):
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         with dpg.group(horizontal=True):
-            dpg.add_text("SSD");
+            dpg.add_text("SSD saving");
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd)
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_callback.callback_name_editing)

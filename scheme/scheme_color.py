@@ -32,24 +32,20 @@ def color_yaxis_0():
     return yaxis
 
 def color_status_red():
+    red = (255, 50, 20)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
-        red = (255, 50, 20)
-        black = (0, 0, 0)
         dpg.add_theme_color(dpg.mvThemeCol_Button, red, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, red, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, red, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_color(dpg.mvThemeCol_Text, red, category=dpg.mvThemeCat_Core)
     return theme
 def color_status_green():
+    green = (20, 255, 20)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
-        green = (20, 255, 20)
-        black = (0, 0, 0)
         dpg.add_theme_color(dpg.mvThemeCol_Button, green, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, green, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, green, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_color(dpg.mvThemeCol_Text, green, category=dpg.mvThemeCat_Core)
     return theme
 
 def color_link_red():

@@ -23,27 +23,29 @@ def update():
     update_pywardium()
     update_data()
 
-def zero():
+def update_status():
+    dpg.set_value("sncf_status", param_co.state_hu["sncf"]["status"])
     dpg.set_value("ssd_status", param_co.state_co["ssd"]["status"])
     dpg.set_value("co_status", param_co.state_co["self"]["status"])
     dpg.set_value("ve_status", param_co.state_hu["velodium"]["status"])
     dpg.set_value("ai_status", param_co.state_hu["ai"]["status"])
     dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
     dpg.set_value("py_status", param_co.state_py["self"]["status"])
-    dpg.set_value("ed_status", param_co.state_py["self"]["status"])
-def update_status():
-    #on = scheme_color.color_status_on()
-    #off = scheme_color.color_status_off()
-    on = scheme_color.color_status_red()
-    off = scheme_color.color_status_green()
+    dpg.set_value("ed_status", param_co.state_hu["edge"]["status"])
 
-    scheme_theme.colorize_status("ssd_status", param_co.state_co["ssd"]["status"], on, off)
-    scheme_theme.colorize_status("co_status", param_co.state_co["self"]["status"], on, off)
-    scheme_theme.colorize_status("ve_status", param_co.state_hu["velodium"]["status"], on, off)
-    scheme_theme.colorize_status("ai_status", param_co.state_hu["ai"]["status"], on, off)
-    scheme_theme.colorize_status("hu_status", param_co.state_hu["self"]["status"], on, off)
-    scheme_theme.colorize_status("py_status", param_co.state_py["self"]["status"], on, off)
-    scheme_theme.colorize_status("ed_status", param_co.state_py["self"]["status"], on, off)
+    on = scheme_color.color_status_green()
+    off = scheme_color.color_status_red()
+
+    scheme_theme.colorize_status("sncf_status_but", param_co.state_hu["sncf"]["status"], on, off)
+    scheme_theme.colorize_status("ssd_status_but", param_co.state_co["ssd"]["status"], on, off)
+    scheme_theme.colorize_status("co_status_but", param_co.state_co["self"]["status"], on, off)
+    scheme_theme.colorize_status("ve_status_but", param_co.state_hu["velodium"]["status"], on, off)
+    scheme_theme.colorize_status("ai_status_but", param_co.state_hu["ai"]["status"], on, off)
+    scheme_theme.colorize_status("hu_status_but", param_co.state_hu["self"]["status"], on, off)
+    scheme_theme.colorize_status("py_status_but", param_co.state_py["self"]["status"], on, off)
+    scheme_theme.colorize_status("ed_status_but", param_co.state_hu["edge"]["status"], on, off)
+    scheme_theme.colorize_status("l1_status_but", param_co.state_py["lidar_1"]["connected"], on, off)
+    scheme_theme.colorize_status("l2_status_but", param_co.state_py["lidar_2"]["connected"], on, off)
 
 def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)
@@ -83,6 +85,7 @@ def update_hubium():
     dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
 
 def update_edge():
+    dpg.set_value("ed_ip", param_co.state_hu["edge"]["ip"])
     dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
     dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
     dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_l1_port"])

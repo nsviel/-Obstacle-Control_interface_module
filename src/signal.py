@@ -9,6 +9,7 @@ import platform
 import signal
 import time
 import os
+import getpass
 
 
 # Manage Ctrl+C input
@@ -25,6 +26,7 @@ def system_information(prog_name):
     program = prog_name
     ip = connection.get_ip_adress()
     hostname = socket.gethostname()
+    user = os.getlogin()
     arch = platform.architecture()[0]
     core = platform.uname()[2]
     proc = platform.processor()
@@ -40,6 +42,7 @@ def system_information(prog_name):
     print("-----------------------")
     print("IP: \033[1;34m%s\033[0m"% ip)
     print("Hostname: \033[1;34m%s\033[0m"% hostname)
+    print("User: \033[1;34m%s\033[0m"% user)
     print("Arch: \033[1;34m%s\033[0m, \033[1;34m%s\033[0m"% (arch, proc))
     print("OS: \033[1;34m%s\033[0m"% OS)
     print("Core: \033[1;34m%s\033[0m"% core)
