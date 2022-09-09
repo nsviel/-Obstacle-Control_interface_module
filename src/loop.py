@@ -9,6 +9,7 @@ from src import saving
 from src import image
 from src import parser_json
 from src import state
+from src import wallet
 
 import time
 
@@ -18,6 +19,7 @@ def init():
     connection.start_daemon()
     sock_server.start_daemon()
     image.start_daemon()
+    wallet.determine_adresse()
     param_co.state_co["self"]["status"] = "Online"
     print("[\033[1;32mOK\033[0m] Program initialized...")
 

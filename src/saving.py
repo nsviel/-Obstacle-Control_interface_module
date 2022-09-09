@@ -53,7 +53,7 @@ def check_directories():
 
 def create_directory(path):
     os.mkdir(path)
-    print("[\033[92mSSD\033[0m] Directory %s created" % path)
+    print("[\033[92mOK\033[0m] Directory %s created" % path)
 
 def clear_directory(path):
     for file in os.scandir(path):
