@@ -19,24 +19,21 @@
         "space_used": 0
     },
     "hubium": {
-        "add": "mine_nathan",
+        "add": "mine_fixe_nsv",
         "ip": "10.201.20.131",
         "http_connected": false,
         "http_server_port": 443,
         "sock_l1_connected": false,
         "sock_l2_connected": false
     },
-    "pywardium": {
-        "add": "mine_nathan"
-    },
     "path": {
         "dir_capture": "/media/aeter/lidar_ssd/capture",
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_09-09-2022_11h34.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_09-09-2022_11h34.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_09-09-2022_11h34.pcap",
+        "file_name": "_12-09-2022_16h19.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_12-09-2022_16h19.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_12-09-2022_16h19.pcap",
         "bandwidth": 0
     }
 }

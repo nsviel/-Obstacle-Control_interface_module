@@ -13,7 +13,7 @@ def build_window():
         dpg.add_text("Add:")
         dpg.add_input_text(tag="wallet_new_add", label="", width=200)
     with dpg.group(horizontal=True):
-        dpg.add_text("IP:")
+        dpg.add_text("IP: ")
         dpg.add_input_text(tag="wallet_new_ip", label="", width=200)
     dpg.add_button(label="Add item", callback=gui_callback.callback_wallet_add)
     dpg.add_separator()
@@ -31,5 +31,5 @@ def build_table():
             with dpg.table_row():
                 dpg.add_text(param_co.wallet_add[i])
                 dpg.add_text(param_co.wallet_ip[i])
-                if(i > 4):
+                if(i > 5):
                     dpg.add_button(label="X", tag=str(i), callback=gui_callback.callback_wallet_remove)

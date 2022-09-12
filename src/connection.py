@@ -3,7 +3,7 @@
 
 from param import param_co
 
-from HTTP import http_client
+from HTTP import http_client_con
 from HTTP import http_client_get
 from HTTP import http_client_post
 
@@ -31,10 +31,9 @@ def stop_daemon():
 def thread_test_connection():
     while param_co.run_thread_con:
         # Test connections
-        http_client.test_connection()
+        http_client_con.test_hu_con()
         http_client_get.get_state_hu()
         http_client_get.get_state_py()
-        http_client_post.post_param_hu("controlium", "ip", param_co.state_co["self"]["ip"])
         saving.test_ssd_con()
 
         # Update state
@@ -44,22 +43,6 @@ def thread_test_connection():
 
         # Wait for 1 second
         time.sleep(1)
-
-def connection_closed():
-    param_co.state_hu["self"]["status"] = "Offline"
-    param_co.state_hu["edge"]["status"] = "Offline"
-    param_co.state_hu["ai"]["status"] = "Offline"
-    param_co.state_hu["velodium"]["status"] = "Offline"
-    param_co.state_py["self"]["status"] = "Offline"
-    param_co.state_hu["edge"]["http_connected"] = False
-    param_co.state_co["hubium"]["http_connected"] = False
-    param_co.state_co["hubium"]["sock_l1_connected"] = False
-    param_co.state_co["hubium"]["sock_l2_connected"] = False
-    param_co.state_hu["sncf"]["broker_connected"] = False
-    param_co.state_hu["velodium"]["sock_connected"] = False
-    param_co.state_hu["pywardium"]["http_connected"] = False
-    param_co.state_hu["pywardium"]["sock_l1_connected"] = False
-    param_co.state_hu["pywardium"]["sock_l2_connected"] = False
 
 def get_ip_adress():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

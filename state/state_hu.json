@@ -1,18 +1,19 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "10.201.20.131",
+        "ip": "192.168.153.147",
         "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
-        "sock_server_l1_port": 344,
-        "sock_server_l1_source": "Lidar 1",
+        "sock_server_l1_port": 338,
+        "sock_server_l1_source": "Lidar 2",
         "sock_server_l2_port": 345,
-        "sock_server_l2_source": "Lidar 2",
+        "sock_server_l2_source": "Lidar 1",
         "http_server_port": 443
     },
     "pywardium": {
         "ip": "127.0.0.1",
+        "add": "localhost",
         "http_connected": false,
         "http_server_port": 314,
         "sock_l1_connected": false,
@@ -49,8 +50,8 @@
         "ip": "127.0.0.1"
     },
     "edge": {
-        "add": "localhost",
-        "ip": "10.200.10.1",
+        "add": "black_hole",
+        "ip": "99.99.99.99",
         "country": "Spain",
         "edge_id": 1,
         "http_connected": false,

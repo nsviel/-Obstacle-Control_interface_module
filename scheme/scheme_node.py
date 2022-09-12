@@ -43,7 +43,7 @@ def node_controlium():
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status_but", "py_status")
-        scheme_function.add_ip_wallet("py_wallet", "py_ip", param_co.state_co["pywardium"]["add"])
+        scheme_function.add_ip_wallet("py_wallet", "py_ip", "-")
         scheme_function.add_nb_thread("py_thread")
 
         scheme_function.add_input("self", "py_self")

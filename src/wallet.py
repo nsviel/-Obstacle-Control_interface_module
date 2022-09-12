@@ -2,6 +2,7 @@
 #---------------------------------------------
 
 from param import param_co
+from src import parser_json
 
 import pandas as pd
 
@@ -35,7 +36,7 @@ def get_key_from_ip(ip):
     for i in range(0, len(param_co.wallet_add)):
         if(param_co.wallet_ip[i] == ip):
             return param_co.wallet_add[i]
-    return "None"
+    return "-"
 
 def read_wallet():
     X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
@@ -52,3 +53,10 @@ def write_wallet():
         file.write(" ")
         file.write(param_co.wallet_ip[i])
         file.write("\n")
+
+def determine_adresse():
+    param_co.state_co["hubium"]["add"] = get_key_from_ip(param_co.state_co["hubium"]["ip"])
+    param_co.state_hu["edge"]["add"] = get_key_from_ip(param_co.state_hu["edge"]["ip"])
+    param_co.state_hu["sncf"]["add"] = get_key_from_ip(param_co.state_hu["sncf"]["broker_ip"])
+    param_co.state_hu["pywardium"]["add"] = get_key_from_ip(param_co.state_hu["pywardium"]["ip"])
+    parser_json.upload_state()

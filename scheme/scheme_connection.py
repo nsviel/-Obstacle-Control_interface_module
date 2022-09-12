@@ -2,7 +2,7 @@
 #---------------------------------------------
 
 from scheme import scheme_function
-from scheme import scheme_callback
+from scheme import scheme_command
 
 import dearpygui.dearpygui as dpg
 
@@ -66,7 +66,7 @@ def add_sock_client_source_io(tag_i, tag_o, tag_combo):
         with dpg.group(horizontal=True):
             dpg.add_text("Source:");
             choice = ("Lidar 1", "Lidar 2")
-            dpg.add_combo(choice, tag=tag_combo, label="", default_value="Lidar 1", width=80, callback=scheme_callback.callback_hubium_source)
+            dpg.add_combo(choice, tag=tag_combo, label="", default_value="Lidar 1", width=80, callback=scheme_command.command_hubium_source)
 
 def add_http_client_i(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):

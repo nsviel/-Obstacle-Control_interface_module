@@ -27,6 +27,7 @@ def program():
     state.load_configuration()
     gui_image.init_image()
     wallet.read_wallet()
+    wallet.determine_adresse()
 
     #Build GUI
     with dpg.window(label="Wallet", autosize=True, no_resize=True, show=False, tag="win_wallet"):
@@ -46,6 +47,7 @@ def program():
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("window", True)
+    scheme_update.update_add()
 
     # Init variables
     loop.init()

@@ -3,3 +3,4 @@ mine_server_nsv 10.201.20.24
 mine_fixe_nsv 10.201.20.131
 mine_fixe_lsf 10.201.20.110
 portable_nsv 192.168.153.147
+black_hole 99.99.99.99

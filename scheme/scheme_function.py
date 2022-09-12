@@ -3,6 +3,7 @@
 
 from param import param_co
 from scheme import scheme_callback
+from scheme import scheme_command
 
 import dearpygui.dearpygui as dpg
 
@@ -60,7 +61,7 @@ def add_ip_wallet(tag_wallet, tag_ip, default):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Add:");
-            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=100, callback=scheme_callback.callback_comboip)
+            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_command.command_comboip)
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
@@ -106,19 +107,19 @@ def add_option(label, tag_option):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text(label);
-            dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_velo_option);
+            dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_velodium);
 
 # Specific stuff
 def add_false_alarm():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="False alarm", width=100, callback=scheme_callback.callback_false_alarm)
+        dpg.add_button(label="False alarm", width=100, callback=scheme_command.command_false_alarm)
 def add_new_save():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="New save", width=100, callback=scheme_callback.callback_new_save)
+        dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
 def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
-        dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_callback.callback_false_alarm)
+        dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_command.command_false_alarm)
 def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -136,17 +137,17 @@ def add_port_co(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_controlium);
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_controlium);
 def add_port_hu(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_hubium);
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_hubium);
 def add_port_py(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_port_pywardium);
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_pywardium);
 def add_text(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
@@ -154,10 +155,10 @@ def add_velo_option(tag_slam, tag_view):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SLAM:");
-            dpg.add_checkbox(tag=tag_slam, label="", default_value=True, callback=scheme_callback.callback_velo_option);
+            dpg.add_checkbox(tag=tag_slam, label="", default_value=True, callback=scheme_callback.callback_velodium);
         with dpg.group(horizontal=True):
             dpg.add_text("View:");
-            dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velo_option, horizontal=True)
+            dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velodium, horizontal=True)
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev):
@@ -166,26 +167,26 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev):
         with dpg.group(horizontal=True):
             with dpg.group():
                 dpg.add_text("Lidar 1", color=color_title)
-                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_param_py, width=125)
+                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_pywardium, width=125)
             with dpg.group():
                 dpg.add_text("Lidar 2", color=color_title)
-                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_param_py, width=125)
+                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
 def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_bandwidth, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_lidar_active);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_lidar_speed);
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_lidar_ip);
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_pywardium);
         # Start / Stop
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")
@@ -208,12 +209,12 @@ def add_mqtt(tag_client, tag_name):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Name");
-            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, callback=scheme_callback.callback_mqtt)
+            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, callback=scheme_callback.callback_hubium)
 def add_topic(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Topic");
-            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_mqtt)
+            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_hubium)
 
 # SSD stuff
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):
@@ -222,8 +223,8 @@ def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag
             dpg.add_text("SSD saving");
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd)
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_callback.callback_name_editing)
-        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_callback.callback_name_editing)
+        dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
+        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
         with dpg.group(horizontal=True):
             dpg.add_text("File:")
             dpg.add_text("-", tag=tag_name, color=color_info)
@@ -249,9 +250,9 @@ def add_ai_param_height(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Height");
-            dpg.add_input_float(tag=tag_, default_value=2, width=100, step=0.1, min_value=0, callback=scheme_callback.callback_param_ai);
+            dpg.add_input_float(tag=tag_, default_value=2, width=100, step=0.1, min_value=0, callback=scheme_callback.callback_ai);
 def add_ai_param_thres(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Thres");
-            dpg.add_input_float(tag=tag_, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=scheme_callback.callback_param_ai);
+            dpg.add_input_float(tag=tag_, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=scheme_callback.callback_ai);

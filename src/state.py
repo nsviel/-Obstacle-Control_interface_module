@@ -27,6 +27,7 @@ def init_state():
     param_co.state_hu["data"]["nb_frame"] = 0
     param_co.state_hu["data"]["nb_prediction"] = 0
     param_co.state_hu["self"]["nb_thread"] = 0
+    param_co.state_hu["sncf"]["status"] = "Offline"
     param_co.state_hu["sncf"]["broker_connected"] = False
     param_co.state_hu["ai"]["http_connected"] = False
     param_co.state_hu["velodium"]["sock_connected"] = False
@@ -47,12 +48,8 @@ def load_config_file():
     param_co.state_co["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
-
-    param_co.state_co["hubium"]["add"] = config["hubium"]["add"]
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
-
-    param_co.state_co["pywardium"]["add"] = config["pywardium"]["add"]
 
 def upload_state():
     parser_json.upload_file(param_co.path_state_hu, param_co.state_hu)
