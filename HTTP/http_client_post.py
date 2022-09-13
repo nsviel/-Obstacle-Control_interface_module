@@ -9,21 +9,23 @@ import json
 import http.client
 
 
-def post_param_py(lvl1, lvl2, value):
-    http_client_fct.send_post_request("/new_param_py", lvl1, lvl2, value)
+def post_param(command, cat, option, value):
+    if(command != "/param_py" or command != "/param_ve" \
+    or command != "/param_hu" or command != "/param_ai"):
+        print("[error] http command wrong")
+    http_client_fct.send_post_request(command, cat, option, value)
 
-def post_param_hu(lvl1, lvl2, value):
-    send_hu_state()
-    http_client_fct.send_post_request("/new_param_hu", lvl1, lvl2, value)
+def post_param_py(cat, option, value):
+    http_client_fct.send_post_request("/new_param_py", cat, option, value)
+
+def post_param_hu(cat, option, value):
+    http_client_fct.send_post_request("/new_param_hu", cat, option, value)
 
 def post_param_ve(option, value):
     http_client_fct.send_post_option("/new_param_ve", option, value)
 
 def post_param_ai(option, value):
     http_client_fct.send_post_option("/new_param_ai", option, value)
-
-
-
 
 def send_hu_state():
     # Parameters

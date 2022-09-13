@@ -12,13 +12,12 @@ import dearpygui.dearpygui as dpg
 def callback_hubium():
     param_co.state_hu["self"]["sock_server_l1_port"] = dpg.get_value("hu_sock_server_l1_port")
     param_co.state_hu["self"]["sock_server_l2_port"] = dpg.get_value("hu_sock_server_l2_port")
+    param_co.state_hu["self"]["sock_server_l1_port"] = dpg.get_value("hu_sock_server_l1_port")
+    param_co.state_hu["self"]["sock_server_l2_port"] = dpg.get_value("hu_sock_server_l2_port")
     param_co.state_hu["sncf"]["broker_port"] = dpg.get_value("sncf_broker_port")
     param_co.state_hu["sncf"]["mqtt_topic"] = dpg.get_value("sncf_mqtt_topic")
     param_co.state_hu["sncf"]["mqtt_client_name"] = dpg.get_value("hu_mqtt_client_name")
-    param_co.state_hu["hubium"]["sock_server_l1_port"] = dpg.get_value("hu_sock_server_l1_port")
-    param_co.state_hu["hubium"]["sock_server_l2_port"] = dpg.get_value("hu_sock_server_l2_port")
     http_client_post.send_hu_state()
-    #http_client_get.get_restart_sock_server()
 
 def callback_controlium():
     param_co.state_co["self"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")

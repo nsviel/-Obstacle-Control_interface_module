@@ -5,7 +5,7 @@
         "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
-        "sock_server_l1_port": 338,
+        "sock_server_l1_port": 344,
         "sock_server_l1_source": "Lidar 2",
         "sock_server_l2_port": 345,
         "sock_server_l2_source": "Lidar 1",
@@ -40,10 +40,11 @@
         "status": "Offline",
         "add": "localhost",
         "broker_connected": false,
-        "broker_ip": "127.0.0.1",
+        "broker_ip": "10.201.20.131",
         "broker_port": 1883,
         "mqtt_client": "ai_module",
-        "mqtt_topic": "ai_obstacle"
+        "mqtt_topic": "ai_obstacle",
+        "mqtt_client_name": "ai_module"
     },
     "valeo": {
         "http_connected": false,
