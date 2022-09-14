@@ -51,7 +51,7 @@ def update_add():
     dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])
     dpg.set_value("ed_wallet", param_co.state_hu["edge"]["add"])
     dpg.set_value("sncf_wallet", param_co.state_hu["sncf"]["add"])
-    print(param_co.state_hu["sncf"]["add"])
+
 def update_combo_add():
     dpg.configure_item("py_wallet", items=param_co.wallet_add)
     dpg.configure_item("hu_wallet", items=param_co.wallet_add)
