@@ -34,14 +34,27 @@ def init_state():
 
     param_co.state_py["self"]["status"] = "Offline"
     param_co.state_py["self"]["nb_thread"] = 0
-    param_co.state_py["lidar_1"]["connected"] = False
-    param_co.state_py["lidar_1"]["nb_packet"] = 0
-    param_co.state_py["lidar_1"]["bandwidth"] = 0
-    param_co.state_py["lidar_2"]["connected"] = False
-    param_co.state_py["lidar_2"]["nb_packet"] = 0
-    param_co.state_py["lidar_2"]["bandwidth"] = 0
     param_co.state_py["device"] = {}
 
+    param_co.state_py["lidar_1"]["connected"] = False
+    param_co.state_py["lidar_1"]["packet"]["value"] = 0
+    param_co.state_py["lidar_1"]["packet"]["min"] = 0
+    param_co.state_py["lidar_1"]["packet"]["mean"] = 0
+    param_co.state_py["lidar_1"]["packet"]["max"] = 0
+    param_co.state_py["lidar_1"]["bandwidth"]["value"] = 0
+    param_co.state_py["lidar_1"]["bandwidth"]["min"] = 0
+    param_co.state_py["lidar_1"]["bandwidth"]["mean"] = 0
+    param_co.state_py["lidar_1"]["bandwidth"]["max"] = 0
+
+    param_co.state_py["lidar_2"]["connected"] = False
+    param_co.state_py["lidar_2"]["packet"]["min"] = 0
+    param_co.state_py["lidar_2"]["packet"]["mean"] = 0
+    param_co.state_py["lidar_2"]["packet"]["max"] = 0
+    param_co.state_py["lidar_2"]["bandwidth"]["value"] = 0
+    param_co.state_py["lidar_2"]["bandwidth"]["min"] = 0
+    param_co.state_py["lidar_2"]["bandwidth"]["mean"] = 0
+    param_co.state_py["lidar_2"]["bandwidth"]["max"] = 0
+    
 def load_config_file():
     config = parser_json.load_file(param_co.path_config)
     param_co.state_co["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]

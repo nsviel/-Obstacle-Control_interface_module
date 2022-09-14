@@ -67,10 +67,8 @@ def update_ssd():
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
     dpg.set_value("l1_port", param_co.state_py["lidar_1"]["port"])
-    dpg.set_value("l1_bandwidth", param_co.state_py["lidar_1"]["bandwidth"])
     dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
     dpg.set_value("l2_port", param_co.state_py["lidar_2"]["port"])
-    dpg.set_value("l2_bandwidth", param_co.state_py["lidar_2"]["bandwidth"])
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 def update_controlium():
     dpg.set_value("co_ip", param_co.state_co["self"]["ip"])

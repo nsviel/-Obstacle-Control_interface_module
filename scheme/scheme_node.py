@@ -8,7 +8,7 @@ from scheme import scheme_callback
 
 import dearpygui.dearpygui as dpg
 
-coord_controlium = [375, 500]
+coord_controlium = [375, 520]
 coord_pywardium = [350, 10]
 coord_hubium = [835, 375]
 coord_train = [10, 10]
@@ -17,7 +17,7 @@ coord_velodium = [1200, 145]
 coord_ai = [1200, 10]
 coord_sncf = [1200, 325]
 coord_valeo = [1200, 740]
-coord_ssd = [10, 500]
+coord_ssd = [10, 520]
 coord_data = [755, 10]
 
 
@@ -81,8 +81,10 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_port", "l1_packet", "l1_bandwidth", "l1_status_but")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_port", "l2_packet", "l2_bandwidth", "l2_status_but")
+        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_port", "l1_status_but")
+        scheme_function.add_perf("l1_packet", "l1_bandwidth")
+        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_port", "l2_status_but")
+        scheme_function.add_perf("l2_packet", "l2_bandwidth")
         scheme_function.add_variable("Time:", "capture_time")
 
 def node_edge():
