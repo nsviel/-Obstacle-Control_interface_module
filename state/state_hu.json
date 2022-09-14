@@ -1,8 +1,8 @@
 {
     "self": {
-        "status": "Online",
+        "status": "Offline",
         "ip": "192.168.153.147",
-        "nb_thread": 5,
+        "nb_thread": 0,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,

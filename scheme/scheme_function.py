@@ -171,7 +171,7 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev):
             with dpg.group():
                 dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
-def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_bandwidth, tag_status):
+def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_port, tag_packet, tag_bandwidth, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
@@ -187,6 +187,10 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_packet, tag_ban
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_pywardium);
+        #Port
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_port, color=color_info);
         # Start / Stop
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")

@@ -48,7 +48,9 @@ def node_pywardium():
 
         scheme_function.add_input("self", "py_self")
         scheme_connection.add_sock_client_io("py_l1_in", "py_l1_out")
+        scheme_function.add_port_fixe("py_l1_port")
         scheme_connection.add_sock_client_io("py_l2_in", "py_l2_out")
+        scheme_function.add_port_fixe("py_l2_port")
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
@@ -79,8 +81,8 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_packet", "l1_bandwidth", "l1_status_but")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_packet", "l2_bandwidth", "l2_status_but")
+        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_port", "l1_packet", "l1_bandwidth", "l1_status_but")
+        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_port", "l2_packet", "l2_bandwidth", "l2_status_but")
         scheme_function.add_variable("Time:", "capture_time")
 
 def node_edge():

@@ -51,8 +51,7 @@ def update_add():
     dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])
     dpg.set_value("ed_wallet", param_co.state_hu["edge"]["add"])
     dpg.set_value("sncf_wallet", param_co.state_hu["sncf"]["add"])
-
-def update_combo_add():
+def update_add_combo():
     dpg.configure_item("py_wallet", items=param_co.wallet_add)
     dpg.configure_item("hu_wallet", items=param_co.wallet_add)
     dpg.configure_item("ed_wallet", items=param_co.wallet_add)
@@ -67,8 +66,10 @@ def update_ssd():
     dpg.set_value("file_name", param_co.state_co["path"]["file_name"])
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
-    dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
+    dpg.set_value("l1_port", param_co.state_py["lidar_1"]["port"])
     dpg.set_value("l1_bandwidth", param_co.state_py["lidar_1"]["bandwidth"])
+    dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
+    dpg.set_value("l2_port", param_co.state_py["lidar_2"]["port"])
     dpg.set_value("l2_bandwidth", param_co.state_py["lidar_2"]["bandwidth"])
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 def update_controlium():
@@ -101,6 +102,8 @@ def update_pywardium():
     dpg.set_value("py_ip", param_co.state_hu["pywardium"]["ip"])
     dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
     dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))
+    dpg.set_value("py_l1_port", param_co.state_py["self"]["l1_port"])
+    dpg.set_value("py_l2_port", param_co.state_py["self"]["l2_port"])
 
     devices = io.get_list_device_from_state()
     dpg.configure_item("py_l1_device", default_value=param_co.state_py["lidar_1"]["device"], items=devices, num_items=len(devices))

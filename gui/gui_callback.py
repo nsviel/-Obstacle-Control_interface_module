@@ -25,10 +25,10 @@ def callback_wallet_add():
     dpg.set_value("wallet_new_ip", "")
     gui_wallet.destroy_table()
     gui_wallet.build_table()
-    scheme_update.update_combo_add()
+    scheme_update.update_add_combo()
 
 def callback_wallet_remove(sender):
     wallet.remove_item_id(sender)
     gui_wallet.destroy_table()
     gui_wallet.build_table()
-    scheme_update.update_combo_add()
+    scheme_update.update_add_combo()
