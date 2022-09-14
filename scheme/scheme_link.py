@@ -44,8 +44,8 @@ def update_link_color():
     update_link_sock(param_co.state_hu["pywardium"]["sock_l2_connected"], "link_py_hu_l2_sock")
 
     # Pywardium
-    update_link_con(param_co.state_py["lidar_1"]["connected"], "link_l1_py")
-    update_link_con(param_co.state_py["lidar_2"]["connected"], "link_l2_py")
+    update_link_sock(param_co.state_py["lidar_1"]["connected"] and param_co.state_py["lidar_1"]["activated"], "link_l1_py")
+    update_link_sock(param_co.state_py["lidar_2"]["connected"] and param_co.state_py["lidar_2"]["activated"], "link_l2_py")
 
     # Hubium
     update_link_con(param_co.state_hu["sncf"]["broker_connected"], "link_hu_sncf_mqtt")

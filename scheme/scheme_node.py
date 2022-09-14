@@ -54,7 +54,7 @@ def node_pywardium():
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
-        scheme_function.add_port_py("py_http_server_port")
+        scheme_function.add_port_fixe("py_http_server_port")
 
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):

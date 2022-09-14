@@ -29,7 +29,6 @@ def callback_controlium():
     http_client_post.send_hu_state()
 
 def callback_pywardium():
-    param_co.state_py["self"]["http_server_port"] = dpg.get_value("py_http_server_port")
     param_co.state_py["lidar_1"]["activated"] = dpg.get_value("l1_activated")
     param_co.state_py["lidar_1"]["ip"] = dpg.get_value("l1_ip")
     param_co.state_py["lidar_1"]["speed"] = dpg.get_value("l1_speed")
