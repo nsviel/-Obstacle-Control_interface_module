@@ -31,9 +31,9 @@
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_15-09-2022_15h36.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_15-09-2022_15h36.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_15-09-2022_15h36.pcap",
+        "file_name": "_15-09-2022_17h27.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_15-09-2022_17h27.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_15-09-2022_17h27.pcap",
         "bandwidth": 0
     }
 }

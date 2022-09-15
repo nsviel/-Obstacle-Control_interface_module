@@ -1,5 +1,11 @@
 #! /usr/bin/python
 #---------------------------------------------
+# Possible GET command:
+# - /test_http_conn
+# - /hu_state
+# - /py_state
+# - /image
+#---------------------------------------------
 
 from param import param_co
 from HTTP import http_client_fct

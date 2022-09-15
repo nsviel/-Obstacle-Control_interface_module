@@ -19,7 +19,7 @@ def test_hu_con():
 def connection_hu_open():
     if(param_co.state_co["hubium"]["http_connected"] == False):
         param_co.state_co["hubium"]["http_connected"] = True
-        http_client_post.post_param_val("hu", "controlium", "ip", param_co.state_co["self"]["ip"])
+        http_client_post.post_param_value("hu", "controlium", "ip", param_co.state_co["self"]["ip"])
 
 def connection_hu_close():
     param_co.state_co["hubium"]["http_connected"] = False

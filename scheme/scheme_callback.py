@@ -40,12 +40,12 @@ def callback_pywardium():
     http_client_post.post_state("py", param_co.state_py)
 
 def callback_velodium():
-    http_client_post.post_param("ve", "slam", dpg.get_value("ve_opt_slam"))
-    http_client_post.post_param("ve", "view", dpg.get_value("ve_opt_view"))
+    http_client_post.post_param_value("ve", None, "slam", dpg.get_value("ve_opt_slam"))
+    http_client_post.post_param_value("ve", None, "view", dpg.get_value("ve_opt_view"))
 
 def callback_ai():
-    http_client_post.post_param("ai", "lidar_height", dpg.get_value("ai_lidar_height"))
-    http_client_post.post_param("ai", "threshold", dpg.get_value("ai_threshold"))
+    http_client_post.post_param_value("ai", None, "lidar_height", dpg.get_value("ai_lidar_height"))
+    http_client_post.post_param_value("ai", None, "threshold", dpg.get_value("ai_threshold"))
 
 def callback_ssd():
     param_co.path_ssd = dpg.get_value("ssd_path")
