@@ -31,6 +31,7 @@ def command_l2_stopt():
     http_client_post.post_lidar_stop("lidar_2")
 
 def command_false_alarm():
+    print("[\033[1;32mOK\033[0m] Send false alarm")
     http_client_get.get_false_alarm()
 
 def command_new_save():

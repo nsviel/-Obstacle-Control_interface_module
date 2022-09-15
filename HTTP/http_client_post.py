@@ -45,6 +45,7 @@ def send_hu_state():
             client.close()
         except:
             print("[\033[1;31merror\033[0m] Command \033[1;36m%s\033[0m to ip \033[1;36m%s\033[0m port \033[1;36m%d\033[0m failed" % (command, ip, port))
+
 def send_py_state():
     # Parameters
     ip = param_co.state_co["hubium"]["ip"]
