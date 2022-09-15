@@ -30,7 +30,7 @@ def determine_path():
     param_co.state_co["path"]["dir_l2"] = os.path.join(param_co.state_co["path"]["dir_capture"], "lidar_2")
     param_co.state_co["path"]["path_l1_file"] = os.path.join(param_co.state_co["path"]["dir_l1"], param_co.state_co["path"]["file_name"])
     param_co.state_co["path"]["path_l2_file"] = os.path.join(param_co.state_co["path"]["dir_l2"], param_co.state_co["path"]["file_name"])
-    print("[\033[1;32mOK\033[0m] New save path: \033[1;32m%s\033[0m"% param_co.state_co["path"]["file_name"])
+    new_path = param_co.state_co["path"]["dir_capture"] + "/lidar_x/" + param_co.state_co["path"]["file_name"]
 
 def get_formated_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')

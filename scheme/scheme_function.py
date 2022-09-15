@@ -195,14 +195,19 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_port, tag_statu
         with dpg.group(horizontal=True):
             dpg.add_button(label="Start")
             dpg.add_button(label="Stop")
-def add_perf(tag_packet, tag_bandwidth):
+def add_perf(tag_packet, tag_bdw_val, tag_bdw_range):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Packet:");
             dpg.add_text(0, tag=tag_packet, color=color_info);
         with dpg.group(horizontal=True):
             dpg.add_text("Bandwidth:");
-            dpg.add_text(0, tag=tag_bandwidth, color=color_info);
+            dpg.add_text(0, tag=tag_bdw_val, color=color_info);
+            dpg.add_text("MB/s");
+        with dpg.group(horizontal=True):
+            dpg.add_text("[");
+            dpg.add_text(0, tag=tag_bdw_range, color=color_info);
+            dpg.add_text("]");
             dpg.add_text("MB/s");
 
 # MQTT stuff

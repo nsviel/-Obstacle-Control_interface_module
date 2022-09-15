@@ -22,7 +22,7 @@ def stop_daemon():
 def thread_image():
     while param_co.run_thread_image:
         # Load current image
-        http_client_get.get_image()
+        http_client_get.get_image("hu")
 
         # Update image
         scheme_update.update_image()

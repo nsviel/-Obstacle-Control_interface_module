@@ -15,16 +15,16 @@ def loop_packet():
     dpg.set_value("l2_packet", param_co.state_py["lidar_2"]["packet"]["value"])
 
 def loop_bandwidth():
-    value = param_co.state_py["lidar_1"]["bandwidth"]["value"]
+    dpg.set_value("l1_bdw_val", param_co.state_py["lidar_1"]["bandwidth"]["value"])
     min = param_co.state_py["lidar_1"]["bandwidth"]["min"]
     mean = param_co.state_py["lidar_1"]["bandwidth"]["mean"]
     max = param_co.state_py["lidar_1"]["bandwidth"]["max"]
-    bandwidth = "%s [%s, %s, %s]"% (value, min, mean, max)
-    dpg.set_value("l1_bandwidth", bandwidth)
+    bandwidth = "%.2f, %.2f, %.2f"% (min, mean, max)
+    dpg.set_value("l1_bdw_range", bandwidth)
 
-    value = param_co.state_py["lidar_2"]["bandwidth"]["value"]
+    dpg.set_value("l2_bdw_val", param_co.state_py["lidar_2"]["bandwidth"]["value"])
     min = param_co.state_py["lidar_2"]["bandwidth"]["min"]
     mean = param_co.state_py["lidar_2"]["bandwidth"]["mean"]
     max = param_co.state_py["lidar_2"]["bandwidth"]["max"]
-    bandwidth = "%s [%s, %s, %s]"% (value, min, mean, max)
-    dpg.set_value("l2_bandwidth", bandwidth)
+    bandwidth = "%.2f, %.2f, %.2f"% (min, mean, max)
+    dpg.set_value("l2_bdw_range", bandwidth)
