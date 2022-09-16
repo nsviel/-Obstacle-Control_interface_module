@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from gui import gui_callback
 
 import dearpygui.dearpygui as dpg

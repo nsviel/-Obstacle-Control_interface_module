@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_co
 from scheme import scheme_callback
 from scheme import scheme_command

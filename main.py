@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+#---------------------------------------------
 from gui import gui
 from src import signal
 

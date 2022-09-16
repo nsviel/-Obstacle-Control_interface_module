@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_co
 from src import io
 from scheme import scheme_plot

@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_co
 from src import connection
 from src import parser_json
@@ -54,7 +52,7 @@ def init_state():
     param_co.state_py["lidar_2"]["bandwidth"]["min"] = 0
     param_co.state_py["lidar_2"]["bandwidth"]["mean"] = 0
     param_co.state_py["lidar_2"]["bandwidth"]["max"] = 0
-    
+
 def load_config_file():
     config = parser_json.load_file(param_co.path_config)
     param_co.state_co["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]

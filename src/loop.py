@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from param import param_co
 from SOCK import sock_server
 from src import connection
@@ -23,7 +21,7 @@ def init():
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
-    pass
+    time.sleep(0.01)
 
 def end():
     print("[\033[1;32mOK\033[0m] Program terminating...")

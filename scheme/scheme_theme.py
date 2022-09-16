@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg

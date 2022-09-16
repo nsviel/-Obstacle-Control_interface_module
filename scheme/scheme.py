@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from scheme import scheme_link
 from scheme import scheme_node
 from scheme import scheme_color

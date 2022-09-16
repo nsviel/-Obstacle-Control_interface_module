@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 import dearpygui.dearpygui as dpg
 
 

@@ -1,6 +1,4 @@
-#! /usr/bin/python
 #---------------------------------------------
-
 from scheme import scheme_function
 from scheme import scheme_command
 
