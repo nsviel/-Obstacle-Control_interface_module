@@ -10,12 +10,10 @@ import os
 def test_ssd_con():
     if(os.path.exists(param_co.path_ssd)):
         hdd = psutil.disk_usage(param_co.path_ssd)
-        param_co.state_co["ssd"]["status"] = "Online"
         param_co.state_co["ssd"]["connected"] = True
         param_co.state_co["ssd"]["space_used"] = int(hdd.used / (2**30))
         param_co.state_co["ssd"]["space_total"] = int(hdd.total / (2**30))
     else:
-        param_co.state_co["ssd"]["status"] = "Offline"
         param_co.state_co["ssd"]["connected"] = False
         param_co.state_co["ssd"]["space_used"] = 0
         param_co.state_co["ssd"]["space_total"] = 0

@@ -68,6 +68,12 @@ def add_port_fixe(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_text(1, tag=tag_, color=color_info);
+def add_port_fixe_i(tag_input, tag_port):
+    with dpg.node_attribute(tag=tag_input, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_port, color=color_info);
 def add_plot(label, tag_y, tag_plot):
     x = []
     y = []

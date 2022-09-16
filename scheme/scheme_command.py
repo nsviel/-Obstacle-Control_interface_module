@@ -32,9 +32,11 @@ def command_false_alarm():
 def command_lidar_source():
     source_l1 = dpg.get_value("hu_sock_client_l1_source")
     if(source_l1 == "Lidar 1"):
-        source_l2 = "Lidar 2"
+        source_l1 = "lidar_1"
+        source_l2 = "lidar_2"
     else:
-        source_l2 = "Lidar 1"
+        source_l1 = "lidar_2"
+        source_l2 = "lidar_1"
     dpg.set_value("hu_sock_client_l2_source", source_l2)
     http_client_post.post_param_value("hu", "self", "sock_server_l1_source", source_l1)
     http_client_post.post_param_value("hu", "self", "sock_server_l2_source", source_l2)

@@ -42,6 +42,9 @@ def add_sock_client_o(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         scheme_function.line()
         dpg.add_text("Socket client");
+def add_sock_client_o_(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        dpg.add_text("Socket client");
 def add_sock_client_io(tag_i, tag_o):
     with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
         scheme_function.line()

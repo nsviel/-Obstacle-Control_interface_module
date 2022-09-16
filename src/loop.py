@@ -17,7 +17,6 @@ def init():
     connection.start_daemon()
     sock_server.start_daemon()
     image.start_daemon()
-    param_co.state_co["self"]["status"] = "Online"
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
@@ -25,7 +24,6 @@ def loop():
 
 def end():
     print("[\033[1;32mOK\033[0m] Program terminating...")
-    param_co.state_co["self"]["status"] = "Offline"
     parser_json.upload_state()
     connection.stop_daemon()
     sock_server.stop_daemon()
