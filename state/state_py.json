@@ -1,8 +1,8 @@
 {
     "self": {
-        "status": "Offline",
-        "ip": "10.201.20.131",
-        "nb_thread": 0,
+        "status": "Online",
+        "ip": "10.201.20.68",
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
@@ -41,14 +41,14 @@
             "mean": 0
         },
         "packet": {
-            "value": 26625,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0
         }
     },
     "hubium": {
-        "ip": "10.201.20.131",
+        "ip": "10.201.20.68",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "sock_server_ip": "127.0.0.1"
@@ -56,5 +56,17 @@
     "geolocalization": {
         "country": "France"
     },
-    "device": {}
+    "device": {
+        "0": "enx00e04c680731",
+        "1": "any",
+        "2": "lo",
+        "3": "docker0",
+        "4": "wlp2s0",
+        "5": "bluetooth0",
+        "6": "bluetooth-monitor",
+        "7": "nflog",
+        "8": "nfqueue",
+        "9": "dbus-system",
+        "10": "dbus-session"
+    }
 }

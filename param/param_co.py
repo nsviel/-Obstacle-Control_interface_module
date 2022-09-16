@@ -39,3 +39,15 @@ vec_y_l2 = []
 # Wallet
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
+
+# Status
+status_co = "Offline"
+status_hu = "Offline"
+status_py = "Offline"
+status_ve = "Offline"
+status_ai = "Offline"
+status_ed = "Offline"
+status_ssd = "Offline"
+status_sncf = "Offline"
+status_l1 = "Offline"
+status_l2 = "Offline"

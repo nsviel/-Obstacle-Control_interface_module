@@ -1,8 +1,9 @@
 #---------------------------------------------
-from src import connection
 from param import param_co
+from src import network
 
 import socket
+import threading
 import platform
 import signal
 import time
@@ -20,6 +21,9 @@ signal.signal(signal.SIGINT, handler)
 def system_clear():
     os.system('clear')
 
+def update_nb_thread():
+    param_co.state_co["self"]["nb_thread"] = threading.active_count()
+
 def check_for_root():
     if not os.geteuid() == 0:
         sys.exit("\nOnly root can run this script\n")
@@ -29,7 +33,7 @@ def system_information(prog_name):
 
     #Info
     program = prog_name
-    ip = connection.get_ip_adress()
+    ip = network.get_ip_adress()
     hostname = socket.gethostname()
     arch = platform.architecture()[0]
     core = platform.uname()[2]

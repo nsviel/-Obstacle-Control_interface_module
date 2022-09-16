@@ -10,7 +10,7 @@ from src import io
 import dearpygui.dearpygui as dpg
 
 
-def update():
+def update_scheme():
     scheme_link.update_link_color()
     update_status()
     update_ssd()
@@ -22,28 +22,28 @@ def update():
     update_data()
 
 def update_status():
-    dpg.set_value("sncf_status", param_co.state_hu["sncf"]["status"])
-    dpg.set_value("ssd_status", param_co.state_co["ssd"]["status"])
-    dpg.set_value("co_status", param_co.state_co["self"]["status"])
-    dpg.set_value("ve_status", param_co.state_hu["velodium"]["status"])
-    dpg.set_value("ai_status", param_co.state_hu["ai"]["status"])
-    dpg.set_value("hu_status", param_co.state_hu["self"]["status"])
-    dpg.set_value("py_status", param_co.state_py["self"]["status"])
-    dpg.set_value("ed_status", param_co.state_hu["edge"]["status"])
+    dpg.set_value("sncf_status", param_co.status_sncf)
+    dpg.set_value("ssd_status", param_co.status_ssd)
+    dpg.set_value("co_status", param_co.status_co)
+    dpg.set_value("ve_status", param_co.status_ve)
+    dpg.set_value("ai_status", param_co.status_ai)
+    dpg.set_value("hu_status", param_co.status_hu)
+    dpg.set_value("py_status", param_co.status_py)
+    dpg.set_value("ed_status", param_co.status_ed)
 
     on = scheme_color.color_status_green()
     off = scheme_color.color_status_red()
 
-    scheme_theme.colorize_status("sncf_status_but", param_co.state_hu["sncf"]["status"], on, off)
-    scheme_theme.colorize_status("ssd_status_but", param_co.state_co["ssd"]["status"], on, off)
-    scheme_theme.colorize_status("co_status_but", param_co.state_co["self"]["status"], on, off)
-    scheme_theme.colorize_status("ve_status_but", param_co.state_hu["velodium"]["status"], on, off)
-    scheme_theme.colorize_status("ai_status_but", param_co.state_hu["ai"]["status"], on, off)
-    scheme_theme.colorize_status("hu_status_but", param_co.state_hu["self"]["status"], on, off)
-    scheme_theme.colorize_status("py_status_but", param_co.state_py["self"]["status"], on, off)
-    scheme_theme.colorize_status("ed_status_but", param_co.state_hu["edge"]["status"], on, off)
-    scheme_theme.colorize_status("l1_status_but", param_co.state_py["lidar_1"]["connected"], on, off)
-    scheme_theme.colorize_status("l2_status_but", param_co.state_py["lidar_2"]["connected"], on, off)
+    scheme_theme.colorize_status("sncf_status_but", param_co.status_sncf, on, off)
+    scheme_theme.colorize_status("ssd_status_but", param_co.status_ssd, on, off)
+    scheme_theme.colorize_status("co_status_but", param_co.status_co, on, off)
+    scheme_theme.colorize_status("ve_status_but", param_co.status_ve, on, off)
+    scheme_theme.colorize_status("ai_status_but", param_co.status_ai, on, off)
+    scheme_theme.colorize_status("hu_status_but", param_co.status_hu, on, off)
+    scheme_theme.colorize_status("py_status_but", param_co.status_py, on, off)
+    scheme_theme.colorize_status("ed_status_but", param_co.status_ed, on, off)
+    scheme_theme.colorize_status("l1_status_but", param_co.status_l1, on, off)
+    scheme_theme.colorize_status("l2_status_but", param_co.status_l2, on, off)
 def update_add():
     dpg.set_value("py_wallet", param_co.state_hu["pywardium"]["add"])
     dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])

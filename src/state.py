@@ -2,8 +2,8 @@
 from param import param_co
 from src import connection
 from src import parser_json
-from src import status
 from src import wallet
+from src import network
 
 
 def load_configuration():
@@ -13,12 +13,12 @@ def load_configuration():
     upload_state()
 
 def load_json_file():
-    param_co.state_co = parser_json.load_file(param_co.path_state_co)
-    param_co.state_hu = parser_json.load_file(param_co.path_state_hu)
-    param_co.state_py = parser_json.load_file(param_co.path_state_py)
+    param_co.state_co = parser_json.load_data_from_file(param_co.path_state_co)
+    param_co.state_hu = parser_json.load_data_from_file(param_co.path_state_hu)
+    param_co.state_py = parser_json.load_data_from_file(param_co.path_state_py)
 
 def init_state():
-    param_co.state_co["self"]["ip"] = status.get_ip_adress()
+    param_co.state_co["self"]["ip"] = network.get_ip_adress()
     param_co.state_co["path"]["file_name_add"] = ""
 
     param_co.state_hu["self"]["status"] = "Offline"
@@ -54,7 +54,7 @@ def init_state():
     param_co.state_py["lidar_2"]["bandwidth"]["max"] = 0
 
 def load_config_file():
-    config = parser_json.load_file(param_co.path_config)
+    config = parser_json.load_data_from_file(param_co.path_config)
     param_co.state_co["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
     param_co.state_co["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
