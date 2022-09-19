@@ -10,19 +10,19 @@ import dearpygui.dearpygui as dpg
 
 
 def command_l1_start():
-    print("[\033[1;32mOK\033[0m] Start LiDAR 1")
+    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;32mstart\033[0m")
     http_client_post.post_param_value("py", None, "lidar_1", "start")
 
-def command_l1_stopt():
-    print("[\033[1;32mOK\033[0m] Stop LiDAR 1")
+def command_l1_stop():
+    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;31mstop\033[0m")
     http_client_post.post_param_value("py", None, "lidar_1", "stop")
 
 def command_l2_start():
-    print("[\033[1;32mOK\033[0m] Start LiDAR 2")
+    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;32mstart\033[0m")
     http_client_post.post_param_value("py", None, "lidar_2", "start")
 
-def command_l2_stopt():
-    print("[\033[1;32mOK\033[0m] Stop LiDAR 2")
+def command_l2_stop():
+    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;31mstop\033[0m")
     http_client_post.post_param_value("py", None, "lidar_2", "stop")
 
 def command_false_alarm():

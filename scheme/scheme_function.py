@@ -147,6 +147,11 @@ def add_port_hu(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_hubium);
+def add_port_sncf(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_sncf);
 def add_port_py(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -175,13 +180,14 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev):
             with dpg.group():
                 dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
-def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_port, tag_status):
+def add_lidar_status(label, tag_con, tag_active, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
+def add_lidar_info(tag_speed, tag_ip, tag_port):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         #Speed
         with dpg.group(horizontal=True):
@@ -195,10 +201,16 @@ def add_lidar(label, tag_con, tag_active, tag_speed, tag_ip, tag_port, tag_statu
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
             dpg.add_text(1, tag=tag_port, color=color_info);
-        # Start / Stop
+def add_l1_motor():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
-            dpg.add_button(label="Start")
-            dpg.add_button(label="Stop")
+            dpg.add_button(label="Start", width=75, callback=scheme_command.command_l1_start)
+            dpg.add_button(label="Stop", width=75, callback=scheme_command.command_l1_stop)
+def add_l2_motor():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="Start", width=75, callback=scheme_command.command_l2_start)
+            dpg.add_button(label="Stop", width=75, callback=scheme_command.command_l2_stop)
 def add_perf(tag_packet, tag_bdw_val, tag_bdw_range):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -222,12 +234,12 @@ def add_mqtt(tag_client, tag_name):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Name");
-            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, callback=scheme_callback.callback_hubium)
+            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
 def add_topic(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Topic");
-            dpg.add_input_text(tag=tag_, default_value="-", width=100, callback=scheme_callback.callback_hubium)
+            dpg.add_input_text(tag=tag_, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
 
 # SSD stuff
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):

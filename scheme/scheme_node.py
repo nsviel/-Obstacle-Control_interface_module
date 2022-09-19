@@ -3,6 +3,7 @@ from param import param_co
 from scheme import scheme_function
 from scheme import scheme_connection
 from scheme import scheme_callback
+from scheme import scheme_command
 
 import dearpygui.dearpygui as dpg
 
@@ -79,9 +80,15 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
         scheme_function.add_geolocalization("geo_country")
-        scheme_function.add_lidar("Lidar 1", "l1_input", "l1_activated", "l1_speed", "l1_ip", "l1_port", "l1_status_but")
+
+        scheme_function.add_lidar_status("Lidar 1", "l1_input", "l1_activated", "l1_status_but")
+        scheme_function.add_l1_motor()
+        scheme_function.add_lidar_info("l1_speed", "l1_ip", "l1_port")
         scheme_function.add_perf("l1_packet", "l1_bdw_val", "l1_bdw_range")
-        scheme_function.add_lidar("Lidar 2", "l2_input", "l2_activated", "l2_speed", "l2_ip", "l2_port", "l2_status_but")
+
+        scheme_function.add_lidar_status("Lidar 2", "l2_input", "l2_activated", "l2_status_but")
+        scheme_function.add_l2_motor()
+        scheme_function.add_lidar_info("l2_speed", "l2_ip", "l2_port")
         scheme_function.add_perf("l2_packet", "l2_bdw_val", "l2_bdw_range")
         scheme_function.add_variable("Time:", "capture_time")
 
@@ -123,7 +130,7 @@ def node_sncf():
         scheme_function.add_status("sncf_status_but", "sncf_status")
         scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
-        scheme_function.add_port_hu("sncf_broker_port")
+        scheme_function.add_port_sncf("sncf_broker_port")
         scheme_function.add_topic("sncf_mqtt_topic")
 
 def node_valeo():
