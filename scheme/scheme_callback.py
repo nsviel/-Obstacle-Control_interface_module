@@ -8,11 +8,12 @@ import dearpygui.dearpygui as dpg
 
 
 def callback_hubium():
-    param_co.state_hu["self"]["sock_server_l1_port"] = dpg.get_value("hu_sock_server_l1_port")
-    param_co.state_hu["self"]["sock_server_l2_port"] = dpg.get_value("hu_sock_server_l2_port")
-    param_co.state_hu["self"]["sock_server_l1_port"] = dpg.get_value("hu_sock_server_l1_port")
-    param_co.state_hu["self"]["sock_server_l2_port"] = dpg.get_value("hu_sock_server_l2_port")
-    http_client_post.post_state("hu", param_co.state_hu)
+    l1_port = dpg.get_value("hu_sock_server_l1_port")
+    l2_port = dpg.get_value("hu_sock_server_l2_port")
+    if(l1_port != l2_port):
+        param_co.state_hu["self"]["sock_server_l1_port"] = l1_port
+        param_co.state_hu["self"]["sock_server_l2_port"] = l2_port
+        http_client_post.post_state("hu", param_co.state_hu)
 
 def callback_sncf():
     param_co.state_hu["sncf"]["broker_port"] = dpg.get_value("sncf_broker_port")
@@ -22,13 +23,16 @@ def callback_sncf():
     http_client_post.post_param_value("hu", None, "sncf", "reset")
 
 def callback_controlium():
-    param_co.state_co["self"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")
-    param_co.state_co["self"]["sock_server_l2_port"] = dpg.get_value("co_sock_server_l2_port")
-    sock_server.restart_daemon()
+    l1_port = dpg.get_value("co_sock_server_l1_port")
+    l2_port = dpg.get_value("co_sock_server_l2_port")
+    if(l1_port != l2_port):
+        param_co.state_co["self"]["sock_server_l1_port"] = l1_port
+        param_co.state_co["self"]["sock_server_l2_port"] = l2_port
+        sock_server.restart_daemon()
 
-    param_co.state_hu["controlium"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")
-    param_co.state_hu["controlium"]["sock_server_l2_port"] = dpg.get_value("co_sock_server_l2_port")
-    http_client_post.post_state("hu", param_co.state_hu)
+        param_co.state_hu["controlium"]["sock_server_l1_port"] = dpg.get_value("co_sock_server_l1_port")
+        param_co.state_hu["controlium"]["sock_server_l2_port"] = dpg.get_value("co_sock_server_l2_port")
+        http_client_post.post_state("hu", param_co.state_hu)
 
 def callback_pywardium():
     param_co.state_py["lidar_1"]["activated"] = dpg.get_value("l1_activated")

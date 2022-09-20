@@ -17,9 +17,9 @@ def thread_socket_l1_server():
 
     while param_co.run_thread_socket:
         try:
-            data, (address, port) = param_co.sock_server_l1.recvfrom(4096)
+            packet, (address, port) = param_co.sock_server_l1.recvfrom(4096)
+            data.process_l1_data(packet)
             param_co.state_co["hubium"]["sock_l1_connected"] = True
-            process_packet_l1(data)
         except:
             param_co.state_co["hubium"]["sock_l1_connected"] = False
 
@@ -35,32 +35,10 @@ def thread_socket_l2_server():
 
     while param_co.run_thread_socket:
         try:
-            data, (address, port) = param_co.sock_server_l2.recvfrom(4096)
+            packet, (address, port) = param_co.sock_server_l2.recvfrom(4096)
+            data.process_l2_data(packet)
             param_co.state_co["hubium"]["sock_l2_connected"] = True
-            process_packet_l2(data)
         except:
             param_co.state_co["hubium"]["sock_l2_connected"] = False
 
     param_co.sock_server_l2.close()
-
-def process_packet_l1(packet):
-    msg = 0
-    try:
-        msg = packet.decode('utf-8')
-    except:
-        pass
-    if(msg == "ok"):
-        param_hu.state_hu["velodium"]["sock_connected"] = True
-    else:
-        data.process_l1_data(packet)
-
-def process_packet_l2(packet):
-    msg = 0
-    try:
-        msg = packet.decode('utf-8')
-    except:
-        pass
-    if(msg == "ok"):
-        param_hu.state_hu["velodium"]["sock_connected"] = True
-    else:
-        data.process_l2_data(packet)
