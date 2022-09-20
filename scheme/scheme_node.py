@@ -11,11 +11,11 @@ coord_controlium = [375, 520]
 coord_pywardium = [350, 10]
 coord_hubium = [835, 375]
 coord_train = [10, 10]
-coord_edge = [1200, 475]
-coord_velodium = [1200, 10]
-coord_ai = [1200, 190]
-coord_sncf = [1200, 325]
-coord_valeo = [1200, 740]
+coord_edge = [1200, 525]
+coord_velodium = [1200, 5]
+coord_ai = [1200, 215]
+coord_sncf = [1200, 380]
+coord_valeo = [1200, 745]
 coord_ssd = [10, 520]
 coord_data = [755, 10]
 
@@ -96,8 +96,8 @@ def node_edge():
     with dpg.node(label="Edge", tag="node_ed", pos=coord_edge):
         scheme_function.add_status("ed_status_but", "ed_status")
         scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"])
-        scheme_function.add_edge_id("ed_edge_id")
-        scheme_function.add_country("ed_country")
+        #scheme_function.add_edge_id("ed_edge_id")
+        #scheme_function.add_country("ed_country")
 
         scheme_connection.add_sock_client_i("ed_sock_client")
 
@@ -111,6 +111,7 @@ def node_edge():
 def node_velodium():
     with dpg.node(label="Velodium", tag="node_velodium", pos=coord_velodium):
         scheme_function.add_status("ve_status_but", "ve_status")
+        scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost")
         scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
         scheme_connection.add_sock_server_i("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port")
@@ -120,6 +121,7 @@ def node_velodium():
 def node_ai():
     with dpg.node(label="AI", tag="node_ai", pos=coord_ai):
         scheme_function.add_status("ai_status_but", "ai_status")
+        scheme_function.add_ip_wallet("ai_wallet", "ai_ip", "localhost")
         scheme_function.add_ai_param_height("ai_lidar_height")
         scheme_function.add_ai_param_thres("ai_threshold")
         scheme_connection.add_http_server_i("ai_http_server")

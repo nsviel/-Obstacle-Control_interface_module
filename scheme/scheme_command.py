@@ -55,7 +55,10 @@ def command_comboip():
     hu_ip = wallet.get_ip_from_key(dpg.get_value("hu_wallet"))
     py_ip = wallet.get_ip_from_key(dpg.get_value("py_wallet"))
     ed_ip = wallet.get_ip_from_key(dpg.get_value("ed_wallet"))
+    ve_ip = wallet.get_ip_from_key(dpg.get_value("ve_wallet"))
+    ai_ip = wallet.get_ip_from_key(dpg.get_value("ai_wallet"))
     sncf_ip = wallet.get_ip_from_key(dpg.get_value("sncf_wallet"))
+
     if(hu_ip != None):
         param_co.state_co["hubium"]["ip"] = hu_ip
         dpg.set_value("hu_ip", hu_ip)
@@ -67,6 +70,14 @@ def command_comboip():
         param_co.state_hu["edge"]["ip"] = ed_ip
         dpg.set_value("ed_ip", ed_ip)
         http_client_post.post_param_value("hu", "edge", "ip", ed_ip)
+    if(ve_ip != None):
+        param_co.state_hu["velodium"]["ip"] = ve_ip
+        dpg.set_value("ed_ip", ve_ip)
+        http_client_post.post_param_value("hu", "velodium", "ip", ve_ip)
+    if(ai_ip != None):
+        param_co.state_hu["ai"]["ip"] = ai_ip
+        dpg.set_value("ai_ip", ai_ip)
+        http_client_post.post_param_value("hu", "ai", "ip", ai_ip)
     if(sncf_ip != None):
         param_co.state_hu["sncf"]["broker_ip"] = sncf_ip
         dpg.set_value("sncf_ip", sncf_ip)

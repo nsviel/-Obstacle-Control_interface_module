@@ -90,8 +90,8 @@ def update_hubium():
     dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
 def update_edge():
     dpg.set_value("ed_ip", param_co.state_hu["edge"]["ip"])
-    dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
-    dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
+    #dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
+    #dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
     dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_l1_port"])
     dpg.set_value("ed_http_server_port", param_co.state_hu["self"]["http_server_port"])
 def update_pywardium():

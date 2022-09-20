@@ -74,7 +74,10 @@ def update_state():
         param_co.state_hu["sncf"]["broker_connected"] = False
         param_co.state_hu["ai"]["http_connected"] = False
         param_co.state_hu["velodium"]["sock_connected"] = False
+        param_co.state_hu["velodium"]["http_connected"] = False
         param_co.state_hu["pywardium"]["http_connected"] = False
+        param_co.state_hu["pywardium"]["sock_l1_connected"] = False
+        param_co.state_hu["pywardium"]["sock_l2_connected"] = False
 
     if(param_co.status_py == "Offline"):
         param_co.state_py["self"]["nb_thread"] = 0
@@ -99,3 +102,6 @@ def update_state():
         param_co.state_py["lidar_2"]["bandwidth"]["min"] = 0
         param_co.state_py["lidar_2"]["bandwidth"]["mean"] = 0
         param_co.state_py["lidar_2"]["bandwidth"]["max"] = 0
+
+    if(param_co.status_ve == "Offline"):
+        param_co.state_hu["velodium"]["sock_connected"] = False

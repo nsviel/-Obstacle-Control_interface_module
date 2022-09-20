@@ -115,11 +115,15 @@ def colorize_item():
     dpg.bind_item_theme("hu_wallet", input_text)
     dpg.bind_item_theme("py_wallet", input_text)
     dpg.bind_item_theme("ed_wallet", input_text)
+    dpg.bind_item_theme("ve_wallet", input_text)
+    dpg.bind_item_theme("ai_wallet", input_text)
     dpg.bind_item_theme("sncf_wallet", input_text)
 
     dpg.bind_item_theme("py_ip", input_text)
     dpg.bind_item_theme("hu_ip", input_text)
     dpg.bind_item_theme("ed_ip", input_text)
+    dpg.bind_item_theme("ai_ip", input_text)
+    dpg.bind_item_theme("ve_ip", input_text)
     dpg.bind_item_theme("sncf_ip", input_text)
 
     dpg.bind_item_theme("l1_yaxis_line", line_yaxis)
