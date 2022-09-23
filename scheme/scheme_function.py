@@ -15,6 +15,9 @@ color_title = (200, 200, 200)
 def line():
     with dpg.drawlist(width=125, height=1):
         dpg.draw_line([0, 0], [125, 0], color=color_line)
+def line_double():
+    with dpg.drawlist(width=125, height=1):
+        dpg.draw_line([0, 0], [250, 0], color=color_line)
 def add_attribute(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
