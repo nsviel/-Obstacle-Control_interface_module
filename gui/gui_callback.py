@@ -1,6 +1,6 @@
 #---------------------------------------------
 from param import param_co
-from HTTP import http_client_get
+from HTTPS import https_client_get
 from src import wallet
 from gui import gui_wallet
 from scheme import scheme_update
@@ -30,3 +30,13 @@ def callback_wallet_remove(sender):
     gui_wallet.destroy_table()
     gui_wallet.build_table()
     scheme_update.update_add_combo()
+
+def callback_version(sender):
+    if(param_co.status_ui == "Development"):
+        print("here")
+        dpg.show_item("temp")
+        param_co.status_ui = "Demo"
+    elif(param_co.status_ui == "Demo"):
+        print("there")
+        dpg.hide_item("temp")
+        param_co.status_ui = "Development"

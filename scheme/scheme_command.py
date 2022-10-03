@@ -1,7 +1,7 @@
 #---------------------------------------------
 from param import param_co
-from HTTP import http_client_get
-from HTTP import http_client_post
+from HTTPS import https_client_get
+from HTTPS import https_client_post
 from SOCK import sock_server
 from src import saving
 from src import wallet
@@ -11,23 +11,23 @@ import dearpygui.dearpygui as dpg
 
 def command_l1_start():
     print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;32mstart\033[0m")
-    http_client_post.post_param_value("py", None, "lidar_1", "start")
+    https_client_post.post_param_value("py", None, "lidar_1", "start")
 
 def command_l1_stop():
     print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;31mstop\033[0m")
-    http_client_post.post_param_value("py", None, "lidar_1", "stop")
+    https_client_post.post_param_value("py", None, "lidar_1", "stop")
 
 def command_l2_start():
     print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;32mstart\033[0m")
-    http_client_post.post_param_value("py", None, "lidar_2", "start")
+    https_client_post.post_param_value("py", None, "lidar_2", "start")
 
 def command_l2_stop():
     print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;31mstop\033[0m")
-    http_client_post.post_param_value("py", None, "lidar_2", "stop")
+    https_client_post.post_param_value("py", None, "lidar_2", "stop")
 
 def command_false_alarm():
     print("[\033[1;32mOK\033[0m] Send false alarm")
-    http_client_post.post_param_value("hu", None, "sncf", "false_alarm")
+    https_client_post.post_param_value("hu", None, "sncf", "false_alarm")
 
 def command_lidar_source():
     source_l1 = dpg.get_value("hu_sock_client_l1_source")
@@ -38,8 +38,8 @@ def command_lidar_source():
         source_l1 = "lidar_2"
         source_l2 = "lidar_1"
     dpg.set_value("hu_sock_client_l2_source", source_l2)
-    http_client_post.post_param_value("hu", "self", "sock_server_l1_source", source_l1)
-    http_client_post.post_param_value("hu", "self", "sock_server_l2_source", source_l2)
+    https_client_post.post_param_value("hu", "self", "sock_server_l1_source", source_l1)
+    https_client_post.post_param_value("hu", "self", "sock_server_l2_source", source_l2)
 
 def command_new_save():
     saving.determine_path()
@@ -65,20 +65,20 @@ def command_comboip():
     if(py_ip != None):
         param_co.state_hu["pywardium"]["ip"] = py_ip
         dpg.set_value("py_ip", py_ip)
-        http_client_post.post_param_value("hu", "pywardium", "ip", py_ip)
+        https_client_post.post_param_value("hu", "pywardium", "ip", py_ip)
     if(ed_ip != None):
         param_co.state_hu["edge"]["ip"] = ed_ip
         dpg.set_value("ed_ip", ed_ip)
-        http_client_post.post_param_value("hu", "edge", "ip", ed_ip)
+        https_client_post.post_param_value("hu", "edge", "ip", ed_ip)
     if(ve_ip != None):
         param_co.state_hu["velodium"]["ip"] = ve_ip
         dpg.set_value("ed_ip", ve_ip)
-        http_client_post.post_param_value("hu", "velodium", "ip", ve_ip)
+        https_client_post.post_param_value("hu", "velodium", "ip", ve_ip)
     if(ai_ip != None):
         param_co.state_hu["ai"]["ip"] = ai_ip
         dpg.set_value("ai_ip", ai_ip)
-        http_client_post.post_param_value("hu", "ai", "ip", ai_ip)
+        https_client_post.post_param_value("hu", "ai", "ip", ai_ip)
     if(sncf_ip != None):
         param_co.state_hu["sncf"]["broker_ip"] = sncf_ip
         dpg.set_value("sncf_ip", sncf_ip)
-        http_client_post.post_param_value("hu", "sncf", "broker_ip", sncf_ip)
+        https_client_post.post_param_value("hu", "sncf", "broker_ip", sncf_ip)

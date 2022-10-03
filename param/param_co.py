@@ -41,6 +41,7 @@ wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
 
 # Status
+status_ui = "Development"
 status_co = "Offline"
 status_hu = "Offline"
 status_py = "Offline"

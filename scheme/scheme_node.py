@@ -24,8 +24,8 @@ def node_controlium():
     with dpg.node(label="Controlium", tag="node_co", pos=coord_controlium):
         scheme_function.add_status("co_status_but", "co_status")
         scheme_function.add_ip("co_ip")
-        scheme_function.add_nb_thread("co_thread")
-        scheme_function.add_temperature("co_temp")
+        scheme_function.add_nb_thread("co_thread", "co_thread_visible")
+        scheme_function.add_temperature("co_temp", "co_temp_visibile")
 
         scheme_function.add_input("self", "co_self")
 
@@ -34,48 +34,48 @@ def node_controlium():
         scheme_function.add_choice_edge("combo_edge")
 
         scheme_connection.add_sock_server_o("co_sock_server_l1")
-        scheme_function.add_port_co("co_sock_server_l1_port")
+        scheme_function.add_port_co("co_sock_server_l1_port", "co_port_l1_visible")
 
         scheme_connection.add_sock_server_o("co_sock_server_l2")
-        scheme_function.add_port_co("co_sock_server_l2_port")
+        scheme_function.add_port_co("co_sock_server_l2_port", "co_port_l2_visible")
 
 def node_pywardium():
     with dpg.node(label="Pywardium", tag="node_py", pos=coord_pywardium):
         scheme_function.add_status("py_status_but", "py_status")
         scheme_function.add_ip_wallet("py_wallet", "py_ip", "-")
-        scheme_function.add_nb_thread("py_thread")
+        scheme_function.add_nb_thread("py_thread", "py_thread_visible")
 
         scheme_function.add_input("self", "py_self")
-        scheme_function.add_port_fixe_i("py_l1_in", "py_l1_port")
+        scheme_function.add_port_fixe_i("py_l1_in", "py_l1_port", "py_l1_port_visible")
         scheme_connection.add_sock_client_o_("py_l1_out")
-        scheme_function.add_port_fixe_i("py_l2_in", "py_l2_port")
+        scheme_function.add_port_fixe_i("py_l2_in", "py_l2_port", "py_l2_port_visible")
         scheme_connection.add_sock_client_o_("py_l2_out")
         scheme_function.add_lidar_device("py_l1_device", "py_l2_device")
 
         scheme_connection.add_http_server_o("py_http_server")
-        scheme_function.add_port_fixe("py_http_server_port")
+        scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
 
 def node_hubium():
     with dpg.node(label="Hubium", tag="node_hu", pos=coord_hubium):
         scheme_function.add_status("hu_status_but", "hu_status")
         scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"])
-        scheme_function.add_nb_thread("hu_thread")
+        scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
 
         scheme_function.add_edge_id("hu_edge_id")
         scheme_function.add_country("hu_country")
-        scheme_function.add_mqtt("hu_mqtt_client", "hu_mqtt_client_name")
+        scheme_function.add_mqtt("hu_mqtt_client", "hu_mqtt_client_name", "hu_mqtt_visible")
 
         scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
-        scheme_function.add_port_hu("hu_sock_server_l1_port")
+        scheme_function.add_port_hu("hu_sock_server_l1_port", "hu_port_l1_visible")
         scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
-        scheme_function.add_port_hu("hu_sock_server_l2_port")
+        scheme_function.add_port_hu("hu_sock_server_l2_port", "hu_port_l2_visible")
 
         scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source")
         scheme_connection.add_sock_client_source_i("hu_sock_client_l2_i", "hu_sock_client_l2_source")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
         scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")
-        scheme_function.add_port_fixe("hu_http_server_port")
+        scheme_function.add_port_fixe("hu_http_server_port", "hu_http_port_visible")
 
 def node_train():
     with dpg.node(label="Train", tag="node_train", pos=coord_train):
@@ -83,12 +83,12 @@ def node_train():
 
         scheme_function.add_lidar_status("Lidar 1", "l1_input", "l1_activated", "l1_status_but")
         scheme_function.add_l1_motor()
-        scheme_function.add_lidar_info("l1_speed", "l1_ip", "l1_port")
+        scheme_function.add_lidar_info("l1_speed", "l1_ip", "l1_port", "l1_visible")
         scheme_function.add_perf("l1_packet", "l1_bdw_val", "l1_bdw_range")
 
         scheme_function.add_lidar_status("Lidar 2", "l2_input", "l2_activated", "l2_status_but")
         scheme_function.add_l2_motor()
-        scheme_function.add_lidar_info("l2_speed", "l2_ip", "l2_port")
+        scheme_function.add_lidar_info("l2_speed", "l2_ip", "l2_port", "l2_visible")
         scheme_function.add_perf("l2_packet", "l2_bdw_val", "l2_bdw_range")
         scheme_function.add_variable("Time:", "capture_time")
 
@@ -102,11 +102,11 @@ def node_edge():
         scheme_connection.add_sock_client_i("ed_sock_client")
 
         scheme_connection.add_sock_server_i("ed_sock_server")
-        scheme_function.add_port_fixe("ed_sock_server_port")
+        scheme_function.add_port_fixe("ed_sock_server_port", "ed_sock_port_visible")
 
         scheme_connection.add_http_client_i("ed_http_client")
         scheme_connection.add_http_server_i("ed_http_server")
-        scheme_function.add_port_fixe("ed_http_server_port")
+        scheme_function.add_port_fixe("ed_http_server_port", "ed_http_port_visible")
 
 def node_velodium():
     with dpg.node(label="Velodium", tag="node_velodium", pos=coord_velodium):
@@ -114,9 +114,9 @@ def node_velodium():
         scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost")
         scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
         scheme_connection.add_sock_server_i("ve_sock_server")
-        scheme_function.add_port_fixe("ve_sock_server_port")
+        scheme_function.add_port_fixe("ve_sock_server_port", "ve_sock_port_visible")
         scheme_connection.add_http_server_i("ve_http_server")
-        scheme_function.add_port_fixe("ve_http_server_port")
+        scheme_function.add_port_fixe("ve_http_server_port", "ve_http_port_visible")
 
 def node_ai():
     with dpg.node(label="AI", tag="node_ai", pos=coord_ai):
@@ -125,15 +125,15 @@ def node_ai():
         scheme_function.add_ai_param_height("ai_lidar_height")
         scheme_function.add_ai_param_thres("ai_threshold")
         scheme_connection.add_http_server_i("ai_http_server")
-        scheme_function.add_port_fixe("ai_http_server_port")
+        scheme_function.add_port_fixe("ai_http_server_port", "ai_http_port_visible")
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf", pos=coord_sncf):
         scheme_function.add_status("sncf_status_but", "sncf_status")
         scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
-        scheme_function.add_port_sncf("sncf_broker_port")
-        scheme_function.add_topic("sncf_mqtt_topic")
+        scheme_function.add_port_sncf("sncf_broker_port", "ai_sncf_port_visible")
+        scheme_function.add_mqtt_topic("sncf_mqtt_topic", "sncf_mqtt_topic_visible")
 
 def node_valeo():
     with dpg.node(label="Valeo", tag="node_valeo", pos=coord_valeo):

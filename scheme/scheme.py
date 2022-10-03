@@ -4,6 +4,7 @@ from scheme import scheme_node
 from scheme import scheme_color
 from scheme import scheme_theme
 from scheme import scheme_plot
+from scheme import scheme_visibility
 
 import dearpygui.dearpygui as dpg
 
@@ -29,3 +30,5 @@ def create_scheme():
         scheme_node.node_data()
         scheme_node.node_stats()
         scheme_link.create_link()
+    # Set scheme visibility
+    scheme_visibility.set_mode()

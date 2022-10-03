@@ -21,11 +21,11 @@ def line_double():
 def add_attribute(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
-def add_temperature(tag_):
+def add_temperature(tag_temp, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Temp:");
-            dpg.add_text(0, tag=tag_, color=color_info);
+            dpg.add_text(0, tag=tag_temp, color=color_info);
             dpg.add_text("°", color=color_info);
 def add_variable(text, tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -66,17 +66,6 @@ def add_ip_wallet(tag_wallet, tag_ip, default):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
-def add_port_fixe(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_text(1, tag=tag_, color=color_info);
-def add_port_fixe_i(tag_input, tag_port):
-    with dpg.node_attribute(tag=tag_input, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
-        line()
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_text(1, tag=tag_port, color=color_info);
 def add_plot(label, tag_y, tag_plot):
     x = []
     y = []
@@ -105,11 +94,11 @@ def add_country(tag_):
             dpg.add_text("Country: [")
             dpg.add_text("", tag=tag_, color=color_info)
             dpg.add_text("]")
-def add_nb_thread(tag_):
+def add_nb_thread(tag_thread, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Nb thread:");
-            dpg.add_text(1, tag=tag_, color=color_info);
+            dpg.add_text(1, tag=tag_thread, color=color_info);
 def add_option(label, tag_option):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -140,26 +129,6 @@ def add_geolocalization(tag_):
 def add_image(tag):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_image(tag, width=300, height=175)
-def add_port_co(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_controlium);
-def add_port_hu(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_hubium);
-def add_port_sncf(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_sncf);
-def add_port_py(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_, default_value=1, width=100, callback=scheme_callback.callback_pywardium);
 def add_text(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
@@ -171,6 +140,39 @@ def add_velo_option(tag_slam, tag_view):
         with dpg.group(horizontal=True):
             dpg.add_text("View:");
             dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velodium, horizontal=True)
+
+# Ports
+def add_port_co(tag_port, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_controlium);
+def add_port_hu(tag_port, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_hubium);
+def add_port_sncf(tag_port, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_sncf);
+def add_port_py(tag_port, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_pywardium);
+def add_port_fixe(tag_port, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_port, color=color_info);
+def add_port_fixe_i(tag_input, tag_port, tag_visible):
+    with dpg.node_attribute(tag=tag_input, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_port, color=color_info);
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev):
@@ -190,20 +192,21 @@ def add_lidar_status(label, tag_con, tag_active, tag_status):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
-def add_lidar_info(tag_speed, tag_ip, tag_port):
+def add_lidar_info(tag_speed, tag_ip, tag_port, tag_visibility):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        #Speed
-        with dpg.group(horizontal=True):
-            dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_pywardium);
-        #Port
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_text(1, tag=tag_port, color=color_info);
+        with dpg.group(horizontal=True, tag=tag_visibility):
+            #Port
+            with dpg.group(horizontal=True):
+                dpg.add_text("Port:");
+                dpg.add_text(1, tag=tag_port, color=color_info);
+            #Speed
+            with dpg.group(horizontal=True):
+                dpg.add_text("Speed:");
+                dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
 def add_l1_motor():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -230,19 +233,19 @@ def add_perf(tag_packet, tag_bdw_val, tag_bdw_range):
             dpg.add_text("MB/s");
 
 # MQTT stuff
-def add_mqtt(tag_client, tag_name):
+def add_mqtt(tag_client, tag_name, tag_visible):
     with dpg.node_attribute(tag=tag_client, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         dpg.add_text("MQTT client");
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Name");
             dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
-def add_topic(tag_):
+def add_mqtt_topic(tag_topic, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Topic");
-            dpg.add_input_text(tag=tag_, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
+            dpg.add_input_text(tag=tag_topic, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
 
 # SSD stuff
 def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):

@@ -1,7 +1,7 @@
 #---------------------------------------------
 from param import param_co
 from scheme import scheme_update
-from HTTP import http_client_get
+from HTTPS import https_client_get
 
 from threading import Thread
 
@@ -20,7 +20,7 @@ def stop_daemon():
 def thread_image():
     while param_co.run_thread_image:
         # Load current image
-        http_client_get.get_image("hu")
+        https_client_get.get_image("hu")
 
         # Update image
         scheme_update.update_image()

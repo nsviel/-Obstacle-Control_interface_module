@@ -23,9 +23,15 @@ def loop():
     time.sleep(0.01)
 
 def end():
-    print("[\033[1;32mOK\033[0m] Program terminating...")
     parser_json.upload_state()
     connection.stop_daemon()
     sock_server.stop_daemon()
     image.stop_daemon()
-    time.sleep(2)
+    shutdown()
+
+def shutdown():
+    print("[\033[1;32mOK\033[0m] Program terminating", flush=True, end='')
+    print("...2", flush=True, end='')
+    time.sleep(1)
+    print("...1", flush=True)
+    time.sleep(1)

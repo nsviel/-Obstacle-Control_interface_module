@@ -1,9 +1,9 @@
 #---------------------------------------------
 from param import param_co
 
-from HTTP import http_client_con
-from HTTP import http_client_get
-from HTTP import http_client_post
+from HTTPS import https_client_con
+from HTTPS import https_client_get
+from HTTPS import https_client_post
 
 from src import saving
 from src import parser_json
@@ -30,9 +30,9 @@ def stop_daemon():
 def thread_test_connection():
     while param_co.run_thread_con:
         # Test connections
-        http_client_con.test_hu_con()
-        http_client_get.get_state_hu()
-        http_client_get.get_state_py()
+        https_client_con.test_hu_con()
+        https_client_get.get_state_hu()
+        https_client_get.get_state_py()
         saving.test_ssd_con()
 
         # Update state

@@ -10,6 +10,7 @@ import time
 import os
 import getpass
 import sys
+import argparse
 
 
 # Manage Ctrl+C input
@@ -55,3 +56,19 @@ def system_information(prog_name):
     print("Core \033[1;34m%s\033[0m"% core)
     print("Python \033[1;34m%s\033[0m"% python)
     print("-----------------------")
+
+def manage_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dev", action="store_true")
+    parser.add_argument("--demo", action="store_true")
+    args = parser.parse_args()
+
+    if(args.dev):
+        print("[\033[1;32mOK\033[0m] Development mode")
+        param_co.status_ui = "Development"
+    elif(args.demo):
+        print("[\033[1;32mOK\033[0m] Demo mode")
+        param_co.status_ui = "Demo"
+    else:
+        print("[\033[1;32mOK\033[0m] Development mode")
+        param_co.status_ui = "Development"
