@@ -31,8 +31,8 @@ def update_status():
     dpg.set_value("py_status", param_co.status_py)
     dpg.set_value("ed_status", param_co.status_ed)
 
-    on = scheme_color.color_status_green()
-    off = scheme_color.color_status_red()
+    on = scheme_color.color_buton_green()
+    off = scheme_color.color_buton_red()
 
     scheme_theme.colorize_status("sncf_status_but", param_co.status_sncf, on, off)
     scheme_theme.colorize_status("ssd_status_but", param_co.status_ssd, on, off)
@@ -65,8 +65,12 @@ def update_ssd():
 def update_train():
     dpg.set_value("l1_ip", param_co.state_py["lidar_1"]["ip"])
     dpg.set_value("l1_port", param_co.state_py["lidar_1"]["port"])
+    scheme_theme.colorize_onoff("l1_on", "l1_off", param_co.state_py["lidar_1"]["running"])
+
     dpg.set_value("l2_ip", param_co.state_py["lidar_2"]["ip"])
     dpg.set_value("l2_port", param_co.state_py["lidar_2"]["port"])
+    scheme_theme.colorize_onoff("l2_on", "l2_off", param_co.state_py["lidar_2"]["running"])
+
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
 def update_controlium():
     dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
@@ -111,3 +115,60 @@ def update_data():
 def update_image():
     width, height, channels, data = dpg.load_image(param_co.path_image)
     dpg.set_value("image_in", data)
+
+def update_node_pos_dev():
+    gui_width = param_co.state_co["gui"]["width"]
+    gui_height = param_co.state_co["gui"]["height"]
+    coord_controlium = [375, 520]
+    coord_pywardium = [350, 10]
+    coord_hubium = [835, 375]
+    coord_train = [10, 10]
+    coord_edge = [1200, 525]
+    coord_velodium = [1200, 5]
+    coord_ai = [1200, 215]
+    coord_sncf = [1200, 380]
+    coord_valeo = [1200, 745]
+    coord_ssd = [10, 520]
+    coord_data = [755, 10]
+
+    dpg.set_item_pos("node_co", coord_controlium)
+    dpg.set_item_pos("node_hu", coord_hubium)
+    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_train", coord_train)
+    dpg.set_item_pos("node_ed", coord_edge)
+    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ai", coord_ai)
+    dpg.set_item_pos("node_sncf", coord_sncf)
+    dpg.set_item_pos("node_valeo", coord_valeo)
+    dpg.set_item_pos("node_ssd", coord_ssd)
+    dpg.set_item_pos("node_data", coord_data)
+
+    dpg.set_viewport_width(gui_width)
+    dpg.set_viewport_height(gui_height)
+    scheme_theme.scheme_theme_dev()
+def update_node_pos_demo():
+    gui_width = 1100
+    gui_height = 650
+    coord_controlium = [250, 425]
+    coord_pywardium = [250, 140]
+    coord_hubium = [575, 325]
+    coord_train = [10, 140]
+    coord_velodium = [900, 265]
+    coord_ai = [900, 450]
+    coord_sncf = [900, 140]
+    coord_ssd = [10, 425]
+    coord_data = [500, 10]
+
+    dpg.set_item_pos("node_co", coord_controlium)
+    dpg.set_item_pos("node_hu", coord_hubium)
+    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_train", coord_train)
+    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ai", coord_ai)
+    dpg.set_item_pos("node_sncf", coord_sncf)
+    dpg.set_item_pos("node_ssd", coord_ssd)
+    dpg.set_item_pos("node_data", coord_data)
+
+    dpg.set_viewport_width(gui_width)
+    dpg.set_viewport_height(gui_height)
+    scheme_theme.scheme_theme_demo()

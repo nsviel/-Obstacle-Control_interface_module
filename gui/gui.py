@@ -9,6 +9,7 @@ from scheme import scheme
 from scheme import scheme_loop
 from scheme import scheme_theme
 from scheme import scheme_update
+from scheme import scheme_visibility
 
 from gui import gui_menu
 from gui import gui_image
@@ -36,12 +37,13 @@ def program():
 
     #Main GUI theme
     gui_theme.gui_theme()
-    scheme_theme.scheme_theme()
+    scheme_theme.scheme_theme_dev()
 
     # Setup GUI
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
     dpg.create_viewport(title='Controlium', width=gui_width, height=gui_height)
+    dpg.set_viewport_resizable(False)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("window", True)
@@ -49,12 +51,14 @@ def program():
 
     # Init variables
     loop.init()
+    scheme_visibility.set_mode()
 
     # Start main loop program
     while param_co.run_loop and dpg.is_dearpygui_running():
         loop.loop()
         scheme_loop.loop()
         dpg.render_dearpygui_frame()
+
 
     # End thread
     loop.end()

@@ -3,16 +3,16 @@ from scheme import scheme_color
 
 import dearpygui.dearpygui as dpg
 
-color_white = (255, 255, 255)
-color_node_grid_line = (0, 0, 0)
-color_node_grid_bkg = (51, 51, 51)
-color_node_bkg = (25, 25, 25)
-color_node_pin = (200, 200, 10)
-color_node_link = (255, 255, 255)
-link_thikness = 2
 
+def scheme_theme_dev():
+    color_white = (255, 255, 255)
+    color_node_grid_line = (0, 0, 0)
+    color_node_grid_bkg = (51, 51, 51)
+    color_node_bkg = (25, 25, 25)
+    color_node_pin = (200, 200, 10)
+    color_node_link = (255, 255, 255)
+    link_thikness = 2
 
-def scheme_theme():
     with dpg.theme() as global_theme:
         with dpg.theme_component(dpg.mvAll):
             # Divers
@@ -45,14 +45,72 @@ def scheme_theme():
             # Node
             dpg.add_theme_color(dpg.mvNodeCol_Pin, color_node_pin, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_PinHovered, color_node_pin, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_color(dpg.mvNodeCol_GridBackground, color_node_grid_bkg, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_color(dpg.mvNodeCol_GridLine, color_node_grid_line, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelector, (0, 0, 0, 100), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_BoxSelectorOutline, (175, 175, 175), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_NodeCornerRounding, 1, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_NodePadding, x=8, y=4, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
+
+        # Background color
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_color(dpg.mvNodeCol_GridBackground, color_node_grid_bkg, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_GridLine, color_node_grid_line, category=dpg.mvThemeCat_Nodes)
+
+    dpg.bind_theme(global_theme)
+
+def scheme_theme_demo():
+    color_white = (255, 255, 255)
+    color_node_grid_line = (100, 100, 100)
+    color_node_grid_bkg = (100, 100, 100)
+    color_node_bkg = (25, 25, 25)
+    color_node_pin = (200, 200, 10)
+    color_node_link = (255, 255, 255)
+    link_thikness = 2
+
+    with dpg.theme() as global_theme:
+        with dpg.theme_component(dpg.mvAll):
+            # Divers
+            dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (20, 20, 20), category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_Text, color_white, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_Button, (100, 100, 100))
+            dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
+
+            # Plot
+            dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 1, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_Line, color_white, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_LegendBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+
+            # Node background
+            dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color_node_bkg, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color_node_bkg, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color_node_bkg, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_NodeOutline, (0, 0, 0), category=dpg.mvThemeCat_Nodes)
+
+            # Node link
+            dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, link_thikness, category=dpg.mvThemeCat_Nodes)
+
+            # Node
+            dpg.add_theme_color(dpg.mvNodeCol_Pin, color_node_pin, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_PinHovered, color_node_pin, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_BoxSelector, (0, 0, 0, 100), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_BoxSelectorOutline, (175, 175, 175), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_NodeCornerRounding, 1, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_NodePadding, x=8, y=4, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
+
+        # Background color
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_color(dpg.mvNodeCol_GridBackground, color_node_grid_bkg, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_GridLine, color_node_grid_line, category=dpg.mvThemeCat_Nodes)
 
     dpg.bind_theme(global_theme)
 
@@ -71,7 +129,7 @@ def colorize_node():
     dpg.bind_item_theme("node_py", layer_train)
     dpg.bind_item_theme("node_train", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
-    dpg.bind_item_theme("node_velodium", layer_edge)
+    dpg.bind_item_theme("node_ve", layer_edge)
     dpg.bind_item_theme("node_ai", layer_edge)
     dpg.bind_item_theme("node_data", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
@@ -134,3 +192,14 @@ def colorize_status(tag, value, on, off):
         dpg.bind_item_theme(tag, on)
     elif(value == "Offline" or value == False):
         dpg.bind_item_theme(tag, off)
+
+def colorize_onoff(tag_on, tag_off, state):
+    color_on = scheme_color.color_buton_green()
+    color_off = scheme_color.color_buton_red()
+    color_grey = scheme_color.color_buton_gray()
+    if(state == True):
+        dpg.bind_item_theme(tag_on, color_on)
+        dpg.bind_item_theme(tag_off, color_grey)
+    elif(state == False):
+        dpg.bind_item_theme(tag_on, color_grey)
+        dpg.bind_item_theme(tag_off, color_off)

@@ -52,6 +52,18 @@ def add_status(tag_button, tag_state):
             dpg.add_text("Status:");
             dpg.add_text("-", tag=tag_state, color=color_info);
             dpg.add_button(tag=tag_button, width=15)
+def add_status_i(tag_input, tag_button, tag_state):
+    with dpg.node_attribute(tag=tag_input, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Status:");
+            dpg.add_text("-", tag=tag_state, color=color_info);
+            dpg.add_button(tag=tag_button, width=15)
+def add_status_o(tag_output, tag_button, tag_state):
+    with dpg.node_attribute(tag=tag_output, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Status:");
+            dpg.add_text("-", tag=tag_state, color=color_info);
+            dpg.add_button(tag=tag_button, width=15)
 
 def add_ip(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -66,13 +78,13 @@ def add_ip_wallet(tag_wallet, tag_ip, default):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
-def add_plot(label, tag_y, tag_plot):
+def add_plot(label, tag_y, tag_plot, tag_visible):
     x = []
     y = []
     for i in range(0, param_co.nb_tic):
         x.append(i)
         y.append(0)
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static, tag=tag_visible):
         with dpg.plot(no_menus=True, no_box_select=True, no_mouse_pos=True, height=50, width=300):
             dpg.add_plot_legend()
             dpg.add_plot_axis(dpg.mvXAxis, no_gridlines=True, no_tick_marks=True, no_tick_labels=True)
@@ -82,11 +94,11 @@ def add_plot(label, tag_y, tag_plot):
             dpg.set_axis_limits(tag_y+"_0", -50, 1500)
             dpg.add_line_series(x, y, parent=tag_y+"_0", tag=tag_y+"_line")
             dpg.add_line_series(x, y, label=label, parent=tag_y, tag=tag_plot)
-def add_edge_id(tag_):
+def add_edge_id(tag_id, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Edge ID: [")
-            dpg.add_text("", tag=tag_, color=color_info)
+            dpg.add_text("", tag=tag_id, color=color_info)
             dpg.add_text("]")
 def add_country(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -109,9 +121,6 @@ def add_option(label, tag_option):
 def add_false_alarm():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_button(label="False alarm", width=100, callback=scheme_command.command_false_alarm)
-def add_new_save():
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
 def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
@@ -120,11 +129,11 @@ def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         dpg.add_text("Stockage")
-def add_geolocalization(tag_):
-    with dpg.node_attribute(tag="geo_input", attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+def add_geolocalization(tag_status, tag_geo):
+    with dpg.node_attribute(tag=tag_status, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         with dpg.group(horizontal=True):
             dpg.add_text("Geo: [")
-            dpg.add_text("", tag=tag_, color=color_info)
+            dpg.add_text("", tag=tag_geo, color=color_info)
             dpg.add_text("]")
 def add_image(tag):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -175,14 +184,14 @@ def add_port_fixe_i(tag_input, tag_port, tag_visible):
             dpg.add_text(1, tag=tag_port, color=color_info);
 
 # Lidar stuff
-def add_lidar_device(tag_l1_dev, tag_l2_dev):
+def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_l2_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         line()
         with dpg.group(horizontal=True):
             with dpg.group():
                 dpg.add_text("Lidar 1", color=color_title)
                 dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_pywardium, width=125)
-            with dpg.group():
+            with dpg.group(tag=tag_l2_visible):
                 dpg.add_text("Lidar 2", color=color_title)
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
 def add_lidar_status(label, tag_con, tag_active, tag_status):
@@ -192,45 +201,47 @@ def add_lidar_status(label, tag_con, tag_active, tag_status):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
-def add_lidar_info(tag_speed, tag_ip, tag_port, tag_visibility):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+def add_lidar_param(tag_ip, tag_port, tag_visibility):
+    with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         #IP
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=200, callback=scheme_callback.callback_pywardium);
-        with dpg.group(horizontal=True, tag=tag_visibility):
-            #Port
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_pywardium);
+        #Port
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_text(1, tag=tag_port, color=color_info);
+def add_lidar_speed(tag_speed, tag_visibility):
+    with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Speed:");
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
+            dpg.add_text("rpm");
+def add_l1_motor(tag_on, tag_off):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l1_start)
+            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l1_stop)
+def add_l2_motor(tag_on, tag_off, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True, tag=tag_visible):
+            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l1_start)
+            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l1_stop)
+def add_lidar_stat(tag_packet, tag_bdw_val, tag_bdw_range, tag_visible):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(tag=tag_visible):
             with dpg.group(horizontal=True):
-                dpg.add_text("Port:");
-                dpg.add_text(1, tag=tag_port, color=color_info);
-            #Speed
+                dpg.add_text("Packet:");
+                dpg.add_text(0, tag=tag_packet, color=color_info);
             with dpg.group(horizontal=True):
-                dpg.add_text("Speed:");
-                dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=100, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
-def add_l1_motor():
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="Start", width=75, callback=scheme_command.command_l1_start)
-            dpg.add_button(label="Stop", width=75, callback=scheme_command.command_l1_stop)
-def add_l2_motor():
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="Start", width=75, callback=scheme_command.command_l2_start)
-            dpg.add_button(label="Stop", width=75, callback=scheme_command.command_l2_stop)
-def add_perf(tag_packet, tag_bdw_val, tag_bdw_range):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Packet:");
-            dpg.add_text(0, tag=tag_packet, color=color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Bandwidth:");
-            dpg.add_text(0, tag=tag_bdw_val, color=color_info);
-            dpg.add_text("MB/s");
-        with dpg.group(horizontal=True):
-            dpg.add_text("[");
-            dpg.add_text(0, tag=tag_bdw_range, color=color_info);
-            dpg.add_text("]");
-            dpg.add_text("MB/s");
+                dpg.add_text("Bandwidth:");
+                dpg.add_text(0, tag=tag_bdw_val, color=color_info);
+                dpg.add_text("MB/s");
+            with dpg.group(horizontal=True):
+                dpg.add_text("[");
+                dpg.add_text(0, tag=tag_bdw_range, color=color_info);
+                dpg.add_text("]");
+                dpg.add_text("MB/s");
 
 # MQTT stuff
 def add_mqtt(tag_client, tag_name, tag_visible):
@@ -248,33 +259,37 @@ def add_mqtt_topic(tag_topic, tag_visible):
             dpg.add_input_text(tag=tag_topic, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
 
 # SSD stuff
-def add_ssd(tag_con, tag_active, tag_path, tag_name, tag_path_add, tag_used, tag_tot):
-    with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+def add_ssd_active(tag_active):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SSD saving");
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd)
+        dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
+def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
-        dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
-        with dpg.group(horizontal=True):
-            dpg.add_text("File:")
-            dpg.add_text("-", tag=tag_name, color=color_info)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Used:");
-            dpg.add_text(0, tag=tag_used, color=color_info);
-            dpg.add_text("/");
-            dpg.add_text(0, tag=tag_tot, color=color_info);
-            dpg.add_text("Gb");
-def add_file_info(label, tag_path, tag_size):
+        with dpg.group(tag=tag_visible):
+            dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
+            dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
+            with dpg.group(horizontal=True):
+                dpg.add_text("File:")
+                dpg.add_text("-", tag=tag_name, color=color_info)
+            with dpg.group(horizontal=True):
+                dpg.add_text("Used:");
+                dpg.add_text(0, tag=tag_used, color=color_info);
+                dpg.add_text("/");
+                dpg.add_text(0, tag=tag_tot, color=color_info);
+                dpg.add_text("Gb");
+def add_file_info(label, tag_path, tag_size, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        line()
-        dpg.add_text(label, color=color_title)
-        with dpg.group(horizontal=True):
-            dpg.add_text("-", tag=tag_path, color=color_info)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Size:")
-            dpg.add_text(0, tag=tag_size, color=color_info)
-            dpg.add_text("Gb");
+        with dpg.group(tag=tag_visible):
+            line()
+            dpg.add_text(label, color=color_title)
+            with dpg.group(horizontal=True):
+                dpg.add_text("-", tag=tag_path, color=color_info)
+            with dpg.group(horizontal=True):
+                dpg.add_text("Size:")
+                dpg.add_text(0, tag=tag_size, color=color_info)
+                dpg.add_text("Gb");
 
 # AI stuff
 def add_ai_param_height(tag_):

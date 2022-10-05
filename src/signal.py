@@ -65,10 +65,10 @@ def manage_args():
 
     if(args.dev):
         print("[\033[1;32mOK\033[0m] Development mode")
-        param_co.status_ui = "Development"
+        param_co.status_ui = "dev"
     elif(args.demo):
         print("[\033[1;32mOK\033[0m] Demo mode")
-        param_co.status_ui = "Demo"
+        param_co.status_ui = "demo"
     else:
         print("[\033[1;32mOK\033[0m] Development mode")
-        param_co.status_ui = "Development"
+        param_co.status_ui = "dev"

@@ -4,6 +4,7 @@ from HTTPS import https_client_get
 from src import wallet
 from gui import gui_wallet
 from scheme import scheme_update
+from scheme import scheme_visibility
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
@@ -31,12 +32,10 @@ def callback_wallet_remove(sender):
     gui_wallet.build_table()
     scheme_update.update_add_combo()
 
-def callback_version(sender):
-    if(param_co.status_ui == "Development"):
-        print("here")
-        dpg.show_item("temp")
-        param_co.status_ui = "Demo"
-    elif(param_co.status_ui == "Demo"):
-        print("there")
-        dpg.hide_item("temp")
-        param_co.status_ui = "Development"
+def callback_mode_dev():
+    param_co.status_ui = "dev"
+    scheme_visibility.set_mode()
+
+def callback_mode_demo():
+    param_co.status_ui = "demo"
+    scheme_visibility.set_mode()

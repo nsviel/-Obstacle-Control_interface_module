@@ -29,16 +29,24 @@ def color_yaxis_0():
         dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 0.5, category=dpg.mvThemeCat_Plots)
     return yaxis
 
-def color_status_red():
-    red = (255, 50, 20)
+def color_buton_red():
+    red = (200, 50, 20)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
         dpg.add_theme_color(dpg.mvThemeCol_Button, red, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, red, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, red, category=dpg.mvThemeCat_Core)
     return theme
-def color_status_green():
-    green = (20, 255, 20)
+def color_buton_green():
+    green = (20, 200, 20)
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        dpg.add_theme_color(dpg.mvThemeCol_Button, green, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered, green, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, green, category=dpg.mvThemeCat_Core)
+        return theme
+def color_buton_gray():
+    green = (100, 100, 100)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
         dpg.add_theme_color(dpg.mvThemeCol_Button, green, category=dpg.mvThemeCat_Core)
