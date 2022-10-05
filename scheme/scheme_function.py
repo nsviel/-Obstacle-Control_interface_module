@@ -15,6 +15,10 @@ color_title = (200, 200, 200)
 def line():
     with dpg.drawlist(width=125, height=1):
         dpg.draw_line([0, 0], [125, 0], color=color_line)
+def line_tagged(tag_):
+    with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.drawlist(width=125, height=1):
+            dpg.draw_line([0, 0], [125, 0], color=color_line)
 def line_double():
     with dpg.drawlist(width=125, height=1):
         dpg.draw_line([0, 0], [250, 0], color=color_line)
@@ -46,6 +50,11 @@ def add_output(text, tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
         dpg.add_text(text);
+def add_legend_line(tag_button, text):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_button(tag=tag_button, width=15)
+            dpg.add_text(": " + text);
 def add_status(tag_button, tag_state):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -196,7 +205,6 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_l2_visible):
                 dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
 def add_lidar_status(label, tag_con, tag_active, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
-        line()
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)

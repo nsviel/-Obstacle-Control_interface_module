@@ -68,12 +68,14 @@ def node_train():
     with dpg.node(label="Train", tag="node_train"):
         scheme_function.add_geolocalization("geo_status", "geo_country")
 
+        scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")
         scheme_function.add_l1_motor("l1_on", "l1_off")
         scheme_function.add_lidar_param("l1_ip", "l1_port", "l1_params_visible")
         scheme_function.add_lidar_speed("l1_speed", "l1_speed_visible")
         scheme_function.add_lidar_stat("l1_packet", "l1_bdw_val", "l1_bdw_range", "l1_perf_visible")
 
+        scheme_function.line_tagged("l2_line_visible")
         scheme_function.add_lidar_status("Lidar 2", "l2_status", "l2_activated", "l2_status_but")
         scheme_function.add_l2_motor("l2_on", "l2_off", "l2_motor_visible")
         scheme_function.add_lidar_param("l2_ip", "l2_port", "l2_params_visible")
@@ -147,15 +149,22 @@ def node_data():
         scheme_function.add_variable_simple("Prediction:", "nb_prediction")
 
 def node_stats():
-    with dpg.node(label="", tag="node_stat_co", pos=[575, 650]):
+    with dpg.node(label="", tag="node_stat_co", pos=[575, 650], show=False):
         scheme_function.add_variable_simple("Speed:", "co_speed")
         scheme_function.add_variable_simple("Latency:", "co_latency")
         scheme_function.add_variable_simple("Bandwidth:", "co_bw")
 
-    with dpg.node(label="", tag="node_stat_py", pos=[650, 50]):
+    with dpg.node(label="", tag="node_stat_py", pos=[650, 50], show=False):
         scheme_function.add_variable_simple("Speed:", "py_speed")
         scheme_function.add_variable_simple("Bandwidth:", "py_bw")
 
-    with dpg.node(label="", tag="node_stat_ed", pos=[1100, 400]):
+    with dpg.node(label="", tag="node_stat_ed", pos=[1100, 400], show=False):
         scheme_function.add_variable_simple("Speed:", "ed_speed")
         scheme_function.add_variable_simple("Bandwidth:", "ed_bw")
+
+def node_legend():
+    with dpg.node(label="Legend", tag="node_legend"):
+        scheme_function.add_legend_line("legend_train", "Train level components")
+        scheme_function.add_legend_line("legend_edge", "Edge level components")
+        scheme_function.add_legend_line("legend_cloud", "Cloud level components")
+        scheme_function.add_legend_line("legend_control", "Control level components")

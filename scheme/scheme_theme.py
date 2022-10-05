@@ -6,8 +6,8 @@ import dearpygui.dearpygui as dpg
 
 def scheme_theme_dev():
     color_white = (255, 255, 255)
-    color_node_grid_line = (0, 0, 0)
-    color_node_grid_bkg = (51, 51, 51)
+    color_node_grid_line = (75, 75, 75)
+    color_node_grid_bkg = (75, 75, 75)
     color_node_bkg = (25, 25, 25)
     color_node_pin = (200, 200, 10)
     color_node_link = (255, 255, 255)
@@ -61,8 +61,8 @@ def scheme_theme_dev():
 
 def scheme_theme_demo():
     color_white = (255, 255, 255)
-    color_node_grid_line = (100, 100, 100)
-    color_node_grid_bkg = (100, 100, 100)
+    color_node_grid_line = (75, 75, 75)
+    color_node_grid_bkg = (75, 75, 75)
     color_node_bkg = (25, 25, 25)
     color_node_pin = (200, 200, 10)
     color_node_link = (255, 255, 255)
@@ -119,11 +119,13 @@ def colorize():
     colorize_item()
 
 def colorize_node():
+    # individual nodes
     layer_control = scheme_color.color_layer_control()
     layer_train = scheme_color.color_layer_train()
     layer_edge = scheme_color.color_layer_edge()
     layer_cloud = scheme_color.color_layer_cloud()
     layer_stat = scheme_color.color_layer_stat()
+    layer_legend = scheme_color.color_layer_legend()
 
     dpg.bind_item_theme("node_co", layer_control)
     dpg.bind_item_theme("node_py", layer_train)
@@ -136,9 +138,21 @@ def colorize_node():
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_control)
+    dpg.bind_item_theme("node_legend", layer_legend)
     dpg.bind_item_theme("node_stat_co", layer_stat)
     dpg.bind_item_theme("node_stat_py", layer_stat)
     dpg.bind_item_theme("node_stat_ed", layer_stat)
+
+    # Legend
+    buton_train = scheme_color.color_buton_train()
+    buton_edge = scheme_color.color_buton_edge()
+    buton_cloud = scheme_color.color_buton_cloud()
+    buton_control = scheme_color.color_buton_control()
+
+    dpg.bind_item_theme("legend_train", buton_train)
+    dpg.bind_item_theme("legend_edge", buton_edge)
+    dpg.bind_item_theme("legend_cloud", buton_cloud)
+    dpg.bind_item_theme("legend_control", buton_control)
 
 def colorize_item():
     checkbox = scheme_color.color_checkbox()

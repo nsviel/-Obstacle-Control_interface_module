@@ -1,6 +1,7 @@
 #---------------------------------------------
 from param import param_co
 from SOCK import sock_server
+from DHCP import dhcp_client
 from src import connection
 from src import signal
 from src import saving

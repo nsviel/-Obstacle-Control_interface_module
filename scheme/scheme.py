@@ -29,6 +29,7 @@ def create_scheme():
         scheme_node.node_ssd()
         scheme_node.node_data()
         scheme_node.node_stats()
+        scheme_node.node_legend()
         scheme_link.create_link()
 
 

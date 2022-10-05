@@ -149,15 +149,16 @@ def update_node_pos_dev():
 def update_node_pos_demo():
     gui_width = 1100
     gui_height = 650
-    coord_controlium = [250, 425]
-    coord_pywardium = [250, 140]
+    coord_controlium = [250, 440]
+    coord_pywardium = [250, 200]
     coord_hubium = [575, 325]
-    coord_train = [10, 140]
+    coord_train = [10, 200]
     coord_velodium = [900, 265]
     coord_ai = [900, 450]
-    coord_sncf = [900, 140]
-    coord_ssd = [10, 425]
+    coord_sncf = [900, 100]
+    coord_ssd = [10, 440]
     coord_data = [500, 10]
+    coord_legend = [10, 10]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -168,6 +169,7 @@ def update_node_pos_demo():
     dpg.set_item_pos("node_sncf", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
+    dpg.set_item_pos("node_legend", coord_legend)
 
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)

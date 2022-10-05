@@ -27,14 +27,14 @@ def set_mode_dev():
     dpg.show_item("l2_plot_visible")
 
     # LiDARs
+    dpg.show_item("l1_line_visible")
+    dpg.show_item("l2_line_visible")
     dpg.show_item("l1_params_visible")
     dpg.show_item("l2_params_visible")
     dpg.show_item("l2_status")
     dpg.show_item("l2_motor_visible")
     dpg.show_item("l2_perf_visible")
     dpg.show_item("l2_speed_visible")
-
-
 
     # SSD
     dpg.show_item("ssd_param_visible")
@@ -44,6 +44,7 @@ def set_mode_dev():
     # Nodes
     dpg.show_item("node_ed")
     dpg.show_item("node_valeo")
+    dpg.hide_item("node_legend")
     dpg.configure_viewport("viewport", title="Controlium")
     dpg.set_item_label("node_co", "Controlium")
     dpg.set_item_label("node_hu", "Hubium")
@@ -103,6 +104,8 @@ def set_mode_demo():
     dpg.hide_item("l2_plot_visible")
 
     # LiDARs
+    dpg.hide_item("l1_line_visible")
+    dpg.hide_item("l2_line_visible")
     dpg.hide_item("l1_params_visible")
     dpg.hide_item("l2_params_visible")
     dpg.hide_item("l2_status")
@@ -118,6 +121,7 @@ def set_mode_demo():
     # Nodes
     dpg.hide_item("node_ed")
     dpg.hide_item("node_valeo")
+    dpg.show_item("node_legend")
     dpg.configure_viewport("viewport", title="System control interface")
     dpg.set_item_label("node_co", "System control interface")
     dpg.set_item_label("node_hu", "P2. Edge AI module")
