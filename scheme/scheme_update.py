@@ -143,10 +143,11 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
 
+    update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_dev()
-def update_node_pos_demo():
+def update_node_pos_demo_minimized():
     gui_width = 1100
     gui_height = 650
     coord_controlium = [250, 440]
@@ -171,6 +172,65 @@ def update_node_pos_demo():
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
 
+    update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_demo()
+def update_node_pos_demo_fullscreen():
+    coord_controlium = [500, 700]
+    coord_pywardium = [500, 300]
+    coord_hubium = [1055, 500]
+    coord_train = [50, 300]
+    coord_velodium = [1600, 350]
+    coord_ai = [1600, 700]
+    coord_sncf = [1600, 100]
+    coord_ssd = [50, 700]
+    coord_data = [1000, 10]
+    coord_legend = [10, 10]
+
+    dpg.set_item_pos("node_co", coord_controlium)
+    dpg.set_item_pos("node_hu", coord_hubium)
+    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_train", coord_train)
+    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ai", coord_ai)
+    dpg.set_item_pos("node_sncf", coord_sncf)
+    dpg.set_item_pos("node_ssd", coord_ssd)
+    dpg.set_item_pos("node_data", coord_data)
+    dpg.set_item_pos("node_legend", coord_legend)
+
+    update_fullscreen(True)
+    scheme_theme.scheme_theme_demo()
+def update_fullscreen(value):
+    if(param_co.gui_fullscreen == False and value == True):
+        dpg.toggle_viewport_fullscreen()
+        dpg.bind_item_font("window", param_co.gui_font_big)
+        dpg.set_item_width("py_wallet", 175)
+        dpg.set_item_width("hu_wallet", 175)
+        dpg.set_item_width("ve_wallet", 175)
+        dpg.set_item_width("ai_wallet", 175)
+        dpg.set_item_width("sncf_wallet", 175)
+        dpg.set_item_width("ai_lidar_height", 150)
+        dpg.set_item_width("ai_threshold", 150)
+        dpg.set_item_width("hu_sock_client_l1_source", 120)
+        dpg.set_item_width("legend_train", 30)
+        dpg.set_item_width("legend_edge", 30)
+        dpg.set_item_width("legend_cloud", 30)
+        dpg.set_item_width("legend_control", 30)
+        param_co.gui_fullscreen = True
+    elif(param_co.gui_fullscreen == True and value == False):
+        dpg.toggle_viewport_fullscreen()
+        dpg.bind_item_font("window", param_co.gui_font_def)
+        dpg.set_item_width("py_wallet", 120)
+        dpg.set_item_width("hu_wallet", 120)
+        dpg.set_item_width("ve_wallet", 120)
+        dpg.set_item_width("ai_wallet", 120)
+        dpg.set_item_width("sncf_wallet", 120)
+        dpg.set_item_width("ai_lidar_height", 100)
+        dpg.set_item_width("ai_threshold", 100)
+        dpg.set_item_width("hu_sock_client_l1_source", 80)
+        dpg.set_item_width("legend_train", 15)
+        dpg.set_item_width("legend_edge", 15)
+        dpg.set_item_width("legend_cloud", 15)
+        dpg.set_item_width("legend_control", 15)
+        param_co.gui_fullscreen = False

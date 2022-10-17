@@ -27,19 +27,18 @@ def program():
     gui_image.init_image()
     wallet.read_wallet()
     wallet.determine_adresse()
+    gui_theme.gui_font()
 
     #Build GUI
     with dpg.window(label="Wallet", autosize=True, no_resize=True, show=False, tag="win_wallet"):
         gui_wallet.build_window()
     with dpg.window(tag="window", label="Controlium"):
+        dpg.bind_font(param_co.gui_font_def)
         gui_menu.menu()
         scheme.build_scheme()
 
-    #Main GUI theme
-    gui_theme.gui_theme()
-    scheme_theme.scheme_theme_dev()
-
     # Setup GUI
+    scheme_theme.scheme_theme_dev()
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
     dpg.create_viewport(title='Controlium', width=gui_width, height=gui_height)

@@ -129,7 +129,7 @@ def add_option(label, tag_option):
 # Specific stuff
 def add_false_alarm():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="False alarm", width=100, callback=scheme_command.command_false_alarm)
+        dpg.add_button(label="False alarm", callback=scheme_command.command_false_alarm)
 def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
@@ -271,7 +271,7 @@ def add_ssd_active(tag_active):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SSD saving");
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_ssd)
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, callback=scheme_callback.callback_ssd)
         dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
 def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):

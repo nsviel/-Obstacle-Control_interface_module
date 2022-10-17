@@ -12,9 +12,12 @@ def set_mode():
     if(param_co.status_ui == "dev"):
         set_mode_dev()
         scheme_update.update_node_pos_dev()
-    elif(param_co.status_ui == "demo"):
+    elif(param_co.status_ui == "demo_minimized"):
         set_mode_demo()
-        scheme_update.update_node_pos_demo()
+        scheme_update.update_node_pos_demo_minimized()
+    elif(param_co.status_ui == "demo_fullscreen"):
+        set_mode_demo()
+        scheme_update.update_node_pos_demo_fullscreen()
 
 def set_mode_dev():
     # Misc

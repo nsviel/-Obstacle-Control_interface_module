@@ -61,6 +61,7 @@ def manage_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dev", action="store_true")
     parser.add_argument("--demo", action="store_true")
+    parser.add_argument("--fullscreen", action="store_true")
     args = parser.parse_args()
 
     if(args.dev):
@@ -68,7 +69,10 @@ def manage_args():
         param_co.status_ui = "dev"
     elif(args.demo):
         print("[\033[1;32mOK\033[0m] Demo mode")
-        param_co.status_ui = "demo"
+        param_co.status_ui = "demo_minimized"
+    elif(args.fullscreen):
+        print("[\033[1;32mOK\033[0m] Demo mode")
+        param_co.status_ui = "demo_fullscreen"
     else:
         print("[\033[1;32mOK\033[0m] Development mode")
         param_co.status_ui = "dev"

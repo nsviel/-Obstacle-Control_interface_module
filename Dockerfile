@@ -5,13 +5,14 @@ ENV TZ Europe/Paris
 
 # Install dependancy packages
 RUN mkdir app \
-    && apt-get update \
-    && apt-get install -y \
-    python3 python3-pip python3-pcapy python3-scapy \
+    && apt update \
+    && apt install -y \
+    python3 python3-pip python3-pcapy python3-scapy libiperf0 \
     libx11-6 libgl1-mesa-glx libgl1-mesa-dri \
-    && pip3 install dearpygui scapy requests pandas psutil \
+    && pip3 install dearpygui speedtest-cli dhcppython pandas psutil \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt autoremove -y
 
 # Program parameters
 COPY . /app/controlium

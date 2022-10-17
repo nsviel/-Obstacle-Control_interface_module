@@ -36,6 +36,10 @@ def callback_mode_dev():
     param_co.status_ui = "dev"
     scheme_visibility.set_mode()
 
-def callback_mode_demo():
-    param_co.status_ui = "demo"
+def callback_mode_demo_minimized():
+    param_co.status_ui = "demo_minimized"
+    scheme_visibility.set_mode()
+
+def callback_mode_demo_fullscreen():
+    param_co.status_ui = "demo_fullscreen"
     scheme_visibility.set_mode()
