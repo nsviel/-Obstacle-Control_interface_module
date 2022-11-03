@@ -168,3 +168,8 @@ def node_legend():
         scheme_function.add_legend_line("legend_edge", "Edge level components")
         scheme_function.add_legend_line("legend_cloud", "Cloud level components")
         scheme_function.add_legend_line("legend_control", "Control level components")
+
+def node_network():
+    with dpg.node(label="Network", tag="node_network"):
+        scheme_function.add_bandwidth("net_l1_throughput_val", "net_l1_throughput_range")
+        scheme_function.add_bandwidth("net_l2_throughput_val", "net_l2_throughput_range")

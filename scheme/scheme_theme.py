@@ -139,6 +139,7 @@ def colorize_node():
     dpg.bind_item_theme("node_valeo", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_control)
     dpg.bind_item_theme("node_legend", layer_legend)
+    dpg.bind_item_theme("node_network", layer_legend)
     dpg.bind_item_theme("node_stat_co", layer_stat)
     dpg.bind_item_theme("node_stat_py", layer_stat)
     dpg.bind_item_theme("node_stat_ed", layer_stat)

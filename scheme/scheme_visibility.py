@@ -54,6 +54,7 @@ def set_mode_dev():
     dpg.set_item_label("node_py", "Pywardium")
     dpg.set_item_label("node_train", "Train")
     dpg.set_item_label("node_ve", "Velodium")
+    dpg.set_item_label("node_network", "Network")
 
     # Links
     dpg.show_item("link_l2_py")
@@ -131,6 +132,7 @@ def set_mode_demo():
     dpg.set_item_label("node_py", "P2. Train module")
     dpg.set_item_label("node_train", "LiDAR")
     dpg.set_item_label("node_ve", "Data processing")
+    dpg.set_item_label("node_network", "KPI")
 
     # Links
     dpg.hide_item("link_l2_py")

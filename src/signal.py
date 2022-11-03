@@ -11,6 +11,7 @@ import os
 import getpass
 import sys
 import argparse
+import psutil
 
 
 # Manage Ctrl+C input
@@ -76,3 +77,8 @@ def manage_args():
     else:
         print("[\033[1;32mOK\033[0m] Development mode")
         param_co.status_ui = "dev"
+
+def get_temps_core(number):
+    temp = psutil.sensors_temperatures()
+    if(temp):
+        return temp["coretemp"][number+1].current

@@ -62,6 +62,7 @@ def command_comboip():
     if(hu_ip != None):
         param_co.state_co["hubium"]["ip"] = hu_ip
         dpg.set_value("hu_ip", hu_ip)
+        https_client_post.post_param_value("py", "hubium", "ip", hu_ip)
     if(py_ip != None):
         param_co.state_hu["pywardium"]["ip"] = py_ip
         dpg.set_value("py_ip", py_ip)

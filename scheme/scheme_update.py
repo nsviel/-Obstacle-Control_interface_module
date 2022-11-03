@@ -4,7 +4,7 @@ from scheme import scheme_link
 from scheme import scheme_plot
 from scheme import scheme_color
 from scheme import scheme_theme
-from src import perf
+from src import signal
 from src import io
 
 import dearpygui.dearpygui as dpg
@@ -77,7 +77,7 @@ def update_controlium():
     dpg.set_value("co_thread", param_co.state_co["self"]["nb_thread"])
     dpg.set_value("co_sock_server_l1_port", param_co.state_co["self"]["sock_server_l1_port"])
     dpg.set_value("co_sock_server_l2_port", param_co.state_co["self"]["sock_server_l2_port"])
-    dpg.set_value("co_temp", perf.get_temps_core(0))
+    dpg.set_value("co_temp", signal.get_temps_core(0))
 def update_hubium():
     dpg.set_value("hu_ip", param_co.state_co["hubium"]["ip"])
     dpg.set_value("hu_thread", param_co.state_hu["self"]["nb_thread"])
@@ -111,7 +111,6 @@ def update_pywardium():
 def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["data"]["nb_frame"])
     dpg.set_value("nb_prediction", param_co.state_hu["data"]["nb_prediction"])
-    #scheme_plot.update_plot_random()
 def update_image():
     width, height, channels, data = dpg.load_image(param_co.path_image)
     dpg.set_value("image_in", data)
@@ -130,6 +129,7 @@ def update_node_pos_dev():
     coord_valeo = [1200, 745]
     coord_ssd = [10, 520]
     coord_data = [755, 10]
+    coord_network = [10, 400]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -142,6 +142,7 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_valeo", coord_valeo)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
+    dpg.set_item_pos("node_network", coord_network)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -156,10 +157,11 @@ def update_node_pos_demo_minimized():
     coord_train = [10, 200]
     coord_velodium = [900, 265]
     coord_ai = [900, 450]
-    coord_sncf = [900, 100]
+    coord_sncf = [900, 125]
     coord_ssd = [10, 440]
     coord_data = [500, 10]
-    coord_legend = [10, 10]
+    coord_legend = [850, 10]
+    coord_network = [10, 10]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -171,6 +173,7 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
+    dpg.set_item_pos("node_network", coord_network)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -187,6 +190,7 @@ def update_node_pos_demo_fullscreen():
     coord_ssd = [50, 700]
     coord_data = [1000, 10]
     coord_legend = [10, 10]
+    coord_network = [400, 10]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -198,6 +202,7 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
+    dpg.set_item_pos("node_network", coord_network)
 
     update_fullscreen(True)
     scheme_theme.scheme_theme_demo()
@@ -217,6 +222,7 @@ def update_fullscreen(value):
         dpg.set_item_width("legend_edge", 30)
         dpg.set_item_width("legend_cloud", 30)
         dpg.set_item_width("legend_control", 30)
+        dpg.set_item_width("l1_speed", 125)
         param_co.gui_fullscreen = True
     elif(param_co.gui_fullscreen == True and value == False):
         dpg.toggle_viewport_fullscreen()
@@ -233,4 +239,5 @@ def update_fullscreen(value):
         dpg.set_item_width("legend_edge", 15)
         dpg.set_item_width("legend_cloud", 15)
         dpg.set_item_width("legend_control", 15)
+        dpg.set_item_width("l1_speed", 75)
         param_co.gui_fullscreen = False

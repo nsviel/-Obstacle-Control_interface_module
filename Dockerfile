@@ -4,8 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ Europe/Paris
 
 # Install dependancy packages
-RUN mkdir app \
-    && apt update \
+RUN apt update \
     && apt install -y \
     python3 python3-pip python3-pcapy python3-scapy libiperf0 \
     libx11-6 libgl1-mesa-glx libgl1-mesa-dri \
