@@ -171,5 +171,5 @@ def node_legend():
 
 def node_network():
     with dpg.node(label="Network", tag="node_network"):
-        scheme_function.add_bandwidth("net_l1_throughput_val", "net_l1_throughput_range")
+        scheme_function.add_bandwidth("net_l1_bandwidth_val", "net_l1_bandwidth_range")
         scheme_function.add_bandwidth("net_l2_throughput_val", "net_l2_throughput_range")

@@ -6,13 +6,13 @@ import os, pwd
 state_co = {}
 state_hu = {}
 state_py = {}
-state_net = {}
+state_perf = {}
 
 # Path
 path_state_co = "state/state_co.json"
 path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
-path_state_net = "state/state_net.json"
+path_state_perf = "state/state_perf.json"
 path_image = "state/image"
 path_config = "param/config.json"
 try:

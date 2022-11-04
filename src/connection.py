@@ -31,8 +31,9 @@ def thread_test_connection():
     while param_co.run_thread_con:
         # Test connections
         https_client_con.test_hu_con()
-        https_client_get.get_state_hu()
-        https_client_get.get_state_py()
+        https_client_get.get_state("hu")
+        https_client_get.get_state("py")
+        https_client_get.get_state("perf")
         saving.test_ssd_con()
 
         # Update state

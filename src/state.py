@@ -16,7 +16,7 @@ def load_json_file():
     param_co.state_co = parser_json.load_data_from_file(param_co.path_state_co)
     param_co.state_hu = parser_json.load_data_from_file(param_co.path_state_hu)
     param_co.state_py = parser_json.load_data_from_file(param_co.path_state_py)
-    param_co.state_net = parser_json.load_data_from_file(param_co.path_state_net)
+    param_co.state_perf = parser_json.load_data_from_file(param_co.path_state_perf)
 
 def init_state():
     param_co.state_co["self"]["ip"] = network.get_ip_adress()
@@ -90,19 +90,19 @@ def update_state():
         param_co.state_py["lidar_1"]["packet"]["min"] = 0
         param_co.state_py["lidar_1"]["packet"]["mean"] = 0
         param_co.state_py["lidar_1"]["packet"]["max"] = 0
-        param_co.state_py["lidar_1"]["bandwidth"]["value"] = 0
-        param_co.state_py["lidar_1"]["bandwidth"]["min"] = 0
-        param_co.state_py["lidar_1"]["bandwidth"]["mean"] = 0
-        param_co.state_py["lidar_1"]["bandwidth"]["max"] = 0
+        param_co.state_py["lidar_1"]["throughput"]["value"] = 0
+        param_co.state_py["lidar_1"]["throughput"]["min"] = 0
+        param_co.state_py["lidar_1"]["throughput"]["mean"] = 0
+        param_co.state_py["lidar_1"]["throughput"]["max"] = 0
 
         param_co.state_py["lidar_2"]["connected"] = False
         param_co.state_py["lidar_2"]["packet"]["min"] = 0
         param_co.state_py["lidar_2"]["packet"]["mean"] = 0
         param_co.state_py["lidar_2"]["packet"]["max"] = 0
-        param_co.state_py["lidar_2"]["bandwidth"]["value"] = 0
-        param_co.state_py["lidar_2"]["bandwidth"]["min"] = 0
-        param_co.state_py["lidar_2"]["bandwidth"]["mean"] = 0
-        param_co.state_py["lidar_2"]["bandwidth"]["max"] = 0
+        param_co.state_py["lidar_2"]["throughput"]["value"] = 0
+        param_co.state_py["lidar_2"]["throughput"]["min"] = 0
+        param_co.state_py["lidar_2"]["throughput"]["mean"] = 0
+        param_co.state_py["lidar_2"]["throughput"]["max"] = 0
 
     if(param_co.status_ve == "Offline"):
         param_co.state_hu["velodium"]["sock_connected"] = False

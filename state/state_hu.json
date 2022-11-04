@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.167.42",
+        "ip": "192.168.17.42",
         "nb_thread": 6,
         "country": "France",
         "edge_id": 0,
@@ -20,7 +20,7 @@
         "sock_l2_connected": false
     },
     "controlium": {
-        "ip": "192.168.167.42",
+        "ip": "192.168.17.42",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },

@@ -4,6 +4,13 @@ from param import param_co
 import http.client
 
 
+def network_info(dest):
+    ip = param_co.state_co["hubium"]["ip"]
+    port = param_co.state_co["hubium"]["http_server_port"]
+    connected = param_co.state_co["hubium"]["http_connected"]
+
+    return [ip, port, connected]
+
 def send_https_ping(ip, port):
     client = http.client.HTTPConnection(ip, port, timeout=0.1)
     connected = False
@@ -37,10 +44,3 @@ def send_https_get(ip, port, connected, command):
         except:
             pass
     return data
-
-def network_info(dest):
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
-    connected = param_co.state_co["hubium"]["http_connected"]
-
-    return [ip, port, connected]

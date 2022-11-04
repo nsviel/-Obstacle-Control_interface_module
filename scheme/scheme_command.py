@@ -2,6 +2,7 @@
 from param import param_co
 from HTTPS import https_client_get
 from HTTPS import https_client_post
+from HTTPS import https_client_con
 from SOCK import sock_server
 from src import saving
 from src import wallet
@@ -62,6 +63,7 @@ def command_comboip():
     if(hu_ip != None):
         param_co.state_co["hubium"]["ip"] = hu_ip
         dpg.set_value("hu_ip", hu_ip)
+        https_client_con.test_hu_con()
         https_client_post.post_param_value("py", "hubium", "ip", hu_ip)
     if(py_ip != None):
         param_co.state_hu["pywardium"]["ip"] = py_ip
