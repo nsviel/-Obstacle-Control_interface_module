@@ -142,7 +142,7 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_valeo", coord_valeo)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("node_network", coord_network)
+    dpg.set_item_pos("window_perf", coord_network)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -173,7 +173,7 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
-    dpg.set_item_pos("node_network", coord_network)
+    dpg.set_item_pos("window_perf", coord_network)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -202,7 +202,7 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
-    dpg.set_item_pos("node_network", coord_network)
+    dpg.set_item_pos("window_perf", coord_network)
 
     update_fullscreen(True)
     scheme_theme.scheme_theme_demo()

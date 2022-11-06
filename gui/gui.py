@@ -15,6 +15,7 @@ from gui import gui_menu
 from gui import gui_image
 from gui import gui_wallet
 from gui import gui_theme
+from gui import gui_module
 
 import dearpygui.dearpygui as dpg
 
@@ -36,9 +37,14 @@ def program():
         dpg.bind_font(param_co.gui_font_def)
         gui_menu.menu()
         scheme.build_scheme()
+    with dpg.window(tag="window_perf", label="Network", width=200, height=200, autosize=True, collapsed=True):
+        gui_module.module_network()
+
+    # Setup theme
+    scheme_theme.scheme_theme_dev()
+    gui_theme.gui_window()
 
     # Setup GUI
-    scheme_theme.scheme_theme_dev()
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
     dpg.create_viewport(title='Controlium', width=gui_width, height=gui_height)

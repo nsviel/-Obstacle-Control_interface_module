@@ -8,7 +8,8 @@ from src import network
 
 def load_configuration():
     load_json_file()
-    init_state()
+    init_state_co()
+    init_state_perf()
     load_config_file()
     upload_state()
 
@@ -18,9 +19,54 @@ def load_json_file():
     param_co.state_py = parser_json.load_data_from_file(param_co.path_state_py)
     param_co.state_perf = parser_json.load_data_from_file(param_co.path_state_perf)
 
-def init_state():
+def init_state_co():
     param_co.state_co["self"]["ip"] = network.get_ip_adress()
     param_co.state_co["path"]["file_name_add"] = ""
+
+def init_state_perf():
+    param_co.state_perf["local_cloud"]["time"] = 0
+    param_co.state_perf["local_cloud"]["bandwidth"]["value"] = 0
+    param_co.state_perf["local_cloud"]["bandwidth"]["min"] = 0
+    param_co.state_perf["local_cloud"]["bandwidth"]["max"] = 0
+    param_co.state_perf["local_cloud"]["bandwidth"]["mean"] = 0
+    param_co.state_perf["local_cloud"]["latency"]["value"] = 0
+    param_co.state_perf["local_cloud"]["latency"]["min"] = 0
+    param_co.state_perf["local_cloud"]["latency"]["max"] = 0
+    param_co.state_perf["local_cloud"]["latency"]["mean"] = 0
+    param_co.state_perf["local_cloud"]["jitter"]["value"] = 0
+    param_co.state_perf["local_cloud"]["jitter"]["min"] = 0
+    param_co.state_perf["local_cloud"]["jitter"]["max"] = 0
+    param_co.state_perf["local_cloud"]["jitter"]["mean"] = 0
+    param_co.state_perf["local_cloud"]["reliability"]["value"] = 0
+    param_co.state_perf["local_cloud"]["reliability"]["min"] = 0
+    param_co.state_perf["local_cloud"]["reliability"]["max"] = 0
+    param_co.state_perf["local_cloud"]["reliability"]["mean"] = 0
+    param_co.state_perf["local_cloud"]["interruption"]["value"] = 0
+    param_co.state_perf["local_cloud"]["interruption"]["min"] = 0
+    param_co.state_perf["local_cloud"]["interruption"]["max"] = 0
+    param_co.state_perf["local_cloud"]["interruption"]["mean"] = 0
+
+    param_co.state_perf["cloud_local"]["time"] = 0
+    param_co.state_perf["cloud_local"]["bandwidth"]["value"] = 0
+    param_co.state_perf["cloud_local"]["bandwidth"]["min"] = 0
+    param_co.state_perf["cloud_local"]["bandwidth"]["max"] = 0
+    param_co.state_perf["cloud_local"]["bandwidth"]["mean"] = 0
+    param_co.state_perf["cloud_local"]["latency"]["value"] = 0
+    param_co.state_perf["cloud_local"]["latency"]["min"] = 0
+    param_co.state_perf["cloud_local"]["latency"]["max"] = 0
+    param_co.state_perf["cloud_local"]["latency"]["mean"] = 0
+    param_co.state_perf["cloud_local"]["jitter"]["value"] = 0
+    param_co.state_perf["cloud_local"]["jitter"]["min"] = 0
+    param_co.state_perf["cloud_local"]["jitter"]["max"] = 0
+    param_co.state_perf["cloud_local"]["jitter"]["mean"] = 0
+    param_co.state_perf["cloud_local"]["reliability"]["value"] = 0
+    param_co.state_perf["cloud_local"]["reliability"]["min"] = 0
+    param_co.state_perf["cloud_local"]["reliability"]["max"] = 0
+    param_co.state_perf["cloud_local"]["reliability"]["mean"] = 0
+
+    param_co.state_perf["end_to_end"]["time_slam"] = 0
+    param_co.state_perf["end_to_end"]["time_ai"] = 0
+    param_co.state_perf["end_to_end"]["time_total"] = 0
 
 def load_config_file():
     config = parser_json.load_data_from_file(param_co.path_config)

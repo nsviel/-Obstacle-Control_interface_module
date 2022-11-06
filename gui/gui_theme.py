@@ -7,3 +7,15 @@ def gui_font():
     with dpg.font_registry():
         param_co.gui_font_def = dpg.add_font("gui/font/ProggyClean.ttf", 13)
         param_co.gui_font_big = dpg.add_font("gui/font/DroidSans.ttf", 25)
+
+def gui_window():
+    layer_window = color_window()
+    dpg.bind_item_theme("window_perf", layer_window)
+
+def color_window():
+    layer_cloud = dpg.add_theme()
+    with dpg.theme_component(dpg.mvTheme, parent=layer_cloud):
+        color = (0, 0, 0)
+        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color, category=dpg.mvThemeCat_Core)
+    return layer_cloud

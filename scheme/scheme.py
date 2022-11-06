@@ -16,7 +16,7 @@ def build_scheme():
 
 def create_scheme():
     # Construct node editor
-    with dpg.node_editor(tag="node_editor"):
+    with dpg.node_editor(tag="node_editor", minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_BottomRight):
         scheme_node.node_controlium()
         scheme_node.node_pywardium()
         scheme_node.node_hubium()
@@ -30,7 +30,6 @@ def create_scheme():
         scheme_node.node_data()
         scheme_node.node_stats()
         scheme_node.node_legend()
-        scheme_node.node_network()
         scheme_link.create_link()
 
 

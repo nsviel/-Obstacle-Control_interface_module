@@ -6,6 +6,7 @@ import dearpygui.dearpygui as dpg
 
 def scheme_theme_dev():
     color_white = (255, 255, 255)
+    color_black = (0, 0, 0)
     color_node_grid_line = (75, 75, 75)
     color_node_grid_bkg = (75, 75, 75)
     color_node_bkg = (25, 25, 25)
@@ -51,6 +52,23 @@ def scheme_theme_dev():
             dpg.add_theme_style(dpg.mvNodeStyleVar_NodePadding, x=8, y=4, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
+
+            # Window
+            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgActive, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgCollapsed, color_node_bkg, category=dpg.mvThemeCat_Core)
+
+            # Minimap
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapBackground, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackground, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapCanvas, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapCanvasOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapLink, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundHovered, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundSelected, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
 
         # Background color
         with dpg.theme_component(dpg.mvAll):
@@ -107,6 +125,12 @@ def scheme_theme_demo():
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
 
+            # Window
+            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgActive, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgCollapsed, color_node_bkg, category=dpg.mvThemeCat_Core)
+
         # Background color
         with dpg.theme_component(dpg.mvAll):
             dpg.add_theme_color(dpg.mvNodeCol_GridBackground, color_node_grid_bkg, category=dpg.mvThemeCat_Nodes)
@@ -139,7 +163,6 @@ def colorize_node():
     dpg.bind_item_theme("node_valeo", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_control)
     dpg.bind_item_theme("node_legend", layer_legend)
-    dpg.bind_item_theme("node_network", layer_legend)
     dpg.bind_item_theme("node_stat_co", layer_stat)
     dpg.bind_item_theme("node_stat_py", layer_stat)
     dpg.bind_item_theme("node_stat_ed", layer_stat)

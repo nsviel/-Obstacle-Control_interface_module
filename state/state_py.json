@@ -1,10 +1,11 @@
 {
     "self": {
         "ip": "192.168.17.42",
-        "nb_thread": 6,
+        "nb_thread": 7,
         "l1_port": 8308,
         "l2_port": 8309,
-        "http_server_port": 314
+        "http_server_port": 314,
+        "iperf_port": 6970
     },
     "lidar_1": {
         "connected": false,

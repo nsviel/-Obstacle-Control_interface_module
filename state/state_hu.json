@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.17.42",
-        "nb_thread": 6,
+        "nb_thread": 7,
         "country": "France",
         "edge_id": 0,
         "sock_server_l1_port": 344,
@@ -17,7 +17,8 @@
         "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": false
+        "sock_l2_connected": false,
+        "iperf_port": 6970
     },
     "controlium": {
         "ip": "192.168.17.42",
@@ -26,7 +27,7 @@
     },
     "velodium": {
         "ip": "127.0.0.1",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370

@@ -9,9 +9,10 @@ color_line = (255, 255, 255, 50)
 color_info = (0, 200, 200)
 color_status = (0, 200, 50)
 color_title = (200, 200, 200)
+color_grey = (150, 150, 150)
 
 
-# Generic stuff
+# Line
 def line():
     with dpg.drawlist(width=125, height=1):
         dpg.draw_line([0, 0], [125, 0], color=color_line)
@@ -22,6 +23,11 @@ def line_tagged(tag_):
 def line_double():
     with dpg.drawlist(width=125, height=1):
         dpg.draw_line([0, 0], [250, 0], color=color_line)
+
+# Generic stuff
+def add_text_grey(text):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_text(text, color=color_grey);
 def add_attribute(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
@@ -250,7 +256,9 @@ def add_lidar_stat(tag_packet, tag_bdw_val, tag_bdw_range, tag_visible):
                 dpg.add_text(0, tag=tag_bdw_range, color=color_info);
                 dpg.add_text("]");
                 dpg.add_text("MB/s");
-def add_bandwidth(tag_val, tag_range):
+
+# Perf stuff
+def add_perf_bandwidth(tag_val, tag_range):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Bandwidth:");
@@ -259,6 +267,48 @@ def add_bandwidth(tag_val, tag_range):
             dpg.add_text(0, tag=tag_range, color=color_info);
             dpg.add_text("]");
             dpg.add_text("MB/s");
+def add_perf_latency(tag_val, tag_range):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Latency:");
+            dpg.add_text(0, tag=tag_val, color=color_info);
+            dpg.add_text("[");
+            dpg.add_text(0, tag=tag_range, color=color_info);
+            dpg.add_text("]");
+            dpg.add_text("ms");
+def add_perf_jitter(tag_val, tag_range):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Jitter:");
+            dpg.add_text(0, tag=tag_val, color=color_info);
+            dpg.add_text("[");
+            dpg.add_text(0, tag=tag_range, color=color_info);
+            dpg.add_text("]");
+            dpg.add_text("ms");
+def add_perf_reliability(tag_val, tag_range):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Reliability:");
+            dpg.add_text(0, tag=tag_val, color=color_info);
+            dpg.add_text("[");
+            dpg.add_text(0, tag=tag_range, color=color_info);
+            dpg.add_text("]");
+            dpg.add_text("%");
+def add_perf_interruption(tag_val, tag_range):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Interruption:");
+            dpg.add_text(0, tag=tag_val, color=color_info);
+            dpg.add_text("[");
+            dpg.add_text(0, tag=tag_range, color=color_info);
+            dpg.add_text("]");
+            dpg.add_text("s");
+def add_perf_time(text, tag):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text(text);
+            dpg.add_text(0, tag=tag, color=color_info);
+            dpg.add_text("ms");
 
 # MQTT stuff
 def add_mqtt(tag_client, tag_name, tag_visible):
