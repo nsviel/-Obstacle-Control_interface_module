@@ -1,7 +1,7 @@
 {
     "self": {
         "status": "Offline",
-        "ip": "192.168.17.42",
+        "ip": "10.201.20.68",
         "nb_thread": 5,
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322,
@@ -31,9 +31,9 @@
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_06-11-2022_18h54.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_06-11-2022_18h54.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_06-11-2022_18h54.pcap",
+        "file_name": "_07-11-2022_13h33.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_07-11-2022_13h33.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_07-11-2022_13h33.pcap",
         "bandwidth": 0
     }
 }

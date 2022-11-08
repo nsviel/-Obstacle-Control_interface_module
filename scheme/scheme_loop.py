@@ -46,10 +46,10 @@ def loop_perf():
     dpg.set_value("perf_latency_do_val", value)
 
     # Jitter
-    #value = "%.2f"% param_co.state_perf["local_cloud"]["jitter"]["value"]
-    #dpg.set_value("perf_jitter_up_val", value)
-    #value = "%.2f"% param_co.state_perf["cloud_local"]["jitter"]["value"]
-    #dpg.set_value("perf_jitter_do_val", value)
+    value = "%.2f"% param_co.state_perf["local_cloud"]["jitter"]["value"]
+    dpg.set_value("perf_jitter_up_val", value)
+    value = "%.2f"% param_co.state_perf["cloud_local"]["jitter"]["value"]
+    dpg.set_value("perf_jitter_do_val", value)
 
     # Reliability
     value = "%.2f"% param_co.state_perf["local_cloud"]["reliability"]["value"]
