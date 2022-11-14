@@ -9,7 +9,7 @@ RUN apt update \
     python3 python3-pip python3-pcapy python3-scapy libiperf0 \
     libx11-6 libgl1-mesa-glx libgl1-mesa-dri \
     && pip3 install dearpygui speedtest-cli dhcppython pandas psutil \
-    && apt-get clean \
+    && apt clean \
     && rm -rf /var/lib/apt/lists/* \
     && apt autoremove -y
 
