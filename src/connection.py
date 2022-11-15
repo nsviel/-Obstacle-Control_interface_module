@@ -12,15 +12,13 @@ from src import state
 
 from scheme import scheme_update
 
-from threading import Thread
-
-
+import threading
 import time
 
 
 def start_daemon():
     param_co.run_thread_con = True
-    thread_con = Thread(target = thread_test_connection)
+    thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
     print("[\033[1;32mOK\033[0m] Start connection testing daemon")
 

@@ -2,8 +2,6 @@
 from param import param_co
 from src import data
 
-from threading import Thread
-
 import socket
 
 
@@ -17,7 +15,9 @@ def thread_socket_l1_server():
 
     while param_co.run_thread_socket:
         try:
+
             packet, (address, port) = param_co.sock_server_l1.recvfrom(4096)
+            print("l1")
             data.process_l1_data(packet)
             param_co.state_co["hubium"]["sock_l1_connected"] = True
         except:
@@ -35,8 +35,12 @@ def thread_socket_l2_server():
 
     while param_co.run_thread_socket:
         try:
-            packet, (address, port) = param_co.sock_server_l2.recvfrom(4096)
+            print("nop")
+            print(port)
+            packet = param_co.sock_server_l2.recvfrom(4096)
+            print("l2")
             data.process_l2_data(packet)
+            print("2")
             param_co.state_co["hubium"]["sock_l2_connected"] = True
         except:
             param_co.state_co["hubium"]["sock_l2_connected"] = False
