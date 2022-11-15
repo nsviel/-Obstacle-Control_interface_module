@@ -118,7 +118,7 @@ def update_image():
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
-    coord_controlium = [375, 520]
+    coord_controlium = [375, 550]
     coord_pywardium = [350, 10]
     coord_hubium = [835, 375]
     coord_train = [10, 10]
@@ -152,9 +152,9 @@ def update_node_pos_demo_minimized():
     gui_width = 1100
     gui_height = 650
     coord_controlium = [250, 440]
-    coord_pywardium = [250, 200]
+    coord_pywardium = [250, 10]
     coord_hubium = [575, 325]
-    coord_train = [10, 200]
+    coord_train = [10, 100]
     coord_velodium = [900, 265]
     coord_ai = [900, 450]
     coord_sncf = [900, 125]

@@ -125,6 +125,17 @@ def scheme_theme_demo():
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
 
+            # Minimap
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapBackground, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackground, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapCanvas, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapCanvasOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeOutline, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapLink, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundHovered, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundSelected, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+
             # Window
             dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)

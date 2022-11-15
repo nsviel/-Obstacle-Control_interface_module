@@ -2,6 +2,6 @@ localhost 127.0.0.1
 mine_server_nsv 10.201.20.24
 mine_fixe_nsv 10.201.20.131
 mine_fixe_lsf 10.201.20.110
-portable_nsv 192.168.153.147
+portable_nsv 192.168.153.38
 black_hole 99.99.99.99
 HiveMQ 35.156.137.139

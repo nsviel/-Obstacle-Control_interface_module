@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "10.201.20.131",
-        "nb_thread": 8,
+        "ip": "192.168.153.38",
+        "nb_thread": 9,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314,
@@ -13,7 +13,7 @@
         "running": false,
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "enxa0cec8737a9e",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -31,19 +31,19 @@
     "lidar_2": {
         "connected": true,
         "activated": true,
-        "running": false,
+        "running": true,
         "ip": "192.168.2.201",
         "port": 2369,
         "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0.957,
-            "min": 0.955,
-            "max": 0.962,
-            "mean": 0.8855384615384616
+            "value": 0.96,
+            "min": 0.048,
+            "max": 0.963,
+            "mean": 0.9595416666666666
         },
         "packet": {
-            "value": 11777,
+            "value": 46186,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -51,7 +51,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "10.201.20.131",
+        "ip": "127.0.0.1",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -60,19 +60,20 @@
         "country": "France"
     },
     "device": {
-        "0": "enp34s0",
-        "1": "enxf8e43b6cdf6c",
-        "2": "any",
-        "3": "lo",
-        "4": "enxa0cec8737a9e",
-        "5": "docker0",
-        "6": "bluetooth-monitor",
-        "7": "nflog",
-        "8": "nfqueue",
-        "9": "dbus-system",
-        "10": "dbus-session",
-        "11": "nfqueue",
-        "12": "dbus-system",
-        "13": "dbus-session"
+        "0": "enxf8e43b6cdf6c",
+        "1": "wlp2s0",
+        "2": "ztwdjfturv",
+        "3": "any",
+        "4": "lo",
+        "5": "enx00e04c680731",
+        "6": "docker0",
+        "7": "br-7a750d0dd673",
+        "8": "br-8a34bbfcdb80",
+        "9": "bluetooth0",
+        "10": "bluetooth-monitor",
+        "11": "nflog",
+        "12": "nfqueue",
+        "13": "dbus-system",
+        "14": "dbus-session"
     }
 }

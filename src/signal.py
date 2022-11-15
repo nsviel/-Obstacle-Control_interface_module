@@ -81,4 +81,8 @@ def manage_args():
 def get_temps_core(number):
     temp = psutil.sensors_temperatures()
     if(temp):
-        return temp["coretemp"][number+1].current
+        try:
+            temperature = temp["coretemp"][number+1].current
+        except:
+            temperature = 0
+        return temperature

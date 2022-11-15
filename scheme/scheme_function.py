@@ -239,8 +239,8 @@ def add_l1_motor(tag_on, tag_off):
 def add_l2_motor(tag_on, tag_off, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
-            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l1_start)
-            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l1_stop)
+            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l2_start)
+            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l2_stop)
 def add_lidar_stat(tag_packet, tag_bdw_val, tag_bdw_range, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(tag=tag_visible):
