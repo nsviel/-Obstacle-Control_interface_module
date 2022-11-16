@@ -20,17 +20,17 @@ def loop_lidar_throughput():
     mean = param_co.state_py["lidar_1"]["throughput"]["mean"]
     max = param_co.state_py["lidar_1"]["throughput"]["max"]
     range = "%.2f, %.2f, %.2f"% (min, mean, max)
-    dpg.set_value("l1_bdw_val", value)
-    dpg.set_value("l1_bdw_range", range)
+    dpg.set_value("l1_tgp_val", value)
+    dpg.set_value("l1_tgp_range", range)
 
     # LiDAR channel 2
-    value = "%.2f"% param_co.state_py["lidar_2"]["throughput"]["value"]
+    value = "%.3f"% param_co.state_py["lidar_2"]["throughput"]["value"]
     min = param_co.state_py["lidar_2"]["throughput"]["min"]
     mean = param_co.state_py["lidar_2"]["throughput"]["mean"]
     max = param_co.state_py["lidar_2"]["throughput"]["max"]
     range = "%.2f, %.2f, %.2f"% (min, mean, max)
-    dpg.set_value("l2_bdw_val", value)
-    dpg.set_value("l2_bdw_range", range)
+    dpg.set_value("l2_tgp_val", value)
+    dpg.set_value("l2_tgp_range", range)
 
 def loop_perf():
     # Bandwidth
@@ -46,9 +46,9 @@ def loop_perf():
     dpg.set_value("perf_latency_do_val", value)
 
     # Jitter
-    value = "%.2f"% param_co.state_perf["local_cloud"]["jitter"]["value"]
+    value = "%.3f"% param_co.state_perf["local_cloud"]["jitter"]["value"]
     dpg.set_value("perf_jitter_up_val", value)
-    value = "%.2f"% param_co.state_perf["cloud_local"]["jitter"]["value"]
+    value = "%.3f"% param_co.state_perf["cloud_local"]["jitter"]["value"]
     dpg.set_value("perf_jitter_do_val", value)
 
     # Reliability

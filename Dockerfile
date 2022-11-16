@@ -9,16 +9,16 @@ RUN apt update \
     python3 python3-pip python3-pcapy python3-scapy libiperf0 \
     libx11-6 libgl1-mesa-glx libgl1-mesa-dri \
     && pip3 install dearpygui speedtest-cli dhcppython pandas psutil \
-    && apt clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt autoremove -y
+    && rm -rf /var/lib/apt/lists/*
 
 # Program parameters
 COPY . /app/controlium
 WORKDIR /app/controlium
 
 # Open port
+# Lidar 1
 EXPOSE 321
+# Lidar 2
 EXPOSE 322
 
 # Final command
