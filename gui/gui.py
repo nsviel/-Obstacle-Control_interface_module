@@ -6,7 +6,6 @@ from src import state
 from src import wallet
 
 from scheme import scheme
-from scheme import scheme_loop
 from scheme import scheme_theme
 from scheme import scheme_update
 from scheme import scheme_visibility
@@ -61,9 +60,7 @@ def program():
     # Start main loop program
     while param_co.run_loop and dpg.is_dearpygui_running():
         loop.loop()
-        scheme_loop.loop()
         dpg.render_dearpygui_frame()
-
 
     # End thread
     loop.end()

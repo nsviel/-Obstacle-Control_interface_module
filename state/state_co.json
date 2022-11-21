@@ -23,17 +23,17 @@
         "ip": "127.0.0.1",
         "http_connected": true,
         "http_server_port": 443,
-        "sock_l1_connected": false,
-        "sock_l2_connected": true
+        "sock_l1_connected": true,
+        "sock_l2_connected": false
     },
     "path": {
         "dir_capture": "/media/aeter/lidar_ssd/capture",
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_16-11-2022_10h59.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_16-11-2022_10h59.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_16-11-2022_10h59.pcap",
+        "file_name": "_21-11-2022_15h13.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_21-11-2022_15h13.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_21-11-2022_15h13.pcap",
         "bandwidth": 0
     }
 }

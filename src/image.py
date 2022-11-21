@@ -3,7 +3,7 @@ from param import param_co
 from scheme import scheme_update
 from HTTPS import https_client_get
 
-import threading 
+import threading
 import time
 
 
@@ -26,4 +26,3 @@ def thread_image():
 
         # Wait for 1 second
         time.sleep(0.1)
-        pass

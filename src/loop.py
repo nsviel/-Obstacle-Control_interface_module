@@ -21,7 +21,7 @@ def init():
     print("[\033[1;32mOK\033[0m] Program initialized...")
 
 def loop():
-    time.sleep(0.01)
+    time.sleep(0.033)
 
 def end():
     parser_json.upload_state()

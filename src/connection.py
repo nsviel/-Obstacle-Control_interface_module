@@ -10,6 +10,7 @@ from src import parser_json
 from src import signal
 from src import state
 
+from scheme import scheme_loop
 from scheme import scheme_update
 
 import threading
@@ -29,16 +30,19 @@ def thread_test_connection():
     while param_co.run_thread_con:
         # Test connections
         https_client_con.test_hu_con()
-        https_client_get.get_state("hu")
-        https_client_get.get_state("py")
-        https_client_get.get_state("perf")
         saving.test_ssd_con()
 
         # Update state
+        https_client_get.get_state("hu")
+        https_client_get.get_state("py")
+        https_client_get.get_state("perf")
         state.update_state()
         parser_json.upload_state()
-        scheme_update.update_scheme()
+
+        # Update scheme
         signal.update_nb_thread()
+        scheme_update.update_scheme()
+        scheme_loop.loop()
 
         # Wait for 1 second
         time.sleep(1)
