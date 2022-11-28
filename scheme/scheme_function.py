@@ -197,6 +197,11 @@ def add_port_fixe_i(tag_input, tag_port, tag_visible):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
             dpg.add_text(1, tag=tag_port, color=color_info);
+def add_port_lidar(tag_port, tag_visibility):
+    with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Port:");
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_lidar);
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_l2_visible):
@@ -215,16 +220,14 @@ def add_lidar_status(label, tag_con, tag_active, tag_status):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
             dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
-def add_lidar_param(tag_ip, tag_port, tag_visibility):
+def add_lidar_add(tag_wallet, tag_ip, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
-        #IP
+        with dpg.group(horizontal=True):
+            dpg.add_text("Add:");
+            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_command.command_comboip)
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_pywardium);
-        #Port
-        with dpg.group(horizontal=True):
-            dpg.add_text("Port:");
-            dpg.add_text(1, tag=tag_port, color=color_info);
 def add_lidar_speed(tag_speed, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):

@@ -56,3 +56,8 @@ def callback_ai():
 def callback_ssd():
     param_co.path_ssd = dpg.get_value("ssd_path")
     param_co.state_co["ssd"]["activated"] = dpg.get_value("ssd_active")
+
+def callback_lidar():
+    param_co.state_py["lidar_1"]["port"] = dpg.get_value("l1_port")
+    param_co.state_py["lidar_2"]["port"] = dpg.get_value("l2_port")
+    https_client_post.post_state("py", param_co.state_py)

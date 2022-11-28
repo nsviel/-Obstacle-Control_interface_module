@@ -57,4 +57,6 @@ def determine_adresse():
     param_co.state_hu["edge"]["add"] = get_key_from_ip(param_co.state_hu["edge"]["ip"])
     param_co.state_hu["sncf"]["add"] = get_key_from_ip(param_co.state_hu["sncf"]["broker_ip"])
     param_co.state_hu["pywardium"]["add"] = get_key_from_ip(param_co.state_hu["pywardium"]["ip"])
+    param_co.state_py["lidar_1"]["add"] = get_key_from_ip(param_co.state_py["lidar_1"]["ip"])
+    param_co.state_py["lidar_2"]["add"] = get_key_from_ip(param_co.state_py["lidar_2"]["ip"])
     parser_json.upload_state()

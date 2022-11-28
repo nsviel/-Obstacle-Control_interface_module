@@ -49,11 +49,15 @@ def update_add():
     dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])
     dpg.set_value("ed_wallet", param_co.state_hu["edge"]["add"])
     dpg.set_value("sncf_wallet", param_co.state_hu["sncf"]["add"])
+    dpg.set_value("l1_wallet", param_co.state_py["lidar_1"]["add"])
+    dpg.set_value("l2_wallet", param_co.state_py["lidar_2"]["add"])
 def update_add_combo():
     dpg.configure_item("py_wallet", items=param_co.wallet_add)
     dpg.configure_item("hu_wallet", items=param_co.wallet_add)
     dpg.configure_item("ed_wallet", items=param_co.wallet_add)
     dpg.configure_item("sncf_wallet", items=param_co.wallet_add)
+    dpg.configure_item("l1_wallet", items=param_co.wallet_add)
+    dpg.configure_item("l2_wallet", items=param_co.wallet_add)
 
 def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)
@@ -129,7 +133,7 @@ def update_node_pos_dev():
     coord_valeo = [1200, 745]
     coord_ssd = [10, 520]
     coord_data = [755, 10]
-    coord_network = [10, 400]
+    coord_network = [10, 450]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -143,13 +147,14 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("window_perf", coord_network)
+    dpg.configure_item("window_perf", collapsed=True)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_dev()
 def update_node_pos_demo_minimized():
-    gui_width = 1100
+    gui_width = 1500
     gui_height = 650
     coord_controlium = [250, 440]
     coord_pywardium = [250, 10]
@@ -160,8 +165,8 @@ def update_node_pos_demo_minimized():
     coord_sncf = [900, 125]
     coord_ssd = [10, 440]
     coord_data = [500, 10]
-    coord_legend = [850, 10]
-    coord_network = [10, 10]
+    coord_legend = [1110, 10]
+    coord_network = [1120, 200]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -174,6 +179,7 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
     dpg.set_item_pos("window_perf", coord_network)
+    dpg.configure_item("window_perf", collapsed=False)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -203,6 +209,7 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_legend", coord_legend)
     dpg.set_item_pos("window_perf", coord_network)
+    dpg.configure_item("window_perf", collapsed=False)
 
     update_fullscreen(True)
     scheme_theme.scheme_theme_demo()
@@ -210,6 +217,7 @@ def update_fullscreen(value):
     if(param_co.gui_fullscreen == False and value == True):
         dpg.toggle_viewport_fullscreen()
         dpg.bind_item_font("window", param_co.gui_font_big)
+        #dpg.bind_item_font("window_perf", param_co.gui_font_big)
         dpg.set_item_width("py_wallet", 175)
         dpg.set_item_width("hu_wallet", 175)
         dpg.set_item_width("ve_wallet", 175)
@@ -227,6 +235,7 @@ def update_fullscreen(value):
     elif(param_co.gui_fullscreen == True and value == False):
         dpg.toggle_viewport_fullscreen()
         dpg.bind_item_font("window", param_co.gui_font_def)
+        #dpg.bind_item_font("window_perf", param_co.gui_font_def)
         dpg.set_item_width("py_wallet", 120)
         dpg.set_item_width("hu_wallet", 120)
         dpg.set_item_width("ve_wallet", 120)

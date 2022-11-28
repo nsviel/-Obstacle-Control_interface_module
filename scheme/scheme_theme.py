@@ -218,6 +218,8 @@ def colorize_item():
     dpg.bind_item_theme("sncf_broker_port", input_text)
     dpg.bind_item_theme("hu_sock_client_l1_source", input_text)
     dpg.bind_item_theme("ve_opt_view", input_text)
+    dpg.bind_item_theme("l1_port", input_text)
+    dpg.bind_item_theme("l2_port", input_text)
 
     dpg.bind_item_theme("hu_wallet", input_text)
     dpg.bind_item_theme("py_wallet", input_text)
@@ -225,6 +227,8 @@ def colorize_item():
     dpg.bind_item_theme("ve_wallet", input_text)
     dpg.bind_item_theme("ai_wallet", input_text)
     dpg.bind_item_theme("sncf_wallet", input_text)
+    dpg.bind_item_theme("l1_wallet", input_text)
+    dpg.bind_item_theme("l2_wallet", input_text)
 
     dpg.bind_item_theme("py_ip", input_text)
     dpg.bind_item_theme("hu_ip", input_text)

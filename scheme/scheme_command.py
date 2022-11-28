@@ -59,6 +59,8 @@ def command_comboip():
     ve_ip = wallet.get_ip_from_key(dpg.get_value("ve_wallet"))
     ai_ip = wallet.get_ip_from_key(dpg.get_value("ai_wallet"))
     sncf_ip = wallet.get_ip_from_key(dpg.get_value("sncf_wallet"))
+    l1_ip = wallet.get_ip_from_key(dpg.get_value("l1_wallet"))
+    l2_ip = wallet.get_ip_from_key(dpg.get_value("l2_wallet"))
 
     if(hu_ip != None):
         param_co.state_co["hubium"]["ip"] = hu_ip
@@ -85,3 +87,11 @@ def command_comboip():
         param_co.state_hu["sncf"]["broker_ip"] = sncf_ip
         dpg.set_value("sncf_ip", sncf_ip)
         https_client_post.post_param_value("hu", "sncf", "broker_ip", sncf_ip)
+    if(l1_ip != None):
+        param_co.state_py["lidar_1"]["ip"] = l1_ip
+        dpg.set_value("l1_ip", l1_ip)
+        https_client_post.post_param_value("py", "lidar_1", "ip", l1_ip)
+    if(l2_ip != None):
+        param_co.state_py["lidar_2"]["ip"] = l2_ip
+        dpg.set_value("l2_ip", l2_ip)
+        https_client_post.post_param_value("py", "lidar_2", "ip", l2_ip)

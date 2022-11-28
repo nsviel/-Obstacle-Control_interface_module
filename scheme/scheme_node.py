@@ -71,14 +71,16 @@ def node_train():
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")
         scheme_function.add_l1_motor("l1_on", "l1_off")
-        scheme_function.add_lidar_param("l1_ip", "l1_port", "l1_params_visible")
+        scheme_function.add_lidar_add("l1_wallet", "l1_ip", "l1_params_visible")
+        scheme_function.add_port_lidar("l1_port", "l1_port_visible")
         scheme_function.add_lidar_speed("l1_speed", "l1_speed_visible")
         scheme_function.add_lidar_stat("l1_packet", "l1_tgp_val", "l1_tgp_range", "l1_perf_visible")
 
         scheme_function.line_tagged("l2_line_visible")
         scheme_function.add_lidar_status("Lidar 2", "l2_status", "l2_activated", "l2_status_but")
         scheme_function.add_l2_motor("l2_on", "l2_off", "l2_motor_visible")
-        scheme_function.add_lidar_param("l2_ip", "l2_port", "l2_params_visible")
+        scheme_function.add_lidar_add("l2_wallet", "l2_ip", "l2_params_visible")
+        scheme_function.add_port_lidar("l2_port", "l2_port_visible")
         scheme_function.add_lidar_speed("l2_speed", "l2_speed_visible")
         scheme_function.add_lidar_stat("l2_packet", "l2_tgp_val", "l2_tgp_range", "l2_perf_visible")
 
