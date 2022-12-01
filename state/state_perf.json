@@ -1,11 +1,11 @@
 {
     "local_cloud": {
-        "time": 0,
+        "time": "Thu, 01 Dec 2022 15:15:34 GMT",
         "bandwidth": {
-            "value": 0,
+            "value": 942.0882686759696,
             "min": 0,
-            "max": 0,
-            "mean": 0
+            "max": 942.0882686759696,
+            "mean": 839.808705400848
         },
         "latency": {
             "value": 0,
@@ -14,16 +14,16 @@
             "mean": 0
         },
         "jitter": {
-            "value": 0,
+            "value": 0.00999865150924473,
             "min": 0,
-            "max": 0,
-            "mean": 0
+            "max": 0.1269087774487178,
+            "mean": 0.04339411956406047
         },
         "reliability": {
-            "value": 0,
+            "value": 19.2102769295567,
             "min": 0,
-            "max": 0,
-            "mean": 0
+            "max": 27.757828363791802,
+            "mean": 18.23534375029124
         },
         "interruption": {
             "value": 0,
@@ -33,35 +33,35 @@
         }
     },
     "cloud_local": {
-        "time": 0,
+        "time": "Thu, 01 Dec 2022 13:50:19 GMT",
         "bandwidth": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
+            "value": 136.56813798082356,
+            "min": 48.89863877151479,
+            "max": 185.56291589383113,
+            "mean": 105.09108682181211
         },
         "latency": {
-            "value": 0.03,
-            "min": 0.022,
-            "max": 0.036,
-            "mean": 0.028500000000000004
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "jitter": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
+            "value": 0.1277631114304295,
+            "min": 0.02458824132502075,
+            "max": 0.4146545620357395,
+            "mean": 0.12388338838605781
         },
         "reliability": {
-            "value": 0,
-            "min": 0,
-            "max": 0,
-            "mean": 0.0
+            "value": 85.30259365994236,
+            "min": 53.1400966183575,
+            "max": 99.79553903345725,
+            "mean": 76.05607352582157
         }
     },
     "end_to_end": {
-        "time_slam": 0,
+        "time_slam": 2.0,
         "time_ai": 0,
-        "time_total": 0
+        "time_total": 2.0
     }
 }

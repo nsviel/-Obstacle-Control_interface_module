@@ -18,7 +18,7 @@ def connection_hu_open():
     if(param_co.state_co["hubium"]["http_connected"] == False):
         param_co.state_co["hubium"]["http_connected"] = True
         https_client_post.post_param_value("hu", "controlium", "ip", param_co.state_co["self"]["ip"])
-        https_client_post.post_param_value("hu", "pywardium", "ip", param_co.state_co["self"]["ip"])
+        https_client_post.post_param_value("hu", "pywardium", "ip", param_co.state_hu["pywardium"]["ip"])
         https_client_post.post_param_value("hu", "self", "sock_server_l1_source", param_co.state_hu["self"]["sock_server_l1_source"])
         https_client_post.post_param_value("hu", "self", "sock_server_l2_source", param_co.state_hu["self"]["sock_server_l2_source"])
 
