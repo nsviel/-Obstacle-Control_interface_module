@@ -22,6 +22,7 @@ def load_json_file():
 def init_state_co():
     param_co.state_co["self"]["ip"] = network.get_ip_adress()
     param_co.state_co["path"]["file_name_add"] = ""
+    param_co.state_co["hubium"]["http_connected"] = False
 
 def init_state_perf():
     param_co.state_perf["local_cloud"]["time"] = 0
