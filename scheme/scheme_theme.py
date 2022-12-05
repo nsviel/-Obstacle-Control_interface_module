@@ -69,6 +69,7 @@ def scheme_theme_dev():
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapLink, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundHovered, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundSelected, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodesCol_MiniMapLinkSelected, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
 
         # Background color
         with dpg.theme_component(dpg.mvAll):

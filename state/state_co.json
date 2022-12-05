@@ -13,14 +13,14 @@
     },
     "ssd": {
         "status": "Offline",
-        "connected": false,
+        "connected": true,
         "activated": true,
-        "space_total": 0,
-        "space_used": 0
+        "space_total": 1862,
+        "space_used": 374
     },
     "hubium": {
         "add": "mine_fixe_nsv",
-        "ip": "127.0.0.1",
+        "ip": "192.168.153.38",
         "http_connected": true,
         "http_server_port": 443,
         "sock_l1_connected": true,
@@ -31,9 +31,9 @@
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_01-12-2022_14h38.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_01-12-2022_14h38.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_01-12-2022_14h38.pcap",
+        "file_name": "_05-12-2022_15h10.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_05-12-2022_15h10.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_05-12-2022_15h10.pcap",
         "bandwidth": 0
     }
 }

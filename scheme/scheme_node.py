@@ -32,6 +32,8 @@ def node_pywardium():
         scheme_function.add_ip_wallet("py_wallet", "py_ip", "-")
         scheme_function.add_nb_thread("py_thread", "py_thread_visible")
 
+        #scheme_function.add_iperf_py()
+
         scheme_function.add_port_fixe_i("py_l1_in", "py_l1_port", "py_l1_port_visible")
         scheme_connection.add_sock_client_o_("py_l1_out")
         scheme_function.add_port_fixe_i("py_l2_in", "py_l2_port", "py_l2_port_visible")
@@ -67,6 +69,8 @@ def node_hubium():
 def node_train():
     with dpg.node(label="Train", tag="node_train"):
         scheme_function.add_geolocalization("geo_status", "geo_country")
+
+        #scheme_function.add_iperf_train()
 
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")

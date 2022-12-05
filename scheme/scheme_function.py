@@ -164,6 +164,26 @@ def add_velo_option(tag_slam, tag_view):
         with dpg.group(horizontal=True):
             dpg.add_text("View:");
             dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velodium, horizontal=True)
+def add_iperf_train():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
+        with dpg.group(horizontal=True):
+            dpg.add_text("Iperf");
+            dpg.add_text("client", color=color_info);
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Iperf");
+            dpg.add_text("server", color=color_info);
+def add_iperf_py():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        line()
+        with dpg.group(horizontal=True):
+            dpg.add_text("Iperf");
+            dpg.add_text("server", color=color_info);
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Iperf");
+            dpg.add_text("client", color=color_info);
 
 # Ports
 def add_port_co(tag_port, tag_visible):
