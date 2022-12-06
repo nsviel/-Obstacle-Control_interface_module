@@ -14,6 +14,7 @@ path_state_hu = "state/state_hu.json"
 path_state_py = "state/state_py.json"
 path_state_perf = "state/state_perf.json"
 path_image = "state/image"
+path_image_empty = "state/image_empty"
 path_config = "param/config.json"
 try:
     user = os.getlogin()

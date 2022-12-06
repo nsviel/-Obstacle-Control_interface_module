@@ -19,10 +19,11 @@ def stop_daemon():
 def thread_image():
     while param_co.run_thread_image:
         # Load current image
-        https_client_get.get_image("hu")
+        ok = https_client_get.get_image("hu")
 
         # Update image
-        scheme_update.update_image()
+        if(ok):
+            scheme_update.update_image()
 
         # Wait for 1 second
         time.sleep(0.1)

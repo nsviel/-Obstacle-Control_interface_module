@@ -40,3 +40,5 @@ def get_image(dest):
             img = open(param_co.path_image, "wb")
             img.write(data)
             img.close()
+            return True
+    return False

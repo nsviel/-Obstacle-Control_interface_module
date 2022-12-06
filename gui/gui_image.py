@@ -5,7 +5,7 @@ import dearpygui.dearpygui as dpg
 
 def init_image():
     try:
-        width, height, channels, data = dpg.load_image(param_co.path_image)
+        width, height, channels, data = dpg.load_image(param_co.path_image_empty)
 
         with dpg.texture_registry():
             dpg.add_raw_texture(width, height, data, format=dpg.mvFormat_Float_rgba, tag="image_in")

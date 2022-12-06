@@ -40,12 +40,12 @@
         "speed": 600,
         "throughput": {
             "value": 0.961,
-            "min": 0.956,
-            "max": 0.963,
-            "mean": 0.8400000000000001
+            "min": 0.954,
+            "max": 0.964,
+            "mean": 0.9595833333333332
         },
         "packet": {
-            "value": 7308,
+            "value": 161124,
             "min": 0,
             "max": 0,
             "mean": 0
@@ -53,7 +53,7 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "192.168.153.38",
+        "ip": "10.201.20.24",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "iperf_port": 6969
@@ -67,8 +67,8 @@
         "2": "ztwdjfturv",
         "3": "lo",
         "4": "enx00e04c680731",
-        "5": "br-de470ff68a90",
-        "6": "br-fc5d7334c3b2",
+        "5": "br-fc5d7334c3b2",
+        "6": "br-de470ff68a90",
         "7": "bluetooth-monitor",
         "8": "nfqueue",
         "9": "dbus-session",
