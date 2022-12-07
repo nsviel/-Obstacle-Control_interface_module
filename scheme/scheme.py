@@ -17,21 +17,8 @@ def build_scheme():
 def create_scheme():
     # Construct node editor
     with dpg.node_editor(tag="node_editor", minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_BottomRight):
-        scheme_node.node_controlium()
-        scheme_node.node_pywardium()
-        scheme_node.node_hubium()
-        scheme_node.node_train()
-        scheme_node.node_edge()
-        scheme_node.node_ve()
-        scheme_node.node_ai()
-        scheme_node.node_sncf()
-        scheme_node.node_valeo()
-        scheme_node.node_ssd()
-        scheme_node.node_data()
-        scheme_node.node_stats()
-        scheme_node.node_legend()
+        scheme_node.create_node()
         scheme_link.create_link()
-
 
     with dpg.handler_registry(show=False, tag="__demo_mouse_handler"):
         m_wheel = dpg.add_mouse_wheel_handler()

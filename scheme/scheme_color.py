@@ -29,6 +29,43 @@ def color_yaxis_0():
         dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 0.5, category=dpg.mvThemeCat_Plots)
     return yaxis
 
+def color_block_train():
+    layer_control = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_control):
+        color = (10, 40, 100, 50)
+        transparent = (0, 0, 0, 0)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
+    return layer_control
+def color_block_edge():
+    layer_control = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_control):
+        color = (45, 108, 143, 50)
+        transparent = (0, 0, 0, 0)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
+    return layer_control
+def color_block_cloud():
+    layer_control = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_control):
+        color = (34, 133, 109, 50)
+        transparent = (0, 0, 0, 0)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
+    return layer_control
+
 def color_buton_red():
     red = (200, 50, 20)
     theme = dpg.add_theme()
@@ -131,7 +168,7 @@ def color_layer_control():
 def color_layer_train():
     layer_train = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_train):
-        color = (14, 58, 125)
+        color = (10, 40, 100)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)

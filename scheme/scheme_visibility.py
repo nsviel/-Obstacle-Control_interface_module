@@ -47,14 +47,7 @@ def set_mode_dev():
     # Nodes
     dpg.show_item("node_ed")
     dpg.show_item("node_valeo")
-    dpg.hide_item("node_legend")
     dpg.configure_viewport("viewport", title="Controlium")
-    dpg.set_item_label("node_co", "Controlium")
-    dpg.set_item_label("node_hu", "Hubium")
-    dpg.set_item_label("node_py", "Pywardium")
-    dpg.set_item_label("node_train", "Train")
-    dpg.set_item_label("node_ve", "Velodium")
-    dpg.set_item_label("window_perf", "Network")
 
     # Links
     dpg.show_item("link_l2_py")
@@ -97,6 +90,11 @@ def set_mode_dev():
     dpg.show_item("hu_sock_server_l2_i")
     dpg.show_item("py_l2_in")
 
+    # Block
+    dpg.hide_item("node_block_train")
+    dpg.hide_item("node_block_edge")
+    dpg.hide_item("node_block_cloud")
+
 def set_mode_demo():
     # Misc
     dpg.hide_item("co_temp_visibile")
@@ -117,36 +115,40 @@ def set_mode_demo():
     dpg.hide_item("l2_perf_visible")
     dpg.hide_item("l2_speed_visible")
 
-    # SSD
-    dpg.hide_item("ssd_param_visible")
-    dpg.hide_item("ssd_l1_visible")
-    dpg.hide_item("ssd_l2_visible")
-
     # Nodes
+    dpg.hide_item("node_ve")
+    dpg.hide_item("node_ai")
     dpg.hide_item("node_ed")
+    dpg.hide_item("node_ssd")
     dpg.hide_item("node_valeo")
-    dpg.show_item("node_legend")
+    dpg.hide_item("node_co")
     dpg.configure_viewport("viewport", title="System control interface")
-    dpg.set_item_label("node_co", "System control interface")
-    dpg.set_item_label("node_hu", "P2. Edge AI module")
-    dpg.set_item_label("node_py", "P2. Train module")
-    dpg.set_item_label("node_train", "LiDAR")
-    dpg.set_item_label("node_ve", "Data processing")
-    dpg.set_item_label("window_perf", "KPI")
 
     # Links
     dpg.hide_item("link_l2_py")
     dpg.hide_item("link_va_hu")
-    dpg.hide_item("link_hu_ed_sock")
-    dpg.hide_item("link_ed_hu_sock")
-    dpg.hide_item("link_hu_ed_http")
+    dpg.hide_item("link_ai_hu_http")
+
     dpg.hide_item("link_ed_hu_http")
+    dpg.hide_item("link_ed_hu_sock")
+
+    dpg.hide_item("link_hu_ed_sock")
+    dpg.hide_item("link_hu_ed_http")
+    dpg.hide_item("link_hu_co_l1_sock")
+    dpg.hide_item("link_hu_co_l2_sock")
+    dpg.hide_item("link_hu_ve_http")
+    dpg.hide_item("link_hu_ve_sock")
+
+    dpg.hide_item("link_ed_hu_sock")
+    dpg.hide_item("link_ed_hu_http")
+
     dpg.hide_item("link_py_geo")
     dpg.hide_item("link_py_hu_l2_sock")
-    dpg.hide_item("link_hu_co_l2_sock")
+
+    dpg.hide_item("link_co_hu_http")
+    dpg.hide_item("link_co_ssd")
 
     # Nb threads
-    dpg.hide_item("co_thread_visible")
     dpg.hide_item("hu_thread_visible")
     dpg.hide_item("py_thread_visible")
 
@@ -154,8 +156,11 @@ def set_mode_demo():
     dpg.hide_item("py_http_port_visible")
     dpg.hide_item("hu_http_port_visible")
     dpg.hide_item("ed_http_port_visible")
-    dpg.hide_item("ve_http_port_visible")
-    dpg.hide_item("ai_http_port_visible")
+    dpg.hide_item("hu_http_server_i")
+    dpg.hide_item("hu_http_server_o")
+    dpg.hide_item("hu_http_client_o")
+    dpg.hide_item("hu_sock_client_l1_i")
+    dpg.hide_item("hu_sock_client_l1_o")
 
     # Socket ports
     dpg.hide_item("co_port_l1_visible")
@@ -166,11 +171,16 @@ def set_mode_demo():
     dpg.hide_item("py_l2_port_visible")
     dpg.hide_item("ed_sock_port_visible")
     dpg.hide_item("ve_sock_port_visible")
+    dpg.hide_item("hu_sock_server_l1_o")
 
     # Socket
     dpg.hide_item("py_l2_out")
     dpg.hide_item("py_l2_dev_visible")
     dpg.hide_item("hu_sock_client_l2_i")
-    dpg.hide_item("co_sock_server_l2")
     dpg.hide_item("hu_sock_server_l2_i")
     dpg.hide_item("py_l2_in")
+
+    # Block
+    dpg.show_item("node_block_train")
+    dpg.show_item("node_block_edge")
+    dpg.show_item("node_block_cloud")

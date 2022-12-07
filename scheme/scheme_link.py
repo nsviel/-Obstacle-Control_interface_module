@@ -6,8 +6,9 @@ import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    dpg.add_node_link("co_http_client", "hu_http_server_i", tag="link_co_hu_http")
-    dpg.add_node_link("co_sock_server_l1", "hu_sock_client_l1_i", tag="link_hu_co_l1_sock")
+    # Controlium
+    dpg.add_node_link("co_http_client", "hu_http_server_o", tag="link_co_hu_http")
+    dpg.add_node_link("co_sock_server_l1", "hu_sock_client_l1_o", tag="link_hu_co_l1_sock")
     dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_i", tag="link_hu_co_l2_sock")
     dpg.add_node_link("co_input", "ssd_input", tag="link_co_ssd")
 

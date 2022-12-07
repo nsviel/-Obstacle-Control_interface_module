@@ -9,6 +9,7 @@ from scheme import scheme
 from scheme import scheme_theme
 from scheme import scheme_update
 from scheme import scheme_visibility
+from scheme import scheme_link
 
 from gui import gui_menu
 from gui import gui_image
@@ -36,7 +37,7 @@ def program():
         dpg.bind_font(param_co.gui_font_def)
         gui_menu.menu()
         scheme.build_scheme()
-    with dpg.window(tag="window_perf", label="Network", width=200, height=200, autosize=True, collapsed=True):
+    with dpg.window(tag="window_perf", label="KPI", width=200, height=200, autosize=True, collapsed=True):
         gui_module.module_network()
 
     # Setup theme

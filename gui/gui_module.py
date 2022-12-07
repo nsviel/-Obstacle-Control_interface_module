@@ -8,6 +8,7 @@ color_grey = (150, 150, 150)
 
 
 def module_network():
+    dpg.add_image("icon_wifi")
     with dpg.table(header_row=True, borders_innerH=True, width=350):
 
         dpg.add_table_column()

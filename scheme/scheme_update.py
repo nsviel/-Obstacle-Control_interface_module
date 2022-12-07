@@ -159,19 +159,26 @@ def update_node_pos_dev():
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_dev()
 def update_node_pos_demo_minimized():
-    gui_width = 1500
-    gui_height = 650
-    coord_controlium = [250, 440]
-    coord_pywardium = [250, 10]
-    coord_hubium = [575, 325]
+    gui_width = 1350
+    gui_height = 750
+    coord_controlium = [1175, 325]
+    coord_pywardium = [275, 50]
+    coord_hubium = [775, 400]
     coord_train = [10, 100]
-    coord_velodium = [900, 265]
-    coord_ai = [900, 450]
-    coord_sncf = [900, 125]
-    coord_ssd = [10, 440]
-    coord_data = [500, 10]
+    coord_velodium = [850, 350]
+    coord_ai = [850, 550]
+    coord_sncf = [1110, 200]
+    coord_ssd = [1400, 325]
+    coord_data = [700, 100]
     coord_legend = [1110, 10]
-    coord_network = [1120, 200]
+    coord_network = [200, 425]
+    coord_block_train = [10, 10]
+    coord_block_edge = [675, 10]
+    coord_block_cloud = [1075, 10]
+
+    dpg.set_item_pos("node_block_train", coord_block_train)
+    dpg.set_item_pos("node_block_edge", coord_block_edge)
+    dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -182,7 +189,6 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_sncf", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("node_legend", coord_legend)
     dpg.set_item_pos("window_perf", coord_network)
     dpg.configure_item("window_perf", collapsed=False)
 
@@ -212,7 +218,6 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_sncf", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("node_legend", coord_legend)
     dpg.set_item_pos("window_perf", coord_network)
     dpg.configure_item("window_perf", collapsed=False)
 

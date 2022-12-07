@@ -8,9 +8,26 @@ from scheme import scheme_command
 import dearpygui.dearpygui as dpg
 
 
+def create_node():
+    node_block_train()
+    node_block_edge()
+    node_block_cloud()
+
+    node_controlium()
+    node_pywardium()
+    node_hubium()
+    node_train()
+    node_edge()
+    node_ve()
+    node_ai()
+    node_sncf()
+    node_valeo()
+    node_ssd()
+    node_data()
+
 def node_controlium():
-    with dpg.node(label="Controlium", tag="node_co"):
-        scheme_function.add_status_i("co_input", "co_status_but", "co_status")
+    with dpg.node(label="System control interface", tag="node_co"):
+        scheme_function.add_status_o("co_input", "co_status_but", "co_status")
         scheme_function.add_ip("co_ip")
         scheme_function.add_nb_thread("co_thread", "co_thread_visible")
         scheme_function.add_temperature("co_temp", "co_temp_visibile")
@@ -18,16 +35,19 @@ def node_controlium():
         scheme_function.add_false_alarm()
         scheme_function.add_choice_edge("combo_edge")
 
-        scheme_connection.add_http_client_o("co_http_client")
+        scheme_connection.add_http_client_i("co_http_client")
 
-        scheme_connection.add_sock_server_o("co_sock_server_l1")
+        scheme_connection.add_sock_server_i("co_sock_server_l1")
         scheme_function.add_port_co("co_sock_server_l1_port", "co_port_l1_visible")
 
-        scheme_connection.add_sock_server_o("co_sock_server_l2")
+        scheme_connection.add_sock_server_i("co_sock_server_l2")
         scheme_function.add_port_co("co_sock_server_l2_port", "co_port_l2_visible")
 
 def node_pywardium():
-    with dpg.node(label="Pywardium", tag="node_py"):
+    with dpg.node(label="Train module", tag="node_py"):
+        scheme_function.add_image("icon_computer")
+        scheme_function.add_empty_space()
+
         scheme_function.add_status_i("py_input", "py_status_but", "py_status")
         scheme_function.add_ip_wallet("py_wallet", "py_ip", "-")
         scheme_function.add_nb_thread("py_thread", "py_thread_visible")
@@ -45,7 +65,7 @@ def node_pywardium():
         scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
 
 def node_hubium():
-    with dpg.node(label="Hubium", tag="node_hu"):
+    with dpg.node(label="Edge AI module", tag="node_hu"):
         scheme_function.add_status("hu_status_but", "hu_status")
         scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"])
         scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
@@ -67,10 +87,12 @@ def node_hubium():
         scheme_function.add_port_fixe("hu_http_server_port", "hu_http_port_visible")
 
 def node_train():
-    with dpg.node(label="Train", tag="node_train"):
+    with dpg.node(label="LiDAR", tag="node_train"):
         scheme_function.add_geolocalization("geo_status", "geo_country")
 
         #scheme_function.add_iperf_train()
+        scheme_function.add_image("icon_lidar")
+        scheme_function.add_empty_space()
 
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")
@@ -107,7 +129,10 @@ def node_edge():
         scheme_function.add_port_fixe("ed_http_server_port", "ed_http_port_visible")
 
 def node_ve():
-    with dpg.node(label="Velodium", tag="node_ve"):
+    with dpg.node(label="Data processing", tag="node_ve"):
+        scheme_function.add_image("icon_soft")
+        scheme_function.add_empty_space()
+
         scheme_function.add_status("ve_status_but", "ve_status")
         scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost")
         scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
@@ -118,6 +143,9 @@ def node_ve():
 
 def node_ai():
     with dpg.node(label="AI", tag="node_ai"):
+        scheme_function.add_image("icon_soft")
+        scheme_function.add_empty_space()
+
         scheme_function.add_status("ai_status_but", "ai_status")
         scheme_function.add_ip_wallet("ai_wallet", "ai_ip", "localhost")
         scheme_function.add_ai_param_height("ai_lidar_height")
@@ -140,7 +168,10 @@ def node_valeo():
 
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd"):
-        scheme_function.add_status_o("ssd_input", "ssd_status_but", "ssd_status")
+        scheme_function.add_image("icon_ssd")
+        scheme_function.add_empty_space()
+
+        scheme_function.add_status_i("ssd_input", "ssd_status_but", "ssd_status")
         scheme_function.add_ssd_active("ssd_active")
         scheme_function.add_ssd_param("ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total", "ssd_param_visible")
         scheme_function.add_file_info("Lidar 1", "l1_file_path", "l1_file_size", "ssd_l1_visible")
@@ -148,25 +179,12 @@ def node_ssd():
 
 def node_data():
     with dpg.node(label="Data", tag="node_data"):
-        scheme_function.add_image("image_in")
+        scheme_function.add_image_sized("image_in", 284, 150)
+
         scheme_function.add_plot("lidar 1", "l1_yaxis", "l1_plot", "l1_plot_visible")
         scheme_function.add_plot("lidar 2", "l2_yaxis", "l2_plot", "l2_plot_visible")
         scheme_function.add_variable_simple("Frame:", "nb_frame")
         scheme_function.add_variable_simple("Prediction:", "nb_prediction")
-
-def node_stats():
-    with dpg.node(label="", tag="node_stat_co", pos=[575, 650], show=False):
-        scheme_function.add_variable_simple("Speed:", "co_speed")
-        scheme_function.add_variable_simple("Latency:", "co_latency")
-        scheme_function.add_variable_simple("Bandwidth:", "co_bw")
-
-    with dpg.node(label="", tag="node_stat_py", pos=[650, 50], show=False):
-        scheme_function.add_variable_simple("Speed:", "py_speed")
-        scheme_function.add_variable_simple("Bandwidth:", "py_bw")
-
-    with dpg.node(label="", tag="node_stat_ed", pos=[1100, 400], show=False):
-        scheme_function.add_variable_simple("Speed:", "ed_speed")
-        scheme_function.add_variable_simple("Bandwidth:", "ed_bw")
 
 def node_legend():
     with dpg.node(label="Legend", tag="node_legend"):
@@ -174,3 +192,24 @@ def node_legend():
         scheme_function.add_legend_line("legend_edge", "Edge level components")
         scheme_function.add_legend_line("legend_cloud", "Cloud level components")
         scheme_function.add_legend_line("legend_control", "Control level components")
+
+def node_block_train():
+    with dpg.node(label="Train", tag="node_block_train"):
+        scheme_function.add_image("icon_train")
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.drawlist(tag="block_train", width=450, height=300):
+                pass
+
+def node_block_edge():
+    with dpg.node(label="Edge", tag="node_block_edge"):
+        scheme_function.add_image("icon_server")
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.drawlist(tag="block_edge", width=350, height=550):
+                pass
+
+def node_block_cloud():
+    with dpg.node(label="Cloud", tag="node_block_cloud"):
+        scheme_function.add_image("icon_cloud")
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.drawlist(tag="block_cloud", width=225, height=275):
+                pass

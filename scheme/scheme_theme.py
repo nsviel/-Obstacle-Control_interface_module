@@ -110,12 +110,6 @@ def scheme_theme_demo():
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color_node_bkg, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_NodeOutline, (0, 0, 0), category=dpg.mvThemeCat_Nodes)
 
-            # Node link
-            dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, link_thikness, category=dpg.mvThemeCat_Nodes)
-
             # Node
             dpg.add_theme_color(dpg.mvNodeCol_Pin, color_node_pin, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_PinHovered, color_node_pin, category=dpg.mvThemeCat_Nodes)
@@ -125,6 +119,12 @@ def scheme_theme_demo():
             dpg.add_theme_style(dpg.mvNodeStyleVar_NodePadding, x=8, y=4, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinQuadSideLength, 6, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_PinOffset, 4, category=dpg.mvThemeCat_Nodes)
+
+            # Node link
+            dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, link_thikness, category=dpg.mvThemeCat_Nodes)
 
             # Minimap
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapBackground, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
@@ -156,14 +156,11 @@ def colorize():
 
 def colorize_node():
     # individual nodes
-    layer_control = scheme_color.color_layer_control()
     layer_train = scheme_color.color_layer_train()
     layer_edge = scheme_color.color_layer_edge()
     layer_cloud = scheme_color.color_layer_cloud()
-    layer_stat = scheme_color.color_layer_stat()
-    layer_legend = scheme_color.color_layer_legend()
 
-    dpg.bind_item_theme("node_co", layer_control)
+    dpg.bind_item_theme("node_co", layer_cloud)
     dpg.bind_item_theme("node_py", layer_train)
     dpg.bind_item_theme("node_train", layer_train)
     dpg.bind_item_theme("node_hu", layer_edge)
@@ -173,13 +170,18 @@ def colorize_node():
     dpg.bind_item_theme("node_ed", layer_cloud)
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)
-    dpg.bind_item_theme("node_ssd", layer_control)
-    dpg.bind_item_theme("node_legend", layer_legend)
-    dpg.bind_item_theme("node_stat_co", layer_stat)
-    dpg.bind_item_theme("node_stat_py", layer_stat)
-    dpg.bind_item_theme("node_stat_ed", layer_stat)
+    dpg.bind_item_theme("node_ssd", layer_cloud)
 
-    # Legend
+    # Block
+    block_train = scheme_color.color_block_train()
+    block_edge = scheme_color.color_block_edge()
+    block_cloud = scheme_color.color_block_cloud()
+
+    dpg.bind_item_theme("node_block_train", block_train)
+    dpg.bind_item_theme("node_block_edge", block_edge)
+    dpg.bind_item_theme("node_block_cloud", block_cloud)
+
+def colorize_legend():
     buton_train = scheme_color.color_buton_train()
     buton_edge = scheme_color.color_buton_edge()
     buton_cloud = scheme_color.color_buton_cloud()

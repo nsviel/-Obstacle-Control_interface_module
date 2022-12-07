@@ -59,3 +59,13 @@ status_ssd = "Offline"
 status_sncf = "Offline"
 status_l1 = "Offline"
 status_l2 = "Offline"
+
+# Icon
+path_icon_computer = "param/icon/computer.png"
+path_icon_lidar = "param/icon/lidar.png"
+path_icon_server = "param/icon/server.png"
+path_icon_train = "param/icon/train.png"
+path_icon_wifi = "param/icon/wifi.png"
+path_icon_cloud = "param/icon/cloud.png"
+path_icon_soft = "param/icon/compute.png"
+path_icon_ssd = "param/icon/ssd.png"

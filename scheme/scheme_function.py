@@ -150,9 +150,15 @@ def add_geolocalization(tag_status, tag_geo):
             dpg.add_text("Geo: [")
             dpg.add_text("", tag=tag_geo, color=color_info)
             dpg.add_text("]")
+def add_empty_space():
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            dpg.add_text("")
 def add_image(tag):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_image(tag, width=300, height=175)
+        dpg.add_image(tag)
+def add_image_sized(tag, width_, height_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        dpg.add_image(tag, width=width_, height=height_)
 def add_text(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
