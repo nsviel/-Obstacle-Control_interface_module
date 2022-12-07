@@ -8,7 +8,7 @@
         "file_name_add": ""
     },
     "gui": {
-        "width": 1400,
+        "width": 1650,
         "height": 850
     },
     "ssd": {
@@ -31,9 +31,9 @@
         "dir_l1": "/media/aeter/lidar_ssd/capture/lidar_1",
         "dir_l2": "/media/aeter/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_07-12-2022_16h43.pcap",
-        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_07-12-2022_16h43.pcap",
-        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_07-12-2022_16h43.pcap",
+        "file_name": "_07-12-2022_18h01.pcap",
+        "path_l1_file": "/media/aeter/lidar_ssd/capture/lidar_1/_07-12-2022_18h01.pcap",
+        "path_l2_file": "/media/aeter/lidar_ssd/capture/lidar_2/_07-12-2022_18h01.pcap",
         "bandwidth": 0
     }
 }

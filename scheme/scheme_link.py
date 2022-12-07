@@ -9,18 +9,18 @@ def create_link():
     # Controlium
     dpg.add_node_link("co_http_client", "hu_http_server_o", tag="link_co_hu_http")
     dpg.add_node_link("co_sock_server_l1", "hu_sock_client_l1_o", tag="link_hu_co_l1_sock")
-    dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_i", tag="link_hu_co_l2_sock")
+    dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_o", tag="link_hu_co_l2_sock")
     dpg.add_node_link("co_input", "ssd_input", tag="link_co_ssd")
 
     dpg.add_node_link("hu_mqtt_client", "sncf_mqtt_broker", tag="link_hu_sncf_mqtt")
-    dpg.add_node_link("hu_http_client_o", "ai_http_server", tag="link_ai_hu_http")
-    dpg.add_node_link("hu_http_client_o", "ve_http_server", tag="link_hu_ve_http")
+    dpg.add_node_link("hu_http_client_i", "ai_http_server", tag="link_ai_hu_http")
+    dpg.add_node_link("hu_http_client_i", "ve_http_server", tag="link_hu_ve_http")
     dpg.add_node_link("hu_http_client_o", "ed_http_server", tag="link_hu_ed_http")
     dpg.add_node_link("hu_http_server_o", "ed_http_client", tag="link_ed_hu_http")
 
-    dpg.add_node_link("hu_sock_client_l1_o", "ve_sock_server", tag="link_hu_ve_sock")
-    dpg.add_node_link("hu_sock_client_l1_o", "ed_sock_server", tag="link_hu_ed_sock")
-    dpg.add_node_link("hu_sock_server_l1_o", "ed_sock_client", tag="link_ed_hu_sock")
+    dpg.add_node_link("ve_sock_server", "hu_sock_client_l1_i", tag="link_hu_ve_sock")
+    dpg.add_node_link("ed_sock_server", "hu_sock_client_l1_o", tag="link_hu_ed_sock")
+    dpg.add_node_link("ed_sock_client", "hu_sock_server_l1_o", tag="link_ed_hu_sock")
 
     dpg.add_node_link("va_http_client", "hu_http_server_o", tag="link_va_hu")
 

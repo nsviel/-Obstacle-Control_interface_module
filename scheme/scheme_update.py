@@ -127,18 +127,18 @@ def update_image():
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
-    coord_controlium = [375, 550]
-    coord_pywardium = [350, 10]
-    coord_hubium = [835, 375]
+    coord_controlium = [1100, 475]
+    coord_pywardium = [250, 10]
+    coord_hubium = [725, 375]
     coord_train = [10, 10]
-    coord_edge = [1200, 525]
-    coord_velodium = [1200, 5]
-    coord_ai = [1200, 215]
-    coord_sncf = [1200, 380]
-    coord_valeo = [1200, 745]
-    coord_ssd = [10, 520]
-    coord_data = [755, 10]
-    coord_network = [10, 450]
+    coord_edge = [1100, 240]
+    coord_velodium = [400, 425]
+    coord_ai = [400, 640]
+    coord_sncf = [1100, 75]
+    coord_valeo = [1100, 740]
+    coord_ssd = [1325, 475]
+    coord_data = [650, 10]
+    coord_network = [10, 500]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -152,7 +152,7 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("window_perf", coord_network)
-    dpg.configure_item("window_perf", collapsed=True)
+    dpg.configure_item("window_perf", collapsed=False)
 
     update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
@@ -162,9 +162,9 @@ def update_node_pos_demo_minimized():
     gui_width = 1350
     gui_height = 750
     coord_controlium = [1175, 325]
-    coord_pywardium = [275, 50]
+    coord_pywardium = [290, 100]
     coord_hubium = [775, 400]
-    coord_train = [10, 100]
+    coord_train = [25, 100]
     coord_velodium = [850, 350]
     coord_ai = [850, 550]
     coord_sncf = [1110, 200]

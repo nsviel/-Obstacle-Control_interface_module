@@ -4,7 +4,7 @@
         "sock_server_l2_port": 322
     },
     "gui":{
-      "width": 1400,
+      "width": 1650,
       "height": 850
     },
     "hubium": {

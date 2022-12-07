@@ -85,14 +85,15 @@ def add_ip(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_text("127.0.0.1", tag=tag_, color=color_info);
-def add_ip_wallet(tag_wallet, tag_ip, default):
+def add_ip_wallet(tag_wallet, tag_ip, default, visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Add:");
-            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_command.command_comboip)
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
+        with dpg.group(tag=visible):
+            with dpg.group(horizontal=True):
+                dpg.add_text("Add:");
+                dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_command.command_comboip)
+            with dpg.group(horizontal=True):
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
 def add_plot(label, tag_y, tag_plot, tag_visible):
     x = []
     y = []
@@ -153,9 +154,11 @@ def add_geolocalization(tag_status, tag_geo):
 def add_empty_space():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             dpg.add_text("")
-def add_image(tag):
+def add_image(tag, visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_image(tag)
+        with dpg.group(tag=visible):
+            dpg.add_image(tag)
+            dpg.add_text("")
 def add_image_sized(tag, width_, height_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_image(tag, width=width_, height=height_)
@@ -230,16 +233,17 @@ def add_port_lidar(tag_port, tag_visibility):
             dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_lidar);
 
 # Lidar stuff
-def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_l2_visible):
+def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        line()
-        with dpg.group(horizontal=True):
-            with dpg.group():
-                dpg.add_text("Lidar 1", color=color_title)
-                dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_pywardium, width=125)
-            with dpg.group(tag=tag_l2_visible):
-                dpg.add_text("Lidar 2", color=color_title)
-                dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
+        with dpg.group(tag=tag_visible):
+            line()
+            with dpg.group(horizontal=True):
+                with dpg.group():
+                    dpg.add_text("Lidar 1", color=color_title)
+                    dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_pywardium, width=125)
+                with dpg.group():
+                    dpg.add_text("Lidar 2", color=color_title)
+                    dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
 def add_lidar_status(label, tag_con, tag_active, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         with dpg.group(horizontal=True):

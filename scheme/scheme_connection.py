@@ -62,6 +62,13 @@ def add_sock_client_source_i(tag_i, tag_source):
         with dpg.group(horizontal=True):
             dpg.add_text("Source:");
             dpg.add_text("Lidar 2", tag=tag_source, color=color_info)
+def add_sock_client_source_o(tag_i, tag_source):
+    with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
+        scheme_function.line()
+        dpg.add_text("Socket client");
+        with dpg.group(horizontal=True):
+            dpg.add_text("Source:");
+            dpg.add_text("Lidar 2", tag=tag_source, color=color_info)
 def add_sock_client_source_io(tag_i, tag_o, tag_combo):
     with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
         scheme_function.line()

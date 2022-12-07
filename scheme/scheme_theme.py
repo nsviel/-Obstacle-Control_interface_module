@@ -95,6 +95,12 @@ def scheme_theme_demo():
             dpg.add_theme_color(dpg.mvThemeCol_Button, (100, 100, 100))
             dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
 
+            # Window
+            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgActive, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_TitleBgCollapsed, color_node_bkg, category=dpg.mvThemeCat_Core)
+
             # Plot
             dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 1, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
@@ -136,12 +142,6 @@ def scheme_theme_demo():
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapLink, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundHovered, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodesCol_MiniMapNodeBackgroundSelected, (0, 0, 0, 0), category=dpg.mvThemeCat_Nodes)
-
-            # Window
-            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
-            dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)
-            dpg.add_theme_color(dpg.mvThemeCol_TitleBgActive, color_node_bkg, category=dpg.mvThemeCat_Core)
-            dpg.add_theme_color(dpg.mvThemeCol_TitleBgCollapsed, color_node_bkg, category=dpg.mvThemeCat_Core)
 
         # Background color
         with dpg.theme_component(dpg.mvAll):

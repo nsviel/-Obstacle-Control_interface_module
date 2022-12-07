@@ -45,11 +45,10 @@ def node_controlium():
 
 def node_pywardium():
     with dpg.node(label="Train module", tag="node_py"):
-        scheme_function.add_image("icon_computer")
-        scheme_function.add_empty_space()
+        scheme_function.add_image("icon_computer", "icon_computer_visible")
 
         scheme_function.add_status_i("py_input", "py_status_but", "py_status")
-        scheme_function.add_ip_wallet("py_wallet", "py_ip", "-")
+        scheme_function.add_ip_wallet("py_wallet", "py_ip", "-", "py_ip_visible")
         scheme_function.add_nb_thread("py_thread", "py_thread_visible")
 
         #scheme_function.add_iperf_py()
@@ -59,7 +58,7 @@ def node_pywardium():
         scheme_function.add_port_fixe_i("py_l2_in", "py_l2_port", "py_l2_port_visible")
         scheme_connection.add_sock_client_o_("py_l2_out")
 
-        scheme_function.add_lidar_device("py_l1_device", "py_l2_device", "py_l2_dev_visible")
+        scheme_function.add_lidar_device("py_l1_device", "py_l2_device", "py_lidar_dev_visible")
 
         scheme_connection.add_http_server_o("py_http_server")
         scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
@@ -67,7 +66,7 @@ def node_pywardium():
 def node_hubium():
     with dpg.node(label="Edge AI module", tag="node_hu"):
         scheme_function.add_status("hu_status_but", "hu_status")
-        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"])
+        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"], "hu_ip_visible")
         scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
 
         scheme_function.add_edge_id("hu_edge_id", "hu_edge_id_visible")
@@ -80,7 +79,7 @@ def node_hubium():
         scheme_function.add_port_hu("hu_sock_server_l2_port", "hu_port_l2_visible")
 
         scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source")
-        scheme_connection.add_sock_client_source_i("hu_sock_client_l2_i", "hu_sock_client_l2_source")
+        scheme_connection.add_sock_client_source_o("hu_sock_client_l2_o", "hu_sock_client_l2_source")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
         scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")
@@ -91,8 +90,7 @@ def node_train():
         scheme_function.add_geolocalization("geo_status", "geo_country")
 
         #scheme_function.add_iperf_train()
-        scheme_function.add_image("icon_lidar")
-        scheme_function.add_empty_space()
+        scheme_function.add_image("icon_lidar", "icon_lidar_visible")
 
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")
@@ -110,12 +108,10 @@ def node_train():
         scheme_function.add_lidar_speed("l2_speed", "l2_speed_visible")
         scheme_function.add_lidar_stat("l2_packet", "l2_tgp_val", "l2_tgp_range", "l2_perf_visible")
 
-        #scheme_function.add_variable("Time:", "capture_time")
-
 def node_edge():
     with dpg.node(label="Edge", tag="node_ed"):
         scheme_function.add_status("ed_status_but", "ed_status")
-        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"])
+        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"], "ed_ip_visible")
         #scheme_function.add_edge_id("ed_edge_id")
         #scheme_function.add_country("ed_country")
 
@@ -130,33 +126,27 @@ def node_edge():
 
 def node_ve():
     with dpg.node(label="Data processing", tag="node_ve"):
-        scheme_function.add_image("icon_soft")
-        scheme_function.add_empty_space()
-
         scheme_function.add_status("ve_status_but", "ve_status")
-        scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost")
+        scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost", "ve_ip_visible")
         scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
-        scheme_connection.add_sock_server_i("ve_sock_server")
+        scheme_connection.add_sock_server_o("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port", "ve_sock_port_visible")
-        scheme_connection.add_http_server_i("ve_http_server")
+        scheme_connection.add_http_server_o("ve_http_server")
         scheme_function.add_port_fixe("ve_http_server_port", "ve_http_port_visible")
 
 def node_ai():
     with dpg.node(label="AI", tag="node_ai"):
-        scheme_function.add_image("icon_soft")
-        scheme_function.add_empty_space()
-
         scheme_function.add_status("ai_status_but", "ai_status")
-        scheme_function.add_ip_wallet("ai_wallet", "ai_ip", "localhost")
+        scheme_function.add_ip_wallet("ai_wallet", "ai_ip", "localhost", "ai_ip_visible")
         scheme_function.add_ai_param_height("ai_lidar_height")
         scheme_function.add_ai_param_thres("ai_threshold")
-        scheme_connection.add_http_server_i("ai_http_server")
+        scheme_connection.add_http_server_o("ai_http_server")
         scheme_function.add_port_fixe("ai_http_server_port", "ai_http_port_visible")
 
 def node_sncf():
     with dpg.node(label="SNCF", tag="node_sncf"):
         scheme_function.add_status("sncf_status_but", "sncf_status")
-        scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"])
+        scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"], "sncf_ip_visible")
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
         scheme_function.add_port_sncf("sncf_broker_port", "ai_sncf_port_visible")
         scheme_function.add_mqtt_topic("sncf_mqtt_topic", "sncf_mqtt_topic_visible")
@@ -168,9 +158,6 @@ def node_valeo():
 
 def node_ssd():
     with dpg.node(label="SSD", tag="node_ssd"):
-        scheme_function.add_image("icon_ssd")
-        scheme_function.add_empty_space()
-
         scheme_function.add_status_i("ssd_input", "ssd_status_but", "ssd_status")
         scheme_function.add_ssd_active("ssd_active")
         scheme_function.add_ssd_param("ssd_path", "file_name", "ssd_path_add", "ssd_used", "ssd_total", "ssd_param_visible")
@@ -195,21 +182,21 @@ def node_legend():
 
 def node_block_train():
     with dpg.node(label="Train", tag="node_block_train"):
-        scheme_function.add_image("icon_train")
+        scheme_function.add_image("icon_train", "icon_train_visible")
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-            with dpg.drawlist(tag="block_train", width=450, height=300):
+            with dpg.drawlist(tag="block_train", width=450, height=200):
                 pass
 
 def node_block_edge():
     with dpg.node(label="Edge", tag="node_block_edge"):
-        scheme_function.add_image("icon_server")
+        scheme_function.add_image("icon_server", "icon_server_visible")
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             with dpg.drawlist(tag="block_edge", width=350, height=550):
                 pass
 
 def node_block_cloud():
     with dpg.node(label="Cloud", tag="node_block_cloud"):
-        scheme_function.add_image("icon_cloud")
+        scheme_function.add_image("icon_cloud", "icon_cloud_visible")
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             with dpg.drawlist(tag="block_cloud", width=225, height=275):
                 pass
