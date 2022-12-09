@@ -127,18 +127,18 @@ def update_image():
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
-    coord_controlium = [1100, 475]
+    coord_controlium = [1100, 600]
     coord_pywardium = [250, 10]
-    coord_hubium = [725, 375]
+    coord_hubium = [725, 400]
     coord_train = [10, 10]
-    coord_edge = [1100, 240]
-    coord_velodium = [400, 425]
-    coord_ai = [400, 640]
-    coord_sncf = [1100, 75]
-    coord_valeo = [1100, 740]
-    coord_ssd = [1325, 475]
+    coord_edge = [1150, 215]
+    coord_velodium = [400, 525]
+    coord_ai = [400, 750]
+    coord_sncf = [1150, 50]
+    coord_valeo = [1150, 450]
+    coord_ssd = [1325, 600]
     coord_data = [650, 10]
-    coord_network = [10, 500]
+    coord_network = [10, 600]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -154,7 +154,6 @@ def update_node_pos_dev():
     dpg.set_item_pos("window_perf", coord_network)
     dpg.configure_item("window_perf", collapsed=False)
 
-    update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_dev()
@@ -163,11 +162,11 @@ def update_node_pos_demo_minimized():
     gui_height = 750
     coord_controlium = [1175, 325]
     coord_pywardium = [290, 100]
-    coord_hubium = [775, 400]
+    coord_hubium = [775, 425]
     coord_train = [25, 100]
     coord_velodium = [850, 350]
     coord_ai = [850, 550]
-    coord_sncf = [1110, 200]
+    coord_sncf = [1110, 250]
     coord_ssd = [1400, 325]
     coord_data = [700, 100]
     coord_legend = [1110, 10]
@@ -192,7 +191,6 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("window_perf", coord_network)
     dpg.configure_item("window_perf", collapsed=False)
 
-    update_fullscreen(False)
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_demo()
@@ -221,7 +219,6 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("window_perf", coord_network)
     dpg.configure_item("window_perf", collapsed=False)
 
-    update_fullscreen(True)
     scheme_theme.scheme_theme_demo()
 def update_fullscreen(value):
     if(param_co.gui_fullscreen == False and value == True):

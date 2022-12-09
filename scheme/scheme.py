@@ -16,7 +16,7 @@ def build_scheme():
 
 def create_scheme():
     # Construct node editor
-    with dpg.node_editor(tag="node_editor", minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_BottomRight):
+    with dpg.node_editor(tag="node_editor", minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_TopRight):
         scheme_node.create_node()
         scheme_link.create_link()
 

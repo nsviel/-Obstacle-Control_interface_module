@@ -44,14 +44,29 @@ def set_mode_dev():
     dpg.show_item("sncf_ip_visible")
 
     # LiDARs
+    dpg.show_item("l1_status")
+    dpg.show_item("l1_motor_visible")
+    dpg.show_item("l1_perf_visible")
+    dpg.show_item("link_l1_py")
+    dpg.show_item("py_l1_in")
+    dpg.show_item("py_l1_out")
+    dpg.show_item("hu_sock_client_l1_o")
+    dpg.show_item("hu_sock_server_l1_i")
+    dpg.show_item("link_py_hu_l1_sock")
+    dpg.show_item("hu_sock_client_l1_i")
     dpg.show_item("l1_line_visible")
-    dpg.show_item("l2_line_visible")
     dpg.show_item("l1_params_visible")
+    dpg.show_item("l1_speed_visible")
+    dpg.show_item("l1_port_visible")
+    dpg.show_item("hu_src_1")
+    dpg.show_item("hu_src_2")
+    dpg.show_item("l2_line_visible")
     dpg.show_item("l2_params_visible")
-    dpg.show_item("l2_status")
-    dpg.show_item("l2_motor_visible")
-    dpg.show_item("l2_perf_visible")
     dpg.show_item("l2_speed_visible")
+    dpg.show_item("l2_port_visible")
+    dpg.show_item("hu_sock_client_l2_o")
+    dpg.show_item("hu_sock_client_l2_o")
+    dpg.show_item("combo_lidar")
 
     # SSD
     dpg.show_item("ssd_param_visible")
@@ -100,11 +115,8 @@ def set_mode_dev():
     dpg.show_item("py_http_port_visible")
     dpg.show_item("hu_http_port_visible")
     dpg.show_item("ed_http_port_visible")
-    dpg.show_item("hu_http_server_i")
     dpg.show_item("hu_http_server_o")
     dpg.show_item("hu_http_client_o")
-    dpg.show_item("hu_sock_client_l1_i")
-    dpg.show_item("hu_sock_client_l1_o")
 
     # Socket ports
     dpg.show_item("co_port_l1_visible")
@@ -124,12 +136,18 @@ def set_mode_dev():
     dpg.show_item("co_sock_server_l2")
     dpg.show_item("hu_sock_server_l2_i")
     dpg.show_item("py_l2_in")
+    dpg.show_item("hu_sock_client_l1_i")
+    dpg.show_item("hu_sock_client_l1_o")
 
 def set_mode_demo():
     # Block
     dpg.show_item("node_block_train")
     dpg.show_item("node_block_edge")
     dpg.show_item("node_block_cloud")
+
+    # Icon
+    dpg.show_item("icon_lidar_visible")
+    dpg.show_item("icon_computer_visible")
 
     # Misc
     dpg.hide_item("co_temp_visibile")
@@ -147,15 +165,61 @@ def set_mode_demo():
 
     # LiDARs
     dpg.hide_item("l1_line_visible")
-    dpg.hide_item("l2_line_visible")
     dpg.hide_item("l1_params_visible")
-    dpg.hide_item("l2_params_visible")
-    dpg.hide_item("l2_status")
-    dpg.hide_item("l2_motor_visible")
-    dpg.hide_item("l2_perf_visible")
-    dpg.hide_item("l2_speed_visible")
     dpg.hide_item("l1_speed_visible")
     dpg.hide_item("l1_port_visible")
+    dpg.hide_item("hu_src_1")
+    dpg.hide_item("hu_src_2")
+    dpg.hide_item("combo_lidar")
+    dpg.hide_item("hu_sock_client_l1_i")
+    dpg.hide_item("hu_sock_client_l1_o")
+
+    dpg.hide_item("l2_line_visible")
+    dpg.hide_item("l2_params_visible")
+    dpg.hide_item("l2_speed_visible")
+    dpg.hide_item("l2_port_visible")
+    dpg.show_item("hu_sock_client_l2_o")
+    dpg.hide_item("hu_sock_client_l2_o")
+    dpg.hide_item("hu_sock_client_l2_source")
+    if(param_co.main_lidar == "lidar_1"):
+        dpg.show_item("l1_status")
+        dpg.show_item("l1_motor_visible")
+        dpg.show_item("l1_perf_visible")
+        dpg.show_item("link_l1_py")
+        dpg.show_item("py_l1_in")
+        dpg.show_item("py_l1_out")
+        dpg.show_item("hu_sock_server_l1_i")
+        dpg.show_item("link_py_hu_l1_sock")
+
+        dpg.hide_item("l2_status")
+        dpg.hide_item("l2_motor_visible")
+        dpg.hide_item("l2_perf_visible")
+        dpg.hide_item("link_l2_py")
+        dpg.hide_item("py_l2_in")
+        dpg.hide_item("py_l2_out")
+        dpg.hide_item("hu_sock_server_l2_i")
+        dpg.hide_item("hu_sock_client_l2_o")
+        dpg.hide_item("link_py_hu_l2_sock")
+    if(param_co.main_lidar == "lidar_2"):
+        dpg.show_item("l2_status")
+        dpg.show_item("l2_motor_visible")
+        dpg.show_item("l2_perf_visible")
+        dpg.show_item("link_l2_py")
+        dpg.show_item("py_l2_in")
+        dpg.show_item("py_l2_out")
+        dpg.show_item("hu_sock_server_l2_i")
+        dpg.show_item("link_py_hu_l2_sock")
+
+        dpg.hide_item("l1_status")
+        dpg.hide_item("l1_motor_visible")
+        dpg.hide_item("l1_perf_visible")
+        dpg.hide_item("link_l1_py")
+        dpg.hide_item("py_l1_in")
+        dpg.hide_item("py_l1_out")
+        dpg.hide_item("hu_sock_server_l1_i")
+        dpg.hide_item("link_py_hu_l1_sock")
+        dpg.hide_item("hu_sock_client_l1_i")
+        dpg.hide_item("hu_sock_client_l1_o")
 
     # Nodes
     dpg.hide_item("node_ve")
@@ -174,26 +238,19 @@ def set_mode_demo():
     dpg.configure_viewport("viewport", title="System control interface")
 
     # Links
-    dpg.hide_item("link_l2_py")
     dpg.hide_item("link_va_hu")
     dpg.hide_item("link_ai_hu_http")
-
     dpg.hide_item("link_ed_hu_http")
     dpg.hide_item("link_ed_hu_sock")
-
     dpg.hide_item("link_hu_ed_sock")
     dpg.hide_item("link_hu_ed_http")
     dpg.hide_item("link_hu_co_l1_sock")
     dpg.hide_item("link_hu_co_l2_sock")
     dpg.hide_item("link_hu_ve_http")
     dpg.hide_item("link_hu_ve_sock")
-
     dpg.hide_item("link_ed_hu_sock")
     dpg.hide_item("link_ed_hu_http")
-
     dpg.hide_item("link_py_geo")
-    dpg.hide_item("link_py_hu_l2_sock")
-
     dpg.hide_item("link_co_hu_http")
     dpg.hide_item("link_co_ssd")
 
@@ -205,11 +262,8 @@ def set_mode_demo():
     dpg.hide_item("py_http_port_visible")
     dpg.hide_item("hu_http_port_visible")
     dpg.hide_item("ed_http_port_visible")
-    dpg.hide_item("hu_http_server_i")
     dpg.hide_item("hu_http_server_o")
     dpg.hide_item("hu_http_client_o")
-    dpg.hide_item("hu_sock_client_l1_i")
-    dpg.hide_item("hu_sock_client_l1_o")
 
     # Socket ports
     dpg.hide_item("co_port_l1_visible")
@@ -223,8 +277,4 @@ def set_mode_demo():
     dpg.hide_item("hu_sock_server_l1_o")
 
     # Socket
-    dpg.hide_item("py_l2_out")
     dpg.hide_item("py_lidar_dev_visible")
-    dpg.hide_item("hu_sock_client_l2_o")
-    dpg.hide_item("hu_sock_server_l2_i")
-    dpg.hide_item("py_l2_in")

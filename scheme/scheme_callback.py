@@ -49,6 +49,9 @@ def callback_velodium():
     https_client_post.post_param_value("ve", None, "slam", dpg.get_value("ve_opt_slam"))
     https_client_post.post_param_value("ve", None, "view", dpg.get_value("ve_opt_view"))
 
+def callback_velodium_reset():
+    https_client_post.post_param_value("ve", None, None, "reset")
+
 def callback_ai():
     https_client_post.post_param_value("ai", None, "lidar_height", dpg.get_value("ai_lidar_height"))
     https_client_post.post_param_value("ai", None, "threshold", dpg.get_value("ai_threshold"))

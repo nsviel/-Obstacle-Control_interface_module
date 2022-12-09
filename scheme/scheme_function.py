@@ -141,6 +141,11 @@ def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
         dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_command.command_false_alarm)
+def add_combo_lidar_main(tag_):
+    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+        line()
+        lidar = ("lidar_1", "lidar_2")
+        dpg.add_combo(lidar, tag=tag_, label="LiDAR", default_value="lidar_1", width=125, callback=scheme_command.command_combo_lidar)
 def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -165,7 +170,7 @@ def add_image_sized(tag, width_, height_):
 def add_text(text):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         dpg.add_text(text);
-def add_velo_option(tag_slam, tag_view):
+def add_velo_option(tag_slam, tag_view, tag_reset):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SLAM:");
@@ -173,6 +178,8 @@ def add_velo_option(tag_slam, tag_view):
         with dpg.group(horizontal=True):
             dpg.add_text("View:");
             dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velodium, horizontal=True)
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="Reset", tag=tag_reset, width=50, callback=scheme_callback.callback_velodium_reset)
 def add_iperf_train():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -264,9 +271,9 @@ def add_lidar_speed(tag_speed, tag_visibility):
             dpg.add_text("Speed:");
             dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
             dpg.add_text("rpm");
-def add_l1_motor(tag_on, tag_off):
+def add_l1_motor(tag_on, tag_off, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        with dpg.group(horizontal=True):
+        with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l1_start)
             dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l1_stop)
 def add_l2_motor(tag_on, tag_off, tag_visible):
@@ -363,22 +370,29 @@ def add_ssd_active(tag_active):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SSD saving");
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, callback=scheme_callback.callback_ssd)
-        dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
+            dpg.add_checkbox(tag=tag_active, label="", default_value=False, callback=scheme_callback.callback_ssd)
 def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(tag=tag_visible):
-            dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
-            dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, callback=scheme_command.command_ssd_editing)
             with dpg.group(horizontal=True):
-                dpg.add_text("File:")
-                dpg.add_text("-", tag=tag_name, color=color_info)
+                dpg.add_text("Path:")
+                dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, on_enter=True, callback=scheme_command.command_ssd_editing)
             with dpg.group(horizontal=True):
                 dpg.add_text("Used:");
                 dpg.add_text(0, tag=tag_used, color=color_info);
                 dpg.add_text("/");
                 dpg.add_text(0, tag=tag_tot, color=color_info);
                 dpg.add_text("Gb");
+            line()
+            dpg.add_text("File", color=color_title)
+            dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
+            with dpg.group(horizontal=True):
+                dpg.add_text("Name:");
+                dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, on_enter=True, callback=scheme_command.command_ssd_editing)
+            with dpg.group(horizontal=True):
+                dpg.add_text("Fullname:")
+                dpg.add_text("-", tag=tag_name, color=color_info)
+
 def add_file_info(label, tag_path, tag_size, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(tag=tag_visible):

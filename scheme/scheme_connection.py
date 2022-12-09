@@ -69,16 +69,17 @@ def add_sock_client_source_o(tag_i, tag_source):
         with dpg.group(horizontal=True):
             dpg.add_text("Source:");
             dpg.add_text("Lidar 2", tag=tag_source, color=color_info)
-def add_sock_client_source_io(tag_i, tag_o, tag_combo):
+def add_sock_client_source_io(tag_i, tag_o, tag_combo, vis_1, vis_2):
     with dpg.node_attribute(tag=tag_i, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
-        scheme_function.line()
-        with dpg.group(horizontal=True):
-            dpg.add_text("Socket");
-            dpg.add_text("client", color=color_info);
+        with dpg.group(tag=vis_1):
+            scheme_function.line()
+            with dpg.group(horizontal=True):
+                dpg.add_text("Socket");
+                dpg.add_text("client", color=color_info);
     with dpg.node_attribute(tag=tag_o, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
-        with dpg.group(horizontal=True):
+        with dpg.group(tag=vis_2, horizontal=True):
             dpg.add_text("Source:");
-            choice = ("Lidar 1", "Lidar 2")
+            choice = ("lidar_1", "lidar_2")
             dpg.add_combo(choice, tag=tag_combo, label="", default_value="Lidar 1", width=80, callback=scheme_command.command_lidar_source)
 
 def add_http_client_i(tag_):

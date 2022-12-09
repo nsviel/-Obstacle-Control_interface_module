@@ -16,11 +16,7 @@ path_state_perf = "state/state_perf.json"
 path_image = "state/image"
 path_image_empty = "state/image_empty"
 path_config = "param/config.json"
-try:
-    user = os.getlogin()
-except:
-    user = "."
-path_ssd = "/media/" + user + "/lidar_ssd"
+path_ssd = "/app/lidar_ssd"
 
 # GUI
 gui_fullscreen = False
@@ -35,6 +31,7 @@ run_thread_image = False
 # Socket
 sock_server_l1 = None
 sock_server_l2 = None
+main_lidar = "lidar_1"
 
 # Plot
 nb_tic = 1000

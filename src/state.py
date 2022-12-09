@@ -77,6 +77,7 @@ def load_config_file():
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
+    param_co.state_co["ssd"]["activated"] = config["ssd"]["activated"]
 
 def upload_state():
     parser_json.upload_file(param_co.path_state_hu, param_co.state_hu)

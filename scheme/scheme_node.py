@@ -32,7 +32,6 @@ def node_controlium():
         scheme_function.add_nb_thread("co_thread", "co_thread_visible")
         scheme_function.add_temperature("co_temp", "co_temp_visibile")
 
-        scheme_function.add_false_alarm()
         scheme_function.add_choice_edge("combo_edge")
 
         scheme_connection.add_http_client_i("co_http_client")
@@ -72,29 +71,30 @@ def node_hubium():
         scheme_function.add_edge_id("hu_edge_id", "hu_edge_id_visible")
         scheme_function.add_country("hu_country")
         scheme_function.add_mqtt("hu_mqtt_client", "hu_mqtt_client_name", "hu_mqtt_visible")
+        scheme_function.add_false_alarm()
 
         scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
         scheme_function.add_port_hu("hu_sock_server_l1_port", "hu_port_l1_visible")
         scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
         scheme_function.add_port_hu("hu_sock_server_l2_port", "hu_port_l2_visible")
 
-        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source")
+        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source", "hu_src_1", "hu_src_2")
         scheme_connection.add_sock_client_source_o("hu_sock_client_l2_o", "hu_sock_client_l2_source")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
-        scheme_connection.add_http_server_io("hu_http_server_i", "hu_http_server_o")
+        scheme_connection.add_http_server_o("hu_http_server_o")
         scheme_function.add_port_fixe("hu_http_server_port", "hu_http_port_visible")
 
 def node_train():
     with dpg.node(label="LiDAR", tag="node_train"):
-        scheme_function.add_geolocalization("geo_status", "geo_country")
-
-        #scheme_function.add_iperf_train()
         scheme_function.add_image("icon_lidar", "icon_lidar_visible")
+
+        scheme_function.add_geolocalization("geo_status", "geo_country")
+        scheme_function.add_combo_lidar_main("combo_lidar")
 
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")
-        scheme_function.add_l1_motor("l1_on", "l1_off")
+        scheme_function.add_l1_motor("l1_on", "l1_off", "l1_motor_visible")
         scheme_function.add_lidar_add("l1_wallet", "l1_ip", "l1_params_visible")
         scheme_function.add_port_lidar("l1_port", "l1_port_visible")
         scheme_function.add_lidar_speed("l1_speed", "l1_speed_visible")
@@ -128,7 +128,7 @@ def node_ve():
     with dpg.node(label="Data processing", tag="node_ve"):
         scheme_function.add_status("ve_status_but", "ve_status")
         scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost", "ve_ip_visible")
-        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view")
+        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view", "ve_opt_reset")
         scheme_connection.add_sock_server_o("ve_sock_server")
         scheme_function.add_port_fixe("ve_sock_server_port", "ve_sock_port_visible")
         scheme_connection.add_http_server_o("ve_http_server")

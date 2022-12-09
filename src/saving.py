@@ -8,7 +8,8 @@ import os
 
 
 def test_ssd_con():
-    if(os.path.exists(param_co.path_ssd)):
+    path = param_co.path_ssd
+    if(os.path.exists(path) and path.find("lidar_ssd") != -1):
         hdd = psutil.disk_usage(param_co.path_ssd)
         param_co.state_co["ssd"]["connected"] = True
         param_co.state_co["ssd"]["space_used"] = int(hdd.used / (2**30))

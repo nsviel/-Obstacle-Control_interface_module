@@ -5,7 +5,10 @@
     },
     "gui":{
       "width": 1650,
-      "height": 850
+      "height": 950
+    },
+    "ssd":{
+      "activated": false
     },
     "hubium": {
         "ip": "10.201.20.131",
