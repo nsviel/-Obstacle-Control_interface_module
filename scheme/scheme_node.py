@@ -166,7 +166,7 @@ def node_ssd():
 
 def node_data():
     with dpg.node(label="Data", tag="node_data"):
-        scheme_function.add_image_sized("image_in", 284, 150)
+        scheme_function.add_image_sized("image_in", 300, 150)
 
         scheme_function.add_plot("lidar 1", "l1_yaxis", "l1_plot", "l1_plot_visible")
         scheme_function.add_plot("lidar 2", "l2_yaxis", "l2_plot", "l2_plot_visible")

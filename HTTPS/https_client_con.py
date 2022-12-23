@@ -20,8 +20,7 @@ def connection_hu_open():
         https_client_post.post_param_value("hu", "controlium", "ip", param_co.state_co["self"]["ip"])
         https_client_post.post_param_value("hu", "pywardium", "ip", param_co.state_hu["pywardium"]["ip"])
         https_client_post.post_param_value("hu", "velodium", "ip", param_co.state_hu["velodium"]["ip"])
-        https_client_post.post_param_value("hu", "self", "sock_server_l1_source", param_co.state_hu["self"]["sock_server_l1_source"])
-        https_client_post.post_param_value("hu", "self", "sock_server_l2_source", param_co.state_hu["self"]["sock_server_l2_source"])
+        https_client_post.post_param_value("hu", "self", "lidar_main", param_co.state_hu["self"]["lidar_main"])
 
 def connection_hu_close():
     param_co.state_co["hubium"]["http_connected"] = False

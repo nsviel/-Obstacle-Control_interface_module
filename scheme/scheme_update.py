@@ -6,6 +6,7 @@ from scheme import scheme_color
 from scheme import scheme_theme
 from src import signal
 from src import io
+from src import loop
 
 import dearpygui.dearpygui as dpg
 
@@ -97,8 +98,15 @@ def update_hubium():
     dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
     dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
     dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
-    dpg.set_value("hu_sock_client_l1_source", param_co.state_hu["self"]["sock_server_l1_source"])
-    dpg.set_value("hu_sock_client_l2_source", param_co.state_hu["self"]["sock_server_l2_source"])
+
+    if(param_co.state_hu["self"]["lidar_main"] == "lidar_1"):
+        s1 = "lidar_1"
+        s2 = "lidar_2"
+    elif(param_co.state_hu["self"]["lidar_main"] == "lidar_2"):
+        s1 = "lidar_2"
+        s2 = "lidar_1"
+    dpg.set_value("hu_sock_client_l1_source", s1)
+    dpg.set_value("hu_sock_client_l2_source", s2)
 def update_edge():
     dpg.set_value("ed_ip", param_co.state_hu["edge"]["ip"])
     #dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
@@ -121,8 +129,13 @@ def update_data():
     dpg.set_value("nb_frame", param_co.state_hu["data"]["nb_frame"])
     dpg.set_value("nb_prediction", param_co.state_hu["data"]["nb_prediction"])
 def update_image():
+    # Update image but if format problem close the program
     width, height, channels, data = dpg.load_image(param_co.path_image)
-    dpg.set_value("image_in", data)
+    if(width == param_co.image_w and height == param_co.image_h):
+        dpg.set_value("image_in", data)
+    else:
+        print("[\033[1;31merror\033[0m] Image dimension error [%d:%d] [%d:%d]"% (width, param_co.image_w, height, param_co.image_h))
+        param_co.run_loop = False
 
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]

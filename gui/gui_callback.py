@@ -1,6 +1,6 @@
 #---------------------------------------------
 from param import param_co
-from HTTPS import https_client_get
+from HTTPS import https_client_post
 from src import wallet
 from gui import gui_wallet
 from scheme import scheme_update
@@ -49,3 +49,8 @@ def callback_mode_demo_minimized():
 def callback_mode_demo_fullscreen():
     param_co.status_ui = "demo_fullscreen"
     scheme_visibility.set_mode()
+
+def callback_with_iperf():
+    with_iperf = dpg.get_value("iperf_activated")
+    https_client_post.post_param_value("py", "perf", "iperf_activated", with_iperf)
+    https_client_post.post_param_value("hu", "perf", "iperf_activated", with_iperf)

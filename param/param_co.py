@@ -31,7 +31,7 @@ run_thread_image = False
 # Socket
 sock_server_l1 = None
 sock_server_l2 = None
-main_lidar = "lidar_1"
+lidar_main = "lidar_1"
 
 # Plot
 nb_tic = 1000
@@ -43,6 +43,10 @@ vec_y_l2 = []
 # Wallet
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
+
+#Image
+image_h = 0
+image_w = 0
 
 # Status
 status_ui = "Development"

@@ -181,7 +181,7 @@ def set_mode_demo():
     dpg.show_item("hu_sock_client_l2_o")
     dpg.hide_item("hu_sock_client_l2_o")
     dpg.hide_item("hu_sock_client_l2_source")
-    if(param_co.main_lidar == "lidar_1"):
+    if(param_co.lidar_main == "lidar_1"):
         dpg.show_item("l1_status")
         dpg.show_item("l1_motor_visible")
         dpg.show_item("l1_perf_visible")
@@ -200,7 +200,7 @@ def set_mode_demo():
         dpg.hide_item("hu_sock_server_l2_i")
         dpg.hide_item("hu_sock_client_l2_o")
         dpg.hide_item("link_py_hu_l2_sock")
-    if(param_co.main_lidar == "lidar_2"):
+    if(param_co.lidar_main == "lidar_2"):
         dpg.show_item("l2_status")
         dpg.show_item("l2_motor_visible")
         dpg.show_item("l2_perf_visible")

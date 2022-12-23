@@ -16,6 +16,9 @@ def init_image():
         soft_w, soft_h, soft_c, soft_i = dpg.load_image(param_co.path_icon_soft)
         ssd_w, ssd_h, ssd_c, ssd_i = dpg.load_image(param_co.path_icon_ssd)
 
+        param_co.image_w = data_w
+        param_co.image_h = data_h
+
         with dpg.texture_registry():
             dpg.add_raw_texture(data_w, data_h, data_i, format=dpg.mvFormat_Float_rgba, tag="image_in")
             dpg.add_raw_texture(computer_w, computer_h, computer_i, format=dpg.mvFormat_Float_rgba, tag="icon_computer")
