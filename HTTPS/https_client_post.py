@@ -34,3 +34,4 @@ def post_state(dest, state):
     command = "/" + dest + "_state"
     payload = json.dumps(state).encode(encoding='utf_8')
     https_client_fct.send_https_post(ip, port, connected, command, payload)
+    terminal.addLog("com", "To %s new state"% dest)

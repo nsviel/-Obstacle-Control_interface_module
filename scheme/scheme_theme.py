@@ -221,7 +221,7 @@ def colorize_item():
     dpg.bind_item_theme("hu_sock_server_l2_port", input_text)
     dpg.bind_item_theme("hu_mqtt_client_name", input_text)
     dpg.bind_item_theme("sncf_broker_port", input_text)
-    dpg.bind_item_theme("hu_sock_client_l1_source", input_text)
+    dpg.bind_item_theme("hu_sock_client_l1_combo_lidar_main", input_text)
     dpg.bind_item_theme("ve_opt_view", input_text)
     dpg.bind_item_theme("l1_port", input_text)
     dpg.bind_item_theme("l2_port", input_text)

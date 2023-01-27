@@ -16,10 +16,10 @@ def load_configuration():
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_co.state_co = parser_json.load_data_from_file(param_co.path_state_co)
-    param_co.state_hu = parser_json.load_data_from_file(param_co.path_state_hu)
-    param_co.state_py = parser_json.load_data_from_file(param_co.path_state_py)
-    param_co.state_perf = parser_json.load_data_from_file(param_co.path_state_perf)
+    param_co.state_co = parser_json.load_state(param_co.path_state_co)
+    param_co.state_hu = parser_json.load_state(param_co.path_state_hu)
+    param_co.state_py = parser_json.load_state(param_co.path_state_py)
+    param_co.state_perf = parser_json.load_state(param_co.path_state_perf)
 
 def init_state_co():
     param_co.state_co["self"]["ip"] = network.get_ip_adress()

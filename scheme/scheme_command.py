@@ -30,9 +30,10 @@ def command_false_alarm():
     print("[\033[1;32mOK\033[0m] Send false alarm")
     https_client_post.post_param_value("hu", None, "sncf", "false_alarm")
 
-def command_lidar_source():
-    lidar_main = dpg.get_value("hu_sock_client_l1_source")
+def command_combo_lidar_main():
+    lidar_main = dpg.get_value("hu_sock_client_l1_combo_lidar_main")
     https_client_post.post_param_value("hu", "self", "lidar_main", lidar_main)
+    param_co.lidar_main = lidar_main
 
 def command_new_save():
     saving.determine_path()
@@ -41,12 +42,6 @@ def command_ssd_editing():
     param_co.state_co["path"]["file_name_add"] = dpg.get_value("ssd_path_add")
     param_co.path_ssd = dpg.get_value("ssd_path")
     saving.determine_path()
-
-def command_combo_lidar():
-    lidar_main = dpg.get_value("combo_lidar")
-    param_co.lidar_main = lidar_main
-    dpg.set_value("hu_sock_client_l1_source", lidar_main)
-    command_lidar_source()
 
 def command_comboip():
     hu_ip = wallet.get_ip_from_key(dpg.get_value("hu_wallet"))

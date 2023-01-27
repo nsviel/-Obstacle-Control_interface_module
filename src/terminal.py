@@ -11,13 +11,12 @@ def addLog(type, message):
         print("[\033[1;32mOK\033[0m]    "+ message)
     elif(type == "error"):
         print("[\033[1;31merror\033[0m] "+ message)
+    elif(type == "com"):
+        print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(0.05)
 
 def addPost(dest, c1, c2, c3):
-    if(dest == "hu"):
-        message = "Received [%s, %s, %s]"%(c1, c2, c3)
-    else:
-        message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
+    message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
 
     print("[\033[1;30mPOST\033[0m]  " + message)
     time.sleep(0.05)

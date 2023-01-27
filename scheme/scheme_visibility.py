@@ -66,7 +66,6 @@ def set_mode_dev():
     dpg.show_item("l2_port_visible")
     dpg.show_item("hu_sock_client_l2_o")
     dpg.show_item("hu_sock_client_l2_o")
-    dpg.show_item("combo_lidar")
 
     # SSD
     dpg.show_item("ssd_param_visible")
@@ -170,7 +169,6 @@ def set_mode_demo():
     dpg.hide_item("l1_port_visible")
     dpg.hide_item("hu_src_1")
     dpg.hide_item("hu_src_2")
-    dpg.hide_item("combo_lidar")
     dpg.hide_item("hu_sock_client_l1_i")
     dpg.hide_item("hu_sock_client_l1_o")
 

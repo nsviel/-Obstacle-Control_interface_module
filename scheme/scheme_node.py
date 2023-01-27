@@ -79,7 +79,7 @@ def node_hubium():
         scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
         scheme_function.add_port_hu("hu_sock_server_l2_port", "hu_port_l2_visible")
 
-        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_source", "hu_src_1", "hu_src_2")
+        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_combo_lidar_main", "hu_src_1", "hu_src_2")
         scheme_connection.add_sock_client_source_o("hu_sock_client_l2_o", "hu_sock_client_l2_source")
 
         scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
@@ -89,9 +89,7 @@ def node_hubium():
 def node_train():
     with dpg.node(label="LiDAR", tag="node_train"):
         scheme_function.add_image("icon_lidar", "icon_lidar_visible")
-
         scheme_function.add_geolocalization("geo_status", "geo_country")
-        scheme_function.add_combo_lidar_main("combo_lidar")
 
         scheme_function.line_tagged("l1_line_visible")
         scheme_function.add_lidar_status("Lidar 1", "l1_status", "l1_activated", "l1_status_but")

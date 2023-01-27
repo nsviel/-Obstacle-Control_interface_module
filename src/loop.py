@@ -14,7 +14,7 @@ from src import terminal
 
 import time
 
-
+import os
 def init():
     saving.determine_path()
     connection.start_daemon()

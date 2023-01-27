@@ -141,11 +141,6 @@ def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
         dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_command.command_false_alarm)
-def add_combo_lidar_main(tag_):
-    with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        line()
-        lidar = ("lidar_1", "lidar_2")
-        dpg.add_combo(lidar, tag=tag_, label="LiDAR", default_value="lidar_1", width=125, callback=scheme_command.command_combo_lidar)
 def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -430,8 +425,6 @@ def add_perf_throughput(tag_val_up):
         with dpg.group(horizontal=True):
             dpg.add_text(0, tag=tag_val_up, color=color_info);
             dpg.add_text("Mb/s");
-        dpg.add_text("");
-        dpg.add_text("[5, 20] Mb/s");
 def add_perf_latency(tag_val_up, tag_val_do):
     with dpg.table_row():
         dpg.add_text("Latency")

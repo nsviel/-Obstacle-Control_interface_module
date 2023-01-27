@@ -105,7 +105,7 @@ def update_hubium():
     elif(param_co.state_hu["self"]["lidar_main"] == "lidar_2"):
         s1 = "lidar_2"
         s2 = "lidar_1"
-    dpg.set_value("hu_sock_client_l1_source", s1)
+    dpg.set_value("hu_sock_client_l1_combo_lidar_main", s1)
     dpg.set_value("hu_sock_client_l2_source", s2)
 def update_edge():
     dpg.set_value("ed_ip", param_co.state_hu["edge"]["ip"])
@@ -206,17 +206,26 @@ def update_node_pos_demo_minimized():
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_demo()
 def update_node_pos_demo_fullscreen():
-    coord_controlium = [500, 700]
-    coord_pywardium = [500, 300]
-    coord_hubium = [1055, 500]
-    coord_train = [50, 300]
-    coord_velodium = [1600, 350]
-    coord_ai = [1600, 700]
-    coord_sncf = [1600, 100]
-    coord_ssd = [50, 700]
-    coord_data = [1000, 10]
-    coord_legend = [10, 10]
-    coord_network = [400, 10]
+    gui_width = 1875
+    gui_height = 1040
+    coord_controlium = [1175, 325]
+    coord_pywardium = [290, 150]
+    coord_hubium = [850, 525]
+    coord_train = [50, 150]
+    coord_velodium = [850, 350]
+    coord_ai = [850, 550]
+    coord_sncf = [1485, 250]
+    coord_ssd = [1400, 325]
+    coord_data = [800, 225]
+    coord_legend = [1110, 10]
+    coord_network = [200, 600]
+    coord_block_train = [35, 50]
+    coord_block_edge = [775, 125]
+    coord_block_cloud = [1450, 50]
+
+    dpg.set_item_pos("node_block_train", coord_block_train)
+    dpg.set_item_pos("node_block_edge", coord_block_edge)
+    dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -229,6 +238,9 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_network", coord_network)
 
+
+    dpg.set_viewport_width(gui_width)
+    dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_demo()
 def update_fullscreen(value):
     if(param_co.gui_fullscreen == False and value == True):
@@ -241,7 +253,7 @@ def update_fullscreen(value):
         dpg.set_item_width("sncf_wallet", 175)
         dpg.set_item_width("ai_lidar_height", 150)
         dpg.set_item_width("ai_threshold", 150)
-        dpg.set_item_width("hu_sock_client_l1_source", 120)
+        dpg.set_item_width("hu_sock_client_l1_combo_lidar_main", 120)
         dpg.set_item_width("legend_train", 30)
         dpg.set_item_width("legend_edge", 30)
         dpg.set_item_width("legend_cloud", 30)
@@ -258,7 +270,7 @@ def update_fullscreen(value):
         dpg.set_item_width("sncf_wallet", 120)
         dpg.set_item_width("ai_lidar_height", 100)
         dpg.set_item_width("ai_threshold", 100)
-        dpg.set_item_width("hu_sock_client_l1_source", 80)
+        dpg.set_item_width("hu_sock_client_l1_combo_lidar_main", 80)
         dpg.set_item_width("legend_train", 15)
         dpg.set_item_width("legend_edge", 15)
         dpg.set_item_width("legend_cloud", 15)
