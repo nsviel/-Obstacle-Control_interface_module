@@ -4,6 +4,7 @@ from src import connection
 from src import parser_json
 from src import wallet
 from src import network
+from src import terminal
 
 
 def load_configuration():
@@ -12,6 +13,7 @@ def load_configuration():
     init_state_perf()
     load_config_file()
     upload_state()
+    terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
     param_co.state_co = parser_json.load_data_from_file(param_co.path_state_co)

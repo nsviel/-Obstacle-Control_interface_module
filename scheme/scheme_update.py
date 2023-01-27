@@ -134,7 +134,7 @@ def update_image():
     if(width == param_co.image_w and height == param_co.image_h):
         dpg.set_value("image_in", data)
     else:
-        print("[\033[1;31merror\033[0m] Image dimension error [%d:%d] [%d:%d]"% (width, param_co.image_w, height, param_co.image_h))
+        print("[\033[1;31merror\033[0m] Image dimension error [%d/%d] [%d/%d]"% (width, param_co.image_w, height, param_co.image_h))
         param_co.run_loop = False
 
 def update_node_pos_dev():
@@ -164,8 +164,7 @@ def update_node_pos_dev():
     dpg.set_item_pos("node_valeo", coord_valeo)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("window_perf", coord_network)
-    dpg.configure_item("window_perf", collapsed=False)
+    dpg.set_item_pos("node_network", coord_network)
 
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
@@ -201,8 +200,7 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_sncf", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("window_perf", coord_network)
-    dpg.configure_item("window_perf", collapsed=False)
+    dpg.set_item_pos("node_network", coord_network)
 
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
@@ -229,15 +227,13 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_sncf", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
-    dpg.set_item_pos("window_perf", coord_network)
-    dpg.configure_item("window_perf", collapsed=False)
+    dpg.set_item_pos("node_network", coord_network)
 
     scheme_theme.scheme_theme_demo()
 def update_fullscreen(value):
     if(param_co.gui_fullscreen == False and value == True):
         dpg.toggle_viewport_fullscreen()
         dpg.bind_item_font("window", param_co.gui_font_big)
-        #dpg.bind_item_font("window_perf", param_co.gui_font_big)
         dpg.set_item_width("py_wallet", 175)
         dpg.set_item_width("hu_wallet", 175)
         dpg.set_item_width("ve_wallet", 175)
@@ -255,7 +251,6 @@ def update_fullscreen(value):
     elif(param_co.gui_fullscreen == True and value == False):
         dpg.toggle_viewport_fullscreen()
         dpg.bind_item_font("window", param_co.gui_font_def)
-        #dpg.bind_item_font("window_perf", param_co.gui_font_def)
         dpg.set_item_width("py_wallet", 120)
         dpg.set_item_width("hu_wallet", 120)
         dpg.set_item_width("ve_wallet", 120)

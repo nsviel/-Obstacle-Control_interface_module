@@ -1,6 +1,7 @@
 #---------------------------------------------
 from param import param_co
 from src import network
+from src import terminal
 
 import socket
 import threading
@@ -41,6 +42,7 @@ def system_information(prog_name):
     core = platform.uname()[2]
     proc = platform.processor()
     python = platform.python_version()
+    mode = param_co.status_ui
 
     try:
         OS = platform.freedesktop_os_release()['PRETTY_NAME']
@@ -48,14 +50,15 @@ def system_information(prog_name):
         OS = platform.system()
 
     #Header
-    print("Program \033[1;34m%s\033[0m"% program)
+    print("    : : \033[1;34m%s\033[0m : :    "% program)
     print("-----------------------")
-    print("IP \033[1;34m%s\033[0m"% ip)
-    print("Hostname \033[1;34m%s\033[0m"% hostname)
-    print("Arch \033[1;34m%s\033[0m, \033[1;34m%s\033[0m"% (arch, proc))
-    print("OS \033[1;34m%s\033[0m"% OS)
-    print("Core \033[1;34m%s\033[0m"% core)
-    print("Python \033[1;34m%s\033[0m"% python)
+    print('%-10s' '\033[1;34m%s\033[0m' % ("IP", ip))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
+    print('%-10s' '\033[1;34m%s\033[0m, \033[1;34m%s\033[0m' % ("Arch", arch, proc))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("OS", OS))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Core", core))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Python", python))
+    print('%-10s' '\033[1;34m%s\033[0m' % ("Mode", mode))
     print("-----------------------")
 
 def manage_args():
@@ -66,16 +69,12 @@ def manage_args():
     args = parser.parse_args()
 
     if(args.dev):
-        print("[\033[1;32mOK\033[0m] Development mode")
         param_co.status_ui = "dev"
     elif(args.demo):
-        print("[\033[1;32mOK\033[0m] Demo mode")
         param_co.status_ui = "demo_minimized"
     elif(args.fullscreen):
-        print("[\033[1;32mOK\033[0m] Demo mode")
         param_co.status_ui = "demo_fullscreen"
     else:
-        print("[\033[1;32mOK\033[0m] Development mode")
         param_co.status_ui = "dev"
 
 def get_temps_core(number):

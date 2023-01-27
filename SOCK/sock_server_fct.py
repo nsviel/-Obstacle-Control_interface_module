@@ -8,6 +8,7 @@ import socket
 
 def thread_socket_l1_server():
     port = param_co.state_co["self"]["sock_server_l1_port"]
+
     param_co.sock_server_l1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     param_co.sock_server_l1.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     param_co.sock_server_l1.bind(("", port))
@@ -26,6 +27,7 @@ def thread_socket_l1_server():
 
 def thread_socket_l2_server():
     port = param_co.state_co["self"]["sock_server_l2_port"]
+
     param_co.sock_server_l2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     param_co.sock_server_l2.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     param_co.sock_server_l2.bind(("", port))

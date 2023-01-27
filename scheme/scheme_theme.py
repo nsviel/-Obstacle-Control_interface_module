@@ -159,6 +159,7 @@ def colorize_node():
     layer_train = scheme_color.color_layer_train()
     layer_edge = scheme_color.color_layer_edge()
     layer_cloud = scheme_color.color_layer_cloud()
+    layer_network = scheme_color.color_layer_network()
 
     dpg.bind_item_theme("node_co", layer_cloud)
     dpg.bind_item_theme("node_py", layer_train)
@@ -171,6 +172,7 @@ def colorize_node():
     dpg.bind_item_theme("node_sncf", layer_cloud)
     dpg.bind_item_theme("node_valeo", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_cloud)
+    dpg.bind_item_theme("node_network", layer_network)
 
     # Block
     block_train = scheme_color.color_block_train()
@@ -201,7 +203,7 @@ def colorize_item():
     dpg.bind_item_theme("l1_activated", checkbox)
     dpg.bind_item_theme("l2_activated", checkbox)
     dpg.bind_item_theme("ve_opt_slam", checkbox)
-    
+
     dpg.bind_item_theme("ssd_path_add", input_text)
     dpg.bind_item_theme("ssd_path", input_text)
     dpg.bind_item_theme("sncf_mqtt_topic", input_text)

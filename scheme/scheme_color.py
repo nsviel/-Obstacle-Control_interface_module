@@ -209,3 +209,11 @@ def color_layer_legend():
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
     return layer_cloud
+def color_layer_network():
+    layer_cloud = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_cloud):
+        color = (0, 0, 0)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
+        dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
+    return layer_cloud

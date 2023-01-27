@@ -10,7 +10,7 @@ def gui_font():
 
 def gui_window():
     layer_window = color_window()
-    dpg.bind_item_theme("window_perf", layer_window)
+    dpg.bind_item_theme("node_network", layer_window)
 
 def color_window():
     layer_cloud = dpg.add_theme()

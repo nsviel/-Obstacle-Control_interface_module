@@ -11,6 +11,7 @@
 
 from param import param_co
 from HTTPS import https_client_fct
+from src import terminal
 
 import json
 import http.client
@@ -26,6 +27,7 @@ def post_param_value(dest, lvl1, lvl2, value):
     command = "/" + dest + "_param"
     payload = json.dumps({lvl1: {lvl2: value}})
     https_client_fct.send_https_post(ip, port, connected, command, payload)
+    terminal.addPost(dest, lvl1, lvl2, value)
 
 def post_state(dest, state):
     [ip, port, connected] = https_client_fct.network_info(dest)

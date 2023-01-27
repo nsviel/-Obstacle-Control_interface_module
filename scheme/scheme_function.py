@@ -392,7 +392,6 @@ def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visib
             with dpg.group(horizontal=True):
                 dpg.add_text("Fullname:")
                 dpg.add_text("-", tag=tag_name, color=color_info)
-
 def add_file_info(label, tag_path, tag_size, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(tag=tag_visible):
@@ -416,3 +415,46 @@ def add_ai_param_thres(tag_):
         with dpg.group(horizontal=True):
             dpg.add_text("Thres");
             dpg.add_input_float(tag=tag_, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=scheme_callback.callback_ai);
+
+# Network KPIs
+def add_perf_time_total(text, tag):
+    with dpg.table_row():
+        dpg.add_text(text)
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag, color=color_info);
+            dpg.add_text("ms")
+        dpg.add_text("[1.6, 2] s");
+def add_perf_throughput(tag_val_up):
+    with dpg.table_row():
+        dpg.add_text("Throughput")
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val_up, color=color_info);
+            dpg.add_text("Mb/s");
+        dpg.add_text("");
+        dpg.add_text("[5, 20] Mb/s");
+def add_perf_latency(tag_val_up, tag_val_do):
+    with dpg.table_row():
+        dpg.add_text("Latency")
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val_up, color=color_info);
+            dpg.add_text("ms");
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val_do, color=color_info);
+            dpg.add_text("ms");
+        dpg.add_text("< 200 ms");
+def add_perf_reliability(tag_val_up):
+    with dpg.table_row():
+        dpg.add_text("Reliability")
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val_up, color=color_info);
+            dpg.add_text("%");
+        dpg.add_text("");
+        dpg.add_text(">= 99 %");
+def add_perf_interruption(tag_val):
+    with dpg.table_row():
+        dpg.add_text("Interruption")
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val, color=color_info);
+            dpg.add_text("s");
+        dpg.add_text("");
+        dpg.add_text("< 1 s");

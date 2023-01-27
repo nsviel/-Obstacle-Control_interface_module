@@ -1,10 +1,10 @@
 {
     "self": {
-        "ip": "192.168.68.42",
+        "ip": "192.168.152.67",
         "nb_thread": 8,
         "country": "France",
         "edge_id": 0,
-        "lidar_main": "lidar_1",
+        "lidar_main": "lidar_2",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
@@ -16,22 +16,22 @@
     "pywardium": {
         "ip": "127.0.0.1",
         "add": "localhost",
-        "http_connected": false,
+        "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": false,
+        "sock_l2_connected": true,
         "iperf_port": 6970
     },
     "controlium": {
-        "ip": "192.168.68.42",
+        "ip": "192.168.152.67",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
     "velodium": {
         "ip": "127.0.0.1",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 8888,
-        "sock_connected": false,
+        "sock_connected": true,
         "sock_server_port": 2370
     },
     "ai": {

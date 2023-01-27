@@ -5,8 +5,8 @@ from src import signal
 
 
 signal.system_clear()
-signal.system_information("Controlium")
 signal.manage_args()
+signal.system_information("Controlium")
 #-------------
 
 gui.program()

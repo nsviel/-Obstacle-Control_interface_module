@@ -9,6 +9,7 @@ from src import saving
 from src import parser_json
 from src import signal
 from src import state
+from src import terminal
 
 from scheme import scheme_loop
 from scheme import scheme_update
@@ -22,10 +23,11 @@ def start_daemon():
     param_co.run_thread_con = True
     thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
-    print("[\033[1;32mOK\033[0m] Start connection testing daemon")
+    terminal.addDaemon("#", "ON", "Connection tests")
 
 def stop_daemon():
     param_co.run_thread_con = False
+    terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
     while param_co.run_thread_con:

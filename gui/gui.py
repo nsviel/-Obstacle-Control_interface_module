@@ -37,12 +37,7 @@ def program():
         dpg.bind_font(param_co.gui_font_def)
         gui_menu.menu()
         scheme.build_scheme()
-    with dpg.window(tag="window_perf", label="KPI", width=200, height=200, autosize=True, collapsed=True):
-        gui_module.module_network()
-
-    # Setup theme
     scheme_theme.scheme_theme_dev()
-    gui_theme.gui_window()
 
     # Setup GUI
     gui_width = param_co.state_co["gui"]["width"]
