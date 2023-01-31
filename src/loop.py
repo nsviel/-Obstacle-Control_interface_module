@@ -1,16 +1,16 @@
 #---------------------------------------------
-from param import param_co
-from SOCK import sock_server
-from DHCP import dhcp_client
+from src.param import param_co
+from src.SOCK import sock_server
+from src.DHCP import dhcp_client
 
-from src import connection
-from src import signal
-from src import saving
-from src import image
-from src import parser_json
-from src import state
-from src import wallet
-from src import terminal
+from src.misc import connection
+from src.misc import signal
+from src.misc import saving
+from src.misc import image
+from src.misc import parser_json
+from src.misc import state
+from src.misc import wallet
+from src.misc import terminal
 
 import time
 

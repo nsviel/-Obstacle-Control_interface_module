@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #---------------------------------------------
-from gui import gui
-from src import signal
+from src.gui import gui
+from src.misc import signal
 
 
 signal.system_clear()
