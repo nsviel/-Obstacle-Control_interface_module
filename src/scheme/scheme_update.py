@@ -53,6 +53,7 @@ def update_add():
     dpg.set_value("sncf_wallet", param_co.state_hu["sncf"]["add"])
     dpg.set_value("l1_wallet", param_co.state_py["lidar_1"]["add"])
     dpg.set_value("l2_wallet", param_co.state_py["lidar_2"]["add"])
+    dpg.set_value("ve_wallet", param_co.state_hu["velodium"]["add"])
 def update_add_combo():
     dpg.configure_item("py_wallet", items=param_co.wallet_add)
     dpg.configure_item("hu_wallet", items=param_co.wallet_add)
@@ -60,6 +61,7 @@ def update_add_combo():
     dpg.configure_item("sncf_wallet", items=param_co.wallet_add)
     dpg.configure_item("l1_wallet", items=param_co.wallet_add)
     dpg.configure_item("l2_wallet", items=param_co.wallet_add)
+    dpg.configure_item("ve_wallet", items=param_co.wallet_add)
 
 def update_ssd():
     dpg.set_value("ssd_path", param_co.path_ssd)

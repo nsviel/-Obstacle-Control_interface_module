@@ -37,7 +37,6 @@ def callback_controlium():
 def callback_pywardium():
     param_co.state_py["lidar_1"]["activated"] = dpg.get_value("l1_activated")
     param_co.state_py["lidar_1"]["ip"] = dpg.get_value("l1_ip")
-    param_co.state_py["lidar_1"]["speed"] = dpg.get_value("l1_speed")
     param_co.state_py["lidar_1"]["device"] = dpg.get_value("py_l1_device")
     param_co.state_py["lidar_2"]["activated"] = dpg.get_value("l2_activated")
     param_co.state_py["lidar_2"]["ip"] = dpg.get_value("l2_ip")

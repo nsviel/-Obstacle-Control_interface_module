@@ -1,7 +1,8 @@
 #---------------------------------------------
 from src.param import param_co
 from src.scheme import scheme_callback
-from src.scheme import scheme_command
+from src.scheme import scheme_com
+from src.scheme import scheme_com_lidar
 
 import dearpygui.dearpygui as dpg
 
@@ -90,7 +91,7 @@ def add_ip_wallet(tag_wallet, tag_ip, default, visible):
         with dpg.group(tag=visible):
             with dpg.group(horizontal=True):
                 dpg.add_text("Add:");
-                dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_command.command_comboip)
+                dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_com.command_comboip)
             with dpg.group(horizontal=True):
                 dpg.add_text("IP:");
                 dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
@@ -136,11 +137,11 @@ def add_option(label, tag_option):
 # Specific stuff
 def add_false_alarm():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-        dpg.add_button(label="False alarm", callback=scheme_command.command_false_alarm)
+        dpg.add_button(label="False alarm", callback=scheme_com.command_false_alarm)
 def add_choice_edge(tag_):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         edges = ("France_1", "France_2", "Spain_1")
-        dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_command.command_false_alarm)
+        dpg.add_combo(edges, tag=tag_, label="Edge", default_value="France_1", width=125, callback=scheme_com.command_false_alarm)
 def add_stockage(tag_):
     with dpg.node_attribute(tag=tag_, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -232,7 +233,8 @@ def add_port_lidar(tag_port, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_lidar);
+            dpg.add_text(1, tag=tag_port, color=color_info);
+            #dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_lidar);
 
 # Lidar stuff
 def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_visible):
@@ -256,26 +258,32 @@ def add_lidar_add(tag_wallet, tag_ip, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Add:");
-            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_command.command_comboip)
+            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_com.command_comboip)
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_pywardium);
-def add_lidar_speed(tag_speed, tag_visibility):
+def add_l1_speed(tag_speed, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Speed:");
-            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=scheme_callback.callback_pywardium);
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=scheme_com_lidar.command_l1_speed);
+            dpg.add_text("rpm");
+def add_l2_speed(tag_speed, tag_visibility):
+    with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Speed:");
+            dpg.add_input_int(tag=tag_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=scheme_com_lidar.command_l2_speed);
             dpg.add_text("rpm");
 def add_l1_motor(tag_on, tag_off, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
-            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l1_start)
-            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l1_stop)
+            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_com_lidar.command_l1_start)
+            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_com_lidar.command_l1_stop)
 def add_l2_motor(tag_on, tag_off, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
-            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_command.command_l2_start)
-            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_command.command_l2_stop)
+            dpg.add_button(label="ON ", tag=tag_on, width=50, callback=scheme_com_lidar.command_l2_start)
+            dpg.add_button(label="OFF", tag=tag_off, width=50, callback=scheme_com_lidar.command_l2_stop)
 def add_lidar_stat(tag_packet, tag_bdw_val, tag_bdw_range, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(tag=tag_visible):
@@ -371,7 +379,7 @@ def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visib
         with dpg.group(tag=tag_visible):
             with dpg.group(horizontal=True):
                 dpg.add_text("Path:")
-                dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, on_enter=True, callback=scheme_command.command_ssd_editing)
+                dpg.add_input_text(tag=tag_path, label="", default_value="", width=200, on_enter=True, callback=scheme_com.command_ssd_editing)
             with dpg.group(horizontal=True):
                 dpg.add_text("Used:");
                 dpg.add_text(0, tag=tag_used, color=color_info);
@@ -380,10 +388,10 @@ def add_ssd_param(tag_path, tag_name, tag_path_add, tag_used, tag_tot, tag_visib
                 dpg.add_text("Gb");
             line()
             dpg.add_text("File", color=color_title)
-            dpg.add_button(label="New save", width=100, callback=scheme_command.command_new_save)
+            dpg.add_button(label="New save", width=100, callback=scheme_com.command_new_save)
             with dpg.group(horizontal=True):
                 dpg.add_text("Name:");
-                dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, on_enter=True, callback=scheme_command.command_ssd_editing)
+                dpg.add_input_text(tag=tag_path_add, label="", default_value="", width=200, on_enter=True, callback=scheme_com.command_ssd_editing)
             with dpg.group(horizontal=True):
                 dpg.add_text("Fullname:")
                 dpg.add_text("-", tag=tag_name, color=color_info)

@@ -6,7 +6,7 @@ from src.misc import signal
 
 signal.system_clear()
 signal.manage_args()
-signal.system_information("Controlium")
+signal.system_information("Control Interface")
 #-------------
 
 gui.program()

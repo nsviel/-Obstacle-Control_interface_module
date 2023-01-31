@@ -10,30 +10,9 @@ from src.misc import wallet
 import dearpygui.dearpygui as dpg
 
 
-def command_l1_start():
-    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;32mstart\033[0m")
-    https_client_post.post_param_value("py", None, "lidar_1", "start")
-
-def command_l1_stop():
-    print("[\033[1;32mOK\033[0m] LiDAR 1 \033[1;31mstop\033[0m")
-    https_client_post.post_param_value("py", None, "lidar_1", "stop")
-
-def command_l2_start():
-    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;32mstart\033[0m")
-    https_client_post.post_param_value("py", None, "lidar_2", "start")
-
-def command_l2_stop():
-    print("[\033[1;32mOK\033[0m] LiDAR 2 \033[1;31mstop\033[0m")
-    https_client_post.post_param_value("py", None, "lidar_2", "stop")
-
 def command_false_alarm():
     print("[\033[1;32mOK\033[0m] Send false alarm")
     https_client_post.post_param_value("hu", None, "sncf", "false_alarm")
-
-def command_combo_lidar_main():
-    lidar_main = dpg.get_value("hu_sock_client_l1_combo_lidar_main")
-    https_client_post.post_param_value("hu", "self", "lidar_main", lidar_main)
-    param_co.lidar_main = lidar_main
 
 def command_new_save():
     saving.determine_path()

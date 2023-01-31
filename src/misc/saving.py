@@ -1,5 +1,6 @@
 #---------------------------------------------
 from src.param import param_co
+from src.misc import terminal
 
 from datetime import datetime
 
@@ -51,7 +52,7 @@ def check_directories():
 
 def create_directory(path):
     os.mkdir(path)
-    print("[\033[92mOK\033[0m] Directory %s created" % path)
+    terminal.addLog("#", "Directory %s created" % path)
 
 def clear_directory(path):
     for file in os.scandir(path):
