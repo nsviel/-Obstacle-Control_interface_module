@@ -32,3 +32,4 @@ def end():
     connection.stop_daemon()
     sock_server.stop_daemon()
     image.stop_daemon()
+    terminal.delai()

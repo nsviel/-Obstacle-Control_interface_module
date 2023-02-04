@@ -188,6 +188,8 @@ def set_mode_demo():
         dpg.show_item("py_l1_out")
         dpg.show_item("hu_sock_server_l1_i")
         dpg.show_item("link_py_hu_l1_sock")
+        dpg.show_item("hu_sock_client_l1_i")
+        dpg.show_item("hu_sock_client_l1_o")
 
         dpg.hide_item("l2_status")
         dpg.hide_item("l2_motor_visible")
@@ -206,6 +208,7 @@ def set_mode_demo():
         dpg.show_item("py_l2_in")
         dpg.show_item("py_l2_out")
         dpg.show_item("hu_sock_server_l2_i")
+        dpg.show_item("hu_sock_client_l2_o")
         dpg.show_item("link_py_hu_l2_sock")
 
         dpg.hide_item("l1_status")
