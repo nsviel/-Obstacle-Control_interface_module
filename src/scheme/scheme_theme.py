@@ -242,6 +242,12 @@ def colorize_item():
     dpg.bind_item_theme("ve_ip", input_text)
     dpg.bind_item_theme("sncf_ip", input_text)
 
+    dpg.bind_item_theme("mongo_ip", input_text)
+    dpg.bind_item_theme("mongo_port", input_text)
+    dpg.bind_item_theme("mongo_db", input_text)
+    dpg.bind_item_theme("mongo_collection", input_text)
+    dpg.bind_item_theme("mongo_username", input_text)
+
     dpg.bind_item_theme("l1_yaxis_line", line_yaxis)
     dpg.bind_item_theme("l2_yaxis_line", line_yaxis)
 

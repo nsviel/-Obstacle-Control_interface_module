@@ -27,6 +27,8 @@ def init_state_co():
     param_co.state_co["hubium"]["http_connected"] = False
 
 def init_state_perf():
+    param_co.state_perf["mongo"]["connected"] = False
+
     param_co.state_perf["local_cloud"]["time"] = 0
     param_co.state_perf["local_cloud"]["bandwidth"]["value"] = 0
     param_co.state_perf["local_cloud"]["bandwidth"]["min"] = 0
@@ -97,6 +99,7 @@ def update_state():
     param_co.status_sncf = "Offline"
     param_co.status_l1 = "Offline"
     param_co.status_l2 = "Offline"
+    param_co.status_db = "Offline"
 
     param_co.status_co = "Online"
     if(param_co.state_co["ssd"]["connected"]):
@@ -156,3 +159,6 @@ def update_state():
 
     if(param_co.status_ve == "Offline"):
         param_co.state_hu["velodium"]["sock_connected"] = False
+
+    if(param_co.state_perf["mongo"]["connected"]):
+        param_co.status_db = "Online"

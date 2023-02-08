@@ -22,6 +22,7 @@ def update_scheme():
     update_edge()
     update_pywardium()
     update_data()
+    update_network()
 
 def update_status():
     dpg.set_value("sncf_status", param_co.status_sncf)
@@ -46,6 +47,8 @@ def update_status():
     scheme_theme.colorize_status("ed_status_but", param_co.status_ed, on, off)
     scheme_theme.colorize_status("l1_status_but", param_co.status_l1, on, off)
     scheme_theme.colorize_status("l2_status_but", param_co.status_l2, on, off)
+    scheme_theme.colorize_status("train_edge_but", param_co.status_py, on, off)
+    scheme_theme.colorize_status("mongo_server_but", param_co.status_db, on, off)
 def update_add():
     dpg.set_value("py_wallet", param_co.state_hu["pywardium"]["add"])
     dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])
@@ -138,6 +141,12 @@ def update_image():
     else:
         print("[\033[1;31merror\033[0m] Image dimension error [%d/%d] [%d/%d]"% (width, param_co.image_w, height, param_co.image_h))
         param_co.run_loop = False
+def update_network():
+    dpg.set_value("mongo_ip", param_co.state_perf["mongo"]["ip"])
+    dpg.set_value("mongo_port", param_co.state_perf["mongo"]["port"])
+    dpg.set_value("mongo_db", param_co.state_perf["mongo"]["database"])
+    dpg.set_value("mongo_collection", param_co.state_perf["mongo"]["collection"])
+    dpg.set_value("mongo_username", param_co.state_perf["mongo"]["username"])
 
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
@@ -153,7 +162,7 @@ def update_node_pos_dev():
     coord_valeo = [1150, 450]
     coord_ssd = [1325, 600]
     coord_data = [650, 10]
-    coord_network = [10, 600]
+    coord_network = [10, 525]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -184,7 +193,7 @@ def update_node_pos_demo_minimized():
     coord_ssd = [1400, 325]
     coord_data = [700, 100]
     coord_legend = [1110, 10]
-    coord_network = [200, 425]
+    coord_network = [100, 350]
     coord_block_train = [10, 10]
     coord_block_edge = [675, 10]
     coord_block_cloud = [1075, 10]

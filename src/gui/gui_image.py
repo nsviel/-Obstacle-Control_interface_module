@@ -15,6 +15,7 @@ def init_image():
         cloud_w, cloud_h, cloud_c, cloud_i = dpg.load_image(param_co.path_icon_cloud)
         soft_w, soft_h, soft_c, soft_i = dpg.load_image(param_co.path_icon_soft)
         ssd_w, ssd_h, ssd_c, ssd_i = dpg.load_image(param_co.path_icon_ssd)
+        database_w, database_h, database_c, database_i = dpg.load_image(param_co.path_icon_database)
 
         param_co.image_w = data_w
         param_co.image_h = data_h
@@ -29,6 +30,7 @@ def init_image():
             dpg.add_raw_texture(cloud_w, cloud_h, cloud_i, format=dpg.mvFormat_Float_rgba, tag="icon_cloud")
             dpg.add_raw_texture(soft_w, soft_h, soft_i, format=dpg.mvFormat_Float_rgba, tag="icon_soft")
             dpg.add_raw_texture(ssd_w, ssd_h, ssd_i, format=dpg.mvFormat_Float_rgba, tag="icon_ssd")
+            dpg.add_raw_texture(database_w, database_h, database_i, format=dpg.mvFormat_Float_rgba, tag="icon_database")
     except:
         print("[\033[1;31merror\033[0m] Image & icon loading")
         exit()
