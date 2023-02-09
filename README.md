@@ -14,14 +14,18 @@ You can run the program by the command
 ```
 
 Three options are possible to start the program
-In development mode
+- In development mode
+```
 sudo python3 main.py --dev
-
-In demo mode
+```
+- In demo mode
+```
 sudo python3 main.py --dev
-
-In demo fullscreen
+```
+- In demo fullscreen
+```
 sudo python3 main.py --dev
+```
 
 Otherwise, you can use the docker image
 ```
