@@ -1,10 +1,6 @@
 # [Obstacle System] System Control Interface
 
-![alt text](https://github.com/nsviel/Obstacle-Control_Interface_Module/src/param/icon/interface.png)
-![Alt text](./src/param/icon/interface.png)
-![Alt text](https://github.com/nsviel/Obstacle-Control_Interface_Module/tree/main/src/param/icon/interface.png)
-![Screenshot](./src/param/icon/interface.png)
-
+![Interface](./src/param/icon/interface.png)
 
 ## Summary
 
