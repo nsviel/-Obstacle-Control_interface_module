@@ -63,9 +63,17 @@ def set_mode_dev():
     dpg.show_item("l2_line_visible")
     dpg.show_item("l2_params_visible")
     dpg.show_item("l2_speed_visible")
+    dpg.show_item("hu_sock_client_l2_source")
     dpg.show_item("l2_port_visible")
     dpg.show_item("hu_sock_client_l2_o")
-    dpg.show_item("hu_sock_client_l2_o")
+    dpg.show_item("l2_status")
+    dpg.show_item("l2_motor_visible")
+    dpg.show_item("l2_perf_visible")
+    dpg.show_item("link_l2_py")
+    dpg.show_item("py_l2_in")
+    dpg.show_item("py_l2_out")
+    dpg.show_item("hu_sock_server_l2_i")
+    dpg.show_item("link_py_hu_l2_sock")
 
     # SSD
     dpg.show_item("ssd_param_visible")
@@ -85,10 +93,8 @@ def set_mode_dev():
     dpg.show_item("link_l2_py")
     dpg.show_item("link_va_hu")
     dpg.show_item("link_ai_hu_http")
-
     dpg.show_item("link_ed_hu_http")
     dpg.show_item("link_ed_hu_sock")
-
     dpg.show_item("link_hu_ed_sock")
     dpg.show_item("link_hu_ed_http")
     dpg.show_item("link_hu_co_l1_sock")
@@ -98,10 +104,8 @@ def set_mode_dev():
 
     dpg.show_item("link_ed_hu_sock")
     dpg.show_item("link_ed_hu_http")
-
     dpg.show_item("link_py_geo")
     dpg.show_item("link_py_hu_l2_sock")
-
     dpg.show_item("link_co_hu_http")
     dpg.show_item("link_co_ssd")
 

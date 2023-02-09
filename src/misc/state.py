@@ -130,6 +130,8 @@ def update_state():
         param_co.state_py["device"] = {}
 
         param_co.state_py["lidar_1"]["connected"] = False
+        param_co.state_py["lidar_1"]["activated"] = False
+        param_co.state_py["lidar_1"]["running"] = False
         param_co.state_py["lidar_1"]["packet"]["value"] = 0
         param_co.state_py["lidar_1"]["packet"]["min"] = 0
         param_co.state_py["lidar_1"]["packet"]["mean"] = 0
@@ -140,6 +142,8 @@ def update_state():
         param_co.state_py["lidar_1"]["throughput"]["max"] = 0
 
         param_co.state_py["lidar_2"]["connected"] = False
+        param_co.state_py["lidar_2"]["activated"] = False
+        param_co.state_py["lidar_2"]["running"] = False
         param_co.state_py["lidar_2"]["packet"]["min"] = 0
         param_co.state_py["lidar_2"]["packet"]["mean"] = 0
         param_co.state_py["lidar_2"]["packet"]["max"] = 0

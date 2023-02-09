@@ -1,6 +1,6 @@
 # [Obstacle System] System Control Interface
 
-![Interface](./src/param/icon/interface.png)
+![Interface](https://user-images.githubusercontent.com/80487132/217883239-aec3fff5-06af-4fdc-b33b-e7b8296382a5.png)
 
 ## Summary
 
