@@ -443,13 +443,15 @@ def add_perf_latency(tag_val_up, tag_val_do):
             dpg.add_text(0, tag=tag_val_do, color=color_info);
             dpg.add_text("ms");
         dpg.add_text("< 200 ms");
-def add_perf_reliability(tag_val_up):
+def add_perf_reliability(tag_val_up, tag_val_do):
     with dpg.table_row():
         dpg.add_text("Reliability")
         with dpg.group(horizontal=True):
             dpg.add_text(0, tag=tag_val_up, color=color_info);
             dpg.add_text("%");
-        dpg.add_text("");
+        with dpg.group(horizontal=True):
+            dpg.add_text(0, tag=tag_val_do, color=color_info);
+            dpg.add_text("%");
         dpg.add_text(">= 99 %");
 def add_perf_interruption(tag_val):
     with dpg.table_row():
@@ -457,5 +459,4 @@ def add_perf_interruption(tag_val):
         with dpg.group(horizontal=True):
             dpg.add_text(0, tag=tag_val, color=color_info);
             dpg.add_text("s");
-        dpg.add_text("");
         dpg.add_text("< 1 s");

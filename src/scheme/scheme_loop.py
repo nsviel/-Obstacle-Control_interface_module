@@ -33,12 +33,6 @@ def loop_lidar_throughput():
     dpg.set_value("l2_tgp_range", range)
 
 def loop_perf():
-    # Bandwidth
-    #value = "%.2f"% param_co.state_perf["local_cloud"]["throughput"]["value"]
-    #dpg.set_value("perf_bandwidth_up_val", value)
-    #value = "%.2f"% param_co.state_perf["cloud_local"]["throughput"]["value"]
-    #dpg.set_value("perf_bandwidth_do_val", value)
-
     # Throughput
     value = "%.2f"% param_co.state_py[param_co.lidar_main]["throughput"]["value"]
     dpg.set_value("perf_throughput_up_val", value)
@@ -49,17 +43,11 @@ def loop_perf():
     value = "%.2f"% param_co.state_perf["cloud_local"]["latency"]["value"]
     dpg.set_value("perf_latency_do_val", value)
 
-    # Jitter
-    #value = "%.3f"% param_co.state_perf["local_cloud"]["jitter"]["value"]
-    #dpg.set_value("perf_jitter_up_val", value)
-    #value = "%.3f"% param_co.state_perf["cloud_local"]["jitter"]["value"]
-    #dpg.set_value("perf_jitter_do_val", value)
-
     # Reliability
     value = "%.2f"% param_co.state_perf["local_cloud"]["reliability"]["value"]
     dpg.set_value("perf_reliability_up_val", value)
-    #value = "%.2f"% param_co.state_perf["cloud_local"]["reliability"]["value"]
-    #dpg.set_value("perf_reliability_do_val", value)
+    value = "%.2f"% param_co.state_perf["cloud_local"]["reliability"]["value"]
+    dpg.set_value("perf_reliability_do_val", value)
 
     # Interruption time
     value = "%.2f"% param_co.state_perf["local_cloud"]["interruption"]["value"]

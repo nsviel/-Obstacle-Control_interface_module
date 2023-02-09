@@ -158,13 +158,13 @@ def update_node_pos_dev():
     coord_hubium = [725, 400]
     coord_train = [10, 10]
     coord_edge = [1150, 215]
-    coord_velodium = [400, 500]
-    coord_ai = [400, 735]
+    coord_velodium = [400, 510]
+    coord_ai = [400, 745]
     coord_sncf = [1150, 50]
     coord_valeo = [1150, 450]
     coord_ssd = [1325, 600]
     coord_data = [650, 10]
-    coord_network = [10, 500]
+    coord_network = [10, 510]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)

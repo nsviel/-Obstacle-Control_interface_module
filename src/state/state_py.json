@@ -1,14 +1,10 @@
 {
     "self": {
         "ip": "192.168.152.67",
-        "nb_thread": 8,
+        "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
         "http_server_port": 314
-    },
-    "perf": {
-        "iperf_activated": false,
-        "iperf_port": 6970
     },
     "lidar_1": {
         "connected": false,
@@ -17,7 +13,7 @@
         "add": "-",
         "ip": "192.168.1.201",
         "port": 2368,
-        "device": "enx00e04c680731",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
             "value": 0,
@@ -34,22 +30,22 @@
         }
     },
     "lidar_2": {
-        "connected": true,
+        "connected": false,
         "activated": true,
-        "running": true,
+        "running": false,
         "add": "-",
         "ip": "192.168.2.201",
         "port": 2369,
-        "device": "enx00e04c680731",
+        "device": "enxf8e43b6cdf6c",
         "speed": 600,
         "throughput": {
-            "value": 0.961,
-            "min": 0.048,
-            "max": 0.962,
-            "mean": 0.9594166666666665
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "packet": {
-            "value": 552724,
+            "value": 0,
             "min": 0,
             "max": 0,
             "mean": 0,
@@ -58,10 +54,9 @@
     },
     "hubium": {
         "connected": true,
-        "ip": "127.0.0.1",
+        "ip": "192.168.152.67",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
-        "iperf_port": 6969,
         "http_server_port": 443
     },
     "geolocalization": {
@@ -70,12 +65,12 @@
     "device": {
         "0": "wlp2s0",
         "1": "ztwdjfturv",
-        "2": "enx00e04c680731",
-        "3": "lo",
-        "4": "br-de470ff68a90",
-        "5": "br-fc5d7334c3b2",
-        "6": "bluetooth-monitor",
-        "7": "nfqueue",
+        "2": "lo",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2",
+        "5": "bluetooth-monitor",
+        "6": "nfqueue",
+        "7": "dbus-session",
         "8": "dbus-session",
         "9": "dbus-session",
         "10": "dbus-system",

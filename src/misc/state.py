@@ -38,10 +38,6 @@ def init_state_perf():
     param_co.state_perf["local_cloud"]["latency"]["min"] = 0
     param_co.state_perf["local_cloud"]["latency"]["max"] = 0
     param_co.state_perf["local_cloud"]["latency"]["mean"] = 0
-    param_co.state_perf["local_cloud"]["jitter"]["value"] = 0
-    param_co.state_perf["local_cloud"]["jitter"]["min"] = 0
-    param_co.state_perf["local_cloud"]["jitter"]["max"] = 0
-    param_co.state_perf["local_cloud"]["jitter"]["mean"] = 0
     param_co.state_perf["local_cloud"]["reliability"]["value"] = 0
     param_co.state_perf["local_cloud"]["reliability"]["min"] = 0
     param_co.state_perf["local_cloud"]["reliability"]["max"] = 0
@@ -52,18 +48,10 @@ def init_state_perf():
     param_co.state_perf["local_cloud"]["interruption"]["mean"] = 0
 
     param_co.state_perf["cloud_local"]["timestamp"] = 0
-    param_co.state_perf["cloud_local"]["throughput"]["value"] = 0
-    param_co.state_perf["cloud_local"]["throughput"]["min"] = 0
-    param_co.state_perf["cloud_local"]["throughput"]["max"] = 0
-    param_co.state_perf["cloud_local"]["throughput"]["mean"] = 0
     param_co.state_perf["cloud_local"]["latency"]["value"] = 0
     param_co.state_perf["cloud_local"]["latency"]["min"] = 0
     param_co.state_perf["cloud_local"]["latency"]["max"] = 0
     param_co.state_perf["cloud_local"]["latency"]["mean"] = 0
-    param_co.state_perf["cloud_local"]["jitter"]["value"] = 0
-    param_co.state_perf["cloud_local"]["jitter"]["min"] = 0
-    param_co.state_perf["cloud_local"]["jitter"]["max"] = 0
-    param_co.state_perf["cloud_local"]["jitter"]["mean"] = 0
     param_co.state_perf["cloud_local"]["reliability"]["value"] = 0
     param_co.state_perf["cloud_local"]["reliability"]["min"] = 0
     param_co.state_perf["cloud_local"]["reliability"]["max"] = 0

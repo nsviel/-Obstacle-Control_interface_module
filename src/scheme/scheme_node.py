@@ -223,13 +223,13 @@ def node_network():
 
                 scheme_function.add_perf_throughput("perf_throughput_up_val")
                 scheme_function.add_perf_latency("perf_latency_up_val", "perf_latency_do_val")
-                scheme_function.add_perf_reliability("perf_reliability_up_val")
-                scheme_function.add_perf_interruption("perf_interruption_val")
+                scheme_function.add_perf_reliability("perf_reliability_up_val", "perf_reliability_do_val")
 
             with dpg.table(header_row=True, borders_innerH=True, width=350):
                 dpg.add_table_column()
                 dpg.add_table_column(label="Time")
                 dpg.add_table_column(label="Required")
+                scheme_function.add_perf_interruption("perf_interruption_val")
                 scheme_function.add_perf_time_total("End-to-end", "perf_time_total")
 
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -263,7 +263,7 @@ def node_network():
                     dpg.add_input_text(tag="mongo_collection", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_collection);
                 with dpg.table_row():
                     dpg.add_text("number of data");
-                    dpg.add_input_text(tag="mongo_nbdata", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_nbdata);
+                    dpg.add_input_int(tag="mongo_nbdata", default_value=1, width=100, callback=scheme_com_mongo.callback_mongo_nbdata);
                 with dpg.table_row():
                     dpg.add_text("Username");
                     dpg.add_input_text(tag="mongo_username", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_username);
