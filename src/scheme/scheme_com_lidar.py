@@ -32,6 +32,14 @@ def command_l2_speed():
     param_co.state_py["lidar_2"]["speed"] = l2_speed
     https_client_post.post_param_value("py", "lidar_2", "speed", l2_speed)
 
+# LiDAR device
+def command_l1_dev():
+    l1_dev = dpg.get_value("py_l1_device")
+    https_client_post.post_param_value("py", "lidar_1", "device", l1_dev)
+def command_l2_dev():
+    l2_dev = dpg.get_value("py_l2_device")
+    https_client_post.post_param_value("py", "lidar_2", "device", l2_dev)
+
 # Misc LiDAR command
 def command_combo_lidar_main():
     lidar_main = dpg.get_value("hu_sock_client_l1_combo_lidar_main")

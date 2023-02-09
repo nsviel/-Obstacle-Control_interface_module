@@ -29,11 +29,11 @@ def init_state_co():
 def init_state_perf():
     param_co.state_perf["mongo"]["connected"] = False
 
-    param_co.state_perf["local_cloud"]["time"] = 0
-    param_co.state_perf["local_cloud"]["bandwidth"]["value"] = 0
-    param_co.state_perf["local_cloud"]["bandwidth"]["min"] = 0
-    param_co.state_perf["local_cloud"]["bandwidth"]["max"] = 0
-    param_co.state_perf["local_cloud"]["bandwidth"]["mean"] = 0
+    param_co.state_perf["local_cloud"]["timestamp"] = 0
+    param_co.state_perf["local_cloud"]["throughput"]["value"] = 0
+    param_co.state_perf["local_cloud"]["throughput"]["min"] = 0
+    param_co.state_perf["local_cloud"]["throughput"]["max"] = 0
+    param_co.state_perf["local_cloud"]["throughput"]["mean"] = 0
     param_co.state_perf["local_cloud"]["latency"]["value"] = 0
     param_co.state_perf["local_cloud"]["latency"]["min"] = 0
     param_co.state_perf["local_cloud"]["latency"]["max"] = 0
@@ -51,11 +51,11 @@ def init_state_perf():
     param_co.state_perf["local_cloud"]["interruption"]["max"] = 0
     param_co.state_perf["local_cloud"]["interruption"]["mean"] = 0
 
-    param_co.state_perf["cloud_local"]["time"] = 0
-    param_co.state_perf["cloud_local"]["bandwidth"]["value"] = 0
-    param_co.state_perf["cloud_local"]["bandwidth"]["min"] = 0
-    param_co.state_perf["cloud_local"]["bandwidth"]["max"] = 0
-    param_co.state_perf["cloud_local"]["bandwidth"]["mean"] = 0
+    param_co.state_perf["cloud_local"]["timestamp"] = 0
+    param_co.state_perf["cloud_local"]["throughput"]["value"] = 0
+    param_co.state_perf["cloud_local"]["throughput"]["min"] = 0
+    param_co.state_perf["cloud_local"]["throughput"]["max"] = 0
+    param_co.state_perf["cloud_local"]["throughput"]["mean"] = 0
     param_co.state_perf["cloud_local"]["latency"]["value"] = 0
     param_co.state_perf["cloud_local"]["latency"]["min"] = 0
     param_co.state_perf["cloud_local"]["latency"]["max"] = 0

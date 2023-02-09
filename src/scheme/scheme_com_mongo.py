@@ -24,3 +24,9 @@ def callback_mongo_collection():
 
 def callback_mongo_username():
     https_client_post.post_param_value("hu", "mongo", "username", dpg.get_value("mongo_username"))
+
+def callback_mongo_password():
+    https_client_post.post_param_value("hu", "mongo", "password", dpg.get_value("mongo_password"))
+
+def callback_mongo_nbdata():
+    https_client_post.post_param_value("hu", "mongo", "nb_data", dpg.get_value("mongo_nbdata"))

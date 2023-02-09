@@ -250,17 +250,23 @@ def node_network():
                 dpg.add_table_column()
 
                 with dpg.table_row():
-                    dpg.add_text("IP:");
+                    dpg.add_text("IP");
                     dpg.add_input_text(tag="mongo_ip", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_ip);
                 with dpg.table_row():
-                    dpg.add_text("Port:");
+                    dpg.add_text("Port");
                     dpg.add_input_int(tag="mongo_port", default_value=1, width=100, callback=scheme_com_mongo.callback_mongo_port);
                 with dpg.table_row():
-                    dpg.add_text("Database:");
+                    dpg.add_text("Database");
                     dpg.add_input_text(tag="mongo_db", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_db);
                 with dpg.table_row():
-                    dpg.add_text("Collection:");
+                    dpg.add_text("Collection");
                     dpg.add_input_text(tag="mongo_collection", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_collection);
                 with dpg.table_row():
-                    dpg.add_text("Username:");
+                    dpg.add_text("number of data");
+                    dpg.add_input_text(tag="mongo_nbdata", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_nbdata);
+                with dpg.table_row():
+                    dpg.add_text("Username");
                     dpg.add_input_text(tag="mongo_username", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_username);
+                with dpg.table_row():
+                    dpg.add_text("Password");
+                    dpg.add_input_text(tag="mongo_password", label="", default_value="", width=150, on_enter=True, callback=scheme_com_mongo.callback_mongo_password);

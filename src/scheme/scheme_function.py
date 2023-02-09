@@ -244,10 +244,10 @@ def add_lidar_device(tag_l1_dev, tag_l2_dev, tag_visible):
             with dpg.group(horizontal=True):
                 with dpg.group():
                     dpg.add_text("Lidar 1", color=color_title)
-                    dpg.add_listbox(tag=tag_l1_dev, callback=scheme_callback.callback_pywardium, width=125)
+                    dpg.add_listbox(tag=tag_l1_dev, callback=scheme_com_lidar.command_l1_dev, width=125)
                 with dpg.group():
                     dpg.add_text("Lidar 2", color=color_title)
-                    dpg.add_listbox(tag=tag_l2_dev, callback=scheme_callback.callback_pywardium, width=125)
+                    dpg.add_listbox(tag=tag_l2_dev, callback=scheme_com_lidar.command_l2_dev, width=125)
 def add_lidar_status(label, tag_con, tag_active, tag_status):
     with dpg.node_attribute(tag=tag_con, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         with dpg.group(horizontal=True):

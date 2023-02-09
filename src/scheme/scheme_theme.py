@@ -26,10 +26,10 @@ def scheme_theme_dev():
             dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 1, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_color(dpg.mvPlotCol_Line, color_white, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_node_bkg, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_LegendBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_black, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_black, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_black, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_LegendBg, color_black, category=dpg.mvThemeCat_Plots)
 
             # Node background
             dpg.add_theme_color(dpg.mvNodeCol_NodeBackground, color_node_bkg, category=dpg.mvThemeCat_Nodes)
@@ -80,6 +80,7 @@ def scheme_theme_dev():
 
 def scheme_theme_demo():
     color_white = (255, 255, 255)
+    color_black = (0, 0, 0)
     color_node_grid_line = (75, 75, 75)
     color_node_grid_bkg = (75, 75, 75)
     color_node_bkg = (25, 25, 25)
@@ -105,9 +106,9 @@ def scheme_theme_demo():
             dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 1, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_style(dpg.mvPlotStyleVar_PlotPadding, x=0, y=0, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_color(dpg.mvPlotCol_Line, color_white, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
-            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_node_bkg, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_FrameBg, color_black, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBg, color_black, category=dpg.mvThemeCat_Plots)
+            dpg.add_theme_color(dpg.mvPlotCol_PlotBorder, color_black, category=dpg.mvThemeCat_Plots)
             dpg.add_theme_color(dpg.mvPlotCol_LegendBg, color_node_bkg, category=dpg.mvThemeCat_Plots)
 
             # Node background
@@ -247,6 +248,8 @@ def colorize_item():
     dpg.bind_item_theme("mongo_db", input_text)
     dpg.bind_item_theme("mongo_collection", input_text)
     dpg.bind_item_theme("mongo_username", input_text)
+    dpg.bind_item_theme("mongo_password", input_text)
+    dpg.bind_item_theme("mongo_nbdata", input_text)
 
     dpg.bind_item_theme("l1_yaxis_line", line_yaxis)
     dpg.bind_item_theme("l2_yaxis_line", line_yaxis)

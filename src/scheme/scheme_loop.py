@@ -34,9 +34,9 @@ def loop_lidar_throughput():
 
 def loop_perf():
     # Bandwidth
-    #value = "%.2f"% param_co.state_perf["local_cloud"]["bandwidth"]["value"]
+    #value = "%.2f"% param_co.state_perf["local_cloud"]["throughput"]["value"]
     #dpg.set_value("perf_bandwidth_up_val", value)
-    #value = "%.2f"% param_co.state_perf["cloud_local"]["bandwidth"]["value"]
+    #value = "%.2f"% param_co.state_perf["cloud_local"]["throughput"]["value"]
     #dpg.set_value("perf_bandwidth_do_val", value)
 
     # Throughput

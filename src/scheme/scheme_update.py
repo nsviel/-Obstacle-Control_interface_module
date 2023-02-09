@@ -147,6 +147,8 @@ def update_network():
     dpg.set_value("mongo_db", param_co.state_perf["mongo"]["database"])
     dpg.set_value("mongo_collection", param_co.state_perf["mongo"]["collection"])
     dpg.set_value("mongo_username", param_co.state_perf["mongo"]["username"])
+    dpg.set_value("mongo_password", param_co.state_perf["mongo"]["password"])
+    dpg.set_value("mongo_nbdata", param_co.state_perf["mongo"]["nb_data"])
 
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
@@ -156,13 +158,13 @@ def update_node_pos_dev():
     coord_hubium = [725, 400]
     coord_train = [10, 10]
     coord_edge = [1150, 215]
-    coord_velodium = [400, 525]
-    coord_ai = [400, 750]
+    coord_velodium = [400, 500]
+    coord_ai = [400, 735]
     coord_sncf = [1150, 50]
     coord_valeo = [1150, 450]
     coord_ssd = [1325, 600]
     coord_data = [650, 10]
-    coord_network = [10, 525]
+    coord_network = [10, 500]
 
     dpg.set_item_pos("node_co", coord_controlium)
     dpg.set_item_pos("node_hu", coord_hubium)
@@ -193,7 +195,7 @@ def update_node_pos_demo_minimized():
     coord_ssd = [1400, 325]
     coord_data = [700, 100]
     coord_legend = [1110, 10]
-    coord_network = [100, 350]
+    coord_network = [75, 310]
     coord_block_train = [10, 10]
     coord_block_edge = [675, 10]
     coord_block_cloud = [1075, 10]
@@ -221,7 +223,7 @@ def update_node_pos_demo_fullscreen():
     gui_height = 1040
     coord_controlium = [1175, 325]
     coord_pywardium = [290, 150]
-    coord_hubium = [850, 525]
+    coord_hubium = [875, 525]
     coord_train = [50, 150]
     coord_velodium = [850, 350]
     coord_ai = [850, 550]
@@ -229,7 +231,7 @@ def update_node_pos_demo_fullscreen():
     coord_ssd = [1400, 325]
     coord_data = [800, 225]
     coord_legend = [1110, 10]
-    coord_network = [200, 600]
+    coord_network = [150, 550]
     coord_block_train = [35, 50]
     coord_block_edge = [775, 125]
     coord_block_cloud = [1450, 50]
