@@ -28,4 +28,4 @@ def thread_image():
             scheme_update.update_image()
 
         # Wait for 1 second
-        time.sleep(0.1)
+        time.sleep(param_co.tic_image)

@@ -24,7 +24,7 @@ def init():
     terminal.addLine()
 
 def loop():
-    time.sleep(0.033)
+    time.sleep(param_co.tic_loop)
 
 def end():
     terminal.shutdown()

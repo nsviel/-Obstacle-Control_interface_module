@@ -33,3 +33,5 @@ cd docker
 ./build.sh
 ./run.sh
 ```
+
+The more important parameters could be changed in the ```config``` JSON file

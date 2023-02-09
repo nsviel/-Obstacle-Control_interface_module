@@ -65,11 +65,14 @@ def load_config_file():
     config = parser_json.load_data_from_file(param_co.path_config)
     param_co.state_co["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
     param_co.state_co["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
+    param_co.tic_image = config["self"]["tic_image"]
+    param_co.tic_connection = config["self"]["tic_connection"]
+
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
     param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
     param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
-    param_co.state_co["ssd"]["activated"] = config["ssd"]["activated"]
+    param_co.state_co["ssd"]["activated"] = config["ssd"]["start_with_save_data"]
 
 def upload_state():
     parser_json.upload_file(param_co.path_state_hu, param_co.state_hu)

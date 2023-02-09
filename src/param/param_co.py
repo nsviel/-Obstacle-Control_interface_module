@@ -15,7 +15,7 @@ path_state_py = "src/state/state_py.json"
 path_state_perf = "src/state/state_perf.json"
 path_image = "src/state/image"
 path_image_empty = "src/state/image_empty"
-path_config = "src/param/config.json"
+path_config = "config.json"
 path_ssd = "/app/lidar_ssd"
 
 # GUI
@@ -27,6 +27,12 @@ gui_font_big = None
 run_loop = True;
 run_thread_con = False
 run_thread_image = False
+
+# Tic delay
+tic_loop = 0.033
+tic_message = 0.05
+tic_image = 0.1
+tic_connection = 0.5
 
 # Socket
 sock_server_l1 = None
@@ -40,7 +46,7 @@ vec_x = []
 vec_y_l1 = []
 vec_y_l2 = []
 
-# Wallet
+# Wallet - init with just locahost
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
 

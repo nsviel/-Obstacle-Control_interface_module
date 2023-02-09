@@ -48,7 +48,7 @@ def thread_test_connection():
         scheme_loop.loop()
 
         # Wait for 1 second
-        time.sleep(1)
+        time.sleep(param_co.tic_connection)
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
