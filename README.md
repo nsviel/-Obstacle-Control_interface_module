@@ -17,11 +17,11 @@ sudo python3 main.py --dev
 ```
 - In demo mode
 ```
-sudo python3 main.py --dev
+sudo python3 main.py --demo
 ```
 - In demo fullscreen
 ```
-sudo python3 main.py --dev
+sudo python3 main.py --fullscreen
 ```
 
 Or you can start directly in development mode by the command
