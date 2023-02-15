@@ -40,7 +40,9 @@ Or you can start directly in parametrization mode by the command
 ./run.sh
 ```
 
-Otherwise, you can use the docker image
+</details>
+<details><summary> ___ Docker ___ </summary>
+If you prefer a docker image:
 ```
 cd docker
 ./build.sh
@@ -50,10 +52,14 @@ cd docker
 
 ## Documentation
 
-The more important parameters could be changed in the ```config``` JSON file.
+<details><summary> ___ General ___ </summary>
 
-A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` onglet.
+- The more important parameters could be changed in the ```config``` JSON file.
 
-At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each components have to be done either in the ```config``` file or directly on the interface.
+- A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` onglet.
 
-The file responsible for the IP addresses, like adding new one or delete one old, is the ```wallet.txt``` file in the ```src``` folder. You can either modify the list of IP addresses either on the file or on the interface with the Wellet menu.
+- At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each components have to be done either in the ```config``` file or directly on the interface.
+
+- The file responsible for the IP addresses, like adding new one or delete one old, is the ```wallet.txt``` file in the ```src``` folder. You can either modify the list of IP addresses either on the file or on the interface on the Wallet menu.
+
+</details>
