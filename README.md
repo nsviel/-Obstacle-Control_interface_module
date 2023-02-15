@@ -1,18 +1,24 @@
 # [Obstacle] Control Interface Module
 
+
+
 ## Screenshot
 
-<details><summary> ___ Interface in overview mode - System overview ___ </summary>
+<details><summary>Interface in overview mode</summary>
+
 ![interface](https://user-images.githubusercontent.com/80487132/219006210-2c3af6c4-6d43-419f-b1b6-e4e7b6dadc1b.png)
+
 </details>
 
-<details><summary> ___ Interface in parametrization mode - Full system administration ___ </summary>
+<details><summary>Interface in parametrization mode</summary>
+
 ![goc](https://user-images.githubusercontent.com/80487132/219006474-95940c39-7463-43ec-a713-f6e97296df4c.png)
+
 </details>
 
 ## Installation and execution
 
-<details><summary> ___ Installation ___ </summary>
+<details><summary>Installation</summary>
 
 Simply run the script file
 ```
@@ -21,7 +27,7 @@ Simply run the script file
 In the program directory.
 
 </details>
-<details><summary> ___ Execution ___ </summary>
+<details><summary>Execution</summary>
 
 Three options are possible to start the program
 - In parametrization mode
@@ -43,7 +49,7 @@ Or you can start directly in parametrization mode by the command
 ```
 
 </details>
-<details><summary> ___ Docker ___ </summary>
+<details><summary>Docker</summary>
 
 You can use a docker image with:
 
@@ -57,7 +63,7 @@ cd docker
 
 ## Documentation
 
-<details><summary> ___ General ___ </summary>
+<details><summary>General</summary>
 
 - The more important parameters could be changed in the ```config``` JSON file.
 
@@ -66,5 +72,15 @@ cd docker
 - At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each components have to be done either in the ```config``` file or directly on the interface.
 
 - The file responsible for the IP addresses, like adding new one or delete one old, is the ```wallet.txt``` file in the ```src``` folder. You can either modify the list of IP addresses either on the file or on the interface on the Wallet menu.
+
+</details>
+
+<details><summary>Links</summary>
+
+Full system repository: [link](https://github.com/nsviel/Obstacle_System)<br />
+- [ ] Data acquisition module: [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module)
+- [x] Control Interface module
+- [ ] Edge orchestrator module: [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module)
+  - [ ] Data processing component: [link](https://github.com/nsviel/Velodium)
 
 </details>
