@@ -42,12 +42,15 @@ Or you can start directly in parametrization mode by the command
 
 </details>
 <details><summary> ___ Docker ___ </summary>
-If you prefer a docker image:
+
+You can use a docker image with:
+
 ```
 cd docker
 ./build.sh
 ./run.sh
 ```
+
 </details>
 
 ## Documentation
