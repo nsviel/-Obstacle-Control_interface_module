@@ -1,4 +1,4 @@
-# [Obstacle] System Control Interface
+# [Obstacle] Control Interface Module
 
 ![Interface](https://user-images.githubusercontent.com/80487132/217883239-aec3fff5-06af-4fdc-b33b-e7b8296382a5.png)
 

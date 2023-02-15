@@ -3,7 +3,7 @@ from src.param import param_co
 from src.misc import connection
 from src.misc import parser_json
 from src.misc import wallet
-from src.misc import network
+from src.misc import signal
 from src.misc import terminal
 
 
@@ -22,7 +22,7 @@ def load_json_file():
     param_co.state_perf = parser_json.load_state(param_co.path_state_perf)
 
 def init_state_co():
-    param_co.state_co["self"]["ip"] = network.get_ip_adress()
+    param_co.state_co["self"]["ip"] = signal.get_ip_adress()
     param_co.state_co["path"]["file_name_add"] = ""
     param_co.state_co["hubium"]["http_connected"] = False
 

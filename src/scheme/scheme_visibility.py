@@ -43,6 +43,9 @@ def set_mode_dev():
     dpg.show_item("py_ip_visible")
     dpg.show_item("sncf_ip_visible")
 
+    # Mongo
+    dpg.show_item("table_mongo")
+
     # LiDARs
     dpg.show_item("l1_status")
     dpg.show_item("l1_motor_visible")
@@ -160,6 +163,9 @@ def set_mode_demo():
     dpg.hide_item("hu_edge_id_visible")
     dpg.hide_item("geo_status")
     dpg.hide_item("l2_plot_visible")
+
+    # Mongo
+    dpg.hide_item("table_mongo")
 
     # IP
     dpg.hide_item("hu_ip_visible")

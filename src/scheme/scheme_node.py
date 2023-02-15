@@ -203,6 +203,7 @@ def node_block_cloud():
 
 def node_network():
     with dpg.node(label="KPI", tag="node_network"):
+        # KPIs
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
 
             with dpg.table(header_row=False, borders_innerH=False, width=350):
@@ -232,9 +233,11 @@ def node_network():
                 scheme_function.add_perf_interruption("perf_interruption_val")
                 scheme_function.add_perf_time_total("End-to-end", "perf_time_total")
 
+        # Mongo
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
             dpg.add_text("")
 
+            # State
             with dpg.table(header_row=False, borders_innerH=False, width=350):
                 dpg.add_table_column()
                 dpg.add_table_column()
@@ -245,7 +248,8 @@ def node_network():
                     dpg.add_text("MongoDB");
                     dpg.add_button(tag="mongo_server_but", width=15)
 
-            with dpg.table(header_row=False, borders_innerH=True, width=350):
+            # Parameters
+            with dpg.table(tag="table_mongo", header_row=False, borders_innerH=True, width=350):
                 dpg.add_table_column()
                 dpg.add_table_column()
 
