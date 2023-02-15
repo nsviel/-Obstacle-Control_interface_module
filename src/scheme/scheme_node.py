@@ -45,7 +45,7 @@ def node_controlium():
         scheme_function.add_port_co("co_sock_server_l2_port", "co_port_l2_visible")
 
 def node_pywardium():
-    with dpg.node(label="Train module", tag="node_py"):
+    with dpg.node(label="Data acquisition", tag="node_py"):
         scheme_function.add_image("icon_computer", "icon_computer_visible")
 
         scheme_function.add_status_i("py_input", "py_status_but", "py_status")
@@ -65,7 +65,7 @@ def node_pywardium():
         scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
 
 def node_hubium():
-    with dpg.node(label="Edge AI module", tag="node_hu"):
+    with dpg.node(label="Edge orchestrator", tag="node_hu"):
         scheme_function.add_status("hu_status_but", "hu_status")
         scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"], "hu_ip_visible")
         scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
@@ -144,7 +144,7 @@ def node_ai():
         scheme_function.add_port_fixe("ai_http_server_port", "ai_http_port_visible")
 
 def node_sncf():
-    with dpg.node(label="SNCF", tag="node_sncf"):
+    with dpg.node(label="Train operator", tag="node_sncf"):
         scheme_function.add_status("sncf_status_but", "sncf_status")
         scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"], "sncf_ip_visible")
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
@@ -165,7 +165,7 @@ def node_ssd():
         scheme_function.add_file_info("Lidar 2", "l2_file_path", "l2_file_size", "ssd_l2_visible")
 
 def node_data():
-    with dpg.node(label="Data", tag="node_data"):
+    with dpg.node(label="Processed data", tag="node_data"):
         scheme_function.add_image_sized("image_in", 300, 150)
 
         scheme_function.add_plot("lidar 1", "l1_yaxis", "l1_plot", "l1_plot_visible")
@@ -202,7 +202,7 @@ def node_block_cloud():
                 pass
 
 def node_network():
-    with dpg.node(label="KPI", tag="node_network"):
+    with dpg.node(label="Network performance", tag="node_network"):
         # KPIs
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
 

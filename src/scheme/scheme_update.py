@@ -251,7 +251,6 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_network", coord_network)
 
-
     dpg.set_viewport_width(gui_width)
     dpg.set_viewport_height(gui_height)
     scheme_theme.scheme_theme_demo()
