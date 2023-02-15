@@ -48,8 +48,16 @@ def system_information(prog_name):
     except:
         OS = platform.system()
 
+    if(mode == "param"):
+        mode_name = "Parametrization"
+    elif(mode == "overview"):
+        mode_name = "Overview"
+    elif(mode == "fullscreen"):
+        mode_name = "Overview fullscreen"
+
     #Header
     print('%-12s' '\033[1;34m%s\033[0m' % ("[Obstacle]", program))
+    print('%-12s' '\033[1;34m%s\033[0m' % ("Mode", mode_name))
     print("-----------------------")
     print('%-12s' '\033[1;34m%s\033[0m' % ("IP", ip))
     print('%-12s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
@@ -61,19 +69,19 @@ def system_information(prog_name):
 
 def manage_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dev", action="store_true")
-    parser.add_argument("--demo", action="store_true")
+    parser.add_argument("--param", action="store_true")
+    parser.add_argument("--overview", action="store_true")
     parser.add_argument("--fullscreen", action="store_true")
     args = parser.parse_args()
 
-    if(args.dev):
-        param_co.status_ui = "dev"
-    elif(args.demo):
-        param_co.status_ui = "demo_minimized"
+    if(args.param):
+        param_co.status_ui = "param"
+    elif(args.overview):
+        param_co.status_ui = "overview_minimized"
     elif(args.fullscreen):
-        param_co.status_ui = "demo_fullscreen"
+        param_co.status_ui = "overview_fullscreen"
     else:
-        param_co.status_ui = "dev"
+        param_co.status_ui = "param"
 
 def get_temps_core(number):
     temp = psutil.sensors_temperatures()

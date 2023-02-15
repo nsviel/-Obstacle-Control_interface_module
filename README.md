@@ -1,8 +1,16 @@
 # [Obstacle] Control Interface Module
 
-![Interface](https://user-images.githubusercontent.com/80487132/217883239-aec3fff5-06af-4fdc-b33b-e7b8296382a5.png)
+### Interface in overview mode - System overview
+![interface](https://user-images.githubusercontent.com/80487132/219006210-2c3af6c4-6d43-419f-b1b6-e4e7b6dadc1b.png)
 
-## Summary
+### Interface in parametrization mode - Full system administration
+
+![goc](https://user-images.githubusercontent.com/80487132/219006474-95940c39-7463-43ec-a713-f6e97296df4c.png)
+
+
+## Installation and execution
+
+<details><summary> ___ Installation ___ </summary>
 
 Simply run the script file
 ```
@@ -10,21 +18,24 @@ Simply run the script file
 ```
 In the program directory.
 
+</details>
+<details><summary> ___ Execution ___ </summary>
+
 Three options are possible to start the program
-- In development mode
+- In parametrization mode
 ```
 sudo python3 main.py --dev
 ```
-- In demo mode
+- In overview mode
 ```
-sudo python3 main.py --demo
+sudo python3 main.py --overview
 ```
-- In demo fullscreen
+- In overview and fullscreen mode
 ```
 sudo python3 main.py --fullscreen
 ```
 
-Or you can start directly in development mode by the command
+Or you can start directly in parametrization mode by the command
 ```
 ./run.sh
 ```
@@ -35,5 +46,8 @@ cd docker
 ./build.sh
 ./run.sh
 ```
+</details>
 
-The more important parameters could be changed in the ```config``` JSON file
+The more important parameters could be changed in the ```config``` JSON file.
+
+A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` onglet.

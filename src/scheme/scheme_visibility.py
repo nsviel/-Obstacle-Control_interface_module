@@ -9,13 +9,13 @@ import dearpygui.dearpygui as dpg
 
 
 def set_mode():
-    if(param_co.status_ui == "dev"):
+    if(param_co.status_ui == "param"):
         set_mode_dev()
         scheme_update.update_node_pos_dev()
-    elif(param_co.status_ui == "demo_minimized"):
+    elif(param_co.status_ui == "overview_minimized"):
         set_mode_demo()
         scheme_update.update_node_pos_demo_minimized()
-    elif(param_co.status_ui == "demo_fullscreen"):
+    elif(param_co.status_ui == "overview_fullscreen"):
         set_mode_demo()
         scheme_update.update_node_pos_demo_fullscreen()
 

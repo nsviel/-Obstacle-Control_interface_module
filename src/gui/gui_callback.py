@@ -33,7 +33,7 @@ def callback_wallet_remove(sender):
     scheme_update.update_add_combo()
 
 def callback_mode_dev():
-    param_co.status_ui = "dev"
+    param_co.status_ui = "param"
     scheme_visibility.set_mode()
 
 def callback_mode_demo_minimized():
@@ -43,11 +43,11 @@ def callback_mode_demo_minimized():
     dpg.hide_item("node_sncf")
     dpg.hide_item("node_train")
     dpg.render_dearpygui_frame()
-    param_co.status_ui = "demo_minimized"
+    param_co.status_ui = "overview_minimized"
     scheme_visibility.set_mode()
 
 def callback_mode_demo_fullscreen():
-    param_co.status_ui = "demo_fullscreen"
+    param_co.status_ui = "overview_fullscreen"
     scheme_visibility.set_mode()
 
 def callback_with_iperf():
