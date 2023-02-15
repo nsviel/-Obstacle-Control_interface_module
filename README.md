@@ -24,7 +24,7 @@ In the program directory.
 Three options are possible to start the program
 - In parametrization mode
 ```
-sudo python3 main.py --dev
+sudo python3 main.py --param
 ```
 - In overview mode
 ```
@@ -48,6 +48,12 @@ cd docker
 ```
 </details>
 
+## Documentation
+
 The more important parameters could be changed in the ```config``` JSON file.
 
 A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` onglet.
+
+At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each components have to be done either in the ```config``` file or directly on the interface.
+
+The file responsible for the IP addresses, like adding new one or delete one old, is the ```wallet.txt``` file in the ```src``` folder. You can either modify the list of IP addresses either on the file or on the interface with the Wellet menu.
