@@ -79,12 +79,14 @@ cd docker
 
 ## System
 
-Full system repository ( [link](https://github.com/nsviel/Obstacle_System) )
-- [ ] Data acquisition module ( [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module) )
+Full system repository ( [link](https://github.com/nsviel/Obstacle_detection_system) )
+- [ ] Data acquisition module ( [link](https://github.com/nsviel/-Obstacle-Data_acquisition_module) )
 - [ ] Edge server module 
-  - [ ] Edge orchestrator component ( [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module) )
-  - [ ] Data processing component ( [link](https://github.com/nsviel/Velodium) )
+  - [ ] Edge orchestrator component ( [link](https://github.com/nsviel/-Obstacle-Edge_orchestrator_component) )
+  - [ ] Data processing component ( [link](https://github.com/nsviel/-Obstacle-Data_processing_component) )
   - [ ] AI component
 - [x] Control interface module
 
-</details>
+
+
+
