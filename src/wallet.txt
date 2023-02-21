@@ -1,11 +1,4 @@
 localhost 127.0.0.1
-mine_server_nsv 10.201.20.24
-mine_fixe_nsv 10.201.20.131
-mine_fixe_lsf 10.201.20.110
-portable_nsv 192.168.152.67
 black_hole 99.99.99.99
 lidar_1_static 192.168.1.201
-lidar_1_dhcp 10.17.212.23
 lidar_2_static 192.168.2.201
-ordi_sncf 192.168.2.1
-ordi_nathan 192.168.2.2
