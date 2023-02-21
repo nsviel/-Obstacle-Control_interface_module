@@ -18,20 +18,16 @@ A GUI which allows to control the entire system parameters and LiDAR state. A vi
 
 </details>
 
-## Installation and execution
 
-<details><summary>Installation</summary>
+## Documentation
+<details><summary>Installation and execution</summary>
 
-Simply run the script file
+To install dependencies, simply run the script file
 ```
 ./install.sh
 ```
-In the program directory.
-
-</details>
-<details><summary>Execution</summary>
-
-Three options are possible to start the program
+in the program directory.
+Three options are possible to start the program:
 - In parametrization mode
 ```
 sudo python3 main.py --param
@@ -50,6 +46,8 @@ Or you can start directly in parametrization mode by the command
 ./run.sh
 ```
 
+:warning: root privileges are required
+
 </details>
 <details><summary>Docker</summary>
 
@@ -63,17 +61,15 @@ cd docker
 
 </details>
 
-## Documentation
-
 <details><summary>General</summary>
 
 - The more important parameters could be changed in the ```config``` JSON file.
 
-- A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` onglet.
+- A manual switch between overview and parametrization mode can be made at runtime in the ```Menu``` and then ```mode``` tab.
 
-- At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each components have to be done either in the ```config``` file or directly on the interface.
+- At system start, when all systems are initialized a small configuration step is generally necessary. For example, setting the different IP for each component have to be done either in the ```config``` file or directly on the interface.
 
-- The file responsible for the IP addresses, like adding new one or delete one old, is the ```wallet.txt``` file in the ```src``` folder. You can either modify the list of IP addresses either on the file or on the interface on the Wallet menu.
+- A file, ```wallet.txt``` file in the ```src``` folder, is responsible for listing and keeping IP addresses. Adding new one or delete old one is possible either by modifying directly the file or on the interface on the Wallet menu.
 
 </details>
 
@@ -81,12 +77,8 @@ cd docker
 
 Full system repository ( [link](https://github.com/nsviel/Obstacle_detection_system) )
 - [ ] Data acquisition module ( [link](https://github.com/nsviel/-Obstacle-Data_acquisition_module) )
-- [ ] Edge server module 
+- [ ] Edge server module
   - [ ] Edge orchestrator component ( [link](https://github.com/nsviel/-Obstacle-Edge_orchestrator_component) )
   - [ ] Data processing component ( [link](https://github.com/nsviel/-Obstacle-Data_processing_component) )
   - [ ] AI component
 - [x] Control interface module
-
-
-
-
