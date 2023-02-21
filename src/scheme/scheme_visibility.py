@@ -12,7 +12,7 @@ def set_mode():
     if(param_co.status_ui == "param"):
         set_mode_dev()
         scheme_update.update_node_pos_dev()
-    elif(param_co.status_ui == "overview_minimized"):
+    elif(param_co.status_ui == "overview"):
         set_mode_demo()
         scheme_update.update_node_pos_demo_minimized()
     elif(param_co.status_ui == "overview_fullscreen"):
@@ -41,7 +41,7 @@ def set_mode_dev():
     # IP
     dpg.show_item("hu_ip_visible")
     dpg.show_item("py_ip_visible")
-    dpg.show_item("sncf_ip_visible")
+    dpg.show_item("ip_operator_visible")
 
     # Mongo
     dpg.show_item("table_mongo")
@@ -88,9 +88,9 @@ def set_mode_dev():
     dpg.show_item("node_ai")
     dpg.show_item("node_ed")
     dpg.show_item("node_ssd")
-    dpg.show_item("node_valeo")
+    dpg.show_item("node_cloud_car")
     dpg.show_item("node_co")
-    dpg.configure_viewport("viewport", title="Controlium")
+    dpg.configure_viewport("viewport", title="module_interface")
 
     # Links
     dpg.show_item("link_l2_py")
@@ -170,7 +170,7 @@ def set_mode_demo():
     # IP
     dpg.hide_item("hu_ip_visible")
     dpg.hide_item("py_ip_visible")
-    dpg.hide_item("sncf_ip_visible")
+    dpg.hide_item("ip_operator_visible")
 
     # LiDARs
     dpg.hide_item("l1_line_visible")
@@ -237,13 +237,13 @@ def set_mode_demo():
     dpg.hide_item("node_ai")
     dpg.hide_item("node_ed")
     dpg.hide_item("node_ssd")
-    dpg.hide_item("node_valeo")
+    dpg.hide_item("node_cloud_car")
     dpg.hide_item("node_co")
 
     dpg.show_item("node_py")
     dpg.show_item("node_hu")
     dpg.show_item("node_data")
-    dpg.show_item("node_sncf")
+    dpg.show_item("node_operator")
     dpg.show_item("node_train")
 
     dpg.configure_viewport("viewport", title="System control interface")

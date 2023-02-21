@@ -19,9 +19,9 @@ def thread_socket_l1_server():
         try:
             packet, (address, port) = param_co.sock_server_l1.recvfrom(4096)
             data.process_l1_data(packet)
-            param_co.state_co["hubium"]["sock_l1_connected"] = True
+            param_co.state_co["module_edge"]["sock_l1_connected"] = True
         except:
-            param_co.state_co["hubium"]["sock_l1_connected"] = False
+            param_co.state_co["module_edge"]["sock_l1_connected"] = False
 
     param_co.sock_server_l1.close()
 
@@ -39,8 +39,8 @@ def thread_socket_l2_server():
         try:
             packet, (address, port) = param_co.sock_server_l2.recvfrom(4096)
             data.process_l2_data(packet)
-            param_co.state_co["hubium"]["sock_l2_connected"] = True
+            param_co.state_co["module_edge"]["sock_l2_connected"] = True
         except:
-            param_co.state_co["hubium"]["sock_l2_connected"] = False
+            param_co.state_co["module_edge"]["sock_l2_connected"] = False
 
     param_co.sock_server_l2.close()

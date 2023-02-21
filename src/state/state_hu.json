@@ -1,7 +1,7 @@
 {
     "self": {
-        "ip": "192.168.152.67",
-        "nb_thread": 10,
+        "ip": "192.168.153.195",
+        "nb_thread": 9,
         "country": "France",
         "edge_id": 0,
         "lidar_main": "lidar_2",
@@ -9,33 +9,33 @@
         "sock_server_l2_port": 345,
         "http_server_port": 443
     },
-    "pywardium": {
+    "module_capture": {
         "ip": "127.0.0.1",
         "add": "localhost",
         "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": true
+        "sock_l2_connected": false
     },
-    "controlium": {
-        "ip": "192.168.152.67",
+    "module_interface": {
+        "ip": "192.168.153.195",
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
-    "velodium": {
+    "component_process": {
         "add": "localhost",
         "ip": "127.0.0.1",
-        "http_connected": true,
+        "http_connected": false,
         "http_server_port": 8888,
         "sock_connected": false,
         "sock_server_port": 2370
     },
-    "ai": {
+    "component_ai": {
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 8080
     },
-    "sncf": {
+    "train_operator": {
         "add": "localhost",
         "broker_connected": true,
         "broker_ip": "127.0.0.1",
@@ -43,11 +43,11 @@
         "mqtt_client": "P2_module",
         "mqtt_topic": "alarmes/lidar"
     },
-    "valeo": {
+    "cloud_car": {
         "http_connected": false,
         "ip": "127.0.0.1"
     },
-    "edge": {
+    "edge_next": {
         "add": "black_hole",
         "ip": "99.99.99.99",
         "country": "Spain",

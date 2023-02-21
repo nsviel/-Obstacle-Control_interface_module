@@ -174,13 +174,13 @@ def color_layer_train():
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
     return layer_train
 def color_layer_edge():
-    layer_edge = dpg.add_theme()
-    with dpg.theme_component(dpg.mvNode, parent=layer_edge):
+    layer_edge_next = dpg.add_theme()
+    with dpg.theme_component(dpg.mvNode, parent=layer_edge_next):
         color = (45, 108, 143)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
-    return layer_edge
+    return layer_edge_next
 def color_layer_cloud():
     layer_cloud = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_cloud):

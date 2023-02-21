@@ -132,7 +132,7 @@ def add_option(label, tag_option):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text(label);
-            dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_velodium);
+            dpg.add_checkbox(tag=tag_option, label="", default_value=True, callback=scheme_callback.callback_component_process);
 
 # Specific stuff
 def add_false_alarm():
@@ -170,12 +170,12 @@ def add_velo_option(tag_slam, tag_view, tag_reset):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("SLAM:");
-            dpg.add_checkbox(tag=tag_slam, label="", default_value=True, callback=scheme_callback.callback_velodium);
+            dpg.add_checkbox(tag=tag_slam, label="", default_value=True, callback=scheme_callback.callback_component_process);
         with dpg.group(horizontal=True):
             dpg.add_text("View:");
-            dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_velodium, horizontal=True)
+            dpg.add_radio_button(("Top", "Oblique"), tag=tag_view, callback=scheme_callback.callback_component_process, horizontal=True)
         with dpg.group(horizontal=True):
-            dpg.add_button(label="Reset", tag=tag_reset, width=50, callback=scheme_callback.callback_velodium_reset)
+            dpg.add_button(label="Reset", tag=tag_reset, width=50, callback=scheme_callback.callback_component_process_reset)
 def add_iperf_train():
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
         line()
@@ -202,12 +202,12 @@ def add_port_co(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_controlium);
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_module_interface);
 def add_port_hu(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_hubium);
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_module_edge);
 def add_port_sncf(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
@@ -217,7 +217,7 @@ def add_port_py(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_pywardium);
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_module_capture);
 def add_port_fixe(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
@@ -253,7 +253,7 @@ def add_lidar_status(label, tag_con, tag_active, tag_status):
         with dpg.group(horizontal=True):
             dpg.add_text(label, color=color_title);
             dpg.add_button(tag=tag_status, width=15)
-            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_pywardium);
+            dpg.add_checkbox(tag=tag_active, label="", default_value=True, indent=75, callback=scheme_callback.callback_module_capture);
 def add_lidar_add(tag_wallet, tag_ip, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
@@ -261,7 +261,7 @@ def add_lidar_add(tag_wallet, tag_ip, tag_visibility):
             dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_com.command_comboip)
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
-            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_pywardium);
+            dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_module_capture);
 def add_l1_speed(tag_speed, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):

@@ -12,8 +12,8 @@
     "ssd":{
       "start_with_save_data": false
     },
-    "hubium": {
-        "ip": "10.201.20.131",
+    "module_edge": {
+        "ip": "127.0.0.1",
         "sock_client_port": 315,
         "http_server_port": 443
     }

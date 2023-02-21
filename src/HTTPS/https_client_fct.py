@@ -5,9 +5,9 @@ import http.client
 
 
 def network_info(dest):
-    ip = param_co.state_co["hubium"]["ip"]
-    port = param_co.state_co["hubium"]["http_server_port"]
-    connected = param_co.state_co["hubium"]["http_connected"]
+    ip = param_co.state_co["module_edge"]["ip"]
+    port = param_co.state_co["module_edge"]["http_server_port"]
+    connected = param_co.state_co["module_edge"]["http_connected"]
 
     return [ip, port, connected]
 

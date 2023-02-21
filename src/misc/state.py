@@ -24,7 +24,7 @@ def load_json_file():
 def init_state_co():
     param_co.state_co["self"]["ip"] = signal.get_ip_adress()
     param_co.state_co["path"]["file_name_add"] = ""
-    param_co.state_co["hubium"]["http_connected"] = False
+    param_co.state_co["module_edge"]["http_connected"] = False
 
 def init_state_perf():
     param_co.state_perf["mongo"]["connected"] = False
@@ -70,8 +70,8 @@ def load_config_file():
 
     param_co.state_co["gui"]["width"] = config["gui"]["width"]
     param_co.state_co["gui"]["height"] = config["gui"]["height"]
-    param_co.state_co["hubium"]["ip"] = config["hubium"]["ip"]
-    param_co.state_co["hubium"]["http_server_port"] = config["hubium"]["http_server_port"]
+    param_co.state_co["module_edge"]["ip"] = config["module_edge"]["ip"]
+    param_co.state_co["module_edge"]["http_server_port"] = config["module_edge"]["http_server_port"]
     param_co.state_co["ssd"]["activated"] = config["ssd"]["start_with_save_data"]
 
 def upload_state():
@@ -87,7 +87,7 @@ def update_state():
     param_co.status_ai = "Offline"
     param_co.status_ed = "Offline"
     param_co.status_ssd = "Offline"
-    param_co.status_sncf = "Offline"
+    param_co.status_operator = "Offline"
     param_co.status_l1 = "Offline"
     param_co.status_l2 = "Offline"
     param_co.status_db = "Offline"
@@ -95,34 +95,34 @@ def update_state():
     param_co.status_co = "Online"
     if(param_co.state_co["ssd"]["connected"]):
         param_co.status_ssd = "Online"
-    if(param_co.state_co["hubium"]["http_connected"]):
+    if(param_co.state_co["module_edge"]["http_connected"]):
         param_co.status_hu = "Online"
-        if(param_co.state_hu["pywardium"]["http_connected"]):
+        if(param_co.state_hu["module_capture"]["http_connected"]):
             param_co.status_py = "Online"
             if(param_co.state_py["lidar_1"]["connected"]):
                 param_co.status_l1 = "Online"
             if(param_co.state_py["lidar_2"]["connected"]):
                 param_co.status_l2 = "Online"
-        if(param_co.state_hu["ai"]["http_connected"]):
+        if(param_co.state_hu["component_ai"]["http_connected"]):
             param_co.status_ai = "Online"
-        if(param_co.state_hu["velodium"]["http_connected"]):
+        if(param_co.state_hu["component_process"]["http_connected"]):
             param_co.status_ve = "Online"
-        if(param_co.state_hu["edge"]["http_connected"]):
+        if(param_co.state_hu["edge_next"]["http_connected"]):
             param_co.status_ed = "Online"
-        if(param_co.state_hu["sncf"]["broker_connected"]):
-            param_co.status_sncf = "Online"
+        if(param_co.state_hu["train_operator"]["broker_connected"]):
+            param_co.status_operator = "Online"
 
     if(param_co.status_hu == "Offline"):
         param_co.state_hu["data"]["nb_frame"] = 0
         param_co.state_hu["data"]["nb_prediction"] = 0
         param_co.state_hu["self"]["nb_thread"] = 0
-        param_co.state_hu["sncf"]["broker_connected"] = False
-        param_co.state_hu["ai"]["http_connected"] = False
-        param_co.state_hu["velodium"]["sock_connected"] = False
-        param_co.state_hu["velodium"]["http_connected"] = False
-        param_co.state_hu["pywardium"]["http_connected"] = False
-        param_co.state_hu["pywardium"]["sock_l1_connected"] = False
-        param_co.state_hu["pywardium"]["sock_l2_connected"] = False
+        param_co.state_hu["train_operator"]["broker_connected"] = False
+        param_co.state_hu["component_ai"]["http_connected"] = False
+        param_co.state_hu["component_process"]["sock_connected"] = False
+        param_co.state_hu["component_process"]["http_connected"] = False
+        param_co.state_hu["module_capture"]["http_connected"] = False
+        param_co.state_hu["module_capture"]["sock_l1_connected"] = False
+        param_co.state_hu["module_capture"]["sock_l2_connected"] = False
 
     if(param_co.status_py == "Offline"):
         param_co.state_py["self"]["nb_thread"] = 0
@@ -153,7 +153,7 @@ def update_state():
         param_co.state_py["lidar_2"]["throughput"]["max"] = 0
 
     if(param_co.status_ve == "Offline"):
-        param_co.state_hu["velodium"]["sock_connected"] = False
+        param_co.state_hu["component_process"]["sock_connected"] = False
 
     if(param_co.state_perf["mongo"]["connected"]):
         param_co.status_db = "Online"

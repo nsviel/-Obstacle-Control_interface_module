@@ -14,20 +14,20 @@ def create_node():
     node_block_edge()
     node_block_cloud()
 
-    node_controlium()
-    node_pywardium()
-    node_hubium()
+    node_module_interface()
+    node_module_capture()
+    node_module_edge()
     node_train()
-    node_edge()
+    node_edge_next()
     node_ve()
     node_ai()
-    node_sncf()
-    node_valeo()
+    node_operator()
+    node_cloud_car()
     node_ssd()
     node_data()
     node_network()
 
-def node_controlium():
+def node_module_interface():
     with dpg.node(label="System control interface", tag="node_co"):
         scheme_function.add_status_o("co_input", "co_status_but", "co_status")
         scheme_function.add_ip("co_ip")
@@ -44,7 +44,7 @@ def node_controlium():
         scheme_connection.add_sock_server_i("co_sock_server_l2")
         scheme_function.add_port_co("co_sock_server_l2_port", "co_port_l2_visible")
 
-def node_pywardium():
+def node_module_capture():
     with dpg.node(label="Data acquisition", tag="node_py"):
         scheme_function.add_image("icon_computer", "icon_computer_visible")
 
@@ -64,10 +64,10 @@ def node_pywardium():
         scheme_connection.add_http_server_o("py_http_server")
         scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
 
-def node_hubium():
+def node_module_edge():
     with dpg.node(label="Edge orchestrator", tag="node_hu"):
         scheme_function.add_status("hu_status_but", "hu_status")
-        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["hubium"]["add"], "hu_ip_visible")
+        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["module_edge"]["add"], "hu_ip_visible")
         scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
 
         scheme_function.add_edge_id("hu_edge_id", "hu_edge_id_visible")
@@ -108,10 +108,10 @@ def node_train():
         scheme_function.add_l2_speed("l2_speed", "l2_speed_visible")
         scheme_function.add_lidar_stat("l2_packet", "l2_tgp_val", "l2_tgp_range", "l2_perf_visible")
 
-def node_edge():
+def node_edge_next():
     with dpg.node(label="Edge", tag="node_ed"):
         scheme_function.add_status("ed_status_but", "ed_status")
-        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge"]["add"], "ed_ip_visible")
+        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge_next"]["add"], "ed_ip_visible")
         #scheme_function.add_edge_id("ed_edge_id")
         #scheme_function.add_country("ed_country")
 
@@ -143,16 +143,16 @@ def node_ai():
         scheme_connection.add_http_server_o("ai_http_server")
         scheme_function.add_port_fixe("ai_http_server_port", "ai_http_port_visible")
 
-def node_sncf():
-    with dpg.node(label="Train operator", tag="node_sncf"):
+def node_operator():
+    with dpg.node(label="Train operator", tag="node_operator"):
         scheme_function.add_status("sncf_status_but", "sncf_status")
-        scheme_function.add_ip_wallet("sncf_wallet", "sncf_ip", param_co.state_hu["sncf"]["add"], "sncf_ip_visible")
+        scheme_function.add_ip_wallet("sncf_wallet", "ip_operator", param_co.state_hu["train_operator"]["add"], "ip_operator_visible")
         scheme_function.add_input("MQTT", "sncf_mqtt_broker")
         scheme_function.add_port_sncf("sncf_broker_port", "ai_sncf_port_visible")
         scheme_function.add_mqtt_topic("sncf_mqtt_topic", "sncf_mqtt_topic_visible")
 
-def node_valeo():
-    with dpg.node(label="Valeo", tag="node_valeo"):
+def node_cloud_car():
+    with dpg.node(label="cloud_car", tag="node_cloud_car"):
         scheme_function.add_ip("va_ip")
         scheme_connection.add_http_client_i("va_http_client")
 

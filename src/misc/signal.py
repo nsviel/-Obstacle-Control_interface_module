@@ -41,18 +41,17 @@ def system_information(prog_name):
     core = platform.uname()[2]
     proc = platform.processor()
     python = platform.python_version()
-    mode = param_co.status_ui
 
     try:
         OS = platform.freedesktop_os_release()['PRETTY_NAME']
     except:
         OS = platform.system()
 
-    if(mode == "param"):
+    if(param_co.status_ui == "param"):
         mode_name = "Parametrization"
-    elif(mode == "overview"):
+    elif(param_co.status_ui == "overview"):
         mode_name = "Overview"
-    elif(mode == "fullscreen"):
+    elif(param_co.status_ui == "fullscreen"):
         mode_name = "Overview fullscreen"
 
     #Header
@@ -70,14 +69,15 @@ def system_information(prog_name):
 def manage_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--param", action="store_true")
+    parser.add_argument("--demo", action="store_true")
     parser.add_argument("--overview", action="store_true")
     parser.add_argument("--fullscreen", action="store_true")
     args = parser.parse_args()
 
     if(args.param):
         param_co.status_ui = "param"
-    elif(args.overview):
-        param_co.status_ui = "overview_minimized"
+    elif(args.overview or args.demo):
+        param_co.status_ui = "overview"
     elif(args.fullscreen):
         param_co.status_ui = "overview_fullscreen"
     else:

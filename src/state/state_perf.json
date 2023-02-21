@@ -7,10 +7,10 @@
         "username": "",
         "password": "",
         "nb_data": 50,
-        "connected": true
+        "connected": false
     },
     "local_cloud": {
-        "timestamp": 1675960951.2972193,
+        "timestamp": 1676997454.3597476,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -18,10 +18,10 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.019,
-            "min": 0.019,
-            "max": 0.06,
-            "mean": 0.03450000000000001
+            "value": 0.04,
+            "min": 0.026,
+            "max": 0.113,
+            "mean": 0.0541
         },
         "reliability": {
             "value": 100.0,
@@ -37,12 +37,12 @@
         }
     },
     "cloud_local": {
-        "timestamp": 1675960951.7993696,
+        "timestamp": 1676997454.985898,
         "latency": {
-            "value": 0.058,
-            "min": 0.019,
-            "max": 0.062,
-            "mean": 0.0379
+            "value": 0.038,
+            "min": 0.015,
+            "max": 0.068,
+            "mean": 0.0364
         },
         "reliability": {
             "value": 100.0,

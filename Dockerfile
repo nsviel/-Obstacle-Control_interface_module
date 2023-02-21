@@ -12,8 +12,8 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 # Program parameters
-COPY . /app/controlium
-WORKDIR /app/controlium
+COPY . /app/module_interface
+WORKDIR /app/module_interface
 
 # Open port
 # Lidar 1

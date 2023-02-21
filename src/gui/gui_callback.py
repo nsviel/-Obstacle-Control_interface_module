@@ -40,10 +40,10 @@ def callback_mode_demo_minimized():
     dpg.hide_item("node_py")
     dpg.hide_item("node_hu")
     dpg.hide_item("node_data")
-    dpg.hide_item("node_sncf")
+    dpg.hide_item("node_operator")
     dpg.hide_item("node_train")
     dpg.render_dearpygui_frame()
-    param_co.status_ui = "overview_minimized"
+    param_co.status_ui = "overview"
     scheme_visibility.set_mode()
 
 def callback_mode_demo_fullscreen():

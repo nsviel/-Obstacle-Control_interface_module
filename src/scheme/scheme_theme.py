@@ -170,8 +170,8 @@ def colorize_node():
     dpg.bind_item_theme("node_ai", layer_edge)
     dpg.bind_item_theme("node_data", layer_edge)
     dpg.bind_item_theme("node_ed", layer_cloud)
-    dpg.bind_item_theme("node_sncf", layer_cloud)
-    dpg.bind_item_theme("node_valeo", layer_cloud)
+    dpg.bind_item_theme("node_operator", layer_cloud)
+    dpg.bind_item_theme("node_cloud_car", layer_cloud)
     dpg.bind_item_theme("node_ssd", layer_cloud)
     dpg.bind_item_theme("node_network", layer_network)
 
@@ -241,7 +241,7 @@ def colorize_item():
     dpg.bind_item_theme("ed_ip", input_text)
     dpg.bind_item_theme("ai_ip", input_text)
     dpg.bind_item_theme("ve_ip", input_text)
-    dpg.bind_item_theme("sncf_ip", input_text)
+    dpg.bind_item_theme("ip_operator", input_text)
 
     dpg.bind_item_theme("mongo_ip", input_text)
     dpg.bind_item_theme("mongo_port", input_text)

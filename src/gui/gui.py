@@ -33,7 +33,7 @@ def program():
     #Build GUI
     with dpg.window(label="Wallet", autosize=True, no_resize=True, show=False, tag="win_wallet"):
         gui_wallet.build_window()
-    with dpg.window(tag="window", label="Controlium"):
+    with dpg.window(tag="window", label="module_interface"):
         dpg.bind_font(param_co.gui_font_def)
         gui_menu.menu()
         scheme.build_scheme()
@@ -42,7 +42,7 @@ def program():
     # Setup GUI
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
-    dpg.create_viewport(title='Controlium', width=gui_width, height=gui_height)
+    dpg.create_viewport(title='module_interface', width=gui_width, height=gui_height)
     dpg.set_viewport_resizable(False)
     dpg.setup_dearpygui()
     dpg.show_viewport()

@@ -6,7 +6,7 @@ import dearpygui.dearpygui as dpg
 
 
 def create_link():
-    # Controlium
+    # module_interface
     dpg.add_node_link("co_http_client", "hu_http_server_o", tag="link_co_hu_http")
     dpg.add_node_link("co_sock_server_l1", "hu_sock_client_l1_o", tag="link_hu_co_l1_sock")
     dpg.add_node_link("co_sock_server_l2", "hu_sock_client_l2_o", tag="link_hu_co_l2_sock")
@@ -32,37 +32,37 @@ def create_link():
     dpg.add_node_link("py_input", "geo_status", tag="link_py_geo")
 
 def update_link_color():
-    # Controlium
-    update_link_con(param_co.state_co["hubium"]["http_connected"], "link_co_hu_http")
+    # module_interface
+    update_link_con(param_co.state_co["module_edge"]["http_connected"], "link_co_hu_http")
     update_link_con(param_co.state_co["ssd"]["connected"], "link_co_ssd")
-    update_link_sock(param_co.state_co["hubium"]["sock_l1_connected"], "link_hu_co_l1_sock")
-    update_link_sock(param_co.state_co["hubium"]["sock_l2_connected"], "link_hu_co_l2_sock")
+    update_link_sock(param_co.state_co["module_edge"]["sock_l1_connected"], "link_hu_co_l1_sock")
+    update_link_sock(param_co.state_co["module_edge"]["sock_l2_connected"], "link_hu_co_l2_sock")
 
     # Lidars
-    update_link_sock(param_co.state_hu["pywardium"]["sock_l1_connected"], "link_py_hu_l1_sock")
-    update_link_sock(param_co.state_hu["pywardium"]["sock_l2_connected"], "link_py_hu_l2_sock")
+    update_link_sock(param_co.state_hu["module_capture"]["sock_l1_connected"], "link_py_hu_l1_sock")
+    update_link_sock(param_co.state_hu["module_capture"]["sock_l2_connected"], "link_py_hu_l2_sock")
 
-    # Pywardium
+    # module_capture
     update_link_sock(param_co.state_py["lidar_1"]["connected"] and param_co.state_py["lidar_1"]["activated"], "link_l1_py")
     update_link_sock(param_co.state_py["lidar_2"]["connected"] and param_co.state_py["lidar_2"]["activated"], "link_l2_py")
 
-    # Hubium
-    update_link_con(param_co.state_hu["sncf"]["broker_connected"], "link_hu_sncf_mqtt")
-    update_link_con(param_co.state_hu["pywardium"]["http_connected"], "link_hu_py_http")
-    update_link_con(param_co.state_hu["edge"]["http_connected"], "link_hu_ed_http")
-    update_link_sock(param_co.state_hu["edge"]["sock_connected"], "link_hu_ed_sock")
-    update_link_sock(param_co.state_hu["velodium"]["sock_connected"], "link_hu_ve_sock")
-    update_link_con(param_co.state_hu["velodium"]["http_connected"], "link_hu_ve_http")
+    # module_edge
+    update_link_con(param_co.state_hu["train_operator"]["broker_connected"], "link_hu_sncf_mqtt")
+    update_link_con(param_co.state_hu["module_capture"]["http_connected"], "link_hu_py_http")
+    update_link_con(param_co.state_hu["edge_next"]["http_connected"], "link_hu_ed_http")
+    update_link_sock(param_co.state_hu["edge_next"]["sock_connected"], "link_hu_ed_sock")
+    update_link_sock(param_co.state_hu["component_process"]["sock_connected"], "link_hu_ve_sock")
+    update_link_con(param_co.state_hu["component_process"]["http_connected"], "link_hu_ve_http")
 
     # Edge
-    update_link_con(param_co.state_hu["edge"]["http_connected"], "link_ed_hu_http")
-    update_link_sock(param_co.state_hu["edge"]["sock_connected"], "link_ed_hu_sock")
+    update_link_con(param_co.state_hu["edge_next"]["http_connected"], "link_ed_hu_http")
+    update_link_sock(param_co.state_hu["edge_next"]["sock_connected"], "link_ed_hu_sock")
 
-    # Valeo
-    update_link_con(param_co.state_hu["valeo"]["http_connected"], "link_va_hu")
+    # cloud_car
+    update_link_con(param_co.state_hu["cloud_car"]["http_connected"], "link_va_hu")
 
     # AI
-    update_link_con(param_co.state_hu["ai"]["http_connected"], "link_ai_hu_http")
+    update_link_con(param_co.state_hu["component_ai"]["http_connected"], "link_ai_hu_http")
 
 def update_link_con(state, tag):
     if(state):

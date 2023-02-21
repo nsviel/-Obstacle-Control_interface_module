@@ -16,16 +16,16 @@ def update_scheme():
     update_status()
     update_ssd()
     update_train()
-    update_controlium()
-    update_velodium()
-    update_hubium()
-    update_edge()
-    update_pywardium()
+    update_module_interface()
+    update_component_process()
+    update_module_edge()
+    update_edge_next()
+    update_module_capture()
     update_data()
     update_network()
 
 def update_status():
-    dpg.set_value("sncf_status", param_co.status_sncf)
+    dpg.set_value("sncf_status", param_co.status_operator)
     dpg.set_value("ssd_status", param_co.status_ssd)
     dpg.set_value("co_status", param_co.status_co)
     dpg.set_value("ve_status", param_co.status_ve)
@@ -37,7 +37,7 @@ def update_status():
     on = scheme_color.color_buton_green()
     off = scheme_color.color_buton_red()
 
-    scheme_theme.colorize_status("sncf_status_but", param_co.status_sncf, on, off)
+    scheme_theme.colorize_status("sncf_status_but", param_co.status_operator, on, off)
     scheme_theme.colorize_status("ssd_status_but", param_co.status_ssd, on, off)
     scheme_theme.colorize_status("co_status_but", param_co.status_co, on, off)
     scheme_theme.colorize_status("ve_status_but", param_co.status_ve, on, off)
@@ -50,13 +50,13 @@ def update_status():
     scheme_theme.colorize_status("train_edge_but", param_co.status_py, on, off)
     scheme_theme.colorize_status("mongo_server_but", param_co.status_db, on, off)
 def update_add():
-    dpg.set_value("py_wallet", param_co.state_hu["pywardium"]["add"])
-    dpg.set_value("hu_wallet", param_co.state_co["hubium"]["add"])
-    dpg.set_value("ed_wallet", param_co.state_hu["edge"]["add"])
-    dpg.set_value("sncf_wallet", param_co.state_hu["sncf"]["add"])
+    dpg.set_value("py_wallet", param_co.state_hu["module_capture"]["add"])
+    dpg.set_value("hu_wallet", param_co.state_co["module_edge"]["add"])
+    dpg.set_value("ed_wallet", param_co.state_hu["edge_next"]["add"])
+    dpg.set_value("sncf_wallet", param_co.state_hu["train_operator"]["add"])
     dpg.set_value("l1_wallet", param_co.state_py["lidar_1"]["add"])
     dpg.set_value("l2_wallet", param_co.state_py["lidar_2"]["add"])
-    dpg.set_value("ve_wallet", param_co.state_hu["velodium"]["add"])
+    dpg.set_value("ve_wallet", param_co.state_hu["component_process"]["add"])
 def update_add_combo():
     dpg.configure_item("py_wallet", items=param_co.wallet_add)
     dpg.configure_item("hu_wallet", items=param_co.wallet_add)
@@ -83,26 +83,26 @@ def update_train():
     scheme_theme.colorize_onoff("l2_on", "l2_off", param_co.state_py["lidar_2"]["running"])
 
     dpg.set_value("geo_country", param_co.state_py["geolocalization"]["country"])
-def update_controlium():
+def update_module_interface():
     dpg.set_value("co_ip", param_co.state_co["self"]["ip"])
     dpg.set_value("co_thread", param_co.state_co["self"]["nb_thread"])
     dpg.set_value("co_sock_server_l1_port", param_co.state_co["self"]["sock_server_l1_port"])
     dpg.set_value("co_sock_server_l2_port", param_co.state_co["self"]["sock_server_l2_port"])
     dpg.set_value("co_temp", signal.get_temps_core(0))
-def update_hubium():
+def update_module_edge():
     dpg.set_value("hu_ip", param_co.state_hu["self"]["ip"])
     dpg.set_value("hu_thread", param_co.state_hu["self"]["nb_thread"])
 
     dpg.set_value("hu_country", param_co.state_hu["self"]["country"])
     dpg.set_value("hu_edge_id", param_co.state_hu["self"]["edge_id"])
-    dpg.set_value("ve_sock_server_port", param_co.state_hu["velodium"]["sock_server_port"])
-    dpg.set_value("ve_http_server_port", param_co.state_hu["velodium"]["http_server_port"])
-    dpg.set_value("ai_http_server_port", param_co.state_hu["ai"]["http_server_port"])
+    dpg.set_value("ve_sock_server_port", param_co.state_hu["component_process"]["sock_server_port"])
+    dpg.set_value("ve_http_server_port", param_co.state_hu["component_process"]["http_server_port"])
+    dpg.set_value("ai_http_server_port", param_co.state_hu["component_ai"]["http_server_port"])
     dpg.set_value("hu_sock_server_l1_port", param_co.state_hu["self"]["sock_server_l1_port"])
     dpg.set_value("hu_sock_server_l2_port", param_co.state_hu["self"]["sock_server_l2_port"])
     dpg.set_value("hu_http_server_port", param_co.state_hu["self"]["http_server_port"])
-    dpg.set_value("sncf_broker_port", param_co.state_hu["sncf"]["broker_port"])
-    dpg.set_value("sncf_mqtt_topic", param_co.state_hu["sncf"]["mqtt_topic"])
+    dpg.set_value("sncf_broker_port", param_co.state_hu["train_operator"]["broker_port"])
+    dpg.set_value("sncf_mqtt_topic", param_co.state_hu["train_operator"]["mqtt_topic"])
 
     if(param_co.state_hu["self"]["lidar_main"] == "lidar_1"):
         s1 = "lidar_1"
@@ -112,16 +112,16 @@ def update_hubium():
         s2 = "lidar_1"
     dpg.set_value("hu_sock_client_l1_combo_lidar_main", s1)
     dpg.set_value("hu_sock_client_l2_source", s2)
-def update_edge():
-    dpg.set_value("ed_ip", param_co.state_hu["edge"]["ip"])
+def update_edge_next():
+    dpg.set_value("ed_ip", param_co.state_hu["edge_next"]["ip"])
     #dpg.set_value("ed_country", param_co.state_hu["edge"]["country"])
     #dpg.set_value("ed_edge_id", param_co.state_hu["edge"]["edge_id"])
     dpg.set_value("ed_sock_server_port", param_co.state_hu["self"]["sock_server_l1_port"])
     dpg.set_value("ed_http_server_port", param_co.state_hu["self"]["http_server_port"])
-def update_velodium():
-    dpg.set_value("ve_ip", param_co.state_hu["velodium"]["ip"])
-def update_pywardium():
-    dpg.set_value("py_ip", param_co.state_hu["pywardium"]["ip"])
+def update_component_process():
+    dpg.set_value("ve_ip", param_co.state_hu["component_process"]["ip"])
+def update_module_capture():
+    dpg.set_value("py_ip", param_co.state_hu["module_capture"]["ip"])
     dpg.set_value("py_thread", param_co.state_py["self"]["nb_thread"])
     dpg.set_value("py_http_server_port", int(param_co.state_py["self"]["http_server_port"]))
     dpg.set_value("py_l1_port", param_co.state_py["self"]["l1_port"])
@@ -153,28 +153,28 @@ def update_network():
 def update_node_pos_dev():
     gui_width = param_co.state_co["gui"]["width"]
     gui_height = param_co.state_co["gui"]["height"]
-    coord_controlium = [1100, 600]
-    coord_pywardium = [250, 10]
-    coord_hubium = [725, 400]
+    coord_module_interface = [1100, 600]
+    coord_module_capture = [250, 10]
+    coord_module_edge = [725, 400]
     coord_train = [10, 10]
-    coord_edge = [1150, 215]
-    coord_velodium = [400, 510]
+    coord_edge_next = [1150, 215]
+    coord_component_process = [400, 510]
     coord_ai = [400, 745]
     coord_sncf = [1150, 50]
-    coord_valeo = [1150, 450]
+    coord_cloud_car = [1150, 450]
     coord_ssd = [1325, 600]
     coord_data = [650, 10]
     coord_network = [10, 510]
 
-    dpg.set_item_pos("node_co", coord_controlium)
-    dpg.set_item_pos("node_hu", coord_hubium)
-    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_co", coord_module_interface)
+    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
-    dpg.set_item_pos("node_ed", coord_edge)
-    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ed", coord_edge_next)
+    dpg.set_item_pos("node_ve", coord_component_process)
     dpg.set_item_pos("node_ai", coord_ai)
-    dpg.set_item_pos("node_sncf", coord_sncf)
-    dpg.set_item_pos("node_valeo", coord_valeo)
+    dpg.set_item_pos("node_operator", coord_sncf)
+    dpg.set_item_pos("node_cloud_car", coord_cloud_car)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_network", coord_network)
@@ -185,11 +185,11 @@ def update_node_pos_dev():
 def update_node_pos_demo_minimized():
     gui_width = 1350
     gui_height = 750
-    coord_controlium = [1175, 325]
-    coord_pywardium = [290, 100]
-    coord_hubium = [775, 425]
+    coord_module_interface = [1175, 325]
+    coord_module_capture = [290, 100]
+    coord_module_edge = [775, 425]
     coord_train = [25, 100]
-    coord_velodium = [850, 350]
+    coord_component_process = [850, 350]
     coord_ai = [850, 550]
     coord_sncf = [1110, 250]
     coord_ssd = [1400, 325]
@@ -204,13 +204,13 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_block_edge", coord_block_edge)
     dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
-    dpg.set_item_pos("node_co", coord_controlium)
-    dpg.set_item_pos("node_hu", coord_hubium)
-    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_co", coord_module_interface)
+    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
-    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ve", coord_component_process)
     dpg.set_item_pos("node_ai", coord_ai)
-    dpg.set_item_pos("node_sncf", coord_sncf)
+    dpg.set_item_pos("node_operator", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_network", coord_network)
@@ -221,11 +221,11 @@ def update_node_pos_demo_minimized():
 def update_node_pos_demo_fullscreen():
     gui_width = 1875
     gui_height = 1040
-    coord_controlium = [1175, 325]
-    coord_pywardium = [290, 150]
-    coord_hubium = [875, 525]
+    coord_module_interface = [1175, 325]
+    coord_module_capture = [290, 150]
+    coord_module_edge = [875, 525]
     coord_train = [50, 150]
-    coord_velodium = [850, 350]
+    coord_component_process = [850, 350]
     coord_ai = [850, 550]
     coord_sncf = [1485, 250]
     coord_ssd = [1400, 325]
@@ -240,13 +240,13 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_block_edge", coord_block_edge)
     dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
-    dpg.set_item_pos("node_co", coord_controlium)
-    dpg.set_item_pos("node_hu", coord_hubium)
-    dpg.set_item_pos("node_py", coord_pywardium)
+    dpg.set_item_pos("node_co", coord_module_interface)
+    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
-    dpg.set_item_pos("node_ve", coord_velodium)
+    dpg.set_item_pos("node_ve", coord_component_process)
     dpg.set_item_pos("node_ai", coord_ai)
-    dpg.set_item_pos("node_sncf", coord_sncf)
+    dpg.set_item_pos("node_operator", coord_sncf)
     dpg.set_item_pos("node_ssd", coord_ssd)
     dpg.set_item_pos("node_data", coord_data)
     dpg.set_item_pos("node_network", coord_network)

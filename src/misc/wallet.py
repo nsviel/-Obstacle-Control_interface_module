@@ -53,10 +53,10 @@ def write_wallet():
         file.write("\n")
 
 def determine_adresse():
-    param_co.state_co["hubium"]["add"] = get_key_from_ip(param_co.state_co["hubium"]["ip"])
-    param_co.state_hu["edge"]["add"] = get_key_from_ip(param_co.state_hu["edge"]["ip"])
-    param_co.state_hu["sncf"]["add"] = get_key_from_ip(param_co.state_hu["sncf"]["broker_ip"])
-    param_co.state_hu["pywardium"]["add"] = get_key_from_ip(param_co.state_hu["pywardium"]["ip"])
+    param_co.state_co["module_edge"]["add"] = get_key_from_ip(param_co.state_co["module_edge"]["ip"])
+    param_co.state_hu["edge_next"]["add"] = get_key_from_ip(param_co.state_hu["edge_next"]["ip"])
+    param_co.state_hu["train_operator"]["add"] = get_key_from_ip(param_co.state_hu["train_operator"]["broker_ip"])
+    param_co.state_hu["module_capture"]["add"] = get_key_from_ip(param_co.state_hu["module_capture"]["ip"])
     param_co.state_py["lidar_1"]["add"] = get_key_from_ip(param_co.state_py["lidar_1"]["ip"])
     param_co.state_py["lidar_2"]["add"] = get_key_from_ip(param_co.state_py["lidar_2"]["ip"])
     parser_json.upload_state()
