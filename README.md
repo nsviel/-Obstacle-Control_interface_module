@@ -1,6 +1,8 @@
 # [Obstacle] Control Interface Module
 
+A GUI which allows to control the entire system parameters and LiDAR state. A visual data and module representation which colored connection links permits to get a constant overall indicator of the system correct functioning.
 
+![interface](https://user-images.githubusercontent.com/80487132/220367992-841cc94d-d435-4f4b-b6bd-a337ed361d89.png)
 
 ## Screenshot
 
@@ -75,12 +77,14 @@ cd docker
 
 </details>
 
-<details><summary>Links</summary>
+## System
 
-Full system repository: [link](https://github.com/nsviel/Obstacle_System)<br />
-- [ ] Data acquisition module: [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module)
-- [x] Control Interface module
-- [ ] Edge orchestrator module: [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module)
-  - [ ] Data processing component: [link](https://github.com/nsviel/Velodium)
+Full system repository ( [link](https://github.com/nsviel/Obstacle_System) )
+- [ ] Data acquisition module ( [link](https://github.com/nsviel/Obstacle-Data_Acquisition_Module) )
+- [ ] Edge server module 
+  - [ ] Edge orchestrator component ( [link](https://github.com/nsviel/Obstacle-Edge_Orchestration_Module) )
+  - [ ] Data processing component ( [link](https://github.com/nsviel/Velodium) )
+  - [ ] AI component
+- [x] Control interface module
 
 </details>
