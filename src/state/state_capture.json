@@ -1,6 +1,6 @@
 {
     "self": {
-        "ip": "192.168.152.67",
+        "ip": "192.168.153.195",
         "nb_thread": 6,
         "l1_port": 8308,
         "l2_port": 8309,
@@ -52,9 +52,9 @@
             "sent": 0
         }
     },
-    "module_edge": {
-        "connected": false,
-        "ip": "192.168.152.67",
+    "edge": {
+        "connected": true,
+        "ip": "192.168.153.195",
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443

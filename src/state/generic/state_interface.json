@@ -18,7 +18,7 @@
         "space_total": 0,
         "space_used": 0
     },
-    "module_edge": {
+    "edge": {
         "add": "mine_fixe_nsv",
         "ip": "127.0.0.1",
         "http_connected": true,

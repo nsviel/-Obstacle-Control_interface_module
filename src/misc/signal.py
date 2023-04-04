@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.misc import terminal
 
 import socket
@@ -16,7 +16,7 @@ import psutil
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    param_co.run_loop = False
+    param_interface.run_loop = False
 
 signal.signal(signal.SIGINT, handler)
 
@@ -24,7 +24,7 @@ def system_clear():
     os.system('clear')
 
 def update_nb_thread():
-    param_co.state_co["self"]["nb_thread"] = threading.active_count()
+    param_interface.state_interface["self"]["nb_thread"] = threading.active_count()
 
 def check_for_root():
     if not os.geteuid() == 0:
@@ -47,11 +47,11 @@ def system_information(prog_name):
     except:
         OS = platform.system()
 
-    if(param_co.status_ui == "param"):
+    if(param_interface.status_ui == "param"):
         mode_name = "Parametrization"
-    elif(param_co.status_ui == "overview"):
+    elif(param_interface.status_ui == "overview"):
         mode_name = "Overview"
-    elif(param_co.status_ui == "fullscreen"):
+    elif(param_interface.status_ui == "fullscreen"):
         mode_name = "Overview fullscreen"
 
     #Header
@@ -75,13 +75,13 @@ def manage_args():
     args = parser.parse_args()
 
     if(args.param):
-        param_co.status_ui = "param"
+        param_interface.status_ui = "param"
     elif(args.overview or args.demo):
-        param_co.status_ui = "overview"
+        param_interface.status_ui = "overview"
     elif(args.fullscreen):
-        param_co.status_ui = "overview_fullscreen"
+        param_interface.status_ui = "overview_fullscreen"
     else:
-        param_co.status_ui = "param"
+        param_interface.status_ui = "param"
 
 def get_temps_core(number):
     temp = psutil.sensors_temperatures()

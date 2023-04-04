@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.SOCK import sock_server_fct
 from src.misc import terminal
 
@@ -15,7 +15,7 @@ def start_daemon():
     terminal.addDaemon("#", "ON", "Socket server")
 
 def stop_daemon():
-    param_co.run_thread_socket = False
+    param_interface.run_thread_socket = False
     terminal.addDaemon("#", "OFF", "Socket server")
 
 def restart_daemon():

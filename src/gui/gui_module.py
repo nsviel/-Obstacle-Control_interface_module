@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.gui import gui_callback
 
 import dearpygui.dearpygui as dpg

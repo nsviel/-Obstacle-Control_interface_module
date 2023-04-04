@@ -1,15 +1,15 @@
 #---------------------------------------------
 # Possible POST command:
-# - /sncf_param
-# - /hu_state
-# - /py_state
-# - /hu_param
-# - /py_param
-# - /ve_param
+# - /trainope_param
+# - /edge_state
+# - /capture_state
+# - /edge_param
+# - /capture_param
+# - /processing_param
 # - /ai_param
 #---------------------------------------------
 
-from src.param import param_co
+from src.param import param_interface
 from src.HTTPS import https_client_fct
 from src.misc import terminal
 

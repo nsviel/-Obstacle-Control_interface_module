@@ -1,12 +1,12 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 import dearpygui.dearpygui as dpg
 
 
 def gui_font():
     with dpg.font_registry():
-        param_co.gui_font_def = dpg.add_font("src/gui/font/ProggyClean.ttf", 13)
-        param_co.gui_font_big = dpg.add_font("src/gui/font/DroidSans.ttf", 25)
+        param_interface.gui_font_def = dpg.add_font("src/gui/font/ProggyClean.ttf", 13)
+        param_interface.gui_font_big = dpg.add_font("src/gui/font/DroidSans.ttf", 25)
 
 def gui_window():
     layer_window = color_window()

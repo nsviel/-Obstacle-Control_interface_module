@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.HTTPS import https_client_post
 from src.misc import wallet
 from src.gui import gui_wallet
@@ -14,7 +14,7 @@ def callback_demo():
     demo.show_demo()
 
 def callback_close():
-    param_co.run_loop = False
+    param_interface.run_loop = False
 
 def callback_wallet_add():
     new_add = dpg.get_value("wallet_new_add")
@@ -27,13 +27,13 @@ def callback_wallet_add():
     scheme_update.update_add_combo()
 
 def callback_wallet_remove(sender):
-    wallet.remove_item_id(sender)
+    wallet.remoprocessing_item_id(sender)
     gui_wallet.destroy_table()
     gui_wallet.build_table()
     scheme_update.update_add_combo()
 
 def callback_mode_dev():
-    param_co.status_ui = "param"
+    param_interface.status_ui = "param"
     scheme_visibility.set_mode()
 
 def callback_mode_demo_minimized():
@@ -43,14 +43,14 @@ def callback_mode_demo_minimized():
     dpg.hide_item("node_operator")
     dpg.hide_item("node_train")
     dpg.render_dearpygui_frame()
-    param_co.status_ui = "overview"
+    param_interface.status_ui = "overview"
     scheme_visibility.set_mode()
 
 def callback_mode_demo_fullscreen():
-    param_co.status_ui = "overview_fullscreen"
+    param_interface.status_ui = "overview_fullscreen"
     scheme_visibility.set_mode()
 
 def callback_with_iperf():
     with_iperf = dpg.get_value("iperf_activated")
-    https_client_post.post_param_value("py", "perf", "iperf_activated", with_iperf)
-    https_client_post.post_param_value("hu", "perf", "iperf_activated", with_iperf)
+    https_client_post.post_param_value("acquisition", "network", "iperf_activated", with_iperf)
+    https_client_post.post_param_value("edge", "network", "iperf_activated", with_iperf)

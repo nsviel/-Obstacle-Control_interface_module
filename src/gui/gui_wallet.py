@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 
 from src.gui import gui_callback
 
@@ -25,9 +25,9 @@ def build_table():
         dpg.add_table_column(label="Address")
         dpg.add_table_column(label="IP")
         dpg.add_table_column(label="", width_fixed=True, init_width_or_weight=20)
-        for i in range(len(param_co.wallet_add)):
+        for i in range(len(param_interface.wallet_add)):
             with dpg.table_row():
-                dpg.add_text(param_co.wallet_add[i])
-                dpg.add_text(param_co.wallet_ip[i])
+                dpg.add_text(param_interface.wallet_add[i])
+                dpg.add_text(param_interface.wallet_ip[i])
                 if(i > 5):
                     dpg.add_button(label="X", tag=str(i), callback=gui_callback.callback_wallet_remove)

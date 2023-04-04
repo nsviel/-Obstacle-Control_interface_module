@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.scheme import scheme_callback
 from src.scheme import scheme_com
 from src.scheme import scheme_com_lidar
@@ -91,14 +91,14 @@ def add_ip_wallet(tag_wallet, tag_ip, default, visible):
         with dpg.group(tag=visible):
             with dpg.group(horizontal=True):
                 dpg.add_text("Add:");
-                dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_com.command_comboip)
+                dpg.add_combo(param_interface.wallet_add, tag=tag_wallet, label="", default_value=default, width=120, callback=scheme_com.command_comboip)
             with dpg.group(horizontal=True):
                 dpg.add_text("IP:");
                 dpg.add_text("127.0.0.1", tag=tag_ip, color=color_info);
 def add_plot(label, tag_y, tag_plot, tag_visible):
     x = []
     y = []
-    for i in range(0, param_co.nb_tic):
+    for i in range(0, param_interface.nb_tic):
         x.append(i)
         y.append(0)
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static, tag=tag_visible):
@@ -208,11 +208,11 @@ def add_port_hu(tag_port, tag_visible):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
             dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_module_edge);
-def add_port_sncf(tag_port, tag_visible):
+def add_port_trainope(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Port:");
-            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_sncf);
+            dpg.add_input_int(tag=tag_port, default_value=1, width=100, callback=scheme_callback.callback_trainope);
 def add_port_py(tag_port, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
@@ -258,7 +258,7 @@ def add_lidar_add(tag_wallet, tag_ip, tag_visibility):
     with dpg.node_attribute(tag=tag_visibility, attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True):
             dpg.add_text("Add:");
-            dpg.add_combo(param_co.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_com.command_comboip)
+            dpg.add_combo(param_interface.wallet_add, tag=tag_wallet, label="", default_value="-", width=120, callback=scheme_com.command_comboip)
         with dpg.group(horizontal=True):
             dpg.add_text("IP:");
             dpg.add_input_text(tag=tag_ip, label="", default_value="", width=150, callback=scheme_callback.callback_module_capture);
@@ -361,12 +361,12 @@ def add_mqtt(tag_client, tag_name, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Name");
-            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
+            dpg.add_input_text(tag=tag_name, default_value="ai_module", width=100, on_enter=True, callback=scheme_callback.callback_trainope)
 def add_mqtt_topic(tag_topic, tag_visible):
     with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
         with dpg.group(horizontal=True, tag=tag_visible):
             dpg.add_text("Topic");
-            dpg.add_input_text(tag=tag_topic, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_sncf)
+            dpg.add_input_text(tag=tag_topic, default_value="-", width=100, on_enter=True, callback=scheme_callback.callback_trainope)
 
 # SSD stuff
 def add_ssd_active(tag_active):

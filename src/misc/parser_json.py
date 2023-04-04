@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 
 import json
 import os
@@ -42,8 +42,8 @@ def upload_file(path, data):
     json.dump(data, file, indent=4)
 
 def upload_state():
-    file = open(param_co.path_state_co, "w")
-    json.dump(param_co.state_co, file, indent=4)
+    file = open(param_interface.path_state_co, "w")
+    json.dump(param_interface.state_interface, file, indent=4)
 
 def update_state_file(path, data):
     if(len(data) != 0):

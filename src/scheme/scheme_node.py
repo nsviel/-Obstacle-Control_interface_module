@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.scheme import scheme_function
 from src.scheme import scheme_connection
 from src.scheme import scheme_callback
@@ -29,63 +29,63 @@ def create_node():
 
 def node_module_interface():
     with dpg.node(label="System control interface", tag="node_co"):
-        scheme_function.add_status_o("co_input", "co_status_but", "co_status")
-        scheme_function.add_ip("co_ip")
-        scheme_function.add_nb_thread("co_thread", "co_thread_visible")
-        scheme_function.add_temperature("co_temp", "co_temp_visibile")
+        scheme_function.add_status_o("interface_input", "interface_status_but", "interface_status")
+        scheme_function.add_ip("interface_ip")
+        scheme_function.add_nb_thread("interface_thread", "interface_thread_visible")
+        scheme_function.add_temperature("interface_temp", "interface_temp_visibile")
 
         scheme_function.add_choice_edge("combo_edge")
 
-        scheme_connection.add_http_client_i("co_http_client")
+        scheme_connection.add_http_client_i("interface_http_client")
 
-        scheme_connection.add_sock_server_i("co_sock_server_l1")
-        scheme_function.add_port_co("co_sock_server_l1_port", "co_port_l1_visible")
+        scheme_connection.add_sock_server_i("interface_sock_server_l1")
+        scheme_function.add_port_co("interface_sock_server_l1_port", "interface_port_l1_visible")
 
-        scheme_connection.add_sock_server_i("co_sock_server_l2")
-        scheme_function.add_port_co("co_sock_server_l2_port", "co_port_l2_visible")
+        scheme_connection.add_sock_server_i("interface_sock_server_l2")
+        scheme_function.add_port_co("interface_sock_server_l2_port", "interface_port_l2_visible")
 
 def node_module_capture():
     with dpg.node(label="Data acquisition", tag="node_py"):
         scheme_function.add_image("icon_computer", "icon_computer_visible")
 
-        scheme_function.add_status_i("py_input", "py_status_but", "py_status")
-        scheme_function.add_ip_wallet("py_wallet", "py_ip", "-", "py_ip_visible")
-        scheme_function.add_nb_thread("py_thread", "py_thread_visible")
+        scheme_function.add_status_i("capture_input", "capture_status_but", "capture_status")
+        scheme_function.add_ip_wallet("capture_wallet", "capture_ip", "-", "capture_ip_visible")
+        scheme_function.add_nb_thread("capture_thread", "capture_thread_visible")
 
         #scheme_function.add_iperf_py()
 
-        scheme_function.add_port_fixe_i("py_l1_in", "py_l1_port", "py_l1_port_visible")
-        scheme_connection.add_sock_client_o_("py_l1_out")
-        scheme_function.add_port_fixe_i("py_l2_in", "py_l2_port", "py_l2_port_visible")
-        scheme_connection.add_sock_client_o_("py_l2_out")
+        scheme_function.add_port_fixe_i("capture_l1_in", "capture_l1_port", "capture_l1_port_visible")
+        scheme_connection.add_sock_client_o_("capture_l1_out")
+        scheme_function.add_port_fixe_i("capture_l2_in", "capture_l2_port", "capture_l2_port_visible")
+        scheme_connection.add_sock_client_o_("capture_l2_out")
 
-        scheme_function.add_lidar_device("py_l1_device", "py_l2_device", "py_lidar_dev_visible")
+        scheme_function.add_lidar_device("capture_l1_device", "capture_l2_device", "capture_lidar_dev_visible")
 
-        scheme_connection.add_http_server_o("py_http_server")
-        scheme_function.add_port_fixe("py_http_server_port", "py_http_port_visible")
+        scheme_connection.add_http_server_o("capture_http_server")
+        scheme_function.add_port_fixe("capture_http_server_port", "capture_http_port_visible")
 
 def node_module_edge():
     with dpg.node(label="Edge orchestrator", tag="node_hu"):
-        scheme_function.add_status("hu_status_but", "hu_status")
-        scheme_function.add_ip_wallet("hu_wallet", "hu_ip", param_co.state_co["module_edge"]["add"], "hu_ip_visible")
-        scheme_function.add_nb_thread("hu_thread", "hu_thread_visible")
+        scheme_function.add_status("edge_status_but", "edge_status")
+        scheme_function.add_ip_wallet("edge_wallet", "edge_ip", param_interface.state_interface["edge"]["add"], "edge_ip_visible")
+        scheme_function.add_nb_thread("edge_thread", "edge_thread_visible")
 
-        scheme_function.add_edge_id("hu_edge_id", "hu_edge_id_visible")
-        scheme_function.add_country("hu_country")
-        scheme_function.add_mqtt("hu_mqtt_client", "hu_mqtt_client_name", "hu_mqtt_visible")
+        scheme_function.add_edge_id("edge_edge_id", "edge_edge_id_visible")
+        scheme_function.add_country("edge_country")
+        scheme_function.add_mqtt("edge_mqtt_client", "edge_mqtt_client_name", "edge_mqtt_visible")
         scheme_function.add_false_alarm()
 
-        scheme_connection.add_sock_server_io("hu_sock_server_l1_i", "hu_sock_server_l1_o")
-        scheme_function.add_port_hu("hu_sock_server_l1_port", "hu_port_l1_visible")
-        scheme_connection.add_sock_server_i("hu_sock_server_l2_i")
-        scheme_function.add_port_hu("hu_sock_server_l2_port", "hu_port_l2_visible")
+        scheme_connection.add_sock_server_io("edge_sock_server_l1_i", "edge_sock_server_l1_o")
+        scheme_function.add_port_hu("edge_sock_server_l1_port", "edge_port_l1_visible")
+        scheme_connection.add_sock_server_i("edge_sock_server_l2_i")
+        scheme_function.add_port_hu("edge_sock_server_l2_port", "edge_port_l2_visible")
 
-        scheme_connection.add_sock_client_source_io("hu_sock_client_l1_i", "hu_sock_client_l1_o", "hu_sock_client_l1_combo_lidar_main", "hu_src_1", "hu_src_2")
-        scheme_connection.add_sock_client_source_o("hu_sock_client_l2_o", "hu_sock_client_l2_source")
+        scheme_connection.add_sock_client_source_io("edge_sock_client_l1_i", "edge_sock_client_l1_o", "edge_sock_client_l1_combo_lidar_main", "edge_src_1", "edge_src_2")
+        scheme_connection.add_sock_client_source_o("edge_sock_client_l2_o", "edge_sock_client_l2_source")
 
-        scheme_connection.add_http_client_io("hu_http_client_i", "hu_http_client_o")
-        scheme_connection.add_http_server_o("hu_http_server_o")
-        scheme_function.add_port_fixe("hu_http_server_port", "hu_http_port_visible")
+        scheme_connection.add_http_client_io("edge_http_client_i", "edge_http_client_o")
+        scheme_connection.add_http_server_o("edge_http_server_o")
+        scheme_function.add_port_fixe("edge_http_server_port", "edge_http_port_visible")
 
 def node_train():
     with dpg.node(label="LiDAR", tag="node_train"):
@@ -97,7 +97,7 @@ def node_train():
         scheme_function.add_l1_motor("l1_on", "l1_off", "l1_motor_visible")
         scheme_function.add_lidar_add("l1_wallet", "l1_ip", "l1_params_visible")
         scheme_function.add_port_lidar("l1_port", "l1_port_visible")
-        scheme_function.add_l1_speed("l1_speed", "l1_speed_visible")
+        scheme_function.add_l1_speed("l1_speed", "l1_speedgenext_visible")
         scheme_function.add_lidar_stat("l1_packet", "l1_tgp_val", "l1_tgp_range", "l1_perf_visible")
 
         scheme_function.line_tagged("l2_line_visible")
@@ -105,34 +105,34 @@ def node_train():
         scheme_function.add_l2_motor("l2_on", "l2_off", "l2_motor_visible")
         scheme_function.add_lidar_add("l2_wallet", "l2_ip", "l2_params_visible")
         scheme_function.add_port_lidar("l2_port", "l2_port_visible")
-        scheme_function.add_l2_speed("l2_speed", "l2_speed_visible")
+        scheme_function.add_l2_speed("l2_speed", "l2_speedgenext_visible")
         scheme_function.add_lidar_stat("l2_packet", "l2_tgp_val", "l2_tgp_range", "l2_perf_visible")
 
 def node_edge_next():
     with dpg.node(label="Edge", tag="node_ed"):
-        scheme_function.add_status("ed_status_but", "ed_status")
-        scheme_function.add_ip_wallet("ed_wallet", "ed_ip", param_co.state_hu["edge_next"]["add"], "ed_ip_visible")
-        #scheme_function.add_edge_id("ed_edge_id")
-        #scheme_function.add_country("ed_country")
+        scheme_function.add_status("edgenext_status_but", "edgenext_status")
+        scheme_function.add_ip_wallet("edgenext_wallet", "edgenext_ip", param_interface.state_edge["edge_next"]["add"], "edgenext_ip_visible")
+        #scheme_function.add_edge_id("edgenext_edge_id")
+        #scheme_function.add_country("edgenext_country")
 
-        scheme_connection.add_sock_client_i("ed_sock_client")
+        scheme_connection.add_sock_client_i("edgenext_sock_client")
 
-        scheme_connection.add_sock_server_i("ed_sock_server")
-        scheme_function.add_port_fixe("ed_sock_server_port", "ed_sock_port_visible")
+        scheme_connection.add_sock_server_i("edgenext_sock_server")
+        scheme_function.add_port_fixe("edgenext_sock_server_port", "edgenext_sock_port_visible")
 
-        scheme_connection.add_http_client_i("ed_http_client")
-        scheme_connection.add_http_server_i("ed_http_server")
-        scheme_function.add_port_fixe("ed_http_server_port", "ed_http_port_visible")
+        scheme_connection.add_http_client_i("edgenext_http_client")
+        scheme_connection.add_http_server_i("edgenext_http_server")
+        scheme_function.add_port_fixe("edgenext_http_server_port", "edgenext_http_port_visible")
 
 def node_ve():
     with dpg.node(label="Data processing", tag="node_ve"):
-        scheme_function.add_status("ve_status_but", "ve_status")
-        scheme_function.add_ip_wallet("ve_wallet", "ve_ip", "localhost", "ve_ip_visible")
-        scheme_function.add_velo_option("ve_opt_slam", "ve_opt_view", "ve_opt_reset")
-        scheme_connection.add_sock_server_o("ve_sock_server")
-        scheme_function.add_port_fixe("ve_sock_server_port", "ve_sock_port_visible")
-        scheme_connection.add_http_server_o("ve_http_server")
-        scheme_function.add_port_fixe("ve_http_server_port", "ve_http_port_visible")
+        scheme_function.add_status("processing_status_but", "processing_status")
+        scheme_function.add_ip_wallet("processing_wallet", "processing_ip", "localhost", "processing_ip_visible")
+        scheme_function.add_velo_option("processing_opt_slam", "processing_opt_view", "processing_opt_reset")
+        scheme_connection.add_sock_server_o("processing_sock_server")
+        scheme_function.add_port_fixe("processing_sock_server_port", "processing_sock_port_visible")
+        scheme_connection.add_http_server_o("processing_http_server")
+        scheme_function.add_port_fixe("processing_http_server_port", "processing_http_port_visible")
 
 def node_ai():
     with dpg.node(label="AI", tag="node_ai"):
@@ -145,11 +145,11 @@ def node_ai():
 
 def node_operator():
     with dpg.node(label="Train operator", tag="node_operator"):
-        scheme_function.add_status("sncf_status_but", "sncf_status")
-        scheme_function.add_ip_wallet("sncf_wallet", "ip_operator", param_co.state_hu["train_operator"]["add"], "ip_operator_visible")
-        scheme_function.add_input("MQTT", "sncf_mqtt_broker")
-        scheme_function.add_port_sncf("sncf_broker_port", "ai_sncf_port_visible")
-        scheme_function.add_mqtt_topic("sncf_mqtt_topic", "sncf_mqtt_topic_visible")
+        scheme_function.add_status("trainope_status_but", "trainope_status")
+        scheme_function.add_ip_wallet("trainope_wallet", "ip_operator", param_interface.state_edge["train_operator"]["add"], "ip_operator_visible")
+        scheme_function.add_input("MQTT", "trainope_mqtt_broker")
+        scheme_function.add_port_trainope("trainope_broker_port", "ai_trainope_port_visible")
+        scheme_function.add_mqtt_topic("trainope_mqtt_topic", "trainope_mqtt_topic_visible")
 
 def node_cloud_car():
     with dpg.node(label="cloud_car", tag="node_cloud_car"):

@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 from src.SOCK import sock_server
 from src.DHCP import dhcp_client
 
@@ -24,7 +24,7 @@ def init():
     terminal.addLine()
 
 def loop():
-    time.sleep(param_co.tic_loop)
+    time.sleep(param_interface.tic_loop)
 
 def end():
     terminal.shutdown()

@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 
 from src.HTTPS import https_client_con
 from src.HTTPS import https_client_get
@@ -20,25 +20,25 @@ import socket
 
 
 def start_daemon():
-    param_co.run_thread_con = True
+    param_interface.run_thread_con = True
     thread_con = threading.Thread(target = thread_test_connection)
     thread_con.start()
     terminal.addDaemon("#", "ON", "Connection tests")
 
 def stop_daemon():
-    param_co.run_thread_con = False
+    param_interface.run_thread_con = False
     terminal.addDaemon("#", "OFF", "Connection tests")
 
 def thread_test_connection():
-    while param_co.run_thread_con:
+    while param_interface.run_thread_con:
         # Test connections
-        https_client_con.test_hu_con()
+        https_client_con.test_edge_con()
         saving.test_ssd_con()
 
         # Update state
-        https_client_get.get_state("hu")
-        https_client_get.get_state("py")
-        https_client_get.get_state("perf")
+        https_client_get.get_state("edge")
+        https_client_get.get_state("acquisition")
+        https_client_get.get_state("network")
         state.update_state()
         parser_json.upload_state()
 
@@ -48,7 +48,7 @@ def thread_test_connection():
         scheme_loop.loop()
 
         # Wait for 1 second
-        time.sleep(param_co.tic_connection)
+        time.sleep(param_interface.tic_connection)
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

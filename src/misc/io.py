@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_co
+from src.param import param_interface
 
 from scapy.all import *
 
@@ -8,8 +8,8 @@ import pcapy
 
 
 def write_lidar_data(path, packet):
-    activated = param_co.state_co["ssd"]["activated"]
-    connected = param_co.state_co["ssd"]["connected"]
+    activated = param_interface.state_interface["ssd"]["activated"]
+    connected = param_interface.state_interface["ssd"]["connected"]
     if(activated and connected and len(packet) == 1206):
         wrpcap(path, packet, append=True)
 
@@ -32,7 +32,7 @@ def get_size_Gb(path):
         return 0
 
 def get_list_device_from_state():
-    array = param_co.state_py["device"]
+    array = param_interface.state_capture["device"]
     a= list()
     for key, value in array.items():
         a.append(str(value))
