@@ -23,7 +23,7 @@
         "ip": "127.0.0.1",
         "http_connected": true,
         "http_server_port": 443,
-        "sock_l1_connected": false,
+        "sock_l1_connected": true,
         "sock_l2_connected": false
     },
     "path": {
@@ -31,9 +31,9 @@
         "dir_l1": "/app/lidar_ssd/capture/lidar_1",
         "dir_l2": "/app/lidar_ssd/capture/lidar_2",
         "file_name_add": "",
-        "file_name": "_04-04-2023_16h50.pcap",
-        "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_04-04-2023_16h50.pcap",
-        "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_04-04-2023_16h50.pcap",
+        "file_name": "_04-04-2023_17h11.pcap",
+        "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_04-04-2023_17h11.pcap",
+        "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_04-04-2023_17h11.pcap",
         "bandwidth": 0
     }
 }

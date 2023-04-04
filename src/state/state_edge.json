@@ -1,7 +1,7 @@
 {
     "self": {
         "ip": "192.168.153.141",
-        "nb_thread": 8,
+        "nb_thread": 9,
         "country": "France",
         "edge_id": 0,
         "lidar_main": "lidar_2",
@@ -15,7 +15,7 @@
         "http_connected": true,
         "http_server_port": 314,
         "sock_l1_connected": false,
-        "sock_l2_connected": false
+        "sock_l2_connected": true
     },
     "module_interface": {
         "ip": "192.168.153.141",
@@ -58,7 +58,7 @@
         "sock_l2_connected": false
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 40,
         "nb_prediction": 0
     }
 }

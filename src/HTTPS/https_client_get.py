@@ -22,7 +22,7 @@ def get_state(dest):
             if(dest == "edge"):
                 parser_json.update_state_file(param_interface.path_state_hu, data)
                 param_interface.state_edge = json.loads(data)
-            elif(dest == "acquisition"):
+            elif(dest == "capture"):
                 parser_json.update_state_file(param_interface.path_state_py, data)
                 param_interface.state_capture = json.loads(data)
             elif(dest == "network"):

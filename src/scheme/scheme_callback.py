@@ -42,7 +42,7 @@ def callback_module_capture():
     param_interface.state_capture["lidar_2"]["ip"] = dpg.get_value("l2_ip")
     param_interface.state_capture["lidar_2"]["speed"] = dpg.get_value("l2_speed")
     param_interface.state_capture["lidar_2"]["device"] = dpg.get_value("capture_l2_device")
-    https_client_post.post_state("acquisition", param_interface.state_capture)
+    https_client_post.post_state("capture", param_interface.state_capture)
 
 def callback_component_process():
     https_client_post.post_param_value("ve", None, "slam", dpg.get_value("processing_opt_slam"))
@@ -62,4 +62,4 @@ def callback_ssd():
 def callback_lidar():
     param_interface.state_capture["lidar_1"]["port"] = dpg.get_value("l1_port")
     param_interface.state_capture["lidar_2"]["port"] = dpg.get_value("l2_port")
-    https_client_post.post_state("acquisition", param_interface.state_capture)
+    https_client_post.post_state("capture", param_interface.state_capture)

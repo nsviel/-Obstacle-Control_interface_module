@@ -52,5 +52,5 @@ def callback_mode_demo_fullscreen():
 
 def callback_with_iperf():
     with_iperf = dpg.get_value("iperf_activated")
-    https_client_post.post_param_value("acquisition", "network", "iperf_activated", with_iperf)
+    https_client_post.post_param_value("capture", "network", "iperf_activated", with_iperf)
     https_client_post.post_param_value("edge", "network", "iperf_activated", with_iperf)

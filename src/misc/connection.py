@@ -37,7 +37,7 @@ def thread_test_connection():
 
         # Update state
         https_client_get.get_state("edge")
-        https_client_get.get_state("acquisition")
+        https_client_get.get_state("capture")
         https_client_get.get_state("network")
         state.update_state()
         parser_json.upload_state()

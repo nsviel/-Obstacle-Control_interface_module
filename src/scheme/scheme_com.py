@@ -36,7 +36,7 @@ def command_comboip():
         param_interface.state_interface["edge"]["ip"] = edge_ip
         dpg.set_value("edge_ip", edge_ip)
         https_client_con.test_edge_con()
-        https_client_post.post_param_value("acquisition", "edge", "ip", edge_ip)
+        https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
     if(capture_ip != None):
         param_interface.state_edge["module_capture"]["ip"] = capture_ip
         dpg.set_value("capture_ip", capture_ip)
@@ -60,8 +60,8 @@ def command_comboip():
     if(l1_ip != None):
         param_interface.state_capture["lidar_1"]["ip"] = l1_ip
         dpg.set_value("l1_ip", l1_ip)
-        https_client_post.post_param_value("acquisition", "lidar_1", "ip", l1_ip)
+        https_client_post.post_param_value("capture", "lidar_1", "ip", l1_ip)
     if(l2_ip != None):
         param_interface.state_capture["lidar_2"]["ip"] = l2_ip
         dpg.set_value("l2_ip", l2_ip)
-        https_client_post.post_param_value("acquisition", "lidar_2", "ip", l2_ip)
+        https_client_post.post_param_value("capture", "lidar_2", "ip", l2_ip)
