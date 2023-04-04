@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xhost + >/dev/null
-docker run \
+sudo docker run \
     --network host \
     -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
