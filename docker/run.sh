@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xhost + >/dev/null
-sudo docker run \
+docker run \
     --network host \
     -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
@@ -10,5 +10,5 @@ sudo docker run \
     --env=DISPLAY=$DISPLAY \
     -p 321:321 \
     -p 322:322 \
-    module_interface
+    interface
 xhost - >/dev/null
