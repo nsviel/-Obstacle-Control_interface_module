@@ -29,6 +29,7 @@ def get_state(dest):
                 parser_json.update_state_file(param_interface.path_state_perf, data)
                 param_interface.state_network = json.loads(data)
         except:
+            print("get state marche pas")
             pass
 
 def get_image(dest):

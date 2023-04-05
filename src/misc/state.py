@@ -80,10 +80,10 @@ def upload_state():
     parser_json.upload_file(param_interface.path_state_co, param_interface.state_interface)
 
 def update_state():
-    param_interface.status_co = "Offline"
+    param_interface.status_interface = "Offline"
     param_interface.status_hu = "Offline"
     param_interface.status_py = "Offline"
-    param_interface.status_ve = "Offline"
+    param_interface.status_processing = "Offline"
     param_interface.status_ai = "Offline"
     param_interface.status_ed = "Offline"
     param_interface.status_ssd = "Offline"
@@ -92,7 +92,7 @@ def update_state():
     param_interface.status_l2 = "Offline"
     param_interface.status_db = "Offline"
 
-    param_interface.status_co = "Online"
+    param_interface.status_interface = "Online"
     if(param_interface.state_interface["ssd"]["connected"]):
         param_interface.status_ssd = "Online"
     if(param_interface.state_interface["edge"]["http_connected"]):
@@ -106,7 +106,7 @@ def update_state():
         if(param_interface.state_edge["component_ai"]["http_connected"]):
             param_interface.status_ai = "Online"
         if(param_interface.state_edge["component_process"]["http_connected"]):
-            param_interface.status_ve = "Online"
+            param_interface.status_processing = "Online"
         if(param_interface.state_edge["edge_next"]["http_connected"]):
             param_interface.status_ed = "Online"
         if(param_interface.state_edge["train_operator"]["broker_connected"]):
@@ -152,7 +152,7 @@ def update_state():
         param_interface.state_capture["lidar_2"]["throughput"]["mean"] = 0
         param_interface.state_capture["lidar_2"]["throughput"]["max"] = 0
 
-    if(param_interface.status_ve == "Offline"):
+    if(param_interface.status_processing == "Offline"):
         param_interface.state_edge["component_process"]["sock_connected"] = False
 
     if(param_interface.state_network["mongo"]["connected"]):

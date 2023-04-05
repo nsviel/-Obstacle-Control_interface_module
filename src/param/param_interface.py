@@ -56,10 +56,10 @@ image_w = 0
 
 # Status
 status_ui = "Development"
-status_co = "Offline"
+status_interface = "Offline"
 status_hu = "Offline"
 status_py = "Offline"
-status_ve = "Offline"
+status_processing = "Offline"
 status_ai = "Offline"
 status_ed = "Offline"
 status_ssd = "Offline"

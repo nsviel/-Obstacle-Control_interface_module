@@ -27,8 +27,8 @@ def update_scheme():
 def update_status():
     dpg.set_value("trainope_status", param_interface.status_operator)
     dpg.set_value("ssd_status", param_interface.status_ssd)
-    dpg.set_value("interface_status", param_interface.status_co)
-    dpg.set_value("processing_status", param_interface.status_ve)
+    dpg.set_value("interface_status", param_interface.status_interface)
+    dpg.set_value("processing_status", param_interface.status_processing)
     dpg.set_value("ai_status", param_interface.status_ai)
     dpg.set_value("edge_status", param_interface.status_hu)
     dpg.set_value("capture_status", param_interface.status_py)
@@ -39,8 +39,8 @@ def update_status():
 
     scheme_theme.colorize_status("trainope_status_but", param_interface.status_operator, on, off)
     scheme_theme.colorize_status("ssd_status_but", param_interface.status_ssd, on, off)
-    scheme_theme.colorize_status("interface_status_but", param_interface.status_co, on, off)
-    scheme_theme.colorize_status("processing_status_but", param_interface.status_ve, on, off)
+    scheme_theme.colorize_status("interface_status_but", param_interface.status_interface, on, off)
+    scheme_theme.colorize_status("processing_status_but", param_interface.status_processing, on, off)
     scheme_theme.colorize_status("ai_status_but", param_interface.status_ai, on, off)
     scheme_theme.colorize_status("edge_status_but", param_interface.status_hu, on, off)
     scheme_theme.colorize_status("capture_status_but", param_interface.status_py, on, off)

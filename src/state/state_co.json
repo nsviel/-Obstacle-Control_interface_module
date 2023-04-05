@@ -18,7 +18,7 @@
         "space_total": 0,
         "space_used": 0
     },
-    "module_edge": {
+    "edge": {
         "add": "localhost",
         "ip": "127.0.0.1",
         "http_connected": true,
