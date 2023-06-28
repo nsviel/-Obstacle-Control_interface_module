@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.misc import io
+from src.utils import io
 from src.scheme.node.data import scheme_plot
 
 

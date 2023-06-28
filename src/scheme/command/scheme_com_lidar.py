@@ -4,8 +4,8 @@ from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 from src.connection.HTTPS import https_client_con
 from src.connection.SOCK import sock_server
-from src.misc import saving
-from src.misc import wallet
+from src.utils import saving
+from src.utils import wallet
 
 import dearpygui.dearpygui as dpg
 

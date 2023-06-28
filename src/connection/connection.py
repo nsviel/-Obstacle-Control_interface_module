@@ -5,11 +5,11 @@ from src.connection.HTTPS import https_client_con
 from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 
-from src.misc import saving
-from src.misc import parser_json
-from src.misc import signal
-from src.misc import state
-from src.misc import terminal
+from src.utils import saving
+from src.utils import parser_json
+from src.utils import signal
+from src.state import state
+from src.utils import terminal
 
 from src.scheme.loop import scheme_loop
 from src.scheme.loop import scheme_update

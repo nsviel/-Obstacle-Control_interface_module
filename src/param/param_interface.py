@@ -9,10 +9,10 @@ state_capture = {}
 state_network = {}
 
 # Path
-path_state_co = "src/state/state_interface.json"
-path_state_hu = "src/state/state_edge.json"
-path_state_py = "src/state/state_capture.json"
-path_state_perf = "src/state/state_network.json"
+path_state_co = "src/state/system/state_interface.json"
+path_state_hu = "src/state/system/state_edge.json"
+path_state_py = "src/state/system/state_capture.json"
+path_state_perf = "src/state/system/state_network.json"
 path_image = "src/state/image/image"
 path_image_empty = "src/state/image/image_empty"
 path_config = "config.json"

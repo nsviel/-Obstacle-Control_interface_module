@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
 from src.connection.HTTPS import https_client_post
-from src.misc import wallet
+from src.utils import wallet
 from src.gui import gui_wallet
 from src.scheme.loop import scheme_update
 from src.scheme.style import scheme_mode_visibility

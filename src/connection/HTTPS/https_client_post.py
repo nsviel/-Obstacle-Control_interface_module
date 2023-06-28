@@ -11,7 +11,7 @@
 
 from src.param import param_interface
 from src.connection.HTTPS import https_client_fct
-from src.misc import terminal
+from src.utils import terminal
 
 import json
 import http.client

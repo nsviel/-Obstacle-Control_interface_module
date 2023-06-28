@@ -1,10 +1,10 @@
 #---------------------------------------------
 from src.param import param_interface
 from src.connection import connection
-from src.misc import parser_json
-from src.misc import wallet
-from src.misc import signal
-from src.misc import terminal
+from src.utils import parser_json
+from src.utils import wallet
+from src.utils import signal
+from src.utils import terminal
 
 
 def load_configuration():

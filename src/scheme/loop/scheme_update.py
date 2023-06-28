@@ -4,8 +4,8 @@ from src.scheme.link import scheme_link
 from src.scheme.node.data import scheme_plot
 from src.scheme.style import scheme_color
 from src.scheme.style import scheme_theme
-from src.misc import signal
-from src.misc import io
+from src.utils import signal
+from src.utils import io
 from src import loop
 
 import dearpygui.dearpygui as dpg

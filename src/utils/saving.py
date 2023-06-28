@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.misc import terminal
+from src.utils import terminal
 
 from datetime import datetime
 

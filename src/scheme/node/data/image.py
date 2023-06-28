@@ -2,7 +2,7 @@
 from src.param import param_interface
 from src.scheme.loop import scheme_update
 from src.connection.HTTPS import https_client_get
-from src.misc import terminal
+from src.utils import terminal
 
 import threading
 import time

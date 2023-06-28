@@ -2,8 +2,8 @@
 from src.param import param_interface
 
 from src import loop
-from src.misc import state
-from src.misc import wallet
+from src.state import state
+from src.utils import wallet
 
 from src.scheme import scheme
 from src.scheme.style import scheme_theme

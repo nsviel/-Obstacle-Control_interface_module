@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.misc import parser_json
+from src.utils import parser_json
 
 import pandas as pd
 

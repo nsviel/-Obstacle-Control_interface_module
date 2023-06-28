@@ -4,13 +4,13 @@ from src.connection.SOCK import sock_server
 from src.connection.DHCP import dhcp_client
 
 from src.connection import connection
-from src.misc import signal
-from src.misc import saving
+from src.utils import signal
+from src.utils import saving
 from src.scheme.node.data import image
-from src.misc import parser_json
-from src.misc import state
-from src.misc import wallet
-from src.misc import terminal
+from src.utils import parser_json
+from src.state import state
+from src.utils import wallet
+from src.utils import terminal
 
 import time
 
