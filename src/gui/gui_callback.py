@@ -4,7 +4,7 @@ from src.connection.HTTPS import https_client_post
 from src.misc import wallet
 from src.gui import gui_wallet
 from src.scheme.loop import scheme_update
-from src.scheme.loop import scheme_mode_visibility
+from src.scheme.style import scheme_mode_visibility
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo

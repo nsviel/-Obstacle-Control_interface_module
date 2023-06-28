@@ -4,7 +4,7 @@ from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 from src.connection.SOCK import sock_server
 from src.scheme.loop import scheme_update
-from src.scheme.loop import scheme_mode
+from src.scheme.style import scheme_mode
 
 import dearpygui.dearpygui as dpg
 
