@@ -5,6 +5,13 @@ from src.scheme import scheme_connection
 import dearpygui.dearpygui as dpg
 
 
+def design_block():
+    with dpg.node(label="Train", tag="node_block_train"):
+        scheme_function.add_image("icon_train", "icon_train_visible")
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.drawlist(tag="block_train", width=450, height=200):
+                pass
+                
 def design_node():
     with dpg.node(label="LiDAR", tag="node_train"):
         scheme_function.add_image("icon_lidar", "icon_lidar_visible")

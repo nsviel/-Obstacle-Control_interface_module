@@ -24,7 +24,7 @@ import dearpygui.dearpygui as dpg
 
 
 def create_node():
-    node_block_train()
+    node_train.design_block()
     node_block_edge()
     node_block_cloud()
 
@@ -49,12 +49,6 @@ def node_legend():
         scheme_function.add_legend_line("legend_cloud", "Cloud level components")
         scheme_function.add_legend_line("legend_control", "Control level components")
 
-def node_block_train():
-    with dpg.node(label="Train", tag="node_block_train"):
-        scheme_function.add_image("icon_train", "icon_train_visible")
-        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-            with dpg.drawlist(tag="block_train", width=450, height=200):
-                pass
 
 def node_block_edge():
     with dpg.node(label="Edge", tag="node_block_edge"):
