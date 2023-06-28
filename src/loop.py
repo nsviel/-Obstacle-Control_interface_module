@@ -6,7 +6,7 @@ from src.connection.DHCP import dhcp_client
 from src.connection import connection
 from src.misc import signal
 from src.misc import saving
-from src.misc import image
+from src.scheme.node.data import image
 from src.misc import parser_json
 from src.misc import state
 from src.misc import wallet

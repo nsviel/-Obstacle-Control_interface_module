@@ -18,7 +18,7 @@ from src.scheme.node.edge import node_ai
 from src.scheme.node.cloud import node_operator
 from src.scheme.node.cloud import node_cloud
 from src.scheme.node.interface import node_ssd
-from src.scheme.node.interface import node_data
+from src.scheme.node.data import node_data
 
 import dearpygui.dearpygui as dpg
 

@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
 from src.misc import io
-from src.scheme.node.interface import scheme_plot
+from src.scheme.node.data import scheme_plot
 
 
 def process_l1_data(data):

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.misc import data
+from src.scheme.node.data import data
 from src.connection import connection
 
 import socket
