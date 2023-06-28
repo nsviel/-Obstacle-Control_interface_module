@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.misc import connection
+from src.connection import connection
 from src.misc import parser_json
 from src.misc import wallet
 from src.misc import signal

@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
 from src.scheme.loop import scheme_update
-from src.HTTPS import https_client_get
+from src.connection.HTTPS import https_client_get
 from src.misc import terminal
 
 import threading

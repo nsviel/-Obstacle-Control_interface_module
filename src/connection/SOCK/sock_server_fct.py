@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
 from src.misc import data
-from src.misc import connection
+from src.connection import connection
 
 import socket
 

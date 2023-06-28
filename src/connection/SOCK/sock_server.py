@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.SOCK import sock_server_fct
+from src.connection.SOCK import sock_server_fct
 from src.misc import terminal
 
 import threading

@@ -10,7 +10,7 @@
 #---------------------------------------------
 
 from src.param import param_interface
-from src.HTTPS import https_client_fct
+from src.connection.HTTPS import https_client_fct
 from src.misc import terminal
 
 import json

@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.SOCK import sock_server
-from src.DHCP import dhcp_client
+from src.connection.SOCK import sock_server
+from src.connection.DHCP import dhcp_client
 
-from src.misc import connection
+from src.connection import connection
 from src.misc import signal
 from src.misc import saving
 from src.misc import image

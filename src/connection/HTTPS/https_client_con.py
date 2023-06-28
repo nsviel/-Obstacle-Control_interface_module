@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.HTTPS import https_client_post
-from src.HTTPS import https_client_fct
+from src.connection.HTTPS import https_client_post
+from src.connection.HTTPS import https_client_fct
 
 
 # Test module_edge HTTP connection
