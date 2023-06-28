@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme.node import scheme_link
+from src.scheme.link import scheme_link
 from src.scheme.node.data import scheme_plot
 from src.scheme.style import scheme_color
 from src.scheme.style import scheme_theme

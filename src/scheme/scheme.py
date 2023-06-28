@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.scheme.node import scheme_link
+from src.scheme.link import scheme_link
 from src.scheme.node import scheme_node
 from src.scheme.style import scheme_color
 from src.scheme.style import scheme_theme

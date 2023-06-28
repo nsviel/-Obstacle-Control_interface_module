@@ -37,7 +37,7 @@ def get_key_from_ip(ip):
     return "-"
 
 def read_wallet():
-    X = pd.read_csv('src/wallet.txt', sep=" ", header=None)
+    X = pd.read_csv('src/state/wallet.txt', sep=" ", header=None)
     param_interface.wallet_add = list()
     param_interface.wallet_ip = list()
     for i in range(0, len(X[0])):
@@ -45,7 +45,7 @@ def read_wallet():
         param_interface.wallet_ip.append(str(X[1][i]))
 
 def write_wallet():
-    file = open("src/wallet.txt","w")
+    file = open("src/state/wallet.txt","w")
     for i in range(0, len(param_interface.wallet_add)):
         file.write(param_interface.wallet_add[i])
         file.write(" ")

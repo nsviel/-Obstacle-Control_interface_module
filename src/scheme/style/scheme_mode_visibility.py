@@ -106,8 +106,8 @@ def set_mode_dev():
     dpg.show_item("link_edge_processing_http")
     dpg.show_item("link_edge_processing_sock")
 
-    dpg.show_item("link_edge_2_edge_sock")
-    dpg.show_item("link_edge_2_edge_1_http")
+    #dpg.show_item("link_edge_2_edge_sock")
+    #dpg.show_item("link_edge_2_edge_1_http")
     dpg.show_item("link_capture_geo")
     dpg.show_item("link_capture_edge_l2_sock")
     dpg.show_item("link_interface_edge_1_http")
@@ -121,7 +121,7 @@ def set_mode_dev():
     # HTTP ports
     dpg.show_item("capture_http_port_visible")
     dpg.show_item("edge_1_http_port_visible")
-    dpg.show_item("edge_2_http_port_visible")
+    #dpg.show_item("edge_2_http_port_visible")
     dpg.show_item("edge_1_http_server_o")
     dpg.show_item("edge_1_http_client_o")
 
