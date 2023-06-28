@@ -1,7 +1,7 @@
 #---------------------------------------------
-from src.scheme import scheme_function
-from src.scheme import scheme_com
-from src.scheme import scheme_com_lidar
+from src.scheme.style import scheme_function
+from src.scheme.command import scheme_com
+from src.scheme.command import scheme_com_lidar
 
 import dearpygui.dearpygui as dpg
 

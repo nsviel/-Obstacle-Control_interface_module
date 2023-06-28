@@ -3,7 +3,7 @@ from src.param import param_interface
 from src.HTTPS import https_client_get
 from src.HTTPS import https_client_post
 from src.SOCK import sock_server
-from src.scheme import scheme_update
+from src.scheme.loop import scheme_update
 
 import dearpygui.dearpygui as dpg
 

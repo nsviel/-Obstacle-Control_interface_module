@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.scheme import scheme_color
+from src.scheme.style import scheme_color
 
 import dearpygui.dearpygui as dpg
 

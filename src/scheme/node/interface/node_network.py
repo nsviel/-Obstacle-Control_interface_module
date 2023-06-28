@@ -1,7 +1,7 @@
 #---------------------------------------------
-from src.scheme import scheme_function
-from src.scheme import scheme_connection
-from src.scheme import scheme_com_mongo
+from src.scheme.style import scheme_function
+from src.scheme.style import scheme_connection
+from src.scheme.command import scheme_com_mongo
 
 import dearpygui.dearpygui as dpg
 

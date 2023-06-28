@@ -1,9 +1,9 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme import scheme_link
-from src.scheme import scheme_plot
-from src.scheme import scheme_color
-from src.scheme import scheme_theme
+from src.scheme.node import scheme_link
+from src.scheme.node.interface import scheme_plot
+from src.scheme.style import scheme_color
+from src.scheme.style import scheme_theme
 from src.misc import signal
 from src.misc import io
 from src import loop

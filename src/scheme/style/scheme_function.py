@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme import scheme_callback
-from src.scheme import scheme_com
-from src.scheme import scheme_com_lidar
+from src.scheme.command import scheme_callback
+from src.scheme.command import scheme_com
+from src.scheme.command import scheme_com_lidar
 
 import dearpygui.dearpygui as dpg
 

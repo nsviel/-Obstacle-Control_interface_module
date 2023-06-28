@@ -11,8 +11,8 @@ from src.misc import signal
 from src.misc import state
 from src.misc import terminal
 
-from src.scheme import scheme_loop
-from src.scheme import scheme_update
+from src.scheme.loop import scheme_loop
+from src.scheme.loop import scheme_update
 
 import threading
 import time

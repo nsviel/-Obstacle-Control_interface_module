@@ -1,10 +1,10 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme import scheme_function
-from src.scheme import scheme_connection
-from src.scheme import scheme_callback
-from src.scheme import scheme_com
-from src.scheme import scheme_com_mongo
+from src.scheme.style import scheme_function
+from src.scheme.style import scheme_connection
+from src.scheme.command import scheme_callback
+from src.scheme.command import scheme_com
+from src.scheme.command import scheme_com_mongo
 
 from src.scheme.node.interface import node_module_interface
 from src.scheme.node.train import node_module_capture

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme import scheme_update
+from src.scheme.loop import scheme_update
 from src.HTTPS import https_client_get
 from src.misc import terminal
 

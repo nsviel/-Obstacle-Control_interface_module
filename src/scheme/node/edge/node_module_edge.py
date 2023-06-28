@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_interface
-from src.scheme import scheme_function
-from src.scheme import scheme_connection
+from src.scheme.style import scheme_function
+from src.scheme.style import scheme_connection
 
 import dearpygui.dearpygui as dpg
 
