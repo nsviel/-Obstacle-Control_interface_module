@@ -8,8 +8,8 @@ import dearpygui.dearpygui as dpg
 
 
 def callback_module_edge():
-    l1_port = dpg.get_value("edge_sock_server_l1_port")
-    l2_port = dpg.get_value("edge_sock_server_l2_port")
+    l1_port = dpg.get_value("edge_1_sock_server_l1_port")
+    l2_port = dpg.get_value("edge_1_sock_server_l2_port")
     if(l1_port != l2_port):
         param_interface.state_edge["self"]["sock_server_l1_port"] = l1_port
         param_interface.state_edge["self"]["sock_server_l2_port"] = l2_port
@@ -18,7 +18,7 @@ def callback_module_edge():
 def callback_trainope():
     param_interface.state_edge["train_operator"]["broker_port"] = dpg.get_value("trainope_broker_port")
     param_interface.state_edge["train_operator"]["mqtt_topic"] = dpg.get_value("trainope_mqtt_topic")
-    param_interface.state_edge["train_operator"]["mqtt_client"] = dpg.get_value("edge_mqtt_client_name")
+    param_interface.state_edge["train_operator"]["mqtt_client"] = dpg.get_value("edge_1_mqtt_client_name")
     https_client_post.post_state("edge", param_interface.state_edge)
     https_client_post.post_param_value("edge", None, "train_operator", "reset")
 

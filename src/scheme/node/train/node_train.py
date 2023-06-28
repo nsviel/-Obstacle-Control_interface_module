@@ -22,7 +22,7 @@ def design_node():
         scheme_function.add_l1_motor("l1_on", "l1_off", "l1_motor_visible")
         scheme_function.add_lidar_add("l1_wallet", "l1_ip", "l1_params_visible")
         scheme_function.add_port_lidar("l1_port", "l1_port_visible")
-        scheme_function.add_l1_speed("l1_speed", "l1_speedgenext_visible")
+        scheme_function.add_l1_speed("l1_speed", "l1_speedge_2_visible")
         scheme_function.add_lidar_stat("l1_packet", "l1_tgp_val", "l1_tgp_range", "l1_perf_visible")
 
         scheme_function.line_tagged("l2_line_visible")
@@ -30,5 +30,5 @@ def design_node():
         scheme_function.add_l2_motor("l2_on", "l2_off", "l2_motor_visible")
         scheme_function.add_lidar_add("l2_wallet", "l2_ip", "l2_params_visible")
         scheme_function.add_port_lidar("l2_port", "l2_port_visible")
-        scheme_function.add_l2_speed("l2_speed", "l2_speedgenext_visible")
+        scheme_function.add_l2_speed("l2_speed", "l2_speedge_2_visible")
         scheme_function.add_lidar_stat("l2_packet", "l2_tgp_val", "l2_tgp_range", "l2_perf_visible")

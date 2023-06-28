@@ -23,31 +23,31 @@ def command_ssd_editing():
     saving.determine_path()
 
 def command_comboip():
-    edge_ip = wallet.get_ip_from_key(dpg.get_value("edge_wallet"))
+    edge_1_ip = wallet.get_ip_from_key(dpg.get_value("edge_1_wallet"))
     capture_ip = wallet.get_ip_from_key(dpg.get_value("capture_wallet"))
-    edgenext_ip = wallet.get_ip_from_key(dpg.get_value("edgenext_wallet"))
+    edge_2_ip = wallet.get_ip_from_key(dpg.get_value("edge_2_wallet"))
     processing_ip = wallet.get_ip_from_key(dpg.get_value("processing_wallet"))
     ai_ip = wallet.get_ip_from_key(dpg.get_value("ai_wallet"))
     ip_operator = wallet.get_ip_from_key(dpg.get_value("trainope_wallet"))
     l1_ip = wallet.get_ip_from_key(dpg.get_value("l1_wallet"))
     l2_ip = wallet.get_ip_from_key(dpg.get_value("l2_wallet"))
 
-    if(edge_ip != None):
-        param_interface.state_interface["edge"]["ip"] = edge_ip
-        dpg.set_value("edge_ip", edge_ip)
+    if(edge_1_ip != None):
+        param_interface.state_interface["edge"]["ip"] = edge_1_ip
+        dpg.set_value("edge_1_ip", edge_1_ip)
         https_client_con.test_edge_con()
-        https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
+        https_client_post.post_param_value("capture", "edge", "ip", edge_1_ip)
     if(capture_ip != None):
         param_interface.state_edge["module_capture"]["ip"] = capture_ip
         dpg.set_value("capture_ip", capture_ip)
         https_client_post.post_param_value("edge", "module_capture", "ip", capture_ip)
-    if(edgenext_ip != None):
-        param_interface.state_edge["edge_next"]["ip"] = edgenext_ip
-        dpg.set_value("edgenext_ip", edgenext_ip)
-        https_client_post.post_param_value("edge", "edge_next", "ip", edgenext_ip)
+    if(edge_2_ip != None):
+        param_interface.state_edge["edge_next"]["ip"] = edge_2_ip
+        dpg.set_value("edge_2_ip", edge_2_ip)
+        https_client_post.post_param_value("edge", "edge_next", "ip", edge_2_ip)
     if(processing_ip != None):
         param_interface.state_edge["component_process"]["ip"] = processing_ip
-        dpg.set_value("edgenext_ip", processing_ip)
+        dpg.set_value("edge_2_ip", processing_ip)
         https_client_post.post_param_value("edge", "component_process", "ip", processing_ip)
     if(ai_ip != None):
         param_interface.state_edge["component_ai"]["ip"] = ai_ip

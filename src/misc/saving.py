@@ -21,7 +21,7 @@ def test_ssd_con():
         param_interface.state_interface["ssd"]["space_total"] = 0
 
 def determine_path():
-    date = get_formatedgenext_time()
+    date = get_formatedge_2_time()
     param_interface.state_interface["path"]["dir_capture"] = os.path.join(param_interface.path_ssd, "capture")
     param_interface.state_interface["path"]["file_name"] = param_interface.state_interface["path"]["file_name_add"] + "_" + date + ".pcap"
     param_interface.state_interface["path"]["dir_l1"] = os.path.join(param_interface.state_interface["path"]["dir_capture"], "lidar_1")
@@ -30,7 +30,7 @@ def determine_path():
     param_interface.state_interface["path"]["path_l2_file"] = os.path.join(param_interface.state_interface["path"]["dir_l2"], param_interface.state_interface["path"]["file_name"])
     new_path = param_interface.state_interface["path"]["dir_capture"] + "/lidar_x/" + param_interface.state_interface["path"]["file_name"]
 
-def get_formatedgenext_time():
+def get_formatedge_2_time():
     date = datetime.now().strftime('%d-%m-%Y_%Hh%M')
     return str(date)
 

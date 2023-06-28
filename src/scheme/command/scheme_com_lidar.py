@@ -42,6 +42,6 @@ def command_l2_dev():
 
 # Misc LiDAR command
 def command_combo_lidar_main():
-    lidar_main = dpg.get_value("edge_sock_client_l1_combo_lidar_main")
+    lidar_main = dpg.get_value("edge_1_sock_client_l1_combo_lidar_main")
     https_client_post.post_param_value("edge", "self", "lidar_main", lidar_main)
     param_interface.lidar_main = lidar_main
