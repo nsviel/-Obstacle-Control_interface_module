@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.scheme import scheme_link
-from src.scheme import scheme_node
+from src.scheme.node import scheme_node
 from src.scheme import scheme_color
 from src.scheme import scheme_theme
 from src.scheme import scheme_plot
