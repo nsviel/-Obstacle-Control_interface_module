@@ -5,6 +5,13 @@ from src.scheme import scheme_connection
 import dearpygui.dearpygui as dpg
 
 
+def design_block():
+    with dpg.node(label="Cloud", tag="node_block_cloud"):
+        scheme_function.add_image("icon_cloud", "icon_cloud_visible")
+        with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+            with dpg.drawlist(tag="block_cloud", width=225, height=275):
+                pass
+
 def design_node():
     with dpg.node(label="cloud_car", tag="node_cloud_car"):
         scheme_function.add_ip("va_ip")
