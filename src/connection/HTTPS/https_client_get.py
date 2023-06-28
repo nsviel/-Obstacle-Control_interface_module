@@ -20,10 +20,10 @@ def get_state(dest):
     if(data != None):
         try:
             if(dest == "edge"):
-                parser_json.update_state_file(param_interface.path_state_hu, data)
-                param_interface.state_edge = json.loads(data)
+                parser_json.update_state_file(param_interface.path_state_edge_1, data)
+                param_interface.state_edge_1 = json.loads(data)
             elif(dest == "capture"):
-                parser_json.update_state_file(param_interface.path_state_py, data)
+                parser_json.update_state_file(param_interface.path_state_capture, data)
                 param_interface.state_capture = json.loads(data)
             elif(dest == "network"):
                 parser_json.update_state_file(param_interface.path_state_perf, data)

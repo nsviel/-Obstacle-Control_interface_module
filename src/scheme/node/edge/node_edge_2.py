@@ -10,7 +10,7 @@ def design_node():
     with dpg.node(label="Edge - 2", tag="node_edge_2"):
         # General info
         scheme_function.add_status("edge_2_status_marker", "edge_2_status")
-        scheme_function.add_ip_wallet("edge_2_wallet", "edge_2_ip", param_interface.state_edge["edge_next"]["add"], "edge_2_ip_visible")
+        scheme_function.add_ip_wallet("edge_2_wallet", "edge_2_ip", param_interface.state_edge_1["edge_next"]["add"], "edge_2_ip_visible")
         scheme_function.add_nb_thread("edge_2_thread", "edge_2_thread_visible")
         scheme_function.add_edge_id("edge_2_ID", "edge_2_ID_visible")
         scheme_function.add_country("edge_2_country")

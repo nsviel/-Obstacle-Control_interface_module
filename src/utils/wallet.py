@@ -54,9 +54,9 @@ def write_wallet():
 
 def determine_adresse():
     param_interface.state_interface["edge"]["add"] = get_key_from_ip(param_interface.state_interface["edge"]["ip"])
-    param_interface.state_edge["edge_next"]["add"] = get_key_from_ip(param_interface.state_edge["edge_next"]["ip"])
-    param_interface.state_edge["train_operator"]["add"] = get_key_from_ip(param_interface.state_edge["train_operator"]["broker_ip"])
-    param_interface.state_edge["module_capture"]["add"] = get_key_from_ip(param_interface.state_edge["module_capture"]["ip"])
+    param_interface.state_edge_1["edge_next"]["add"] = get_key_from_ip(param_interface.state_edge_1["edge_next"]["ip"])
+    param_interface.state_edge_1["train_operator"]["add"] = get_key_from_ip(param_interface.state_edge_1["train_operator"]["broker_ip"])
+    param_interface.state_edge_1["module_capture"]["add"] = get_key_from_ip(param_interface.state_edge_1["module_capture"]["ip"])
     param_interface.state_capture["lidar_1"]["add"] = get_key_from_ip(param_interface.state_capture["lidar_1"]["ip"])
     param_interface.state_capture["lidar_2"]["add"] = get_key_from_ip(param_interface.state_capture["lidar_2"]["ip"])
     parser_json.upload_state()

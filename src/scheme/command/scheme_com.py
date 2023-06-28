@@ -38,23 +38,23 @@ def command_comboip():
         https_client_con.test_edge_con()
         https_client_post.post_param_value("capture", "edge", "ip", edge_1_ip)
     if(capture_ip != None):
-        param_interface.state_edge["module_capture"]["ip"] = capture_ip
+        param_interface.state_edge_1["module_capture"]["ip"] = capture_ip
         dpg.set_value("capture_ip", capture_ip)
         https_client_post.post_param_value("edge", "module_capture", "ip", capture_ip)
     if(edge_2_ip != None):
-        param_interface.state_edge["edge_next"]["ip"] = edge_2_ip
+        param_interface.state_edge_1["edge_next"]["ip"] = edge_2_ip
         dpg.set_value("edge_2_ip", edge_2_ip)
         https_client_post.post_param_value("edge", "edge_next", "ip", edge_2_ip)
     if(processing_ip != None):
-        param_interface.state_edge["component_process"]["ip"] = processing_ip
+        param_interface.state_edge_1["component_process"]["ip"] = processing_ip
         dpg.set_value("edge_2_ip", processing_ip)
         https_client_post.post_param_value("edge", "component_process", "ip", processing_ip)
     if(ai_ip != None):
-        param_interface.state_edge["component_ai"]["ip"] = ai_ip
+        param_interface.state_edge_1["component_ai"]["ip"] = ai_ip
         dpg.set_value("ai_ip", ai_ip)
         https_client_post.post_param_value("edge", "component_ai", "ip", ai_ip)
     if(ip_operator != None):
-        param_interface.state_edge["train_operator"]["broker_ip"] = ip_operator
+        param_interface.state_edge_1["train_operator"]["broker_ip"] = ip_operator
         dpg.set_value("ip_operator", ip_operator)
         https_client_post.post_param_value("edge", "train_operator", "broker_ip", ip_operator)
     if(l1_ip != None):

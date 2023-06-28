@@ -42,7 +42,7 @@ def upload_file(path, data):
     json.dump(data, file, indent=4)
 
 def upload_state():
-    file = open(param_interface.path_state_co, "w")
+    file = open(param_interface.path_state_interface, "w")
     json.dump(param_interface.state_interface, file, indent=4)
 
 def update_state_file(path, data):

@@ -50,13 +50,13 @@ def update_status():
     scheme_theme.colorize_status("train_edge_but", param_interface.status_py, on, off)
     scheme_theme.colorize_status("mongo_server_but", param_interface.status_db, on, off)
 def update_add():
-    dpg.set_value("capture_wallet", param_interface.state_edge["module_capture"]["add"])
+    dpg.set_value("capture_wallet", param_interface.state_edge_1["module_capture"]["add"])
     dpg.set_value("edge_1_wallet", param_interface.state_interface["edge"]["add"])
-    dpg.set_value("edge_2_wallet", param_interface.state_edge["edge_next"]["add"])
-    dpg.set_value("trainope_wallet", param_interface.state_edge["train_operator"]["add"])
+    dpg.set_value("edge_2_wallet", param_interface.state_edge_1["edge_next"]["add"])
+    dpg.set_value("trainope_wallet", param_interface.state_edge_1["train_operator"]["add"])
     dpg.set_value("l1_wallet", param_interface.state_capture["lidar_1"]["add"])
     dpg.set_value("l2_wallet", param_interface.state_capture["lidar_2"]["add"])
-    dpg.set_value("processing_wallet", param_interface.state_edge["component_process"]["add"])
+    dpg.set_value("processing_wallet", param_interface.state_edge_1["component_process"]["add"])
 def update_add_combo():
     dpg.configure_item("capture_wallet", items=param_interface.wallet_add)
     dpg.configure_item("edge_1_wallet", items=param_interface.wallet_add)
@@ -90,38 +90,38 @@ def update_module_interface():
     dpg.set_value("interface_sock_server_l2_port", param_interface.state_interface["self"]["sock_server_l2_port"])
     dpg.set_value("interface_temp", signal.get_temps_core(0))
 def update_module_edge():
-    dpg.set_value("edge_1_ip", param_interface.state_edge["self"]["ip"])
-    dpg.set_value("edge_1_thread", param_interface.state_edge["self"]["nb_thread"])
+    dpg.set_value("edge_1_ip", param_interface.state_edge_1["self"]["ip"])
+    dpg.set_value("edge_1_thread", param_interface.state_edge_1["self"]["nb_thread"])
 
-    dpg.set_value("edge_1_country", param_interface.state_edge["self"]["country"])
-    dpg.set_value("edge_1_ID", param_interface.state_edge["self"]["edge_id"])
-    dpg.set_value("processing_sock_server_port", param_interface.state_edge["component_process"]["sock_server_port"])
-    dpg.set_value("processing_http_server_port", param_interface.state_edge["component_process"]["http_server_port"])
-    dpg.set_value("ai_http_server_port", param_interface.state_edge["component_ai"]["http_server_port"])
-    dpg.set_value("edge_1_sock_server_l1_port", param_interface.state_edge["self"]["sock_server_l1_port"])
-    dpg.set_value("edge_1_sock_server_l2_port", param_interface.state_edge["self"]["sock_server_l2_port"])
-    dpg.set_value("edge_1_http_server_port", param_interface.state_edge["self"]["http_server_port"])
-    dpg.set_value("trainope_broker_port", param_interface.state_edge["train_operator"]["broker_port"])
-    dpg.set_value("trainope_mqtt_topic", param_interface.state_edge["train_operator"]["mqtt_topic"])
+    dpg.set_value("edge_1_country", param_interface.state_edge_1["self"]["country"])
+    dpg.set_value("edge_1_ID", param_interface.state_edge_1["self"]["edge_id"])
+    dpg.set_value("processing_sock_server_port", param_interface.state_edge_1["component_process"]["sock_server_port"])
+    dpg.set_value("processing_http_server_port", param_interface.state_edge_1["component_process"]["http_server_port"])
+    dpg.set_value("ai_http_server_port", param_interface.state_edge_1["component_ai"]["http_server_port"])
+    dpg.set_value("edge_1_sock_server_l1_port", param_interface.state_edge_1["self"]["sock_server_l1_port"])
+    dpg.set_value("edge_1_sock_server_l2_port", param_interface.state_edge_1["self"]["sock_server_l2_port"])
+    dpg.set_value("edge_1_http_server_port", param_interface.state_edge_1["self"]["http_server_port"])
+    dpg.set_value("trainope_broker_port", param_interface.state_edge_1["train_operator"]["broker_port"])
+    dpg.set_value("trainope_mqtt_topic", param_interface.state_edge_1["train_operator"]["mqtt_topic"])
 
-    if(param_interface.state_edge["self"]["lidar_main"] == "lidar_1"):
+    if(param_interface.state_edge_1["self"]["lidar_main"] == "lidar_1"):
         s1 = "lidar_1"
         s2 = "lidar_2"
-    elif(param_interface.state_edge["self"]["lidar_main"] == "lidar_2"):
+    elif(param_interface.state_edge_1["self"]["lidar_main"] == "lidar_2"):
         s1 = "lidar_2"
         s2 = "lidar_1"
     dpg.set_value("edge_1_sock_client_l1_combo_lidar_main", s1)
     dpg.set_value("edge_1_sock_client_l2_source", s2)
 def update_edge_next():
-    dpg.set_value("edge_2_ip", param_interface.state_edge["edge_next"]["ip"])
-    #dpg.set_value("edge_2_country", param_interface.state_edge["edge"]["country"])
-    #dpg.set_value("edge_2_edge_id", param_interface.state_edge["edge"]["edge_id"])
-    #dpg.set_value("edge_2_sock_server_port", param_interface.state_edge["self"]["sock_server_l1_port"])
-    #dpg.set_value("edge_2_http_server_port", param_interface.state_edge["self"]["http_server_port"])
+    dpg.set_value("edge_2_ip", param_interface.state_edge_1["edge_next"]["ip"])
+    #dpg.set_value("edge_2_country", param_interface.state_edge_1["edge"]["country"])
+    #dpg.set_value("edge_2_edge_id", param_interface.state_edge_1["edge"]["edge_id"])
+    #dpg.set_value("edge_2_sock_server_port", param_interface.state_edge_1["self"]["sock_server_l1_port"])
+    #dpg.set_value("edge_2_http_server_port", param_interface.state_edge_1["self"]["http_server_port"])
 def update_component_process():
-    dpg.set_value("processing_ip", param_interface.state_edge["component_process"]["ip"])
+    dpg.set_value("processing_ip", param_interface.state_edge_1["component_process"]["ip"])
 def update_module_capture():
-    dpg.set_value("capture_ip", param_interface.state_edge["module_capture"]["ip"])
+    dpg.set_value("capture_ip", param_interface.state_edge_1["module_capture"]["ip"])
     dpg.set_value("capture_thread", param_interface.state_capture["self"]["nb_thread"])
     dpg.set_value("capture_http_server_port", int(param_interface.state_capture["self"]["http_server_port"]))
     dpg.set_value("capture_l1_port", param_interface.state_capture["self"]["l1_port"])
@@ -131,8 +131,8 @@ def update_module_capture():
     dpg.configure_item("capture_l1_device", default_value=param_interface.state_capture["lidar_1"]["device"], items=devices, num_items=len(devices))
     dpg.configure_item("capture_l2_device", default_value=param_interface.state_capture["lidar_2"]["device"], items=devices, num_items=len(devices))
 def update_data():
-    dpg.set_value("nb_frame", param_interface.state_edge["data"]["nb_frame"])
-    dpg.set_value("nb_prediction", param_interface.state_edge["data"]["nb_prediction"])
+    dpg.set_value("nb_frame", param_interface.state_edge_1["data"]["nb_frame"])
+    dpg.set_value("nb_prediction", param_interface.state_edge_1["data"]["nb_prediction"])
 def update_image():
     # Update image but if format problem close the program
     width, height, channels, data = dpg.load_image(param_interface.path_image)

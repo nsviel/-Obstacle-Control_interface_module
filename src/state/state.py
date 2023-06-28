@@ -16,9 +16,9 @@ def load_configuration():
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_interface.state_interface = parser_json.load_state(param_interface.path_state_co)
-    param_interface.state_edge = parser_json.load_state(param_interface.path_state_hu)
-    param_interface.state_capture = parser_json.load_state(param_interface.path_state_py)
+    param_interface.state_interface = parser_json.load_state(param_interface.path_state_interface)
+    param_interface.state_edge_1 = parser_json.load_state(param_interface.path_state_edge_1)
+    param_interface.state_capture = parser_json.load_state(param_interface.path_state_capture)
     param_interface.state_network = parser_json.load_state(param_interface.path_state_perf)
 
 def init_state_co():
@@ -75,9 +75,9 @@ def load_config_file():
     param_interface.state_interface["ssd"]["activated"] = config["ssd"]["start_with_save_data"]
 
 def upload_state():
-    parser_json.upload_file(param_interface.path_state_hu, param_interface.state_edge)
-    parser_json.upload_file(param_interface.path_state_py, param_interface.state_capture)
-    parser_json.upload_file(param_interface.path_state_co, param_interface.state_interface)
+    parser_json.upload_file(param_interface.path_state_edge_1, param_interface.state_edge_1)
+    parser_json.upload_file(param_interface.path_state_capture, param_interface.state_capture)
+    parser_json.upload_file(param_interface.path_state_interface, param_interface.state_interface)
 
 def update_state():
     param_interface.status_interface = "Offline"
@@ -97,32 +97,32 @@ def update_state():
         param_interface.status_ssd = "Online"
     if(param_interface.state_interface["edge"]["http_connected"]):
         param_interface.status_hu = "Online"
-        if(param_interface.state_edge["module_capture"]["http_connected"]):
+        if(param_interface.state_edge_1["module_capture"]["http_connected"]):
             param_interface.status_py = "Online"
             if(param_interface.state_capture["lidar_1"]["connected"]):
                 param_interface.status_l1 = "Online"
             if(param_interface.state_capture["lidar_2"]["connected"]):
                 param_interface.status_l2 = "Online"
-        if(param_interface.state_edge["component_ai"]["http_connected"]):
+        if(param_interface.state_edge_1["component_ai"]["http_connected"]):
             param_interface.status_ai = "Online"
-        if(param_interface.state_edge["component_process"]["http_connected"]):
+        if(param_interface.state_edge_1["component_process"]["http_connected"]):
             param_interface.status_processing = "Online"
-        if(param_interface.state_edge["edge_next"]["http_connected"]):
+        if(param_interface.state_edge_1["edge_next"]["http_connected"]):
             param_interface.status_ed = "Online"
-        if(param_interface.state_edge["train_operator"]["broker_connected"]):
+        if(param_interface.state_edge_1["train_operator"]["broker_connected"]):
             param_interface.status_operator = "Online"
 
     if(param_interface.status_hu == "Offline"):
-        param_interface.state_edge["data"]["nb_frame"] = 0
-        param_interface.state_edge["data"]["nb_prediction"] = 0
-        param_interface.state_edge["self"]["nb_thread"] = 0
-        param_interface.state_edge["train_operator"]["broker_connected"] = False
-        param_interface.state_edge["component_ai"]["http_connected"] = False
-        param_interface.state_edge["component_process"]["sock_connected"] = False
-        param_interface.state_edge["component_process"]["http_connected"] = False
-        param_interface.state_edge["module_capture"]["http_connected"] = False
-        param_interface.state_edge["module_capture"]["sock_l1_connected"] = False
-        param_interface.state_edge["module_capture"]["sock_l2_connected"] = False
+        param_interface.state_edge_1["data"]["nb_frame"] = 0
+        param_interface.state_edge_1["data"]["nb_prediction"] = 0
+        param_interface.state_edge_1["self"]["nb_thread"] = 0
+        param_interface.state_edge_1["train_operator"]["broker_connected"] = False
+        param_interface.state_edge_1["component_ai"]["http_connected"] = False
+        param_interface.state_edge_1["component_process"]["sock_connected"] = False
+        param_interface.state_edge_1["component_process"]["http_connected"] = False
+        param_interface.state_edge_1["module_capture"]["http_connected"] = False
+        param_interface.state_edge_1["module_capture"]["sock_l1_connected"] = False
+        param_interface.state_edge_1["module_capture"]["sock_l2_connected"] = False
 
     if(param_interface.status_py == "Offline"):
         param_interface.state_capture["self"]["nb_thread"] = 0
@@ -153,7 +153,7 @@ def update_state():
         param_interface.state_capture["lidar_2"]["throughput"]["max"] = 0
 
     if(param_interface.status_processing == "Offline"):
-        param_interface.state_edge["component_process"]["sock_connected"] = False
+        param_interface.state_edge_1["component_process"]["sock_connected"] = False
 
     if(param_interface.state_network["mongo"]["connected"]):
         param_interface.status_db = "Online"
