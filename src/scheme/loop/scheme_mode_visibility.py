@@ -4,6 +4,7 @@ from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 from src.connection.SOCK import sock_server
 from src.scheme.loop import scheme_update
+from src.scheme.loop import scheme_mode
 
 import dearpygui.dearpygui as dpg
 
@@ -11,13 +12,13 @@ import dearpygui.dearpygui as dpg
 def set_mode():
     if(param_interface.status_ui == "param"):
         set_mode_dev()
-        scheme_update.update_node_pos_dev()
+        scheme_mode.update_node_pos_dev()
     elif(param_interface.status_ui == "overview"):
         set_mode_demo()
-        scheme_update.update_node_pos_demo_minimized()
+        scheme_mode.update_node_pos_demo_minimized()
     elif(param_interface.status_ui == "overview_fullscreen"):
         set_mode_demo()
-        scheme_update.update_node_pos_demo_fullscreen()
+        scheme_mode.update_node_pos_demo_fullscreen()
 
 def set_mode_dev():
     # Block

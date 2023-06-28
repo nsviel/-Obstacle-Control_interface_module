@@ -8,7 +8,7 @@ from src.misc import wallet
 from src.scheme import scheme
 from src.scheme.style import scheme_theme
 from src.scheme.loop import scheme_update
-from src.scheme.loop import scheme_visibility
+from src.scheme.loop import scheme_mode_visibility
 from src.scheme.node import scheme_link
 
 from src.gui import gui_menu
@@ -51,7 +51,7 @@ def program():
 
     # Init variables
     loop.init()
-    scheme_visibility.set_mode()
+    scheme_mode_visibility.set_mode()
 
     # Start main loop program
     while param_interface.run_loop and dpg.is_dearpygui_running():

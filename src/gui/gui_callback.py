@@ -4,7 +4,7 @@ from src.connection.HTTPS import https_client_post
 from src.misc import wallet
 from src.gui import gui_wallet
 from src.scheme.loop import scheme_update
-from src.scheme.loop import scheme_visibility
+from src.scheme.loop import scheme_mode_visibility
 
 import dearpygui.dearpygui as dpg
 import dearpygui.demo as demo
@@ -34,7 +34,7 @@ def callback_wallet_remove(sender):
 
 def callback_mode_dev():
     param_interface.status_ui = "param"
-    scheme_visibility.set_mode()
+    scheme_mode_visibility.set_mode()
 
 def callback_mode_demo_minimized():
     dpg.hide_item("node_py")
@@ -44,11 +44,11 @@ def callback_mode_demo_minimized():
     dpg.hide_item("node_train")
     dpg.render_dearpygui_frame()
     param_interface.status_ui = "overview"
-    scheme_visibility.set_mode()
+    scheme_mode_visibility.set_mode()
 
 def callback_mode_demo_fullscreen():
     param_interface.status_ui = "overview_fullscreen"
-    scheme_visibility.set_mode()
+    scheme_mode_visibility.set_mode()
 
 def callback_with_iperf():
     with_iperf = dpg.get_value("iperf_activated")

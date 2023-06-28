@@ -4,7 +4,7 @@ from src.scheme.node import scheme_node
 from src.scheme.style import scheme_color
 from src.scheme.style import scheme_theme
 from src.scheme.node.data import scheme_plot
-from src.scheme.loop import scheme_visibility
+from src.scheme.loop import scheme_mode_visibility
 
 import dearpygui.dearpygui as dpg
 
