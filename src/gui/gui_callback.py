@@ -38,7 +38,7 @@ def callback_mode_dev():
 
 def callback_mode_demo_minimized():
     dpg.hide_item("node_py")
-    dpg.hide_item("node_hu")
+    dpg.hide_item("node_edge_1")
     dpg.hide_item("node_data")
     dpg.hide_item("node_operator")
     dpg.hide_item("node_train")

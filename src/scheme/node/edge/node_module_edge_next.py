@@ -7,7 +7,7 @@ import dearpygui.dearpygui as dpg
 
 
 def design_node():
-    with dpg.node(label="Edge", tag="node_ed"):
+    with dpg.node(label="Edge - 2", tag="node_edge_2"):
         scheme_function.add_status("edgenext_status_but", "edgenext_status")
         scheme_function.add_ip_wallet("edgenext_wallet", "edgenext_ip", param_interface.state_edge["edge_next"]["add"], "edgenext_ip_visible")
         #scheme_function.add_edge_id("edgenext_edge_id")

@@ -87,7 +87,7 @@ def set_mode_dev():
     # Nodes
     dpg.show_item("node_ve")
     dpg.show_item("node_ai")
-    dpg.show_item("node_ed")
+    dpg.show_item("node_edge_2")
     dpg.show_item("node_ssd")
     dpg.show_item("node_cloud_car")
     dpg.show_item("node_co")
@@ -236,13 +236,14 @@ def set_mode_demo():
     # Nodes
     dpg.hide_item("node_ve")
     dpg.hide_item("node_ai")
-    dpg.hide_item("node_ed")
+    dpg.hide_item("node_edge_2")
     dpg.hide_item("node_ssd")
     dpg.hide_item("node_cloud_car")
     dpg.hide_item("node_co")
 
     dpg.show_item("node_py")
-    dpg.show_item("node_hu")
+    dpg.show_item("node_edge_1")
+    dpg.show_item("node_edge_2")
     dpg.show_item("node_data")
     dpg.show_item("node_operator")
     dpg.show_item("node_train")

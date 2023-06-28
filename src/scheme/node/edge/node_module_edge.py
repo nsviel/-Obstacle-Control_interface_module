@@ -14,7 +14,7 @@ def design_block():
                 pass
 
 def design_node():
-    with dpg.node(label="Edge orchestrator", tag="node_hu"):
+    with dpg.node(label="Edge - 1", tag="node_edge_1"):
         scheme_function.add_status("edge_status_but", "edge_status")
         scheme_function.add_ip_wallet("edge_wallet", "edge_ip", param_interface.state_interface["edge"]["add"], "edge_ip_visible")
         scheme_function.add_nb_thread("edge_thread", "edge_thread_visible")

@@ -10,7 +10,7 @@ def update_node_pos_dev():
     gui_height = param_interface.state_interface["gui"]["height"]
     coord_module_interface = [1100, 600]
     coord_module_capture = [250, 10]
-    coord_module_edge = [725, 400]
+    coord_edge_1 = [725, 400]
     coord_train = [10, 10]
     coord_edge_next = [1150, 215]
     coord_component_process = [400, 510]
@@ -22,10 +22,10 @@ def update_node_pos_dev():
     coord_network = [10, 510]
 
     dpg.set_item_pos("node_co", coord_module_interface)
-    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_edge_1", coord_edge_1)
     dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
-    dpg.set_item_pos("node_ed", coord_edge_next)
+    dpg.set_item_pos("node_edge_2", coord_edge_next)
     dpg.set_item_pos("node_ve", coord_component_process)
     dpg.set_item_pos("node_ai", coord_ai)
     dpg.set_item_pos("node_operator", coord_trainope)
@@ -42,17 +42,18 @@ def update_node_pos_demo_minimized():
     gui_height = 750
     coord_module_interface = [1175, 325]
     coord_module_capture = [290, 100]
-    coord_module_edge = [775, 425]
+    coord_edge_1 = [675, 100]
+    coord_edge_2 = [675, 350]
     coord_train = [25, 100]
     coord_component_process = [850, 350]
     coord_ai = [850, 550]
     coord_trainope = [1110, 250]
     coord_ssd = [1400, 325]
-    coord_data = [700, 100]
+    coord_data = [1000, 400]
     coord_legend = [1110, 10]
     coord_network = [75, 400]
     coord_block_train = [10, 10]
-    coord_block_edge = [675, 10]
+    coord_block_edge = [550, 10]
     coord_block_cloud = [1075, 10]
 
     dpg.set_item_pos("node_block_train", coord_block_train)
@@ -60,7 +61,8 @@ def update_node_pos_demo_minimized():
     dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
     dpg.set_item_pos("node_co", coord_module_interface)
-    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_edge_1", coord_edge_1)
+    dpg.set_item_pos("node_edge_2", coord_edge_2)
     dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
     dpg.set_item_pos("node_ve", coord_component_process)
@@ -78,7 +80,7 @@ def update_node_pos_demo_fullscreen():
     gui_height = 1040
     coord_module_interface = [1175, 325]
     coord_module_capture = [290, 150]
-    coord_module_edge = [875, 525]
+    coord_edge_1 = [875, 525]
     coord_train = [50, 150]
     coord_component_process = [850, 350]
     coord_ai = [850, 550]
@@ -96,7 +98,7 @@ def update_node_pos_demo_fullscreen():
     dpg.set_item_pos("node_block_cloud", coord_block_cloud)
 
     dpg.set_item_pos("node_co", coord_module_interface)
-    dpg.set_item_pos("node_hu", coord_module_edge)
+    dpg.set_item_pos("node_edge_1", coord_edge_1)
     dpg.set_item_pos("node_py", coord_module_capture)
     dpg.set_item_pos("node_train", coord_train)
     dpg.set_item_pos("node_ve", coord_component_process)
