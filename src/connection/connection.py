@@ -1,42 +1,27 @@
 #---------------------------------------------
-from src.param import param_interface
-
 from src.connection.HTTPS import https_client_con
 from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 
+from src.element import element
+from src.utils import daemon
 from src.utils import saving
 from src.utils import parser_json
 from src.utils import signal
-from src.state import state
 from src.utils import terminal
+from src.state import state
 
-from src.scheme.loop import scheme_loop
-from src.scheme.loop import scheme_update
-
-import threading
-import time
 import socket
 
 
-def start_daemon():
-    param_interface.run_thread_con = True
-    thread_con = threading.Thread(target = thread_test_connection)
-    thread_con.start()
-    terminal.addDaemon("#", "ON", "Connection tests")
-
-def stop_daemon():
-    param_interface.run_thread_con = False
-    terminal.addDaemon("#", "OFF", "Connection tests")
-
-def thread_test_connection():
-    while param_interface.run_thread_con:
+class Connection(daemon.Daemon):
+    def thread_function(self):
         # Test connections
-        https_client_con.test_edge_con()
+        #https_client_con.test_http_edge()
         saving.test_ssd_con()
 
         # Update state
-        https_client_get.get_state("edge")
+        https_client_get.get_state("edge_1")
         https_client_get.get_state("capture")
         https_client_get.get_state("network")
         state.update_state()
@@ -44,11 +29,9 @@ def thread_test_connection():
 
         # Update scheme
         signal.update_nb_thread()
-        scheme_update.update_scheme()
-        scheme_loop.loop()
 
-        # Wait for 1 second
-        time.sleep(param_interface.tic_connection)
+    name = "Connection";
+    run_sleep = 0.5;
 
 def check_port_open(port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

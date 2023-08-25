@@ -1,6 +1,6 @@
 #---------------------------------------------
-from src.param import param_interface
-
+from src.param import param_control
+import dearpygui.dearpygui as dpg
 import json
 import os
 
@@ -11,12 +11,28 @@ def load_state(path):
         data = json.load(file)
         return data
     except:
+        print("[error] path %s does not exists"% path)
         dir = os.path.dirname(os.path.abspath(path))
         name = os.path.basename(path)
-        generic = dir + "/generic/" + name
+        generic = dir + "/../generic/" + name
         file = open(generic, "r")
         data = json.load(file)
         return data
+
+def load_pos_from_json(name):
+    file = open(param_control.path_node_coordinate, "r")
+    data = json.load(file)
+    try:
+        coord = data[name]
+    except:
+        coord = [0, 0]
+        print("[error] name %s does not exists"% name)
+    return coord
+
+def get_pos_from_json():
+    file = open(param_control.path_node_coordinate, "r")
+    data = json.load(file)
+    return data
 
 def load_data_from_file(path):
     file = open(path, "r")
@@ -42,8 +58,8 @@ def upload_file(path, data):
     json.dump(data, file, indent=4)
 
 def upload_state():
-    file = open(param_interface.path_state_interface, "w")
-    json.dump(param_interface.state_interface, file, indent=4)
+    file = open(param_control.path_state_control, "w")
+    json.dump(param_control.state_control, file, indent=4)
 
 def update_state_file(path, data):
     if(len(data) != 0):

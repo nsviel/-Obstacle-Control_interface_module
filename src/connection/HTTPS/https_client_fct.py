@@ -1,13 +1,13 @@
 #---------------------------------------------
-from src.param import param_interface
+from src.param import param_control
 
 import http.client
 
 
 def network_info(dest):
-    ip = param_interface.state_interface["edge"]["ip"]
-    port = param_interface.state_interface["edge"]["http_server_port"]
-    connected = param_interface.state_interface["edge"]["http_connected"]
+    ip = param_control.state_control["edge_1"]["ip"]
+    port = param_control.state_control["edge_1"]["http_server_port"]
+    connected = param_control.state_control["edge_1"]["http_connected"]
 
     return [ip, port, connected]
 

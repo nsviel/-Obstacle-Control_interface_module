@@ -1,0 +1,35 @@
+{
+  "control": {
+    "status": "Offline",
+    "ip": "192.168.152.40",
+    "nb_thread": 5,
+      "sock": {
+        "connected": false,
+        "port_server_l1": 321,
+        "port_server_l2": 322
+      }
+  },
+  "ssd": {
+      "status": "Offline",
+      "connected": false,
+      "activated": false,
+      "space_total": 0,
+      "space_used": 0
+  },
+  "operator": {
+      "ip": "127.0.0.1",
+      "add": "localhost",
+      "mqtt": {
+        "connected": false,
+        "port": 1883,
+        "client": "P2_module",
+        "topic": "alarmes/lidar"
+      }
+  },
+  "car": {
+      "ip": "127.0.0.1",
+      "http": {
+        "connected": false
+      }
+  }
+}

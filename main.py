@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 #---------------------------------------------
-from src.gui import gui
+from src import loop
 from src.utils import signal
 
 
 signal.system_clear()
-signal.manage_args()
 signal.system_information("Control Interface")
 #-------------
 
-gui.program()
+loop.program()
 
 #-------------
 print("-----------------------")

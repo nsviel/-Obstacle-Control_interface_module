@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.param import param_interface
+from src.param import param_control
 from src.utils import terminal
 
 import socket
@@ -16,7 +16,7 @@ import psutil
 
 # Manage Ctrl+C input
 def handler(signum, frame):
-    param_interface.run_loop = False
+    param_control.run_loop = False
 
 signal.signal(signal.SIGINT, handler)
 
@@ -24,7 +24,7 @@ def system_clear():
     os.system('clear')
 
 def update_nb_thread():
-    param_interface.state_interface["self"]["nb_thread"] = threading.active_count()
+    param_control.state_control["self"]["nb_thread"] = threading.active_count()
 
 def check_for_root():
     if not os.geteuid() == 0:
@@ -33,7 +33,7 @@ def check_for_root():
 def system_information(prog_name):
     check_for_root()
 
-    #Info
+    # Retrieve program info
     program = prog_name
     ip = get_ip_adress()
     hostname = socket.gethostname()
@@ -41,22 +41,10 @@ def system_information(prog_name):
     core = platform.uname()[2]
     proc = platform.processor()
     python = platform.python_version()
+    OS = get_OS()
 
-    try:
-        OS = platform.freedesktop_os_release()['PRETTY_NAME']
-    except:
-        OS = platform.system()
-
-    if(param_interface.status_ui == "param"):
-        mode_name = "Parametrization"
-    elif(param_interface.status_ui == "overview"):
-        mode_name = "Overview"
-    elif(param_interface.status_ui == "fullscreen"):
-        mode_name = "Overview fullscreen"
-
-    #Header
+    # Program header
     print('%-12s' '\033[1;34m%s\033[0m' % ("[Obstacle]", program))
-    print('%-12s' '\033[1;34m%s\033[0m' % ("Mode", mode_name))
     print("-----------------------")
     print('%-12s' '\033[1;34m%s\033[0m' % ("IP", ip))
     print('%-12s' '\033[1;34m%s\033[0m' % ("Hostname", hostname))
@@ -66,22 +54,12 @@ def system_information(prog_name):
     print('%-12s' '\033[1;34m%s\033[0m' % ("Python", python))
     print("-----------------------")
 
-def manage_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--param", action="store_true")
-    parser.add_argument("--demo", action="store_true")
-    parser.add_argument("--overview", action="store_true")
-    parser.add_argument("--fullscreen", action="store_true")
-    args = parser.parse_args()
-
-    if(args.param):
-        param_interface.status_ui = "param"
-    elif(args.overview or args.demo):
-        param_interface.status_ui = "overview"
-    elif(args.fullscreen):
-        param_interface.status_ui = "overview_fullscreen"
-    else:
-        param_interface.status_ui = "param"
+def get_OS():
+    try:
+        OS = platform.freedesktop_os_release()['PRETTY_NAME']
+    except:
+        OS = platform.system()
+    return OS
 
 def get_temps_core(number):
     temp = psutil.sensors_temperatures()

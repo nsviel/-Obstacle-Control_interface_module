@@ -12,9 +12,18 @@
     "ssd":{
       "start_with_save_data": false
     },
-    "edge": {
+    "edge_1": {
+        "edge_id": 0,
+        "country": "France",
         "ip": "127.0.0.1",
         "sock_client_port": 315,
         "http_server_port": 443
+    },
+    "edge_2": {
+        "edge_id": 1,
+        "country": "Spain",
+        "ip": "127.0.0.1",
+        "sock_client_port": 316,
+        "http_server_port": 444
     }
 }

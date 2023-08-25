@@ -9,7 +9,7 @@
 # - /ai_param
 #---------------------------------------------
 
-from src.param import param_interface
+from src.param import param_control
 from src.connection.HTTPS import https_client_fct
 from src.utils import terminal
 

@@ -1,0 +1,14 @@
+{
+    "ip": "192.168.154.127",
+    "nb_thread": 7,
+    "l1_port": 8308,
+    "l2_port": 8309,
+    "http_server_port": 314,
+    "device": {
+        "0": "wlp2s0",
+        "1": "ztwdjfturv",
+        "2": "enx00e04c680731",
+        "3": "br-de470ff68a90",
+        "4": "br-fc5d7334c3b2"
+    }
+}

@@ -1,0 +1,78 @@
+{
+  "component": {
+    "capture": {
+      "ip": "127.0.0.1",
+      "add": "localhost",
+      "nb_thread": 7,
+      "http": {
+        "connected": true,
+        "port_server": 314
+      },
+      "sock": {
+        "l1_connected": true,
+        "l2_connected": false,
+        "l1_port": 8308,
+        "l2_port": 8309
+      }
+    },
+    "lidar_1": {
+      "ip": "192.168.1.201",
+      "add": "-",
+      "connected": false,
+      "port": 2368,
+      "device": "enxf8e43b6cdf6c",
+
+      "motor": {
+        "activated": true,
+        "running": false,
+        "speed": 600
+      },
+      "throughput": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "mean": 0
+      },
+      "packet": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "mean": 0,
+          "sent": 0
+      }
+    },
+    "lidar_2": {
+        "ip": "192.168.2.201",
+        "add": "-",
+        "connected": true,
+        "port": 2369,
+        "device": "enx00e04c680731",
+
+        "motor": {
+          "activated": true,
+          "running": false,
+          "speed": 600
+        },
+        "throughput": {
+            "value": 0.96,
+            "min": 0.955,
+            "max": 0.962,
+            "mean": 0.9132857142857146
+        },
+        "packet": {
+            "value": 17056,
+            "min": 0,
+            "max": 0,
+            "mean": 0,
+            "sent": 0
+        }
+    }
+  },
+  "device": {
+      "0": "wlp2s0",
+      "1": "ztwdjfturv",
+      "2": "enx00e04c680731",
+      "3": "br-de470ff68a90",
+      "4": "br-fc5d7334c3b2"
+  }
+}

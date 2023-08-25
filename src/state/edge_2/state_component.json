@@ -1,0 +1,40 @@
+{
+  "ip": "127.0.0.1",
+  "add": "localhost",
+  "ID": "-",
+  "hub": {
+    "status": "Offline",
+    "country": "France",
+    "nb_thread": 8,
+    "http": {
+      "port_server": 443
+    },
+    "sock": {
+      "port_server_l1": 344,
+      "port_server_l2": 345,
+      "main_source": "lidar_2"
+    }
+  },
+  "slam": {
+    "status": "Offline",
+    "http": {
+      "connected": false,
+      "port_server": 8888
+    },
+    "sock": {
+      "connected": false,
+      "port_server": 2370
+    }
+  },
+  "ai": {
+    "status": "Offline",
+    "http": {
+      "connected": false,
+      "port_server": 8080
+    }
+  },
+  "data": {
+      "nb_frame": 0,
+      "nb_prediction": 0
+  }
+}

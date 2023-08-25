@@ -1,35 +1,41 @@
 #---------------------------------------------
-from src.param import param_interface
-from src.connection.SOCK import sock_server
-from src.connection.DHCP import dhcp_client
-
-from src.connection import connection
-from src.utils import signal
-from src.utils import saving
-from src.scheme.node.data import image
-from src.utils import parser_json
+from src import daemon
+from src.param import param_control
+from src.gui import gui
+from src.element import element
 from src.state import state
-from src.utils import wallet
+from src.utils import saving
 from src.utils import terminal
+from src.utils import parser_json
+from src.element.misc.wallet import wallet_logic
 
 import time
 
-import os
+
+def program():
+    init()
+    loop()
+    end()
+
 def init():
+    state.load_configuration()
     saving.determine_path()
-    connection.start_daemon()
-    sock_server.start_daemon()
-    image.start_daemon()
+    element.object.init_objects()
+    daemon.start_daemons()
+    wallet_logic.initialization()
+    gui.initialization()
     terminal.addLog("OK", "Program initialized...")
     terminal.addLine()
 
 def loop():
-    time.sleep(param_interface.tic_loop)
+    is_running = True
+    param_control.run_loop = True
+    while param_control.run_loop and is_running:
+        is_running = gui.loop()
 
 def end():
     terminal.shutdown()
+    #gui.termination()
     parser_json.upload_state()
-    connection.stop_daemon()
-    sock_server.stop_daemon()
-    image.stop_daemon()
+    daemon.stop_daemons()
     terminal.delai()
