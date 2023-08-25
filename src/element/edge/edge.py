@@ -5,7 +5,6 @@ from src.element.edge.data import data
 from src.element.edge.ai import ai
 from src.element.edge.network import network
 from src.element.edge import link
-from src.element.edge import state
 from src.utils import parser_json
 
 
@@ -18,8 +17,7 @@ class Edge:
         self.ai = ai.Ai(self.ID_edge)
         self.network = network.Network(self.ID_edge)
         self.link = link.Link(self)
-        self.state = state.State(self.ID_edge)
-        
+
     def build_nodes(self):
         self.slam.node.build()
         self.ai.node.build()

@@ -28,6 +28,9 @@ class Link:
         dpg.add_node_link(edge_2.hub.ID.ID_sock_client_l2, self.cloud.control.ID.ID_sock_server_l2, tag=self.link_sock_l2_control_edge_2)
 
     def update(self):
+        pass
+
+    def eee():
         colorization.colorize_link_http(self.cloud.state.state_component["ssd"]["connected"], self.link_control_ssd)
 
         colorization.colorize_link_http(self.cloud.state.state_interface["edge_1"]["http"]["connected"], self.link_http_control_edge_1)

@@ -12,7 +12,6 @@ class Ground:
         self.lidar_1 = lidar.Lidar(1)
         self.lidar_2 = lidar.Lidar(2)
         self.link = link.Link(self)
-        self.state = parser_json.load_state("src/element/ground/state.json")
 
     def build_nodes(self):
         self.capture.node.build()

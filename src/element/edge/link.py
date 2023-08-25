@@ -33,6 +33,8 @@ class Link:
         dpg.add_node_link(self.edge.hub.ID.ID_mqtt_client, cloud.operator.ID.ID_mqtt_broker, tag=self.link_mqtt_hub_operator)
 
     def update(self):
+        pass
+    def trc():
         colorization.colorize_link_socket(self.edge.state.state_component["slam"]["sock"]["connected"], self.link_sock_hub_slam)
         colorization.colorize_link_http(self.edge.state.state_component["slam"]["http"]["connected"], self.link_http_hub_slam)
         colorization.colorize_link_http(self.edge.state.state_component["ai"]["http"]["connected"], self.link_http_hub_ai)

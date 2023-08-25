@@ -16,5 +16,5 @@ class Link:
         dpg.add_node_link(self.ground.lidar_2.ID.ID_sock_client, self.ground.capture.ID.ID_sock_server_l2, tag=self.link_l2_capture)
 
     def update(self):
-        colorization.colorize_link_socket(self.ground.state["component"]["lidar_1"]["connected"], self.link_l1_capture)
-        colorization.colorize_link_socket(self.ground.state["component"]["lidar_2"]["connected"], self.link_l2_capture)
+        pass#colorization.colorize_link_socket(self.ground.state["component"]["lidar_1"]["connected"], self.link_l1_capture)
+        #colorization.colorize_link_socket(self.ground.state["component"]["lidar_2"]["connected"], self.link_l2_capture)

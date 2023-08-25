@@ -1,9 +1,5 @@
 #---------------------------------------------
-from src.state import state_
 import os, pwd
-
-
-state = state_.State()
 
 
 # State
@@ -16,10 +12,10 @@ state_network = {}
 # Path
 path_state_control = "src/state/state_control.json"
 path_state_capture = "src/state/state_capture.json"
-path_state_edge_1 = "src/state/edge_1/state_edge.json"
-path_state_edge_2 = "src/state/edge_2/state_edge.json"
-path_state_perf = "src/state/edge_1/state_kpi.json"
-path_image = "src/state/edge_1/image"
+path_state_edge_1 = "src/state/state_edge.json"
+path_state_edge_2 = "src/state/state_edge.json"
+path_state_perf = "src/state/state_kpi.json"
+path_image = "src/state/image"
 path_config = "config.json"
 path_ssd = "/app/lidar_ssd"
 path_node_coordinate = "src/gui/background/scheme_position.json"

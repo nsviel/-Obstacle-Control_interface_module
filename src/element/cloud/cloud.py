@@ -3,7 +3,6 @@ from src.element.cloud.control import control
 from src.element.cloud.operator import operator
 from src.element.cloud.ssd import ssd
 from src.element.cloud import link
-from src.element.cloud import state
 from src.utils import parser_json
 
 
@@ -14,7 +13,6 @@ class Cloud:
         self.operator = operator.Operator()
         self.ssd = ssd.Ssd()
         self.link = link.Link(self)
-        self.state = state.State()
 
     def build_nodes(self):
         self.control.node.build()
