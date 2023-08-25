@@ -8,8 +8,8 @@ import dearpygui.dearpygui as dpg
 def update_color_train():
     pass
     # Lidars
-    #update_link_socket(param_control.state_edge_1["module_capture"]["sock_l1_connected"], "link_edge_1_capture_l1_sock")
-    #update_link_socket(param_control.state_edge_1["module_capture"]["sock_l2_connected"], "link_edge_1_capture_l2_sock")
+    #update_link_socket(param_control.state_edge["module_capture"]["sock_l1_connected"], "link_edge_1_capture_l1_sock")
+    #update_link_socket(param_control.state_edge["module_capture"]["sock_l2_connected"], "link_edge_1_capture_l2_sock")
     #update_link_connection(param_control.state_control["ssd"]["connected"], "link_control_ssd_usb")
 
     # Capture
@@ -18,9 +18,9 @@ def update_color_train():
 
 def update_color_edge_1():
     # Inter Edge
-    update_link_socket(param_control.state_edge_1["component_process"]["sock_connected"], "link_edge_1_processing_sock")
-    update_link_connection(param_control.state_edge_1["component_process"]["http_connected"], "link_edge_1_processing_http")
-    update_link_connection(param_control.state_edge_1["component_ai"]["http_connected"], "link_edge_1_ai_http")
+    update_link_socket(param_control.state_edge["slam"]["sock_connected"], "link_edge_1_processing_sock")
+    update_link_connection(param_control.state_edge["slam"]["http_connected"], "link_edge_1_processing_http")
+    update_link_connection(param_control.state_edge["ai"]["http_connected"], "link_edge_1_ai_http")
 
     # Edge <-> Control
     update_link_connection(param_control.state_control["edge_1"]["http_connected"], "link_edge_1_control_http")
@@ -28,17 +28,17 @@ def update_color_edge_1():
     update_link_socket(param_control.state_control["edge_1"]["sock_l2_connected"], "link_edge_1_interface_l2_sock")
 
     # Edge <-> Capture
-    update_link_connection(param_control.state_edge_1["module_capture"]["http_connected"], "link_edge_1_capture_http")
+    update_link_connection(param_control.state_edge["module_capture"]["http_connected"], "link_edge_1_capture_http")
 
     # Edge <-> Cloud
-    update_link_connection(param_control.state_edge_1["cloud_operator"]["broker_connected"], "link_edge_1_trainope_mqtt")
-    update_link_connection(param_control.state_edge_1["cloud_car"]["http_connected"], "link_edge_1_car_http")
+    update_link_connection(param_control.state_edge["cloud_operator"]["broker_connected"], "link_edge_1_trainope_mqtt")
+    update_link_connection(param_control.state_edge["cloud_car"]["http_connected"], "link_edge_1_car_http")
 
 def update_color_edge_2():
     # Inter Edge
-    update_link_socket(param_control.state_edge_2["component_process"]["sock_connected"], "link_edge_2_processing_sock")
-    update_link_connection(param_control.state_edge_2["component_process"]["http_connected"], "link_edge_2_processing_http")
-    update_link_connection(param_control.state_edge_2["component_ai"]["http_connected"], "link_edge_2_ai_http")
+    update_link_socket(param_control.state_edge_2["slam"]["sock_connected"], "link_edge_2_processing_sock")
+    update_link_connection(param_control.state_edge_2["slam"]["http_connected"], "link_edge_2_processing_http")
+    update_link_connection(param_control.state_edge_2["ai"]["http_connected"], "link_edge_2_ai_http")
 
     # Edge <-> Control
     update_link_connection(param_control.state_control["edge_2"]["http_connected"], "link_edge_2_control_http")

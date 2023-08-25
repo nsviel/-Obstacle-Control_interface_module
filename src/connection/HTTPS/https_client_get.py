@@ -21,7 +21,7 @@ def get_state(dest):
         try:
             if(dest == "edge_1"):
                 parser_json.update_state_file(param_control.path_state_edge_1, data)
-                param_control.state_edge_1 = json.loads(data)
+                param_control.state_edge = json.loads(data)
             elif(dest == "edge_2"):
                 parser_json.update_state_file(param_control.path_state_edge_2, data)
                 param_control.state_edge_2 = json.loads(data)

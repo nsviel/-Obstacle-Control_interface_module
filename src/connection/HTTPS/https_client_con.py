@@ -27,9 +27,9 @@ def connection_edge_open(edge_ID):
     if(state_edge["http"]["connected"] == False):
         state_edge["http"]["connected"] = True
         https_client_post.post_param_value("edge", "module_interface", "ip", state_control["ip"])
-        https_client_post.post_param_value("edge", "module_capture", "ip", param_control.state_edge_1["module_capture"]["ip"])
-        https_client_post.post_param_value("edge", "component_process", "ip", param_control.state_edge_1["component_process"]["ip"])
-        https_client_post.post_param_value("edge", "self", "lidar_main", param_control.state_edge_1["self"]["lidar_main"])
+        https_client_post.post_param_value("edge", "module_capture", "ip", param_control.state_edge["module_capture"]["ip"])
+        https_client_post.post_param_value("edge", "slam", "ip", param_control.state_edge["slam"]["ip"])
+        https_client_post.post_param_value("edge", "self", "lidar_main", param_control.state_edge["self"]["lidar_main"])
 
 def connection_edge_close():
     param_control.state_control["edge_1"]["http_connected"] = False

@@ -21,14 +21,14 @@ class Capture_window(window.Window):
 
     def update_parameter(self):
         dpg.set_value(self.ID.ID_status, param_control.status_capture)
-        dpg.set_value(self.ID.ID_wallet, param_control.state_edge_1["module_capture"]["add"])
-        dpg.set_value(self.ID.ID_ip, param_control.state_edge_1["module_capture"]["ip"])
+        dpg.set_value(self.ID.ID_wallet, param_control.state_edge["module_capture"]["add"])
+        dpg.set_value(self.ID.ID_ip, param_control.state_edge["module_capture"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_capture["self"]["nb_thread"])
 
     def combo_address(self):
         capture_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(capture_ip != None):
-            param_control.state_edge_1["module_capture"]["ip"] = capture_ip
+            param_control.state_edge["module_capture"]["ip"] = capture_ip
             dpg.set_value(self.ID.ID_ip, capture_ip)
             https_client_post.post_param_value("edge", "module_capture", "ip", capture_ip)
 

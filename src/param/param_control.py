@@ -4,7 +4,7 @@ import os, pwd
 
 # State
 state_control = {}
-state_edge_1 = {}
+state_edge = {}
 state_edge_2 = {}
 state_ground = {}
 state_network = {}

@@ -24,7 +24,7 @@
         "sock_server_l1_port": 321,
         "sock_server_l2_port": 322
     },
-    "component_process": {
+    "slam": {
         "add": "localhost",
         "ip": "127.0.0.1",
         "http_connected": false,
@@ -32,7 +32,7 @@
         "sock_connected": false,
         "sock_server_port": 2370
     },
-    "component_ai": {
+    "ai": {
         "ip": "127.0.0.1",
         "http_connected": false,
         "http_server_port": 8080

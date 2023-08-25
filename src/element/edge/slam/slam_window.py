@@ -34,16 +34,16 @@ class Slam_window(window.Window):
     def command_comboip(self):
         processing_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(processing_ip != None):
-            param_control.state_edge_1["component_process"]["ip"] = processing_ip
+            param_control.state_edge["slam"]["ip"] = processing_ip
             dpg.set_value("edge_2_ip", processing_ip)
-            https_client_post.post_param_value("edge", "component_process", "ip", processing_ip)
+            https_client_post.post_param_value("edge", "slam", "ip", processing_ip)
 
     def update_slam(self):
-        dpg.set_value(self.ID.ID_ip, edge.state["component_process"]["ip"])
-        dpg.set_value(self.ID.ID_sock_server_port, edge.state["component_process"]["sock_server_port"])
-        dpg.set_value(self.ID.ID_http_server_port, edge.state["component_process"]["http_server_port"])
+        dpg.set_value(self.ID.ID_ip, edge.state["slam"]["ip"])
+        dpg.set_value(self.ID.ID_sock_server_port, edge.state["slam"]["sock_server_port"])
+        dpg.set_value(self.ID.ID_http_server_port, edge.state["slam"]["http_server_port"])
         dpg.set_value(self.ID.ID_status, param_control.status_processing)
-        dpg.set_value(self.ID.ID_wallet, edge.state["component_process"]["add"])
+        dpg.set_value(self.ID.ID_wallet, edge.state["slam"]["add"])
 
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()

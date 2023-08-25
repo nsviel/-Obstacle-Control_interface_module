@@ -61,8 +61,8 @@ def write_wallet():
 def determine_adresse():
     param_control.state_control["edge_1"]["add"] = get_key_from_ip(param_control.state_control["edge_1"]["ip"])
     param_control.state_control["edge_2"]["add"] = get_key_from_ip(param_control.state_control["edge_2"]["ip"])
-    param_control.state_edge_1["cloud_operator"]["add"] = get_key_from_ip(param_control.state_edge_1["cloud_operator"]["broker_ip"])
-    param_control.state_edge_1["module_capture"]["add"] = get_key_from_ip(param_control.state_edge_1["module_capture"]["ip"])
+    param_control.state_edge["cloud_operator"]["add"] = get_key_from_ip(param_control.state_edge["cloud_operator"]["broker_ip"])
+    param_control.state_edge["module_capture"]["add"] = get_key_from_ip(param_control.state_edge["module_capture"]["ip"])
     param_control.state_capture["lidar_1"]["add"] = get_key_from_ip(param_control.state_capture["lidar_1"]["ip"])
     param_control.state_capture["lidar_2"]["add"] = get_key_from_ip(param_control.state_capture["lidar_2"]["ip"])
     parser_json.upload_state()

@@ -24,18 +24,18 @@ class Ai_window(window.Window):
             dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.callback_ai);
 
     def callback_ai(self):
-        https_client_post.post_param_value("component_ai", None, "lidar_height", dpg.get_value(self.ID.ID_setting_lidar_height))
-        https_client_post.post_param_value("component_ai", None, "threshold", dpg.get_value(self.ID.ID_setting_threshold))
+        https_client_post.post_param_value("ai", None, "lidar_height", dpg.get_value(self.ID.ID_setting_lidar_height))
+        https_client_post.post_param_value("ai", None, "threshold", dpg.get_value(self.ID.ID_setting_threshold))
 
     def command_comboip(self):
         ai_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ai_ip != None):
-            param_control.state_edge_1["component_ai"]["ip"] = ai_ip
+            param_control.state_edge["ai"]["ip"] = ai_ip
             dpg.set_value(self.ID.ID_ip, ai_ip)
-            https_client_post.post_param_value("edge", "component_ai", "ip", ai_ip)
+            https_client_post.post_param_value("edge", "ai", "ip", ai_ip)
 
     def update_ai(self):
-        dpg.set_value(self.ID.ID_http_server_port, edge.state["component_ai"]["http_server_port"])
+        dpg.set_value(self.ID.ID_http_server_port, edge.state["ai"]["http_server_port"])
         dpg.set_value(self.ID.ID_status, param_control.status_ai)
 
     def save_coord_to_file(self):

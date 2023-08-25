@@ -39,8 +39,8 @@ class Operator_node(node.Node):
 
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_operator)
-        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge_1["cloud_operator"]["broker_port"])
-        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge_1["cloud_operator"]["mqtt_topic"])
+        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge["cloud_operator"]["broker_port"])
+        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["cloud_operator"]["mqtt_topic"])
 
     def colorize_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_operator)
@@ -50,10 +50,10 @@ class Operator_node(node.Node):
         colorization.colorize_item(self.ID.ID_ip, input_text)
 
     def callback_operator(self):
-        param_control.state_edge_1["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
-        param_control.state_edge_1["cloud_operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
-        #param_control.state_edge_1["cloud_operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
-        https_client_post.post_state("edge", param_control.state_edge_1)
+        param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
+        param_control.state_edge["cloud_operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
+        #param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
+        https_client_post.post_state("edge", param_control.state_edge)
         https_client_post.post_param_value("edge", None, "cloud_operator", "reset")
 
     def save_coord_to_file(self):

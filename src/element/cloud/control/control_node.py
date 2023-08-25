@@ -64,9 +64,9 @@ class Control_node(node.Node):
             loop.daemon_socket_l1.restart_daemon()
             loop.daemon_socket_l2.restart_daemon()
 
-            param_control.state_edge_1["module_interface"]["sock_server_l1_port"] = dpg.get_value(object.object.control.ID_sock_server_l1_port)
-            param_control.state_edge_1["module_interface"]["sock_server_l2_port"] = dpg.get_value(object.object.control.ID_sock_server_l2_port)
-            https_client_post.post_state("edge", param_control.state_edge_1)
+            param_control.state_edge["module_interface"]["sock_server_l1_port"] = dpg.get_value(object.object.control.ID_sock_server_l1_port)
+            param_control.state_edge["module_interface"]["sock_server_l2_port"] = dpg.get_value(object.object.control.ID_sock_server_l2_port)
+            https_client_post.post_state("edge", param_control.state_edge)
 
     def colorize_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_control)
