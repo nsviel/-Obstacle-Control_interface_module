@@ -40,7 +40,7 @@ class Slam_node(node.Node):
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"][self.ID.ID_edge]["slam"])
+        dpg.set_item_pos(self.ID.ID_node, data["edge"]["slam"])
 
     def colorize_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_slam)

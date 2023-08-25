@@ -37,5 +37,5 @@ class Network_window(window.Window):
 
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
-        data["edge"][self.ID.ID_edge]["network"] = dpg.get_item_pos(self.ID.ID_node)
+        data["edge"]["network"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)

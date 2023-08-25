@@ -43,7 +43,7 @@ class Data_node(node.Node):
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"][self.ID.ID_edge]["data"])
+        dpg.set_item_pos(self.ID.ID_node, data["edge"]["data"])
 
     def update_node(self):
         colorization.colorize_status("mongo_server_but", param_control.status_db)

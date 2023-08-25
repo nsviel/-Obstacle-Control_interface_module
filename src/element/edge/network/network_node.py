@@ -17,7 +17,7 @@ class Network_node(node.Node):
         self.position_node()
     def position_node(self):
         data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"][self.ID.ID_edge]["network"])
+        dpg.set_item_pos(self.ID.ID_node, data["edge"]["network"])
 
     # Table functions
     def build_table_kpi(self):

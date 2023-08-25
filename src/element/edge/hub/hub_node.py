@@ -39,7 +39,7 @@ class Hub_node(node.Node):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
 
             # MQTT
-            with dpg.node_attribute(tag=self.ID.ID_mqtt_client, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+            with dpg.node_attribute(tag=self.ID.ID_mqtt_client, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT");
                     dpg.add_text("client");
@@ -72,7 +72,7 @@ class Hub_node(node.Node):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_info);
                     dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=100, callback=self.callback_module_edge);
-            with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+            with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("client", color=gui_color.color_info);
@@ -100,7 +100,7 @@ class Hub_node(node.Node):
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"][self.ID.ID_edge]["hub"])
+        dpg.set_item_pos(self.ID.ID_node, data["edge"]["hub"])
 
     def colorize_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge_1)
