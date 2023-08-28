@@ -1,7 +1,7 @@
 #---------------------------------------------
+from src.param import param_control
 from src.utils import function
 from src.gui.style import colorization
-from src.param import param_control
 import dearpygui.dearpygui as dpg
 
 
@@ -20,10 +20,7 @@ class Link:
         dpg.add_node_link(edge.hub.ID.ID_sock_client_l2, self.cloud.control.ID.ID_sock_server_l2, tag=self.link_sock_l2_control_edge)
 
     def update(self):
-        pass
-
-    def eee():
-        colorization.colorize_link_http(self.cloud.state.state_component["ssd"]["connected"], self.link_control_ssd)
-        colorization.colorize_link_http(self.cloud.state.state_interface["edge"]["http"]["connected"], self.link_http_control_edge)
-        colorization.colorize_link_socket(self.cloud.state.state_interface["edge"]["sock"]["l1_connected"], self.link_sock_l1_control_edge)
-        colorization.colorize_link_socket(self.cloud.state.state_interface["edge"]["sock"]["l2_connected"], self.link_sock_l2_control_edge)
+        colorization.colorize_link_http(param_control.state_control["ssd"]["connected"], self.link_control_ssd)
+        colorization.colorize_link_http(param_control.state_control["edge"]["http_connected"], self.link_http_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["edge"]["sock_l1_connected"], self.link_sock_l1_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["edge"]["sock_l2_connected"], self.link_sock_l2_control_edge)

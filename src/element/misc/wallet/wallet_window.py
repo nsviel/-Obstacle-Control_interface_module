@@ -9,6 +9,7 @@ import json
 
 
 class Wallet_window(window.Window):
+    # Build function
     def build_parameter(self):
         self.build_add_element()
         self.build_list_element()
@@ -56,3 +57,7 @@ class Wallet_window(window.Window):
     def remove_add(self, sender):
         wallet_logic.remove_item_id(sender)
         self.rebuild_list_element()
+
+    # Update function
+    def update(self):
+        pass
