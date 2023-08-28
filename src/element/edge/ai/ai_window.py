@@ -5,6 +5,7 @@ from src.base import window
 from src.gui.style import gui_color
 from src.connection.HTTPS import https_client_post
 from src.utils import parser_json
+from src.element.misc.wallet import wallet_logic
 import dearpygui.dearpygui as dpg
 
 
@@ -14,10 +15,10 @@ class Ai_window(window.Window):
             dpg.add_table_column()
             dpg.add_table_column()
             with dpg.table_row():
-                dpg.add_text("Add:");
+                dpg.add_text("Address");
                 dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
             with dpg.table_row():
-                dpg.add_text("IP:");
+                dpg.add_text("IP");
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
                 dpg.add_text("Height");
@@ -26,7 +27,7 @@ class Ai_window(window.Window):
                 dpg.add_text("Threshold");
                 dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.callback_ai);
         dpg.add_separator()
-        
+
     def callback_ai(self):
         https_client_post.post_param_value("ai", None, "lidar_height", dpg.get_value(self.ID.ID_setting_lidar_height))
         https_client_post.post_param_value("ai", None, "threshold", dpg.get_value(self.ID.ID_setting_threshold))

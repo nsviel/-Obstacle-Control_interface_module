@@ -20,7 +20,7 @@ class Wallet_window(window.Window):
                 dpg.add_text("New element", color=(150, 150, 150));
                 dpg.add_button(label="Add item", callback=self.add_new_add)
         with dpg.group(horizontal=True):
-            dpg.add_text("Add:")
+            dpg.add_text("Address")
             dpg.add_input_text(tag=self.ID.ID_new_address, label="", width=200)
         with dpg.group(horizontal=True):
             dpg.add_text("IP: ")

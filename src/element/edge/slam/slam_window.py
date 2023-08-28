@@ -4,6 +4,8 @@ from src.gui.background import gui_ID
 from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
+from src.element.misc.wallet import wallet_logic
+from src.connection.HTTPS import https_client_post
 import dearpygui.dearpygui as dpg
 
 
@@ -13,16 +15,16 @@ class Slam_window(window.Window):
             dpg.add_table_column()
             dpg.add_table_column()
             with dpg.table_row():
-                dpg.add_text("Add:");
+                dpg.add_text("Address");
                 dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
             with dpg.table_row():
-                dpg.add_text("IP:");
+                dpg.add_text("IP");
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
-                dpg.add_text("SLAM:");
+                dpg.add_text("Activated");
                 dpg.add_checkbox(tag=self.ID.ID_setting_with_slam, label="", default_value=True, callback=self.callback_component_process);
             with dpg.table_row():
-                dpg.add_text("View:");
+                dpg.add_text("View");
                 dpg.add_radio_button(("Top", "Oblique"), tag=self.ID.ID_setting_cam_view, callback=self.callback_component_process, horizontal=True)
             with dpg.table_row():
                 dpg.add_button(label="Reset", tag=self.ID.ID_setting_reset, width=50, callback=self.callback_component_process_reset)
@@ -39,7 +41,7 @@ class Slam_window(window.Window):
         processing_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(processing_ip != None):
             param_control.state_edge["slam"]["ip"] = processing_ip
-            dpg.set_value("edge_2_ip", processing_ip)
+            dpg.set_value(self.ID.ID_ip, processing_ip)
             https_client_post.post_param_value("edge", "slam", "ip", processing_ip)
 
     def update_slam(self):

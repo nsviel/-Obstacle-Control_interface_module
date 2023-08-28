@@ -9,7 +9,7 @@ class Car_node(node.Node):
         with dpg.node(label="cloud_car", tag="car_node"):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
-                    dpg.add_text("IP:");
+                    dpg.add_text("IP");
                     dpg.add_text("127.0.0.1", tag="car_ip", color=gui_color.color_info);
             with dpg.node_attribute(tag="car_http_client", attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):

@@ -26,9 +26,9 @@ class Window:
 
     def build_info(self):
         with dpg.table(tag=self.ID.ID_window_table_info, header_row=False, borders_innerH=True, policy=dpg.mvTable_SizingFixedFit):
-            dpg.add_table_column(label="What", width_fixed=True, init_width_or_weight=50)
-            dpg.add_table_column(label="Value", width_fixed=True, init_width_or_weight=100)
-            dpg.add_table_column(label="Button", width_fixed=True, init_width_or_weight=20)
+            dpg.add_table_column(width_fixed=True, init_width_or_weight=50)
+            dpg.add_table_column(width_fixed=True, init_width_or_weight=160)
+            dpg.add_table_column(width_fixed=True, init_width_or_weight=20)
             with dpg.table_row():
                 dpg.add_text("Node")
                 dpg.add_text(self.ID.name, color=(0, 200, 50))

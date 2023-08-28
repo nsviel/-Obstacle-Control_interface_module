@@ -4,6 +4,8 @@ from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
 from src.element.misc.wallet import wallet_logic
+from src.connection.HTTPS import https_client_con
+from src.connection.HTTPS import https_client_post
 import dearpygui.dearpygui as dpg
 
 
@@ -13,13 +15,13 @@ class Hub_window(window.Window):
             dpg.add_table_column()
             dpg.add_table_column()
             with dpg.table_row():
-                dpg.add_text("Add:");
+                dpg.add_text("Address");
                 dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_comboip)
             with dpg.table_row():
-                dpg.add_text("IP:");
+                dpg.add_text("IP");
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
-                dpg.add_text("Nb thread:");
+                dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
         dpg.add_separator()
 
@@ -49,7 +51,7 @@ class Hub_window(window.Window):
         if(edge_ip != None):
             param_control.state_control["edge"]["ip"] = edge_ip
             dpg.set_value(self.ID.ID_ip, edge_ip)
-            https_client_con.test_http_edge()
+            https_client_con.test_connection_edge()
             https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
 
     def save_coord_to_file(self):
