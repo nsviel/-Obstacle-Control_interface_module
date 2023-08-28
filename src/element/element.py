@@ -42,12 +42,21 @@ class Element():
         self.edge.link.setup(self.ground, self.cloud)
         self.cloud.link.setup(self.edge)
 
+        self.update_scheme()
+
+    def update_scheme(self):
         self.update_links()
+        self.update_nodes()
 
     def update_links(self):
         self.ground.link.update()
         self.edge.link.update()
         #self.edge_2.link.update()
         self.cloud.link.update()
+
+    def update_nodes(self):
+        self.ground.update_nodes()
+        self.edge.update_nodes()
+        self.cloud.update_nodes()
 
 object = Element()

@@ -8,7 +8,7 @@ color_line = (255, 255, 255, 50)
 color_status = (0, 200, 50)
 color_grey = (150, 150, 150)
 
-color_node_value = (200, 0, 200)
+color_node_value = (154, 175, 219)
 color_node_sub = (0, 200, 200)
 
 

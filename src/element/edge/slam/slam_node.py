@@ -8,6 +8,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Slam_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -38,11 +39,13 @@ class Slam_node(node.Node):
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
         self.colorize_node()
-
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["slam"])
-
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_setting_with_slam, "checkbox")
         colorization.colorize_node(self.ID.ID_node, "edge")
+
+    # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["slam"]["http_connected"])

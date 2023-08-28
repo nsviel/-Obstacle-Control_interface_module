@@ -1,4 +1,5 @@
 #---------------------------------------------
+from src.param import param_control
 from src.base import node
 from src.gui.style import colorization
 from src.gui.style import gui_color
@@ -7,6 +8,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Ai_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -29,10 +31,12 @@ class Ai_node(node.Node):
                     dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
         self.position_node()
         self.colorize_node()
-
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["ai"])
-
     def colorize_node(self):
         colorization.colorize_node(self.ID.ID_node, "edge")
+
+    # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["ai"]["http_connected"])

@@ -46,8 +46,17 @@ class Control_node(node.Node):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
         self.colorize_node()
+    def position_node(self):
+        data = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, data["cloud"]["control"])
+    def colorize_node(self):
+        colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
+        colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
+        colorization.colorize_node(self.ID.ID_node, "cloud")
 
     # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, True)
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_control)
         dpg.set_value(self.ID.ID_ip, param_control.state_control["self"]["ip"])
@@ -67,12 +76,3 @@ class Control_node(node.Node):
             param_control.state_edge["module_interface"]["sock_server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
             param_control.state_edge["module_interface"]["sock_server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
             https_client_post.post_state("edge", param_control.state_edge)
-
-    # Subfunction
-    def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["cloud"]["control"])
-    def colorize_node(self):
-        colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
-        colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
-        colorization.colorize_node(self.ID.ID_node, "cloud")

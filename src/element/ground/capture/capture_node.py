@@ -58,16 +58,17 @@ class Capture_node(node.Node):
         self.position_node()
         self.colorize_node()
 
+    # Update
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["module_capture"]["http_connected"])
+        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["self"]["http_server_port"]))
+        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["self"]["sock_server_l1_port"])
+        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["sock_server_l2_port"])
+
+    # Subfunction
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["ground"]["capture"])
-
-    def update_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_capture)
-        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["self"]["http_server_port"]))
-        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["self"]["l1_port"])
-        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["l2_port"])
-
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_http_server_port, "node_value")
         colorization.colorize_node(self.ID.ID_node, "ground")

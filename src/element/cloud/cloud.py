@@ -19,6 +19,11 @@ class Cloud:
         self.operator.node.build()
         self.ssd.node.build()
 
+    def update_nodes(self):
+        self.control.node.update()
+        self.operator.node.update()
+        self.ssd.node.update()
+
     def build_windows(self):
         self.control.window.build()
         self.operator.window.build()

@@ -8,6 +8,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Data_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -24,10 +25,6 @@ class Data_node(node.Node):
                     dpg.add_text(0, tag=self.ID.ID_nb_prediction, color=gui_color.color_node_value);
         self.position_node()
         self.colorize_node()
-
-    def colorize_node(self):
-        colorization.colorize_node(self.ID.ID_node, "edge")
-
     def build_plot(self, label, tag_y, tag_plot):
         x = []
         y = []
@@ -44,14 +41,17 @@ class Data_node(node.Node):
                 dpg.set_axis_limits(tag_y+"_0", -50, 1500)
                 dpg.add_line_series(x, y, parent=tag_y+"_0", tag=tag_y+"_line")
                 dpg.add_line_series(x, y, label=label, parent=tag_y, tag=tag_plot)
-
+    def colorize_node(self):
+        colorization.colorize_node(self.ID.ID_node, "edge")
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["data"])
 
+    # Update function
+    def update(self):
+        pass
     def update_node(self):
         colorization.colorize_status("mongo_server_but", param_control.status_db)
-
     def update_perf():
         # Throughput
         value = "%.2f"% param_control.state_ground[param_control.lidar_main]["throughput"]["value"]

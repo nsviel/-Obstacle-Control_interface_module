@@ -3,8 +3,8 @@
         "ip": "192.168.152.67",
         "add": "-",
         "nb_thread": 6,
-        "lidar_1": 8308,
-        "lidar_2": 8309,
+        "sock_server_l1_port": 8308,
+        "sock_server_l2_port": 8309,
         "http_server_port": 314
     },
     "lidar_1": {

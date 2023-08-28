@@ -9,6 +9,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Operator_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -27,36 +28,33 @@ class Operator_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_mqtt_broker, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT", color=gui_color.color_title);
-                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=75, callback=self.callback_operator);
+                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=75, callback=self.command_mqtt);
                 with dpg.group(horizontal=True):
                     dpg.add_text("Topic");
-                    dpg.add_input_text(tag=self.ID.ID_mqtt_topic, default_value="-", width=90, on_enter=True, callback=self.callback_operator)
+                    dpg.add_input_text(tag=self.ID.ID_mqtt_topic, default_value="-", width=90, on_enter=True, callback=self.command_mqtt)
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
         self.colorize_node()
-
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["cloud"]["operator"])
-
-    def update_node(self):
-        dpg.set_value(self.ID.ID_status, param_control.status_operator)
-        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge["cloud_operator"]["broker_port"])
-        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["cloud_operator"]["mqtt_topic"])
-
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_mqtt_broker_port, "node_value")
         colorization.colorize_item(self.ID.ID_mqtt_topic, "node_value")
         colorization.colorize_node(self.ID.ID_node, "cloud")
 
-    def callback_operator(self):
+    # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["cloud_operator"]["broker_connected"])
+    def update_node(self):
+        dpg.set_value(self.ID.ID_status, param_control.status_operator)
+        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge["cloud_operator"]["broker_port"])
+        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["cloud_operator"]["mqtt_topic"])
+
+    # Command function
+    def command_mqtt(self):
         param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
         param_control.state_edge["cloud_operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
         param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
         https_client_post.post_state("edge", param_control.state_edge)
         https_client_post.post_param_value("edge", None, "cloud_operator", "reset")
-
-    def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["cloud"]["operator"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)

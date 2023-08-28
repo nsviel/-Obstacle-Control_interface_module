@@ -23,6 +23,11 @@ class Ground:
         self.lidar_1.window.build()
         self.lidar_2.window.build()
 
+    def update_nodes(self):
+        self.capture.node.update()
+        self.lidar_1.node.update()
+        self.lidar_2.node.update()
+
     def setup_handlers(self):
         self.capture.setup_handler()
         self.lidar_1.setup_handler()

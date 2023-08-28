@@ -1,4 +1,5 @@
 #---------------------------------------------
+from src.param import param_control
 from src.gui.style import colorization
 from src.base import node
 from src.utils import parser_json
@@ -7,6 +8,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Ssd_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -22,11 +24,15 @@ class Ssd_node(node.Node):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
         self.colorize_node()
-
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["cloud"]["ssd"])
+    def colorize_node(self):
+        colorization.colorize_node(self.ID.ID_node, "cloud")
 
+    # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["ssd"]["connected"])
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_ssd)
         dpg.set_value(self.ID.ID_path, param_control.path_ssd)
@@ -35,9 +41,3 @@ class Ssd_node(node.Node):
         dpg.set_value(self.ID.ID_path_l1, param_control.state_control["path"]["dir_l1"])
         dpg.set_value(self.ID.ID_path_l2, param_control.state_control["path"]["dir_l2"])
         dpg.set_value(self.ID.ID_file_name, param_control.state_control["path"]["file_name"])
-
-    def colorize_node(self):
-        colorization.colorize_node(self.ID.ID_node, "cloud")
-
-    def init_ID_icon(self):
-        self.ID_icon_hub = texture.load_texture("hdd")

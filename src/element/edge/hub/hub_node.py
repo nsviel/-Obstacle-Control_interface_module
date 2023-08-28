@@ -12,6 +12,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Hub_node(node.Node):
+    # Build function
     def build(self):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
@@ -44,7 +45,7 @@ class Hub_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT");
                     dpg.add_text("client", color=gui_color.color_node_sub);
-                    dpg.add_input_text(tag=self.ID.ID_mqtt_client_name, default_value="ai_module", width=90, on_enter=True, callback=self.callback_operator)
+                    dpg.add_input_text(tag=self.ID.ID_mqtt_client_name, default_value="ai_module", width=90, on_enter=True, callback=self.command_mqtt)
                 dpg.add_button(label="False alarm", callback=self.command_false_alarm)
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
@@ -54,7 +55,7 @@ class Hub_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_node_sub);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.callback_module_edge);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.command_port_socket);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l1, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
@@ -72,7 +73,7 @@ class Hub_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_node_sub);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.callback_module_edge);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.command_port_socket);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
@@ -98,11 +99,9 @@ class Hub_node(node.Node):
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
         self.colorize_node()
-
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["hub"])
-
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
         colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
@@ -110,27 +109,29 @@ class Hub_node(node.Node):
         colorization.colorize_item(self.ID.ID_combo_lidar_source, "node_value")
         colorization.colorize_item(self.ID.ID_sock_client_l2_source, "node_value")
         colorization.colorize_node(self.ID.ID_node, "edge")
-        
+
+    # Update function
+    def update(self):
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["edge"]["http_connected"])
+
+    # Command function
     def command_false_alarm(self):
         print("[\033[1;32mOK\033[0m] Send false alarm")
         https_client_post.post_param_value("edge", None, "cloud_operator", "false_alarm")
-
-    def callback_module_edge(self):
+    def command_port_socket(self):
         l1_port = dpg.get_value(self.ID.ID_sock_server_l1_port)
         l2_port = dpg.get_value(self.ID.ID_sock_server_l2_port)
         if(l1_port != l2_port):
             param_control.state_edge["self"]["sock_server_l1_port"] = l1_port
             param_control.state_edge["self"]["sock_server_l2_port"] = l2_port
             https_client_post.post_state("edge", param_control.state_edge)
-
-    def callback_operator(self):
+    def command_mqtt(self):
         pass
         #param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(object.object.operator.ID_mqtt_broker_port)
         #param_control.state_edge["cloud_operator"]["mqtt_topic"] = dpg.get_value(object.object.operator.ID_mqtt_topic)
         #param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
         #https_client_post.post_state("edge", param_control.state_edge)
         #https_client_post.post_param_value("edge", None, "cloud_operator", "reset")
-
     def command_combo_lidar_main(self):
         lidar_main = dpg.get_value(self.ID.ID_combo_lidar_source)
         https_client_post.post_param_value("edge", "self", "lidar_main", lidar_main)

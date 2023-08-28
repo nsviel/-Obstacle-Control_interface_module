@@ -25,6 +25,13 @@ class Edge:
         self.hub.node.build()
         self.network.node.build()
 
+    def update_nodes(self):
+        self.slam.node.update()
+        self.ai.node.update()
+        self.data.node.update()
+        self.hub.node.update()
+        self.network.node.update()
+
     def build_windows(self):
         self.slam.window.build()
         self.ai.window.build()

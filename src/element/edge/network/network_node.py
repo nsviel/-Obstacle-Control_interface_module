@@ -94,7 +94,9 @@ class Network_node(node.Node):
                     dpg.add_text("MongoDB");
                     dpg.add_button(tag=self.ID.ID_mongo_status_light, width=15)
 
-    # Update
+    # Update function
+    def update(self):
+        pass
     def update_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_ssd)
     def colorize_node(self):
