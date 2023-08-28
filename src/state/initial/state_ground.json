@@ -1,6 +1,7 @@
 {
     "self": {
         "ip": "192.168.152.67",
+        "add": "-",
         "nb_thread": 6,
         "lidar_1": 8308,
         "lidar_2": 8309,
@@ -58,9 +59,6 @@
         "sock_server_l1_port": 344,
         "sock_server_l2_port": 345,
         "http_server_port": 443
-    },
-    "geolocalization": {
-        "country": "France"
     },
     "device": {
         "0": "wlp2s0",

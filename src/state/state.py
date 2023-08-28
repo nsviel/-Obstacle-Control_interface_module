@@ -15,7 +15,7 @@ def load_configuration():
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_control.state_capture = parser_json.load_state(param_control.path_state_initial + "state_capture.json")
+    param_control.state_ground = parser_json.load_state(param_control.path_state_initial + "state_ground.json")
     param_control.state_edge = parser_json.load_state(param_control.path_state_initial + "state_edge.json")
     param_control.state_control = parser_json.load_state(param_control.path_state_initial + "state_control.json")
     param_control.state_network = parser_json.load_state(param_control.path_state_initial + "state_network.json")
@@ -62,7 +62,7 @@ def init_state_perf():
 
 def upload_state():
     parser_json.upload_file(param_control.path_state_current + "state_edge.json", param_control.state_edge)
-    parser_json.upload_file(param_control.path_state_current + "state_capture.json", param_control.state_capture)
+    parser_json.upload_file(param_control.path_state_current + "state_ground.json", param_control.state_ground)
     parser_json.upload_file(param_control.path_state_current + "state_control.json", param_control.state_control)
 
 def update_state():
@@ -85,9 +85,9 @@ def update_state():
         param_control.status_edge = "Online"
         if(param_control.state_edge["module_capture"]["http_connected"]):
             param_control.status_capture = "Online"
-            if(param_control.state_capture["lidar_1"]["connected"]):
+            if(param_control.state_ground["lidar_1"]["connected"]):
                 param_control.status_lidar_1 = "Online"
-            if(param_control.state_capture["lidar_2"]["connected"]):
+            if(param_control.state_ground["lidar_2"]["connected"]):
                 param_control.status_lidar_2 = "Online"
         if(param_control.state_edge["ai"]["http_connected"]):
             param_control.status_ai = "Online"
@@ -109,32 +109,31 @@ def update_state():
         param_control.state_edge["module_capture"]["sock_l2_connected"] = False
 
     if(param_control.status_capture == "Offline"):
-        param_control.state_capture["self"]["nb_thread"] = 0
-        param_control.state_capture["nb_thread"] = 0
-        param_control.state_capture["device"] = {}
+        param_control.state_ground["self"]["nb_thread"] = 0
+        param_control.state_ground["nb_thread"] = 0
 
-        param_control.state_capture["lidar_1"]["connected"] = False
-        param_control.state_capture["lidar_1"]["activated"] = False
-        param_control.state_capture["lidar_1"]["running"] = False
-        param_control.state_capture["lidar_1"]["packet"]["value"] = 0
-        param_control.state_capture["lidar_1"]["packet"]["min"] = 0
-        param_control.state_capture["lidar_1"]["packet"]["mean"] = 0
-        param_control.state_capture["lidar_1"]["packet"]["max"] = 0
-        param_control.state_capture["lidar_1"]["throughput"]["value"] = 0
-        param_control.state_capture["lidar_1"]["throughput"]["min"] = 0
-        param_control.state_capture["lidar_1"]["throughput"]["mean"] = 0
-        param_control.state_capture["lidar_1"]["throughput"]["max"] = 0
+        param_control.state_ground["lidar_1"]["connected"] = False
+        param_control.state_ground["lidar_1"]["activated"] = False
+        param_control.state_ground["lidar_1"]["running"] = False
+        param_control.state_ground["lidar_1"]["packet"]["value"] = 0
+        param_control.state_ground["lidar_1"]["packet"]["min"] = 0
+        param_control.state_ground["lidar_1"]["packet"]["mean"] = 0
+        param_control.state_ground["lidar_1"]["packet"]["max"] = 0
+        param_control.state_ground["lidar_1"]["throughput"]["value"] = 0
+        param_control.state_ground["lidar_1"]["throughput"]["min"] = 0
+        param_control.state_ground["lidar_1"]["throughput"]["mean"] = 0
+        param_control.state_ground["lidar_1"]["throughput"]["max"] = 0
 
-        param_control.state_capture["lidar_2"]["connected"] = False
-        param_control.state_capture["lidar_2"]["activated"] = False
-        param_control.state_capture["lidar_2"]["running"] = False
-        param_control.state_capture["lidar_2"]["packet"]["min"] = 0
-        param_control.state_capture["lidar_2"]["packet"]["mean"] = 0
-        param_control.state_capture["lidar_2"]["packet"]["max"] = 0
-        param_control.state_capture["lidar_2"]["throughput"]["value"] = 0
-        param_control.state_capture["lidar_2"]["throughput"]["min"] = 0
-        param_control.state_capture["lidar_2"]["throughput"]["mean"] = 0
-        param_control.state_capture["lidar_2"]["throughput"]["max"] = 0
+        param_control.state_ground["lidar_2"]["connected"] = False
+        param_control.state_ground["lidar_2"]["activated"] = False
+        param_control.state_ground["lidar_2"]["running"] = False
+        param_control.state_ground["lidar_2"]["packet"]["min"] = 0
+        param_control.state_ground["lidar_2"]["packet"]["mean"] = 0
+        param_control.state_ground["lidar_2"]["packet"]["max"] = 0
+        param_control.state_ground["lidar_2"]["throughput"]["value"] = 0
+        param_control.state_ground["lidar_2"]["throughput"]["min"] = 0
+        param_control.state_ground["lidar_2"]["throughput"]["mean"] = 0
+        param_control.state_ground["lidar_2"]["throughput"]["max"] = 0
 
     if(param_control.status_processing == "Offline"):
         param_control.state_edge["slam"]["sock_connected"] = False

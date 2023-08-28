@@ -13,8 +13,8 @@ def update_color_train():
     #update_link_connection(param_control.state_control["ssd"]["connected"], "link_control_ssd_usb")
 
     # Capture
-    #update_link_socket(param_control.state_capture["lidar_1"]["connected"] and param_control.state_capture["lidar_1"]["activated"], "link_l1_py")
-    #update_link_socket(param_control.state_capture["lidar_2"]["connected"] and param_control.state_capture["lidar_2"]["activated"], "link_l2_py")
+    #update_link_socket(param_control.state_ground["lidar_1"]["connected"] and param_control.state_ground["lidar_1"]["activated"], "link_l1_py")
+    #update_link_socket(param_control.state_ground["lidar_2"]["connected"] and param_control.state_ground["lidar_2"]["activated"], "link_l2_py")
 
 def update_color_edge_1():
     # Inter Edge

@@ -32,7 +32,7 @@ def get_size_Gb(path):
         return 0
 
 def get_list_device_from_state():
-    array = param_control.state_capture["device"]
+    array = param_control.state_ground["device"]
     a= list()
     for key, value in array.items():
         a.append(str(value))

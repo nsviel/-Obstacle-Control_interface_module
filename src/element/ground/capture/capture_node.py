@@ -63,9 +63,9 @@ class Capture_node(node.Node):
 
     def update_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_capture)
-        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_capture["self"]["http_server_port"]))
-        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_capture["self"]["l1_port"])
-        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_capture["self"]["l2_port"])
+        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["self"]["http_server_port"]))
+        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["self"]["l1_port"])
+        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["l2_port"])
 
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_http_server_port, input_text)

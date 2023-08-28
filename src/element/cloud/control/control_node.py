@@ -21,14 +21,6 @@ class Control_node(node.Node):
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
 
-            # HTTPS
-            with dpg.node_attribute(tag=self.ID.ID_http_client, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
-                with dpg.group(horizontal=True):
-                    dpg.add_text("HTTPS");
-                    dpg.add_text("client", color=gui_color.color_info);
-                with dpg.drawlist(width=100, height=1):
-                    dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
-
             # Socket
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l1, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
@@ -40,6 +32,14 @@ class Control_node(node.Node):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_info);
                     dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=100, callback=self.callback_module_interface);
+
+            # HTTPS
+            with dpg.node_attribute(tag=self.ID.ID_http_client, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+                with dpg.group(horizontal=True):
+                    dpg.add_text("HTTPS");
+                    dpg.add_text("client", color=gui_color.color_info);
+                with dpg.drawlist(width=100, height=1):
+                    dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
 
 

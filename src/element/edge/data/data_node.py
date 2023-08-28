@@ -50,7 +50,7 @@ class Data_node(node.Node):
 
     def update_perf():
         # Throughput
-        value = "%.2f"% param_control.state_capture[param_control.lidar_main]["throughput"]["value"]
+        value = "%.2f"% param_control.state_ground[param_control.lidar_main]["throughput"]["value"]
         dpg.set_value("perf_throughput_up_val", value)
 
         # Latency

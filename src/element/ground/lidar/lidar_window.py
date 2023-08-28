@@ -2,8 +2,11 @@
 from src.param import param_control
 from src.base import window
 from src.gui.background import gui_ID
+from src.element.misc.wallet import wallet_logic
 from src.gui.style import gui_color
 from src.utils import parser_json
+from src.utils import io
+from src.connection.HTTPS import https_client_post
 import dearpygui.dearpygui as dpg
 
 
@@ -24,7 +27,7 @@ class Lidar_window(window.Window):
                 dpg.add_input_text(tag=self.ID.ID_ip, label="", default_value="", width=150);
             with dpg.table_row():
                 dpg.add_text("Add:");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.update_ip)
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.update_address)
             with dpg.table_row():
                 dpg.add_text("Speed:");
                 with dpg.group(horizontal=True):
@@ -47,14 +50,44 @@ class Lidar_window(window.Window):
         dpg.add_separator()
         with dpg.group():
             dpg.add_text("Device")
-            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.update_device, width=125)
+            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.update_device)
+        devices = io.get_list_device_from_state()
+        dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["device"], items=devices, num_items=len(devices))
 
-    def update_ip(self):
+    # Update function
+    def update_state(self):
+        param_control.state_ground[self.ID.name]["activated"] = dpg.get_value(self.ID.ID_activated)
+        param_control.state_ground[self.ID.name]["ip"] = dpg.get_value(self.ID.ID_ip)
+        param_control.state_ground[self.ID.name]["speed"] = dpg.get_value(self.ID.ID_motor_speed)
+        param_control.state_ground[self.ID.name]["device"] = dpg.get_value(self.ID.ID_device)
+        param_control.state_ground[self.ID.name]["port"] = dpg.get_value(self.ID.ID_sock_client_port)
+        https_client_post.post_state("capture", param_control.state_ground)
+    def update_value(self):
+        dpg.set_value(self.ID.ID_stat_packet, param_control.state_ground[self.ID.name]["packet"]["value"])
+        value = "%.2f"% param_control.state_ground[self.ID.name]["throughput"]["value"]
+        min = param_control.state_ground[self.ID.name]["throughput"]["min"]
+        mean = param_control.state_ground[self.ID.name]["throughput"]["mean"]
+        max = param_control.state_ground[self.ID.name]["throughput"]["max"]
+        range = "%.2f, %.2f, %.2f"% (min, mean, max)
+        dpg.set_value(self.ID.ID_throughtput_value, value)
+        dpg.set_value(self.ID.ID_throughtput_range, range)
+        dpg.set_value(self.ID.ID_ip, param_control.state_ground[self.ID.name]["ip"])
+        dpg.set_value(self.ID.ID_sock_client_port, param_control.state_ground[self.ID.name]["port"])
+        dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["add"])
+        dpg.configure_item(ID.ID_wallet, items=param_control.wallet_add)
+    def update_device(self):
+        device = dpg.get_value(self.ID.ID_device_list)
+        https_client_post.post_param_value("capture", self.ID.name, "device", device)
+    def update_address(self):
         ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ip != None):
-            param_control.state_capture[name]["ip"] = ip
+            param_control.state_ground[self.ID.name]["ip"] = ip
             dpg.set_value(self.ID.ID_ip, ip)
             https_client_post.post_param_value("capture", self.ID.name, "ip", ip)
+    def save_coord_to_file(self):
+        data = parser_json.get_pos_from_json()
+        data["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_coordinate, data)
 
     # LiDAR motor
     def update_motor_start(self):
@@ -63,7 +96,7 @@ class Lidar_window(window.Window):
         https_client_post.post_param_value("capture", None, self.ID.name, "stop")
     def update_motor_speed(self):
         speed = dpg.get_value(self.ID.ID_motor_speed)
-        param_control.state_capture[self.ID.name]["speed"] = speed
+        param_control.state_ground[self.ID.name]["speed"] = speed
         https_client_post.post_param_value("capture", self.ID.name, "speed", speed)
 
     # Colorization
@@ -80,36 +113,5 @@ class Lidar_window(window.Window):
         dpg.bind_item_theme("lidar_1", layer_sensor)
         dpg.bind_item_theme("lidar_2", layer_sensor)
     def update_color(self):
-        colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_capture[self.ID.name]["running"])
+        colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["running"])
         #colorization.colorize_status(ID.ID_status_light, lidar.status)
-
-    # LiDAR node
-    def update_state(self):
-        param_control.state_capture[self.ID.name]["activated"] = dpg.get_value(self.ID.ID_activated)
-        param_control.state_capture[self.ID.name]["ip"] = dpg.get_value(self.ID.ID_ip)
-        param_control.state_capture[self.ID.name]["speed"] = dpg.get_value(self.ID.ID_motor_speed)
-        param_control.state_capture[self.ID.name]["device"] = dpg.get_value(self.ID.ID_device)
-        param_control.state_capture[self.ID.name]["port"] = dpg.get_value(self.ID.ID_sock_client_port)
-        https_client_post.post_state("capture", param_control.state_capture)
-
-    def update_value(self):
-        dpg.set_value(self.ID.ID_stat_packet, param_control.state_capture[self.ID.name]["packet"]["value"])
-        value = "%.2f"% param_control.state_capture[self.ID.name]["throughput"]["value"]
-        min = param_control.state_capture[self.ID.name]["throughput"]["min"]
-        mean = param_control.state_capture[self.ID.name]["throughput"]["mean"]
-        max = param_control.state_capture[self.ID.name]["throughput"]["max"]
-        range = "%.2f, %.2f, %.2f"% (min, mean, max)
-        dpg.set_value(self.ID.ID_throughtput_value, value)
-        dpg.set_value(self.ID.ID_throughtput_range, range)
-        dpg.set_value(self.ID.ID_ip, param_control.state_capture[self.ID.name]["ip"])
-        dpg.set_value(self.ID.ID_sock_client_port, param_control.state_capture[self.ID.name]["port"])
-        dpg.set_value(self.ID.ID_wallet, param_control.state_capture[self.ID.name]["add"])
-        dpg.configure_item(ID.ID_wallet, items=param_control.wallet_add)
-    def update_device(self):
-        device = dpg.get_value(self.ID.ID_device_list)
-        https_client_post.post_param_value("capture", self.ID.name, "device", device)
-
-    def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
