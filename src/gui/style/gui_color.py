@@ -36,12 +36,13 @@ def color_yaxis_0():
         dpg.add_theme_color(dpg.mvPlotCol_Line, (100, 100, 100), category=dpg.mvThemeCat_Plots)
         dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 0.5, category=dpg.mvThemeCat_Plots)
     return yaxis
-def color_window():
-    color = (255, 0, 0, 255)
+def color_window_info():
+    color = (200, 200, 200)
+    black = (0, 0, 0)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
         dpg.add_theme_color(dpg.mvThemeCol_ChildBg, color, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_Text, black, category=dpg.mvThemeCat_Core)
     return theme
 
 def color_block_ground():

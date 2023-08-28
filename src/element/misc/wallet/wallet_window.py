@@ -18,7 +18,7 @@ class Wallet_window(window.Window):
             dpg.add_input_text(tag=self.ID.ID_new_ip, label="", width=200)
         dpg.add_button(label="Add item", callback=self.callback_wallet_add())
         dpg.add_separator()
-        with dpg.table(tag=self.ID.ID_table, header_row=True, borders_innerH=True, parent=self.ID.ID_window, policy=dpg.mvTable_SizingFixedFit):
+        with dpg.table(tag=self.ID.ID_table, header_row=True, borders_innerH=True, parent=self.ID.ID_window_parameter, policy=dpg.mvTable_SizingFixedFit):
             dpg.add_table_column(label="Address")
             dpg.add_table_column(label="IP")
             dpg.add_table_column(label="", width_fixed=True, init_width_or_weight=20)

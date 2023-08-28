@@ -13,10 +13,17 @@ class Window:
 
     # Build function
     def build(self):
-        with dpg.child_window(tag=self.ID.ID_window, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True):
+        with dpg.child_window(tag=self.ID.ID_window_info, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True, height=100):
             self.build_info()
+        with dpg.child_window(tag=self.ID.ID_window_parameter, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True):
             self.build_parameter()
-        dpg.hide_item(self.ID.ID_window)
+        self.set_initial_state()
+
+    def set_initial_state(self):
+        self.set_invisible()
+        theme = gui_color.color_window_info()
+        dpg.bind_item_theme(self.ID.ID_window_info, theme)
+
     def build_info(self):
         with dpg.table(tag=self.ID.ID_window_table_info, header_row=False, borders_innerH=True, policy=dpg.mvTable_SizingFixedFit):
             dpg.add_table_column(label="What", width_fixed=True, init_width_or_weight=50)
@@ -50,8 +57,10 @@ class Window:
     # Subfunction
     def set_visible(self):
         element.object.set_invisible_all()
-        dpg.show_item(self.ID.ID_window)
+        dpg.show_item(self.ID.ID_window_info)
+        dpg.show_item(self.ID.ID_window_parameter)
     def set_invisible(self):
-        dpg.hide_item(self.ID.ID_window)
+        dpg.hide_item(self.ID.ID_window_info)
+        dpg.hide_item(self.ID.ID_window_parameter)
     def save_coord_to_file(self):
         pass

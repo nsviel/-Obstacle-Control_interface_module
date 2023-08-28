@@ -21,7 +21,8 @@ class Slam_ID:
 
     def init_ID_info(self):
         self.ID_window_table_info = function.id_generator();
-        self.ID_window = function.id_generator();
+        self.ID_window_info = function.id_generator();
+        self.ID_window_parameter = function.id_generator();
         self.ID_status = function.id_generator();
         self.ID_status_light = function.id_generator();
         self.ID_ip = function.id_generator();

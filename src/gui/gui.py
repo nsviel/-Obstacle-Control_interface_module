@@ -27,7 +27,6 @@ def build_gui():
         with dpg.group(horizontal=True):
             panel.build_panel()
             gui_scheme.build_scheme()
-    dpg.bind_item_theme(gui_ID.ID_panel_setting, gui_color.color_window)
 
 def setup_gui():
     dpg.create_viewport(title='Control Interface', width=param_control.gui_width, height=param_control.gui_height)
