@@ -46,16 +46,15 @@ class Operator_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["cloud_operator"]["broker_connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["interface"]["operator"]["broker_connected"])
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_operator)
-        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge["cloud_operator"]["broker_port"])
-        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["cloud_operator"]["mqtt_topic"])
+        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_edge["interface"]["operator"]["broker_port"])
+        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["interface"]["operator"]["mqtt_topic"])
 
     # Command function
     def command_mqtt(self):
-        param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
-        param_control.state_edge["cloud_operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
-        param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
+        param_control.state_edge["interface"]["operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
+        param_control.state_edge["interface"]["operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
+        param_control.state_edge["interface"]["operator"]["mqtt_client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
         https_client_post.post_state("edge", param_control.state_edge)
-        https_client_post.post_param_value("edge", None, "cloud_operator", "reset")

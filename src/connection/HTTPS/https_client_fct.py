@@ -8,7 +8,6 @@ def network_info(dest):
     ip = param_control.state_control["edge"]["ip"]
     port = param_control.state_control["edge"]["http_server_port"]
     connected = param_control.state_control["edge"]["http_connected"]
-
     return [ip, port, connected]
 
 def send_https_ping(ip, port):

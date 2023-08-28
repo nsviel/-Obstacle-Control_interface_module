@@ -6,7 +6,7 @@ import dearpygui.dearpygui as dpg
 
 class Car_node(node.Node):
     def build(self):
-        with dpg.node(label="cloud_car", tag="car_node"):
+        with dpg.node(label="car", tag="car_node"):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
                     dpg.add_text("IP");

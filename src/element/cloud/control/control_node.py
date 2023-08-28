@@ -57,20 +57,20 @@ class Control_node(node.Node):
         colorization.colorize_status(self.ID.ID_status_light, True)
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_control)
-        dpg.set_value(self.ID.ID_ip, param_control.state_control["self"]["ip"])
-        dpg.set_value(self.ID.ID_thread, param_control.state_control["self"]["nb_thread"])
-        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_control["self"]["sock_server_l1_port"])
-        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_control["self"]["sock_server_l2_port"])
+        dpg.set_value(self.ID.ID_ip, param_control.state_control["component"]["control"]["ip"])
+        dpg.set_value(self.ID.ID_thread, param_control.state_control["component"]["control"]["nb_thread"])
+        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_control["component"]["control"]["socket"]["server_l1_port"])
+        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_control["component"]["control"]["socket"]["server_l2_port"])
         dpg.set_value(self.ID.ID_temperature, signal.get_temps_core(0))
     def update_sock_port(self):
         l1_port = dpg.get_value(self.ID.ID_sock_server_l1_port)
         l2_port = dpg.get_value(self.ID.ID_sock_server_l2_port)
         if(l1_port != l2_port and l1_port > 0 and l2_port > 0):
-            param_control.state_control["self"]["sock_server_l1_port"] = l1_port
-            param_control.state_control["self"]["sock_server_l2_port"] = l2_port
+            param_control.state_control["component"]["control"]["socket"]["server_l1_port"] = l1_port
+            param_control.state_control["component"]["control"]["socket"]["server_l2_port"] = l2_port
             daemon.daemon_socket_l1.restart_daemon()
             daemon.daemon_socket_l2.restart_daemon()
 
-            param_control.state_edge["module_interface"]["sock_server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
-            param_control.state_edge["module_interface"]["sock_server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
+            param_control.state_edge["interface"]["control"]["socket"]["server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
+            param_control.state_edge["interface"]["control"]["socket"]["server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
             https_client_post.post_state("edge", param_control.state_edge)

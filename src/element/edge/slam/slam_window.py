@@ -17,12 +17,6 @@ class Slam_window(window.Window):
             dpg.add_table_column()
             dpg.add_table_column()
             with dpg.table_row():
-                dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
-            with dpg.table_row():
-                dpg.add_text("IP");
-                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-            with dpg.table_row():
                 dpg.add_text("Activated");
                 dpg.add_checkbox(tag=self.ID.ID_setting_with_slam, label="", default_value=True, callback=self.command_component_process);
             with dpg.table_row():
@@ -35,16 +29,11 @@ class Slam_window(window.Window):
 
     # Command function
     def command_component_process(self):
-        https_client_post.post_param_value("ve", None, "slam", dpg.get_value(self.ID.ID_setting_with_slam))
-        https_client_post.post_param_value("ve", None, "view", dpg.get_value(self.ID.ID_setting_cam_view))
+        param_control.state_edge["component"]["slam"]["parameter"]["with_slam"] = dpg.get_value(self.ID.ID_setting_with_slam)
+        param_control.state_edge["component"]["slam"]["parameter"]["cam_view"] = dpg.get_value(self.ID.ID_setting_cam_view)
+        https_client_post.post_state("edge", param_control.state_edge)
     def command_component_process_reset(self):
         https_client_post.post_param_value("ve", None, None, "reset")
-    def command_comboip(self):
-        processing_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
-        if(processing_ip != None):
-            param_control.state_edge["slam"]["ip"] = processing_ip
-            dpg.set_value(self.ID.ID_ip, processing_ip)
-            https_client_post.post_param_value("edge", "slam", "ip", processing_ip)
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
         data["edge"]["slam"] = dpg.get_item_pos(self.ID.ID_node)

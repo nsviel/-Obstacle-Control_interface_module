@@ -39,4 +39,4 @@ class Ai_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["ai"]["http_connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["component"]["ai"]["http_connected"])

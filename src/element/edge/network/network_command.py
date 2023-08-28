@@ -9,26 +9,16 @@ from src.element.misc.wallet import wallet_logic
 import dearpygui.dearpygui as dpg
 
 
-def callback_mongo_ip():
-    https_client_post.post_param_value("edge", "mongo", "ip", dpg.get_value("mongo_ip"))
+def callback_mongodb_state():
+    param_control.state_network["mongodb"]["ip"] = dpg.get_value("mongo_ip")
+    param_control.state_network["mongodb"]["port"] = dpg.get_value("mongo_port")
+    param_control.state_network["mongodb"]["database"] = dpg.get_value("mongo_db")
+    param_control.state_network["mongodb"]["collection"] = dpg.get_value("mongo_collection")
+    param_control.state_network["mongodb"]["username"] = dpg.get_value("mongo_username")
+    param_control.state_network["mongodb"]["password"] = dpg.get_value("mongo_password")
+    param_control.state_network["mongodb"]["nb_data"] = dpg.get_value("mongo_nbdata")
 
-def callback_mongo_port():
-    https_client_post.post_param_value("edge", "mongo", "port", dpg.get_value("mongo_port"))
-
-def callback_mongo_db():
-    https_client_post.post_param_value("edge", "mongo", "database", dpg.get_value("mongo_db"))
-
-def callback_mongo_collection():
-    https_client_post.post_param_value("edge", "mongo", "collection", dpg.get_value("mongo_collection"))
-
-def callback_mongo_username():
-    https_client_post.post_param_value("edge", "mongo", "username", dpg.get_value("mongo_username"))
-
-def callback_mongo_password():
-    https_client_post.post_param_value("edge", "mongo", "password", dpg.get_value("mongo_password"))
-
-def callback_mongo_nbdata():
-    https_client_post.post_param_value("edge", "mongo", "nb_data", dpg.get_value("mongo_nbdata"))
+    https_client_post.post_state("network", param_control.state_network)
 
 def update_database():
     dpg.set_value("mongo_ip", param_control.state_network["mongo"]["ip"])

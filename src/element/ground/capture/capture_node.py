@@ -60,7 +60,7 @@ class Capture_node(node.Node):
 
     # Update
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["module_capture"]["http_connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["interface"]["capture"]["http_connected"])
         dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["self"]["http_server_port"]))
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["self"]["sock_server_l1_port"])
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["sock_server_l2_port"])

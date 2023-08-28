@@ -21,8 +21,8 @@ class Lidar_window(window.Window):
                     dpg.add_text("Activated", color=gui_color.color_title);
                     dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=True, indent=75);
                 with dpg.group(horizontal=True):
-                    dpg.add_button(label="ON ", tag=self.ID.ID_motor_on, width=50, callback=self.update_motor_start)
-                    dpg.add_button(label="OFF", tag=self.ID.ID_motor_off, width=50, callback=self.update_motor_stop)
+                    dpg.add_button(label="ON ", tag=self.ID.ID_motor_on, width=50, callback=self.command_motor_start)
+                    dpg.add_button(label="OFF", tag=self.ID.ID_motor_off, width=50, callback=self.command_motor_stop)
             with dpg.table_row():
                 dpg.add_text("IP");
                 dpg.add_input_text(tag=self.ID.ID_ip, label="", default_value="", width=150);
@@ -32,7 +32,7 @@ class Lidar_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("Speed");
                 with dpg.group(horizontal=True):
-                    dpg.add_input_int(tag=self.ID.ID_motor_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=self.update_motor_speed);
+                    dpg.add_input_int(tag=self.ID.ID_motor_speed, default_value=600, step=60, min_value=0, max_value=1200, width=75, min_clamped=True, max_clamped=True, callback=self.command_motor_speed);
                     dpg.add_text("rpm");
             with dpg.table_row():
                 dpg.add_text("Packet");
@@ -96,27 +96,28 @@ class Lidar_window(window.Window):
         dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["add"])
         dpg.configure_item(ID.ID_wallet, items=param_control.wallet_add)
     def update_device_selection(self):
-        device = dpg.get_value(self.ID.ID_device_list)
-        https_client_post.post_param_value("capture", self.ID.name, "device", device)
+        param_control.state_ground[self.ID.name]["device"] = dpg.get_value(self.ID.ID_device_list)
+        https_client_post.post_state("ground", param_control.state_ground)
     def update_device_list(self):
         devices = io.get_list_device_from_state()
         dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["device"], items=devices, num_items=len(devices))
     def update_address(self):
         ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ip != None):
-            param_control.state_ground[self.ID.name]["ip"] = ip
             dpg.set_value(self.ID.ID_ip, ip)
-            https_client_post.post_param_value("capture", self.ID.name, "ip", ip)
+            param_control.state_ground[self.ID.name]["ip"] = ip
+            https_client_post.post_state("ground", param_control.state_ground)
     def update_color(self):
         colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["running"])
         #colorization.colorize_status(ID.ID_status_light, lidar.status)
 
     # LiDAR motor
-    def update_motor_start(self):
-        https_client_post.post_param_value("capture", None, self.ID.name, "start")
-    def update_motor_stop(self):
-        https_client_post.post_param_value("capture", None, self.ID.name, "stop")
-    def update_motor_speed(self):
+    def command_motor_start(self):
+        https_client_post.post_param_value("ground", None, self.ID.name, "start")
+    def command_motor_stop(self):
+        https_client_post.post_param_value("ground", None, self.ID.name, "stop")
+    def command_motor_speed(self):
         speed = dpg.get_value(self.ID.ID_motor_speed)
         param_control.state_ground[self.ID.name]["speed"] = speed
-        https_client_post.post_param_value("capture", self.ID.name, "speed", speed)
+        https_client_post.post_state("ground", param_control.state_ground)
+        https_client_post.post_param_value("ground", self.ID.name, "speed", speed)

@@ -29,7 +29,7 @@ class Network_node(node.Node):
                 dpg.add_table_column()
                 with dpg.table_row():
                     dpg.add_image(self.ID.ID_icon_network, width=20, height=15)
-                    dpg.add_text("Train <-> Edge");
+                    dpg.add_text("Ground <-> Edge");
                     dpg.add_button(tag=self.ID.ID_status_light, width=15)
 
             # Table kpi

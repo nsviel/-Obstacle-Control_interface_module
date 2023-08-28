@@ -21,8 +21,8 @@ def load_json_file():
     param_control.state_network = parser_json.load_state(param_control.path_state_initial + "state_network.json")
 
 def init_state_co():
-    param_control.state_control["self"]["ip"] = signal.get_ip_adress()
-    param_control.state_control["path"]["file_name_add"] = ""
+    param_control.state_control["component"]["control"]["ip"] = signal.get_ip_adress()
+    param_control.state_control["component"]["ssd"]["path"]["file_name_add"] = ""
     param_control.state_control["edge"]["http_connected"] = False
 
 def init_state_perf():
@@ -78,35 +78,35 @@ def update_state():
     param_control.status_db = "Offline"
 
     param_control.status_control = "Online"
-    if(param_control.state_control["ssd"]["connected"]):
+    if(param_control.state_control["component"]["ssd"]["connected"]):
         param_control.status_ssd = "Online"
 
     if(param_control.state_control["edge"]["http_connected"]):
         param_control.status_edge = "Online"
-        if(param_control.state_edge["module_capture"]["http_connected"]):
+        if(param_control.state_edge["interface"]["capture"]["http_connected"]):
             param_control.status_capture = "Online"
             if(param_control.state_ground["lidar_1"]["connected"]):
                 param_control.status_lidar_1 = "Online"
             if(param_control.state_ground["lidar_2"]["connected"]):
                 param_control.status_lidar_2 = "Online"
-        if(param_control.state_edge["ai"]["http_connected"]):
+        if(param_control.state_edge["component"]["ai"]["http_connected"]):
             param_control.status_ai = "Online"
-        if(param_control.state_edge["slam"]["http_connected"]):
+        if(param_control.state_edge["component"]["slam"]["http_connected"]):
             param_control.status_processing = "Online"
-        if(param_control.state_edge["cloud_operator"]["broker_connected"]):
+        if(param_control.state_edge["interface"]["operator"]["broker_connected"]):
             param_control.status_operator = "Online"
 
     if(param_control.status_edge == "Offline"):
-        param_control.state_edge["data"]["nb_frame"] = 0
-        param_control.state_edge["data"]["nb_prediction"] = 0
-        param_control.state_edge["self"]["nb_thread"] = 0
-        param_control.state_edge["cloud_operator"]["broker_connected"] = False
-        param_control.state_edge["ai"]["http_connected"] = False
-        param_control.state_edge["slam"]["sock_connected"] = False
-        param_control.state_edge["slam"]["http_connected"] = False
-        param_control.state_edge["module_capture"]["http_connected"] = False
-        param_control.state_edge["module_capture"]["sock_l1_connected"] = False
-        param_control.state_edge["module_capture"]["sock_l2_connected"] = False
+        param_control.state_edge["component"]["data"]["nb_frame"] = 0
+        param_control.state_edge["component"]["data"]["nb_prediction"] = 0
+        param_control.state_edge["component"]["hub"]["nb_thread"] = 0
+        param_control.state_edge["interface"]["operator"]["broker_connected"] = False
+        param_control.state_edge["component"]["ai"]["http_connected"] = False
+        param_control.state_edge["component"]["slam"]["sock_connected"] = False
+        param_control.state_edge["component"]["slam"]["http_connected"] = False
+        param_control.state_edge["interface"]["capture"]["http_connected"] = False
+        param_control.state_edge["interface"]["capture"]["sock_l1_connected"] = False
+        param_control.state_edge["interface"]["capture"]["sock_l2_connected"] = False
 
     if(param_control.status_capture == "Offline"):
         param_control.state_ground["self"]["nb_thread"] = 0
@@ -136,7 +136,7 @@ def update_state():
         param_control.state_ground["lidar_2"]["throughput"]["max"] = 0
 
     if(param_control.status_processing == "Offline"):
-        param_control.state_edge["slam"]["sock_connected"] = False
+        param_control.state_edge["component"]["slam"]["sock_connected"] = False
 
     if(param_control.state_network["mongo"]["connected"]):
         param_control.status_db = "Online"

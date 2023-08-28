@@ -17,25 +17,25 @@ class Network_window(window.Window):
 
             with dpg.table_row():
                 dpg.add_text("IP");
-                dpg.add_input_text(tag=self.ID.ID_mongo_ip, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_ip);
+                dpg.add_input_text(tag=self.ID.ID_mongo_ip, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("Port");
-                dpg.add_input_int(tag=self.ID.ID_mongo_port, default_value=1, width=100, callback=network_command.callback_mongo_port);
+                dpg.add_input_int(tag=self.ID.ID_mongo_port, default_value=1, width=100, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("Database");
-                dpg.add_input_text(tag=self.ID.ID_mongo_db, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_db);
+                dpg.add_input_text(tag=self.ID.ID_mongo_db, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("Collection");
-                dpg.add_input_text(tag=self.ID.ID_mongo_collection, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_collection);
+                dpg.add_input_text(tag=self.ID.ID_mongo_collection, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("number of data");
-                dpg.add_input_int(tag=self.ID.ID_mongo_nb_data, default_value=1, width=100, callback=network_command.callback_mongo_nbdata);
+                dpg.add_input_int(tag=self.ID.ID_mongo_nb_data, default_value=1, width=100, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("Username");
-                dpg.add_input_text(tag=self.ID.ID_mongo_username, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_username);
+                dpg.add_input_text(tag=self.ID.ID_mongo_username, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongodb_state);
             with dpg.table_row():
                 dpg.add_text("Password");
-                dpg.add_input_text(tag=self.ID.ID_mongo_password, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_password);
+                dpg.add_input_text(tag=self.ID.ID_mongo_password, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongodb_state);
         dpg.add_separator()
 
     # Command function

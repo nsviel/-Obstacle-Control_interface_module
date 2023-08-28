@@ -8,7 +8,7 @@ import socket
 
 class Socket_l2(daemon.Daemon):
     def thread_init(self):
-        port = param_control.state_control["self"]["sock_server_l2_port"]
+        port = param_control.state_control["component"]["control"]["socket"]["server_l2_port"]
         param_control.sock_server_l2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         param_control.sock_server_l2.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         param_control.sock_server_l2.bind(("", port))

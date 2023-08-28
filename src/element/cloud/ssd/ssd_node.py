@@ -32,12 +32,12 @@ class Ssd_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["ssd"]["connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["component"]["ssd"]["connected"])
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_ssd)
         dpg.set_value(self.ID.ID_path, param_control.path_ssd)
-        dpg.set_value(self.ID.ID_memory_total, param_control.state_control["ssd"]["space_total"])
-        dpg.set_value(self.ID.ID_memory_used, param_control.state_control["ssd"]["space_used"])
-        dpg.set_value(self.ID.ID_path_l1, param_control.state_control["path"]["dir_l1"])
-        dpg.set_value(self.ID.ID_path_l2, param_control.state_control["path"]["dir_l2"])
-        dpg.set_value(self.ID.ID_file_name, param_control.state_control["path"]["file_name"])
+        dpg.set_value(self.ID.ID_memory_total, param_control.state_control["component"]["ssd"]["space_total"])
+        dpg.set_value(self.ID.ID_memory_used, param_control.state_control["component"]["ssd"]["space_used"])
+        dpg.set_value(self.ID.ID_path_l1, param_control.state_control["component"]["ssd"]["path"]["dir_l1"])
+        dpg.set_value(self.ID.ID_path_l2, param_control.state_control["component"]["ssd"]["path"]["dir_l2"])
+        dpg.set_value(self.ID.ID_file_name, param_control.state_control["component"]["ssd"]["path"]["file_name"])

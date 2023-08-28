@@ -34,7 +34,7 @@ class Hub_window(window.Window):
             param_control.state_control["edge"]["ip"] = edge_ip
             dpg.set_value(self.ID.ID_ip, edge_ip)
             https_client_con.test_connection_edge()
-            https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
+            https_client_post.post_state("edge", param_control.state_edge)
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
         data["edge"]["hub"] = dpg.get_item_pos(self.ID.ID_node)
