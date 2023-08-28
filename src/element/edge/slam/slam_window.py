@@ -9,20 +9,24 @@ import dearpygui.dearpygui as dpg
 
 class Slam_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Add:");
-            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("SLAM:");
-            dpg.add_checkbox(tag=self.ID.ID_setting_with_slam, label="", default_value=True, callback=self.callback_component_process);
-        with dpg.group(horizontal=True):
-            dpg.add_text("View:");
-            dpg.add_radio_button(("Top", "Oblique"), tag=self.ID.ID_setting_cam_view, callback=self.callback_component_process, horizontal=True)
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="Reset", tag=self.ID.ID_setting_reset, width=50, callback=self.callback_component_process_reset)
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("Add:");
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
+            with dpg.table_row():
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+            with dpg.table_row():
+                dpg.add_text("SLAM:");
+                dpg.add_checkbox(tag=self.ID.ID_setting_with_slam, label="", default_value=True, callback=self.callback_component_process);
+            with dpg.table_row():
+                dpg.add_text("View:");
+                dpg.add_radio_button(("Top", "Oblique"), tag=self.ID.ID_setting_cam_view, callback=self.callback_component_process, horizontal=True)
+            with dpg.table_row():
+                dpg.add_button(label="Reset", tag=self.ID.ID_setting_reset, width=50, callback=self.callback_component_process_reset)
+        dpg.add_separator()
 
     def callback_component_process(self):
         https_client_post.post_param_value("ve", None, "slam", dpg.get_value(self.ID.ID_setting_with_slam))

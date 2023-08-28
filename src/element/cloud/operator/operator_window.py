@@ -9,13 +9,17 @@ import dearpygui.dearpygui as dpg
 
 class Operator_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Add:");
-            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_edge["cloud_operator"]["add"], width=120, callback=self.command_comboip)
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("Add:");
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_edge["cloud_operator"]["add"], width=120, callback=self.command_comboip)
+            with dpg.table_row():
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+        dpg.add_separator()
+        
     def command_comboip(self):
         ip_operator = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ip_operator != None):

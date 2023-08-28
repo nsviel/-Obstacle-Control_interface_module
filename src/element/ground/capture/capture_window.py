@@ -9,15 +9,19 @@ import dearpygui.dearpygui as dpg
 
 class Capture_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Add:");
-            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.combo_address)
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Nb thread:");
-            dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("Add:");
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.combo_address)
+            with dpg.table_row():
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+            with dpg.table_row():
+                dpg.add_text("Nb thread:");
+                dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
+        dpg.add_separator()
 
     def update_parameter(self):
         dpg.set_value(self.ID.ID_status, param_control.status_capture)

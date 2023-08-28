@@ -9,18 +9,25 @@ import dearpygui.dearpygui as dpg
 
 class Control_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Nb thread:");
-            dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Temp:");
-            dpg.add_text(0, tag=self.ID.ID_temperature, color=gui_color.color_info);
-            dpg.add_text("°", color=gui_color.color_info);
-        edges = ("France_1", "France_2", "Spain_1")
-        dpg.add_combo(edges, tag=self.ID.ID_setting_edge_selection, label="Edge", default_value="France_1", width=125)
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+            with dpg.table_row():
+                dpg.add_text("Nb thread:");
+                dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
+            with dpg.table_row():
+                dpg.add_text("Temp:");
+                with dpg.group(horizontal=True):
+                    dpg.add_text(0, tag=self.ID.ID_temperature, color=gui_color.color_info);
+                    dpg.add_text("°", color=gui_color.color_info);
+            edges = ("France_1", "France_2", "Spain_1")
+            with dpg.table_row():
+                dpg.add_text("Edge");
+                dpg.add_combo(edges, tag=self.ID.ID_setting_edge_selection, default_value="France_1", width=125)
+        dpg.add_separator()
 
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()

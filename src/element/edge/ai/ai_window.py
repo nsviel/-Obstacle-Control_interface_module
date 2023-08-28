@@ -10,19 +10,23 @@ import dearpygui.dearpygui as dpg
 
 class Ai_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("Add:");
-            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
-        with dpg.group(horizontal=True):
-            dpg.add_text("IP:");
-            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Height");
-            dpg.add_input_float(tag=self.ID.ID_setting_lidar_height, default_value=2, width=100, step=0.1, min_value=0, callback=self.callback_ai);
-        with dpg.group(horizontal=True):
-            dpg.add_text("Threshold");
-            dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.callback_ai);
-
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("Add:");
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="localhost", width=120, callback=self.command_comboip)
+            with dpg.table_row():
+                dpg.add_text("IP:");
+                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+            with dpg.table_row():
+                dpg.add_text("Height");
+                dpg.add_input_float(tag=self.ID.ID_setting_lidar_height, default_value=2, width=100, step=0.1, min_value=0, callback=self.callback_ai);
+            with dpg.table_row():
+                dpg.add_text("Threshold");
+                dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.callback_ai);
+        dpg.add_separator()
+        
     def callback_ai(self):
         https_client_post.post_param_value("ai", None, "lidar_height", dpg.get_value(self.ID.ID_setting_lidar_height))
         https_client_post.post_param_value("ai", None, "threshold", dpg.get_value(self.ID.ID_setting_threshold))

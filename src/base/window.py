@@ -13,7 +13,7 @@ class Window:
 
     # Build function
     def build(self):
-        with dpg.child_window(tag=self.ID.ID_window_info, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True, height=100):
+        with dpg.child_window(tag=self.ID.ID_window_info, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True, height=75):
             self.build_info()
         with dpg.child_window(tag=self.ID.ID_window_parameter, parent=gui_ID.ID_panel_setting, border=False, autosize_x=True):
             self.build_parameter()
@@ -31,11 +31,11 @@ class Window:
             dpg.add_table_column(label="Button", width_fixed=True, init_width_or_weight=20)
             with dpg.table_row():
                 dpg.add_text("Node")
-                dpg.add_text(self.ID.name, color=gui_color.color_title)
+                dpg.add_text(self.ID.name, color=(0, 200, 50))
                 dpg.add_button(label="X", callback=self.set_invisible)
             with dpg.table_row():
                 dpg.add_text("Status");
-                dpg.add_text("-", tag=self.ID.ID_status, color=gui_color.color_info);
+                dpg.add_text("-", tag=self.ID.ID_status, color=(0, 200, 50));
             with dpg.table_row():
                 dpg.add_text("Pose")
                 dpg.add_text(tag=self.ID.ID_node_coord)

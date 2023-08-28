@@ -10,6 +10,7 @@ import json
 
 class Wallet_window(window.Window):
     def build_parameter(self):
+        dpg.add_text("Add element", color=gui_color.color_title);
         with dpg.group(horizontal=True):
             dpg.add_text("Add:")
             dpg.add_input_text(tag=self.ID.ID_new_address, label="", width=200)
@@ -18,6 +19,7 @@ class Wallet_window(window.Window):
             dpg.add_input_text(tag=self.ID.ID_new_ip, label="", width=200)
         dpg.add_button(label="Add item", callback=self.callback_wallet_add())
         dpg.add_separator()
+        dpg.add_text("Saved elements", color=gui_color.color_title);
         with dpg.table(tag=self.ID.ID_table, header_row=True, borders_innerH=True, parent=self.ID.ID_window_parameter, policy=dpg.mvTable_SizingFixedFit):
             dpg.add_table_column(label="Address")
             dpg.add_table_column(label="IP")

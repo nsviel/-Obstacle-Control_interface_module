@@ -9,46 +9,64 @@ import dearpygui.dearpygui as dpg
 
 class Ssd_window(window.Window):
     def build_parameter(self):
-        with dpg.group(horizontal=True):
-            dpg.add_text("SSD saving");
-            dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=False, callback=self.callback_ssd)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Path:")
-            dpg.add_input_text(tag=self.ID.ID_path, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Used:");
-            dpg.add_text(0, tag=self.ID.ID_memory_used, color=gui_color.color_info);
-            dpg.add_text("/");
-            dpg.add_text(0, tag=self.ID.ID_memory_total, color=gui_color.color_info);
-            dpg.add_text("Gb");
-        with dpg.drawlist(width=125, height=1):
-            dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
-        dpg.add_text("File", color=gui_color.color_title)
-        dpg.add_button(label="New save", width=100, callback=self.command_new_save)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Name:");
-            dpg.add_input_text(tag=self.ID.ID_path_add, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Fullname:")
-            dpg.add_text("-", tag=self.ID.ID_file_name, color=gui_color.color_info)
-        with dpg.drawlist(width=125, height=1):
-            dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("SSD saving");
+                dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=False, callback=self.callback_ssd)
+            with dpg.table_row():
+                dpg.add_text("Path:")
+                dpg.add_input_text(tag=self.ID.ID_path, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
+            with dpg.table_row():
+                dpg.add_text("Used:");
+                with dpg.group(horizontal=True):
+                    dpg.add_text(0, tag=self.ID.ID_memory_used, color=gui_color.color_info);
+                    dpg.add_text("/");
+                    dpg.add_text(0, tag=self.ID.ID_memory_total, color=gui_color.color_info);
+                    dpg.add_text("Gb");
+        dpg.add_separator()
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("File", color=gui_color.color_title)
+                dpg.add_button(label="New save", width=100, callback=self.command_new_save)
+            with dpg.table_row():
+                dpg.add_text("Name:");
+                dpg.add_input_text(tag=self.ID.ID_path_add, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
+            with dpg.table_row():
+                dpg.add_text("Fullname:")
+                dpg.add_text("-", tag=self.ID.ID_file_name, color=gui_color.color_info)
+        dpg.add_separator()
+
+        # LiDAR 1
         dpg.add_text("Lidar 1", color=gui_color.color_title)
-        with dpg.group(horizontal=True):
-            dpg.add_text("-", tag=self.ID.ID_path_l1, color=gui_color.color_info)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Size:")
-            dpg.add_text(0, tag=self.ID.ID_file_l1_size, color=gui_color.color_info)
-            dpg.add_text("Gb");
-        with dpg.drawlist(width=125, height=1):
-            dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("-", tag=self.ID.ID_path_l1, color=gui_color.color_info)
+            with dpg.table_row():
+                dpg.add_text("Size:")
+                with dpg.group(horizontal=True):
+                    dpg.add_text(0, tag=self.ID.ID_file_l1_size, color=gui_color.color_info)
+                    dpg.add_text("Gb");
+
+        # LiDAR 2
+        dpg.add_separator()
         dpg.add_text("Lidar 2", color=gui_color.color_title)
-        with dpg.group(horizontal=True):
-            dpg.add_text("-", tag=self.ID.ID_path_l2, color=gui_color.color_info)
-        with dpg.group(horizontal=True):
-            dpg.add_text("Size:")
-            dpg.add_text(0, tag=self.ID.ID_file_l2_size, color=gui_color.color_info)
-            dpg.add_text("Gb");
+        with dpg.table(header_row=False, borders_innerH=True):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("-", tag=self.ID.ID_path_l2, color=gui_color.color_info)
+            with dpg.table_row():
+                dpg.add_text("Size:")
+                with dpg.group(horizontal=True):
+                    dpg.add_text(0, tag=self.ID.ID_file_l2_size, color=gui_color.color_info)
+                    dpg.add_text("Gb");
+        dpg.add_separator()
 
     def command_new_save(self):
         saving.determine_path()

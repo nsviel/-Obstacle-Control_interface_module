@@ -9,7 +9,7 @@ import dearpygui.dearpygui as dpg
 
 class Network_window(window.Window):
     def build_parameter(self):
-        with dpg.table(tag=self.ID.ID_mongo_table, header_row=False, borders_innerH=True, width=350):
+        with dpg.table(tag=self.ID.ID_mongo_table, header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()
 
@@ -34,6 +34,7 @@ class Network_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("Password");
                 dpg.add_input_text(tag=self.ID.ID_mongo_password, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_password);
+        dpg.add_separator()
 
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
