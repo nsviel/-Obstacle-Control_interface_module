@@ -31,7 +31,7 @@ class Hub_window(window.Window):
     def command_comboip(self):
         edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(edge_ip != None):
-            param_control.state_edge["component"]["hub"]["info"]["ip"] = edge_ip
+            param_control.state_edge["hub"]["info"]["ip"] = edge_ip
             dpg.set_value(self.ID.ID_ip, edge_ip)
             https_client_con.test_connection_edge()
             https_client_post.post_state("edge", param_control.state_edge)

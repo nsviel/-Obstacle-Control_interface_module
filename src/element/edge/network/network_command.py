@@ -21,10 +21,10 @@ def callback_mongodb_state():
     https_client_post.post_state("network", param_control.state_network)
 
 def update_database():
-    dpg.set_value("mongo_ip", param_control.state_network["mongo"]["ip"])
-    dpg.set_value("mongo_port", param_control.state_network["mongo"]["port"])
-    dpg.set_value("mongo_db", param_control.state_network["mongo"]["database"])
-    dpg.set_value("mongo_collection", param_control.state_network["mongo"]["collection"])
-    dpg.set_value("mongo_username", param_control.state_network["mongo"]["username"])
-    dpg.set_value("mongo_password", param_control.state_network["mongo"]["password"])
-    dpg.set_value("mongo_nbdata", param_control.state_network["mongo"]["nb_data"])
+    dpg.set_value("mongo_ip", param_control.state_network["mongodb"]["ip"])
+    dpg.set_value("mongo_port", param_control.state_network["mongodb"]["port"])
+    dpg.set_value("mongo_db", param_control.state_network["mongodb"]["database"])
+    dpg.set_value("mongo_collection", param_control.state_network["mongodb"]["collection"])
+    dpg.set_value("mongo_username", param_control.state_network["mongodb"]["username"])
+    dpg.set_value("mongo_password", param_control.state_network["mongodb"]["password"])
+    dpg.set_value("mongo_nbdata", param_control.state_network["mongodb"]["nb_data"])

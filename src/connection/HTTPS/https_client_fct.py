@@ -5,9 +5,9 @@ import http.client
 
 
 def network_info(dest):
-    ip = param_control.state_edge["component"]["hub"]["info"]["ip"]
-    port = param_control.state_edge["component"]["hub"]["http"]["server_port"]
-    connected = param_control.state_edge["component"]["hub"]["http"]["connected"]
+    ip = param_control.state_edge["hub"]["info"]["ip"]
+    port = param_control.state_edge["hub"]["http"]["server_port"]
+    connected = param_control.state_edge["hub"]["http"]["connected"]
     return [ip, port, connected]
 
 def send_https_ping(ip, port):

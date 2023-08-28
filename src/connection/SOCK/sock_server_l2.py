@@ -8,7 +8,7 @@ import socket
 
 class Socket_l2(daemon.Daemon):
     def thread_init(self):
-        port = param_control.state_control["component"]["control"]["socket"]["server_l2_port"]
+        port = param_control.state_control["control"]["socket"]["server_l2_port"]
         param_control.sock_server_l2 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         param_control.sock_server_l2.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         param_control.sock_server_l2.bind(("", port))
@@ -18,9 +18,9 @@ class Socket_l2(daemon.Daemon):
         try:
             packet, (address, port) = param_control.sock_server_l2.recvfrom(4096)
             data.process_l2_data(packet)
-            param_control.state_edge["component"]["hub"]["socket"]["l2_connected"] = True
+            param_control.state_edge["hub"]["socket"]["l2_connected"] = True
         except:
-            param_control.state_edge["component"]["hub"]["socket"]["l2_connected"] = False
+            param_control.state_edge["hub"]["socket"]["l2_connected"] = False
 
     def thread_end(self):
         param_control.sock_server_l2.close()

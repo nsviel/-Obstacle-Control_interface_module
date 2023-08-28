@@ -8,6 +8,7 @@ state_edge = {}
 state_edge_2 = {}
 state_ground = {}
 state_network = {}
+state_cloud = {}
 
 # Path
 path_state_current = "src/state/current/"

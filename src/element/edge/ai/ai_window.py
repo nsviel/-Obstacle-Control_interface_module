@@ -35,13 +35,13 @@ class Ai_window(window.Window):
 
     # Command function
     def command_ai(self):
-        param_control.state_edge["component"]["ai"]["parameter"]["lidar_height"] = dpg.get_value(self.ID.ID_setting_lidar_height)
-        param_control.state_edge["component"]["ai"]["parameter"]["threshold"] = dpg.get_value(self.ID.ID_setting_threshold)
+        param_control.state_edge["ai"]["parameter"]["lidar_height"] = dpg.get_value(self.ID.ID_setting_lidar_height)
+        param_control.state_edge["ai"]["parameter"]["threshold"] = dpg.get_value(self.ID.ID_setting_threshold)
         https_client_post.post_state("edge", param_control.state_edge)
     def command_comboip(self):
         ai_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ai_ip != None):
-            param_control.state_edge["component"]["ai"]["ip"] = ai_ip
+            param_control.state_edge["ai"]["ip"] = ai_ip
             dpg.set_value(self.ID.ID_ip, ai_ip)
             https_client_post.post_state("edge", param_control.state_edge)
     def save_coord_to_file(self):

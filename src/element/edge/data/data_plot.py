@@ -36,11 +36,11 @@ class Data_plot:
         dpg.set_value('l2_plot', [param_control.vec_x, param_control.vec_y_l2])
 
 def process_l1_data(data):
-    path = param_control.state_control["component"]["ssd"]["path"]["path_l1_file"]
+    path = param_control.state_control["ssd"]["path"]["path_l1_file"]
     io.write_lidar_data(path, data)
     plot.update_plot_l1(len(data))
 
 def process_l2_data(data):
-    path = param_control.state_control["component"]["ssd"]["path"]["path_l2_file"]
+    path = param_control.state_control["ssd"]["path"]["path_l2_file"]
     io.write_lidar_data(path, data)
     plot.update_plot_l2(len(data))

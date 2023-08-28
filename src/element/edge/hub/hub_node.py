@@ -112,7 +112,7 @@ class Hub_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["component"]["hub"]["http"]["connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["hub"]["http"]["connected"])
 
     # Command function
     def command_false_alarm(self):
@@ -122,14 +122,14 @@ class Hub_node(node.Node):
         l1_port = dpg.get_value(self.ID.ID_sock_server_l1_port)
         l2_port = dpg.get_value(self.ID.ID_sock_server_l2_port)
         if(l1_port != l2_port):
-            param_control.state_edge["component"]["hub"]["sock_server_l1_port"] = l1_port
-            param_control.state_edge["component"]["hub"]["sock_server_l2_port"] = l2_port
+            param_control.state_edge["hub"]["sock_server_l1_port"] = l1_port
+            param_control.state_edge["hub"]["sock_server_l2_port"] = l2_port
             https_client_post.post_state("edge", param_control.state_edge)
     def command_mqtt(self):
         pass
-        #param_control.state_edge["interface"]["operator"]["broker_port"] = dpg.get_value(object.object.operator.ID_mqtt_broker_port)
-        #param_control.state_edge["interface"]["operator"]["mqtt_topic"] = dpg.get_value(object.object.operator.ID_mqtt_topic)
-        #param_control.state_edge["interface"]["operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
+        #param_control.state_cloud["operator"]["broker_port"] = dpg.get_value(object.object.operator.ID_mqtt_broker_port)
+        #param_control.state_cloud["operator"]["mqtt_topic"] = dpg.get_value(object.object.operator.ID_mqtt_topic)
+        #param_control.state_cloud["operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
         #https_client_post.post_state("edge", param_control.state_edge)
         #https_client_post.post_param_value("edge", None, "operator", "reset")
     def command_combo_lidar_main(self):
