@@ -28,3 +28,8 @@ class Cloud:
         self.control.setup_handler()
         self.operator.setup_handler()
         self.ssd.setup_handler()
+
+    def set_invisible_all(self):
+        self.control.window.set_invisible()
+        self.operator.window.set_invisible()
+        self.ssd.window.set_invisible()

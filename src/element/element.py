@@ -31,6 +31,12 @@ class Element():
         self.cloud.setup_handlers()
         self.misc.setup_handlers()
 
+    def set_invisible_all(self):
+        self.ground.set_invisible_all()
+        self.edge.set_invisible_all()
+        self.cloud.set_invisible_all()
+        self.misc.set_invisible_all()
+
     def setup_links(self):
         self.ground.link.setup()
         self.edge.link.setup(self.ground, self.cloud)

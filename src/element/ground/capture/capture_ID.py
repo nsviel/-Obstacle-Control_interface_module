@@ -19,6 +19,7 @@ class Capture_ID:
         self.ID_node_coord = function.id_generator();
 
     def init_ID_info(self):
+        self.ID_window_table_info = function.id_generator();
         self.ID_window = function.id_generator();
         self.ID_status = function.id_generator();
         self.ID_status_light = function.id_generator();

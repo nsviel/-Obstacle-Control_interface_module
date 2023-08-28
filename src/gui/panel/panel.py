@@ -2,6 +2,7 @@
 from src.gui.interface import gui_menu
 from src.gui.background import gui_ID
 from src.element import element
+from src.gui.style import gui_color
 import dearpygui.dearpygui as dpg
 
 

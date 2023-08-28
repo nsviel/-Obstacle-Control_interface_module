@@ -1,8 +1,10 @@
 #---------------------------------------------
+from src.param import param_control
 from src.gui.interface import gui_scheme
 from src.gui.style import gui_theme
 from src.gui.panel import panel
 from src.gui.background import gui_ID
+from src.gui.style import gui_color
 import dearpygui.dearpygui as dpg
 
 
@@ -21,15 +23,14 @@ def termination():
 
 # GUI setup
 def build_gui():
-    with dpg.window(tag=gui_ID.ID_window, label="module_interface", no_background=True):
+    with dpg.window(tag=gui_ID.ID_window, no_background=True):
         with dpg.group(horizontal=True):
             panel.build_panel()
             gui_scheme.build_scheme()
+    dpg.bind_item_theme(gui_ID.ID_panel_setting, gui_color.color_window)
 
 def setup_gui():
-    gui_width = 1650
-    gui_height = 950
-    dpg.create_viewport(title='module_interface', width=gui_width, height=gui_height)
+    dpg.create_viewport(title='Control Interface', width=param_control.gui_width, height=param_control.gui_height)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window(gui_ID.ID_window, True)

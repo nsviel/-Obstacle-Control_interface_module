@@ -34,7 +34,7 @@ def gui_theme():
             dpg.add_theme_color(dpg.mvThemeCol_MenuBarBg, (0, 0, 0))
 
             # Window
-            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color_node_bkg, category=dpg.mvThemeCat_Core)
+            dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (75, 75, 75), category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_TitleBg, color_node_bkg, category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_TitleBgActive, color_node_bkg, category=dpg.mvThemeCat_Core)
             dpg.add_theme_color(dpg.mvThemeCol_TitleBgCollapsed, color_node_bkg, category=dpg.mvThemeCat_Core)

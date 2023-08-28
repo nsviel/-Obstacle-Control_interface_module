@@ -19,3 +19,6 @@ class Misc:
 
     def setup_handlers(self):
         pass
+
+    def set_invisible_all(self):
+        self.wallet.window.set_invisible()

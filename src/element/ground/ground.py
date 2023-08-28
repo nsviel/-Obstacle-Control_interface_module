@@ -27,3 +27,8 @@ class Ground:
         self.capture.setup_handler()
         self.lidar_1.setup_handler()
         self.lidar_2.setup_handler()
+
+    def set_invisible_all(self):
+        self.capture.window.set_invisible()
+        self.lidar_1.window.set_invisible()
+        self.lidar_2.window.set_invisible()

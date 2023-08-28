@@ -38,3 +38,10 @@ class Edge:
         self.data.setup_handler()
         self.hub.setup_handler()
         self.network.setup_handler()
+
+    def set_invisible_all(self):
+        self.slam.window.set_invisible()
+        self.ai.window.set_invisible()
+        self.data.window.set_invisible()
+        self.hub.window.set_invisible()
+        self.network.window.set_invisible()
