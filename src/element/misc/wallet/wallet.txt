@@ -4,3 +4,5 @@ lidar_1_static 192.168.1.201
 lidar_2_static 192.168.2.201
 mines_edge 10.201.20.24
 mines_train 10.201.20.131
+VM_1_MEC_spanish 10.17.231.38
+VM_2_MEC_french 10.17.231.39
