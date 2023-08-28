@@ -9,7 +9,7 @@ import dearpygui.dearpygui as dpg
 
 def build_scheme():
     with dpg.child_window(tag=gui_ID.ID_panel_scheme, border=False):
-        with dpg.node_editor(tag=gui_ID.ID_scheme, minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_TopRight):
+        with dpg.node_editor(tag=gui_ID.ID_scheme, minimap=True, minimap_location=dpg.mvNodeMiniMap_Location_BottomRight):
             element.object.build_nodes()
             element.object.setup_handlers()
             element.object.setup_links()
@@ -23,5 +23,3 @@ def build_scheme():
         m_drag = dpg.add_mouse_drag_handler(button=dpg.mvMouseButton_Left)
         m_down = dpg.add_mouse_down_handler(button=dpg.mvMouseButton_Left)
         m_move = dpg.add_mouse_move_handler()
-
-    #dpg.configure_item(gui_ID.ID_scheme, show=False)

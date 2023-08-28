@@ -8,10 +8,10 @@ from src.element.misc import misc
 
 class Element():
     def init_objects(self):
+        self.misc = misc.Misc(1)
         self.ground = ground.Ground(1)
         self.edge = edge.Edge(1)
         self.cloud = cloud.Cloud(1)
-        self.misc = misc.Misc(1)
 
     def build_windows(self):
         self.ground.build_windows()

@@ -45,12 +45,10 @@ class Hub_ID:
         self.ID_sock_server_l1 = function.id_generator();
         self.ID_sock_server_l1_port = function.id_generator();
         self.ID_sock_client_l1 = function.id_generator();
-        self.ID_sock_client_l1_port = function.id_generator();
 
         self.ID_sock_server_l2 = function.id_generator();
         self.ID_sock_server_l2_port = function.id_generator();
         self.ID_sock_client_l2 = function.id_generator();
-        self.ID_sock_client_l2_port = function.id_generator();
         self.ID_sock_client_l2_source = function.id_generator();
 
         self.ID_combo_lidar_source = function.id_generator();

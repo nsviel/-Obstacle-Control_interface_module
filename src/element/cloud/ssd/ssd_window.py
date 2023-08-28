@@ -16,10 +16,10 @@ class Ssd_window(window.Window):
                 dpg.add_text("SSD saving");
                 dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=False, callback=self.callback_ssd)
             with dpg.table_row():
-                dpg.add_text("Path:")
+                dpg.add_text("Path")
                 dpg.add_input_text(tag=self.ID.ID_path, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
             with dpg.table_row():
-                dpg.add_text("Used:");
+                dpg.add_text("Memory");
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_memory_used, color=gui_color.color_info);
                     dpg.add_text("/");
@@ -33,10 +33,10 @@ class Ssd_window(window.Window):
                 dpg.add_text("File", color=gui_color.color_title)
                 dpg.add_button(label="New save", width=100, callback=self.command_new_save)
             with dpg.table_row():
-                dpg.add_text("Name:");
+                dpg.add_text("Name");
                 dpg.add_input_text(tag=self.ID.ID_path_add, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
             with dpg.table_row():
-                dpg.add_text("Fullname:")
+                dpg.add_text("Fullname")
                 dpg.add_text("-", tag=self.ID.ID_file_name, color=gui_color.color_info)
         dpg.add_separator()
 
@@ -48,7 +48,7 @@ class Ssd_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("-", tag=self.ID.ID_path_l1, color=gui_color.color_info)
             with dpg.table_row():
-                dpg.add_text("Size:")
+                dpg.add_text("Size")
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_file_l1_size, color=gui_color.color_info)
                     dpg.add_text("Gb");
@@ -62,7 +62,7 @@ class Ssd_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("-", tag=self.ID.ID_path_l2, color=gui_color.color_info)
             with dpg.table_row():
-                dpg.add_text("Size:")
+                dpg.add_text("Size")
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_file_l2_size, color=gui_color.color_info)
                     dpg.add_text("Gb");

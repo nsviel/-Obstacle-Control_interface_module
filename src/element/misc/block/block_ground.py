@@ -13,7 +13,7 @@ class Block_ground:
                 dpg.add_image(self.ID.ID_icon_ground, width=25, height=30)
                 dpg.add_text("")
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-                with dpg.drawlist(width=450, height=200):
+                with dpg.drawlist(width=350, height=300):
                     pass
 
     def set_visibility(self, what):

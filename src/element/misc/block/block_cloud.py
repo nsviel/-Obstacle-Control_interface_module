@@ -12,7 +12,7 @@ class Block_cloud:
                 dpg.add_image(self.ID.ID_icon_cloud, width=35, height=30)
                 dpg.add_text("")
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-                with dpg.drawlist(width=225, height=250):
+                with dpg.drawlist(width=375, height=300):
                     pass
 
     def set_visibility(self, what):

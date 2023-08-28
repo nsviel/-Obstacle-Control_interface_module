@@ -6,6 +6,7 @@ from src.utils import parser_json
 from src.element.misc.wallet import wallet_logic
 from src.connection.HTTPS import https_client_con
 from src.connection.HTTPS import https_client_post
+from src.gui.style import colorization
 import dearpygui.dearpygui as dpg
 
 
@@ -45,6 +46,7 @@ class Hub_window(window.Window):
         dpg.set_value(self.ID.ID_http_server_port, edge.state["self"]["http_server_port"])
         dpg.set_value(self.ID.ID_sock_client_l1_lidar_main, s1)
         dpg.set_value(self.ID.ID_sock_client_l2_source, s2)
+        colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge)
 
     def command_comboip(self):
         edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))

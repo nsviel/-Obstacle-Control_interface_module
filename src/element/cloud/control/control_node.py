@@ -15,7 +15,7 @@ class Control_node(node.Node):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
             # Icone & status button
-            with dpg.node_attribute(tag=self.ID.ID_ssd_connection, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
+            with dpg.node_attribute(tag=self.ID.ID_ssd_connection, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.table(header_row=False, borders_innerH=False, policy=dpg.mvTable_SizingFixedFit):
                     dpg.add_table_column(label="Icone", width_fixed=True, init_width_or_weight=75)
                     dpg.add_table_column(label="Button", width_fixed=True, init_width_or_weight=15)

@@ -19,8 +19,8 @@ path_ssd = "/app/lidar_ssd"
 gui_fullscreen = False
 gui_font_def = None
 gui_font_big = None
-gui_width = 1650
-gui_height = 950
+gui_width = 1675
+gui_height = 775
 
 # Thread
 run_loop = True;

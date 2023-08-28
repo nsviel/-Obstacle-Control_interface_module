@@ -38,8 +38,8 @@ class Block:
 
     def position_blocks(self):
         coord_block_ground = [10, 10]
-        coord_block_edge = [600, 10]
-        coord_block_cloud = [1075, 10]
+        coord_block_edge = [400, 10]
+        coord_block_cloud = [1000, 10]
         dpg.set_item_pos(self.ID.ID_block_ground, coord_block_ground)
         dpg.set_item_pos(self.ID.ID_block_edge, coord_block_edge)
         dpg.set_item_pos(self.ID.ID_block_cloud, coord_block_cloud)

@@ -30,6 +30,16 @@ def color_input_text():
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_Text, color_1, category=dpg.mvThemeCat_Core)
     return theme
+def color_input_port():
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        color_1 = (200, 0, 200)
+        color_2 = (0, 0, 0)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBg, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBgHovered, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_Text, color_1, category=dpg.mvThemeCat_Core)
+    return theme
 def color_yaxis_0():
     yaxis = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=yaxis):

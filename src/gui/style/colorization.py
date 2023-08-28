@@ -36,6 +36,8 @@ def colorize_item(ID_item, type_name):
         color = gui_color.color_input_text()
     elif(type_name == "line_yaxis"):
         color = gui_color.color_yaxis_0()
+    elif(type_name == "input_port"):
+        color = gui_color.color_input_port()
     else:
         print("[error] Colorization name not good")
     dpg.bind_item_theme(ID_item, color)

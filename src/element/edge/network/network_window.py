@@ -9,6 +9,7 @@ import dearpygui.dearpygui as dpg
 
 class Network_window(window.Window):
     def build_parameter(self):
+        dpg.add_text("MongoDB", color=(150, 150, 150));
         with dpg.table(tag=self.ID.ID_mongo_table, header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()

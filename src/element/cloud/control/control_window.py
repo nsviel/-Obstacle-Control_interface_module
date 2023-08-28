@@ -19,7 +19,7 @@ class Control_window(window.Window):
                 dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
             with dpg.table_row():
-                dpg.add_text("Temp:");
+                dpg.add_text("Temperature");
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_temperature, color=gui_color.color_info);
                     dpg.add_text("°", color=gui_color.color_info);
