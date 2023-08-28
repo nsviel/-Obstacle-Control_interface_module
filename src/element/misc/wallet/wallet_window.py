@@ -10,17 +10,23 @@ import json
 
 class Wallet_window(window.Window):
     def build_parameter(self):
-        dpg.add_text("Add element", color=gui_color.color_title);
+        self.build_add_element()
+        self.build_list_element()
+    def build_add_element(self):
+        with dpg.table(header_row=False):
+            dpg.add_table_column()
+            dpg.add_table_column()
+            with dpg.table_row():
+                dpg.add_text("New element", color=(150, 150, 150));
+                dpg.add_button(label="Add item", callback=self.add_new_add)
         with dpg.group(horizontal=True):
             dpg.add_text("Add:")
             dpg.add_input_text(tag=self.ID.ID_new_address, label="", width=200)
         with dpg.group(horizontal=True):
             dpg.add_text("IP: ")
             dpg.add_input_text(tag=self.ID.ID_new_ip, label="", width=200)
-        dpg.add_button(label="Add item", callback=self.callback_wallet_add())
-        dpg.add_separator()
-        dpg.add_text("Saved elements", color=gui_color.color_title);
-        with dpg.table(tag=self.ID.ID_table, header_row=True, borders_innerH=True, parent=self.ID.ID_window_parameter, policy=dpg.mvTable_SizingFixedFit):
+    def build_list_element(self):
+        with dpg.table(tag=self.ID.ID_table, header_row=True, borders_innerH=True, borders_outerH=True, parent=self.ID.ID_window_parameter, policy=dpg.mvTable_SizingFixedFit):
             dpg.add_table_column(label="Address")
             dpg.add_table_column(label="IP")
             dpg.add_table_column(label="", width_fixed=True, init_width_or_weight=20)
@@ -28,26 +34,25 @@ class Wallet_window(window.Window):
                 with dpg.table_row():
                     dpg.add_text(param_control.wallet_add[i])
                     dpg.add_text(param_control.wallet_ip[i])
-                    if(i > 5):
-                        dpg.add_button(label="X", tag=str(i), callback=self.callback_wallet_remove())
+                    if(i >= 4):
+                        dpg.add_button(label="X", tag=str(i), callback=self.remove_add)
+    def rebuild_list_element(self):
+        dpg.delete_item(self.ID.ID_table,)
+        self.build_list_element()
 
     # Subfunction
-    def destroy_table(self):
-        dpg.delete_item("wallet_tabbuild_parameterle")
+    def add_new_add(self):
+        # Get new address
+        new_add = dpg.get_value(self.ID.ID_new_address)
+        dpg.set_value(self.ID.ID_new_address, "")
 
-    def callback_wallet(self):
-        wallet_window.window.switch_visibility()
+        # Get new IP
+        new_ip = dpg.get_value(self.ID.ID_new_ip)
+        dpg.set_value(self.ID.ID_new_ip, "")
 
-    def callback_wallet_add(self):
-        new_add = dpg.get_value("wallet_new_add")
-        new_ip = dpg.get_value("wallet_new_ip")
-        #wallet_logic.add_new_item(new_add, new_ip)
-        #dpg.set_value("wallet_new_add", "")
-        #dpg.set_value("wallet_new_ip", "")
-        #wallet_window.window.destroy_table()
-        #wallet_window.window.build_table()
-
-    def callback_wallet_remove(self):
-        wallet_logic.remoprocessing_item_id(sender)
-        #wallet_window.window.destroy_table()
-        #wallet_window.window.build_table()
+        # Create address ad rebuild list
+        wallet_logic.add_new_item(new_add, new_ip)
+        self.rebuild_list_element()
+    def remove_add(self, sender):
+        wallet_logic.remove_item_id(sender)
+        self.rebuild_list_element()

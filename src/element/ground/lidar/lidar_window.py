@@ -25,8 +25,6 @@ class Lidar_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("Add:");
                 dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.update_ip)
-
-
             with dpg.table_row():
                 dpg.add_text("Speed:");
                 with dpg.group(horizontal=True):
