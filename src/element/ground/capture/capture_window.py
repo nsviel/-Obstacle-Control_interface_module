@@ -11,6 +11,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Capture_window(window.Window):
+    # Build function
     def build_parameter(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
@@ -26,7 +27,15 @@ class Capture_window(window.Window):
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
         dpg.add_separator()
 
+    # Command function
+    def save_coord_to_file(self):
+        data = parser_json.get_pos_from_json()
+        data["ground"]["capture"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_coordinate, data)
+
     # Update function
+    def update(self):
+        pass
     def update_parameter(self):
         dpg.set_value(self.ID.ID_status, param_control.status_capture)
         dpg.set_value(self.ID.ID_wallet, param_control.state_edge["module_capture"]["add"])
@@ -40,7 +49,3 @@ class Capture_window(window.Window):
             param_control.state_ground["self"]["ip"] = capture_ip
             dpg.set_value(self.ID.ID_ip, capture_ip)
             https_client_post.post_param_value("edge", "module_capture", "ip", capture_ip)
-    def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["ground"]["capture"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)

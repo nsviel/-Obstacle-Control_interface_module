@@ -42,8 +42,6 @@ class Control_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
                     dpg.add_text("client", color=gui_color.color_node_sub);
-                with dpg.drawlist(width=100, height=1):
-                    dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
         self.colorize_node()
     def position_node(self):

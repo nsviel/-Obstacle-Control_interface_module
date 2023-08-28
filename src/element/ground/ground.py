@@ -13,26 +13,31 @@ class Ground:
         self.lidar_2 = lidar.Lidar(2)
         self.link = link.Link(self)
 
+    # Node
     def build_nodes(self):
         self.capture.node.build()
         self.lidar_1.node.build()
         self.lidar_2.node.build()
-
-    def build_windows(self):
-        self.capture.window.build()
-        self.lidar_1.window.build()
-        self.lidar_2.window.build()
-
     def update_nodes(self):
         self.capture.node.update()
         self.lidar_1.node.update()
         self.lidar_2.node.update()
 
+    # Window
+    def build_windows(self):
+        self.capture.window.build()
+        self.lidar_1.window.build()
+        self.lidar_2.window.build()
+    def update_windows(self):
+        self.capture.window.update()
+        self.lidar_1.window.update()
+        self.lidar_2.window.update()
+
+    # Event
     def setup_handlers(self):
         self.capture.setup_handler()
         self.lidar_1.setup_handler()
         self.lidar_2.setup_handler()
-
     def set_invisible_all(self):
         self.capture.window.set_invisible()
         self.lidar_1.window.set_invisible()

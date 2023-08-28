@@ -27,7 +27,8 @@ class Operator_node(node.Node):
             # MQTT
             with dpg.node_attribute(tag=self.ID.ID_mqtt_broker, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
-                    dpg.add_text("MQTT", color=gui_color.color_title);
+                    dpg.add_text("MQTT");
+                    dpg.add_text("broker", color=gui_color.color_node_sub);
                     dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=75, callback=self.command_mqtt);
                 with dpg.group(horizontal=True):
                     dpg.add_text("Topic");

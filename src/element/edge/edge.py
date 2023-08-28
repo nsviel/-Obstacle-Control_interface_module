@@ -18,13 +18,13 @@ class Edge:
         self.network = network.Network(self.ID_edge)
         self.link = link.Link(self)
 
+    # Node
     def build_nodes(self):
         self.slam.node.build()
         self.ai.node.build()
         self.data.node.build()
         self.hub.node.build()
         self.network.node.build()
-
     def update_nodes(self):
         self.slam.node.update()
         self.ai.node.update()
@@ -32,20 +32,27 @@ class Edge:
         self.hub.node.update()
         self.network.node.update()
 
+    # Window
     def build_windows(self):
         self.slam.window.build()
         self.ai.window.build()
         self.data.window.build()
         self.hub.window.build()
         self.network.window.build()
+    def update_windows(self):
+        self.slam.window.update()
+        self.ai.window.update()
+        self.data.window.update()
+        self.hub.window.update()
+        self.network.window.update()
 
+    # Event
     def setup_handlers(self):
         self.slam.setup_handler()
         self.ai.setup_handler()
         self.data.setup_handler()
         self.hub.setup_handler()
         self.network.setup_handler()
-
     def set_invisible_all(self):
         self.slam.window.set_invisible()
         self.ai.window.set_invisible()

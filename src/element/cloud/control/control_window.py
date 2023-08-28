@@ -9,6 +9,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Control_window(window.Window):
+    # Build function
     def build_parameter(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
@@ -29,11 +30,15 @@ class Control_window(window.Window):
                 dpg.add_text("Edge");
                 dpg.add_combo(edges, tag=self.ID.ID_setting_edge_selection, default_value="France_1", width=125)
         dpg.add_separator()
+    def colorize_window():
+        colorization.colorize_status(self.ID.ID_status_light, param_control.status_control)
 
+    # Command function
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
         data["cloud"]["control"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)
 
-    def colorize_window():
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_control)
+    # Update function
+    def update(self):
+        pass

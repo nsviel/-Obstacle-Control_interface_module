@@ -11,6 +11,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Hub_window(window.Window):
+    # Build function
     def build_parameter(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
@@ -26,6 +27,22 @@ class Hub_window(window.Window):
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
         dpg.add_separator()
 
+    # Command function
+    def command_comboip(self):
+        edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
+        if(edge_ip != None):
+            param_control.state_control["edge"]["ip"] = edge_ip
+            dpg.set_value(self.ID.ID_ip, edge_ip)
+            https_client_con.test_connection_edge()
+            https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
+    def save_coord_to_file(self):
+        data = parser_json.get_pos_from_json()
+        data["edge"]["hub"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_coordinate, data)
+
+    # Update function
+    def update(self):
+        pass
     def update_edge(self):
         if(edge.state["self"]["lidar_main"] == "lidar_1"):
             s1 = "lidar_1"
@@ -49,16 +66,3 @@ class Hub_window(window.Window):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge)
         colorization.colorize_item(self.ID.ID_wallet, "input_text")
         colorization.colorize_item(self.ID.ID_ip, "input_text")
-        
-    def command_comboip(self):
-        edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
-        if(edge_ip != None):
-            param_control.state_control["edge"]["ip"] = edge_ip
-            dpg.set_value(self.ID.ID_ip, edge_ip)
-            https_client_con.test_connection_edge()
-            https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
-
-    def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["edge"]["hub"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)

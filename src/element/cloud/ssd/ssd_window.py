@@ -8,13 +8,14 @@ import dearpygui.dearpygui as dpg
 
 
 class Ssd_window(window.Window):
+    # Build function
     def build_parameter(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()
             with dpg.table_row():
                 dpg.add_text("SSD saving");
-                dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=False, callback=self.callback_ssd)
+                dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=False, callback=self.command_ssd)
             with dpg.table_row():
                 dpg.add_text("Path")
                 dpg.add_input_text(tag=self.ID.ID_path, label="", default_value="", width=200, on_enter=True, callback=self.command_ssd_editing)
@@ -67,25 +68,26 @@ class Ssd_window(window.Window):
                     dpg.add_text(0, tag=self.ID.ID_file_l2_size, color=gui_color.color_info)
                     dpg.add_text("Gb");
         dpg.add_separator()
-
-    def command_new_save(self):
-        saving.determine_path()
-
-    def command_ssd_editing(self):
-        param_control.state_control["path"]["file_name_add"] = dpg.get_value(self.ID.ID_path_add)
-        param_control.path_ssd = dpg.get_value(self.ID.ID_path)
-        saving.determine_path()
-
-    def callback_ssd(self):
-        param_control.path_ssd = dpg.get_value(self.ID.ID_path)
-        param_control.state_control["ssd"]["activated"] = dpg.get_value(self.ID.ID_activated)
-
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_activated, "checkbox")
         colorization.colorize_item(self.ID.ID_path_add, "input_text")
         colorization.colorize_item(self.ID.ID_path, "input_text")
 
+    # Command function
+    def command_new_save(self):
+        saving.determine_path()
+    def command_ssd_editing(self):
+        param_control.state_control["path"]["file_name_add"] = dpg.get_value(self.ID.ID_path_add)
+        param_control.path_ssd = dpg.get_value(self.ID.ID_path)
+        saving.determine_path()
+    def command_ssd(self):
+        param_control.path_ssd = dpg.get_value(self.ID.ID_path)
+        param_control.state_control["ssd"]["activated"] = dpg.get_value(self.ID.ID_activated)
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
         data["cloud"]["ssd"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)
+
+    # Update function
+    def update(self):
+        pass

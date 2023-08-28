@@ -11,6 +11,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Lidar_window(window.Window):
+    # Build function
     def build_parameter(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
@@ -52,8 +53,28 @@ class Lidar_window(window.Window):
             dpg.add_text("Device")
             dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.update_device_selection)
         self.update_device_list()
+    def colorize_item(self):
+        checkbox = gui_color.color_checkbox()
+        input_text = gui_color.color_input_text()
+        dpg.bind_item_theme(self.ID.ID_activated, checkbox)
+        dpg.bind_item_theme(self.ID.ID_ip, input_text)
+        dpg.bind_item_theme(self.ID.ID_motor_speed, input_text)
+        dpg.bind_item_theme(self.ID.ID_sock_client_port, input_text)
+        dpg.bind_item_theme(self.ID.ID_wallet, input_text)
+
+        layer_sensor = gui_color.color_layer_train()
+        dpg.bind_item_theme("lidar_1", layer_sensor)
+        dpg.bind_item_theme("lidar_2", layer_sensor)
+
+    # Command function
+    def save_coord_to_file(self):
+        data = parser_json.get_pos_from_json()
+        data["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_coordinate, data)
 
     # Update function
+    def update(self):
+        pass
     def update_state(self):
         param_control.state_ground[self.ID.name]["activated"] = dpg.get_value(self.ID.ID_activated)
         param_control.state_ground[self.ID.name]["ip"] = dpg.get_value(self.ID.ID_ip)
@@ -86,10 +107,9 @@ class Lidar_window(window.Window):
             param_control.state_ground[self.ID.name]["ip"] = ip
             dpg.set_value(self.ID.ID_ip, ip)
             https_client_post.post_param_value("capture", self.ID.name, "ip", ip)
-    def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+    def update_color(self):
+        colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["running"])
+        #colorization.colorize_status(ID.ID_status_light, lidar.status)
 
     # LiDAR motor
     def update_motor_start(self):
@@ -100,20 +120,3 @@ class Lidar_window(window.Window):
         speed = dpg.get_value(self.ID.ID_motor_speed)
         param_control.state_ground[self.ID.name]["speed"] = speed
         https_client_post.post_param_value("capture", self.ID.name, "speed", speed)
-
-    # Colorization
-    def colorize_item(self):
-        checkbox = gui_color.color_checkbox()
-        input_text = gui_color.color_input_text()
-        dpg.bind_item_theme(self.ID.ID_activated, checkbox)
-        dpg.bind_item_theme(self.ID.ID_ip, input_text)
-        dpg.bind_item_theme(self.ID.ID_motor_speed, input_text)
-        dpg.bind_item_theme(self.ID.ID_sock_client_port, input_text)
-        dpg.bind_item_theme(self.ID.ID_wallet, input_text)
-
-        layer_sensor = gui_color.color_layer_train()
-        dpg.bind_item_theme("lidar_1", layer_sensor)
-        dpg.bind_item_theme("lidar_2", layer_sensor)
-    def update_color(self):
-        colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["running"])
-        #colorization.colorize_status(ID.ID_status_light, lidar.status)

@@ -8,6 +8,7 @@ import dearpygui.dearpygui as dpg
 
 
 class Network_window(window.Window):
+    # Build function
     def build_parameter(self):
         dpg.add_text("MongoDB", color=(150, 150, 150));
         with dpg.table(tag=self.ID.ID_mongo_table, header_row=False, borders_innerH=True):
@@ -37,7 +38,12 @@ class Network_window(window.Window):
                 dpg.add_input_text(tag=self.ID.ID_mongo_password, label="", default_value="", width=150, on_enter=True, callback=network_command.callback_mongo_password);
         dpg.add_separator()
 
+    # Command function
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
         data["edge"]["network"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)
+
+    # Update function
+    def update(self):
+        pass
