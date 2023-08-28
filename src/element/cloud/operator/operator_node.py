@@ -52,7 +52,7 @@ class Operator_node(node.Node):
     def callback_operator(self):
         param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
         param_control.state_edge["cloud_operator"]["mqtt_topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
-        #param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
+        param_control.state_edge["cloud_operator"]["mqtt_client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
         https_client_post.post_state("edge", param_control.state_edge)
         https_client_post.post_param_value("edge", None, "cloud_operator", "reset")
 

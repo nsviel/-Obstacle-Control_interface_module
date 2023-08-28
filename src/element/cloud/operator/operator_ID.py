@@ -32,6 +32,7 @@ class Operator_ID:
         self.ID_mqtt_broker_port_visibility = function.id_generator();
         self.ID_mqtt_topic = function.id_generator();
         self.ID_mqtt_topic_visibility = function.id_generator();
+        self.ID_mqtt_client_name = function.id_generator();
 
     def init_ID_icon(self):
         self.ID_icon_hub = texture.load_texture("train")

@@ -103,7 +103,7 @@ class Hub_node(node.Node):
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["hub"])
 
     def colorize_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge_1)
+        colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge)
         colorization.colorize_item(self.ID.ID_sock_server_l1_port, input_text)
         colorization.colorize_item(self.ID.ID_sock_server_l2_port, input_text)
         colorization.colorize_item(self.ID.ID_mqtt_client_name, input_text)

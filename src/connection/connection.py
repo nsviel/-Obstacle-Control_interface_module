@@ -21,7 +21,7 @@ class Connection(daemon.Daemon):
         saving.test_ssd_con()
 
         # Update state
-        https_client_get.get_state("edge_1")
+        https_client_get.get_state("edge")
         https_client_get.get_state("capture")
         https_client_get.get_state("network")
         state.update_state()

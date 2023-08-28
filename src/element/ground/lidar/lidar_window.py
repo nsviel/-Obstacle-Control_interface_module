@@ -50,10 +50,9 @@ class Lidar_window(window.Window):
         dpg.add_separator()
         with dpg.group():
             dpg.add_text("Device")
-            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.update_device)
-        devices = io.get_list_device_from_state()
-        dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["device"], items=devices, num_items=len(devices))
-
+            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.update_device_selection)
+        self.update_device_list()
+        
     # Update function
     def update_state(self):
         param_control.state_ground[self.ID.name]["activated"] = dpg.get_value(self.ID.ID_activated)
@@ -75,9 +74,12 @@ class Lidar_window(window.Window):
         dpg.set_value(self.ID.ID_sock_client_port, param_control.state_ground[self.ID.name]["port"])
         dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["add"])
         dpg.configure_item(ID.ID_wallet, items=param_control.wallet_add)
-    def update_device(self):
+    def update_device_selection(self):
         device = dpg.get_value(self.ID.ID_device_list)
         https_client_post.post_param_value("capture", self.ID.name, "device", device)
+    def update_device_list(self):
+        devices = io.get_list_device_from_state()
+        dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["device"], items=devices, num_items=len(devices))
     def update_address(self):
         ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ip != None):

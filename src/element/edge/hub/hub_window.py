@@ -3,6 +3,7 @@ from src.param import param_control
 from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
+from src.element.misc.wallet import wallet_logic
 import dearpygui.dearpygui as dpg
 
 
@@ -46,10 +47,10 @@ class Hub_window(window.Window):
     def command_comboip(self):
         edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(edge_ip != None):
-            param_control.state_control["edge"]["ip"] = edge_1_ip
-            dpg.set_value(self.ID.ID_ip, edge_1_ip)
+            param_control.state_control["edge"]["ip"] = edge_ip
+            dpg.set_value(self.ID.ID_ip, edge_ip)
             https_client_con.test_http_edge()
-            https_client_post.post_param_value("capture", "edge_1", "ip", edge_1_ip)
+            https_client_post.post_param_value("capture", "edge", "ip", edge_ip)
 
     def save_coord_to_file(self):
         data = parser_json.get_pos_from_json()
