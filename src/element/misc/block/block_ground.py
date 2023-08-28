@@ -10,7 +10,7 @@ class Block_ground:
     def design_block(self):
         with dpg.node(label="Ground", tag=self.ID.ID_block_ground, draggable=True):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-                dpg.add_image(self.ID.ID_icon_ground)
+                dpg.add_image(self.ID.ID_icon_ground, width=25, height=30)
                 dpg.add_text("")
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.drawlist(width=450, height=200):

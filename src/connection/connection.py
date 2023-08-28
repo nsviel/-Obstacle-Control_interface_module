@@ -17,7 +17,7 @@ import socket
 class Connection(daemon.Daemon):
     def thread_function(self):
         # Test connections
-        #https_client_con.test_http_edge()
+        https_client_con.test_connection_edge()
         saving.test_ssd_con()
 
         # Update state

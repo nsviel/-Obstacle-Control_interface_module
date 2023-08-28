@@ -11,10 +11,10 @@ color_grey = (150, 150, 150)
 
 
 def color_checkbox():
+    color_1 = (255, 255, 255)
+    color_2 = (0, 0, 0)
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
-        color_1 = (255, 255, 255)
-        color_2 = (0, 0, 0)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBg, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgHovered, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
@@ -36,12 +36,18 @@ def color_yaxis_0():
         dpg.add_theme_color(dpg.mvPlotCol_Line, (100, 100, 100), category=dpg.mvThemeCat_Plots)
         dpg.add_theme_style(dpg.mvPlotStyleVar_LineWeight, 0.5, category=dpg.mvThemeCat_Plots)
     return yaxis
+def color_window():
+    color = (100, 0, 0)
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        dpg.add_theme_color(dpg.mvThemeCol_WindowBg, color, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_TableRowBg, color, category=dpg.mvThemeCat_Core)
+    return theme
 
-def color_block_train():
+def color_block_ground():
+    color = (10, 40, 100, 30)
     layer_control = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_control):
-        color = (10, 40, 100, 50)
-        transparent = (0, 0, 0, 0)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
@@ -50,10 +56,9 @@ def color_block_train():
         dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
     return layer_control
 def color_block_edge():
+    color = (45, 108, 143, 30)
     layer_control = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_control):
-        color = (45, 108, 143, 50)
-        transparent = (0, 0, 0, 0)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)
@@ -62,10 +67,9 @@ def color_block_edge():
         dpg.add_theme_color(dpg.mvNodeCol_NodeBackgroundSelected, color, category=dpg.mvThemeCat_Nodes)
     return layer_control
 def color_block_cloud():
+    color = (34, 133, 109, 30)
     layer_control = dpg.add_theme()
     with dpg.theme_component(dpg.mvNode, parent=layer_control):
-        color = (34, 133, 109, 50)
-        transparent = (0, 0, 0, 0)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBar, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarHovered, color, category=dpg.mvThemeCat_Nodes)
         dpg.add_theme_color(dpg.mvNodeCol_TitleBarSelected, color, category=dpg.mvThemeCat_Nodes)

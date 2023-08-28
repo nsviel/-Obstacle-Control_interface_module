@@ -9,7 +9,7 @@ class Block_cloud:
     def design_block(self):
         with dpg.node(label="Cloud", tag=self.ID.ID_block_cloud):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-                dpg.add_image(self.ID.ID_icon_cloud)
+                dpg.add_image(self.ID.ID_icon_cloud, width=35, height=30)
                 dpg.add_text("")
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.drawlist(width=225, height=250):

@@ -15,7 +15,7 @@ class Misc:
         self.wallet.window.build()
 
     def build_nodes(self):
-        pass
+        self.block.design_blocks()
 
     def setup_handlers(self):
         pass

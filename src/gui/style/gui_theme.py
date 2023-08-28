@@ -68,7 +68,7 @@ def gui_theme():
             dpg.add_theme_color(dpg.mvNodeCol_Link, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkHovered, color_node_link, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_color(dpg.mvNodeCol_LinkSelected, color_node_link, category=dpg.mvThemeCat_Nodes)
-            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkLineSegmentsPerLength, 0, category=dpg.mvThemeCat_Nodes)
+            dpg.add_theme_style(dpg.mvNodeStyleVar_LinkLineSegmentsPerLength, 1, category=dpg.mvThemeCat_Nodes)
             dpg.add_theme_style(dpg.mvNodeStyleVar_LinkThickness, link_thikness, category=dpg.mvThemeCat_Nodes)
 
             # Minimap

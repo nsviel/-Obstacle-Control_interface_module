@@ -13,4 +13,4 @@ def callback_close():
     param_control.run_loop = False
 
 def callback_wallet():
-    element.object.wallet.window.switch_visibility()
+    element.object.misc.wallet.window.switch_visibility()

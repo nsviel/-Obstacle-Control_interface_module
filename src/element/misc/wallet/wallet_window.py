@@ -28,6 +28,7 @@ class Wallet_window(window.Window):
                     dpg.add_text(param_control.wallet_ip[i])
                     if(i > 5):
                         dpg.add_button(label="X", tag=str(i), callback=self.callback_wallet_remove())
+        dpg.bind_item_theme(self.ID.ID_table, gui_color.color_window)
 
     # Subfunction
     def destroy_table(self):

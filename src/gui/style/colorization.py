@@ -18,13 +18,13 @@ def colorize_node(ID_node, layer_name):
 
 def colorize_blocks(ID_block, type_name):
     if(type_name == "ground"):
-        color = gui_color.color_buton_train()
+        color = gui_color.color_block_ground()
     elif(type_name == "edge"):
-        color = gui_color.color_buton_edge()
+        color = gui_color.color_block_edge()
     elif(type_name == "cloud"):
-        color = gui_color.color_buton_cloud()
+        color = gui_color.color_block_cloud()
     elif(type_name == "control"):
-        color = gui_color.color_buton_control()
+        color = gui_color.color_block_cloud()
     else:
         print("[error] Colorization name not good")
     dpg.bind_item_theme(ID_block, color)
