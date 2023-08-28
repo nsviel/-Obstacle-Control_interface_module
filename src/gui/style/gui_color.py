@@ -3,11 +3,13 @@ import dearpygui.dearpygui as dpg
 
 
 color_info = (0, 200, 200)
-color_port = (200, 0, 200)
 color_title = (200, 200, 200)
 color_line = (255, 255, 255, 50)
 color_status = (0, 200, 50)
 color_grey = (150, 150, 150)
+
+color_node_value = (200, 0, 200)
+color_node_sub = (0, 200, 200)
 
 
 def color_checkbox():
@@ -30,15 +32,14 @@ def color_input_text():
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_Text, color_1, category=dpg.mvThemeCat_Core)
     return theme
-def color_input_port():
+def theme_node_value():
     theme = dpg.add_theme()
     with dpg.theme_component(dpg.mvAll, parent=theme):
-        color_1 = (200, 0, 200)
         color_2 = (0, 0, 0)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBg, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgHovered, color_2, category=dpg.mvThemeCat_Core)
         dpg.add_theme_color(dpg.mvThemeCol_FrameBgActive, color_2, category=dpg.mvThemeCat_Core)
-        dpg.add_theme_color(dpg.mvThemeCol_Text, color_1, category=dpg.mvThemeCat_Core)
+        dpg.add_theme_color(dpg.mvThemeCol_Text, color_node_value, category=dpg.mvThemeCat_Core)
     return theme
 def color_yaxis_0():
     yaxis = dpg.add_theme()

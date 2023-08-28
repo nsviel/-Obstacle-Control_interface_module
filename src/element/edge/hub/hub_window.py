@@ -47,7 +47,9 @@ class Hub_window(window.Window):
         dpg.set_value(self.ID.ID_sock_client_l1_lidar_main, s1)
         dpg.set_value(self.ID.ID_sock_client_l2_source, s2)
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge)
-
+        colorization.colorize_item(self.ID.ID_wallet, "input_text")
+        colorization.colorize_item(self.ID.ID_ip, "input_text")
+        
     def command_comboip(self):
         edge_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(edge_ip != None):

@@ -25,8 +25,8 @@ class Ai_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_http_server, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
         self.position_node()
 
     def position_node(self):

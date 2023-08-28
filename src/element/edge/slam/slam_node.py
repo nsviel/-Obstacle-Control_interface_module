@@ -26,15 +26,15 @@ class Slam_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_sock_server, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_sock_server_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_sock_server_port, color=gui_color.color_node_value);
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
             with dpg.node_attribute(tag=self.ID.ID_http_server, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
 

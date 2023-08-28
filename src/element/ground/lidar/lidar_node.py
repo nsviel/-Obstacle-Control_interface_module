@@ -27,7 +27,7 @@ class Lidar_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("client", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_sock_client_port, color=gui_color.color_port);
+                    dpg.add_text(1, tag=self.ID.ID_sock_client_port, color=gui_color.color_node_value);
         self.position_node()
 
     def position_node(self):

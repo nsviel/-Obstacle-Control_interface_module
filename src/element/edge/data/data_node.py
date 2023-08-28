@@ -18,10 +18,10 @@ class Data_node(node.Node):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Frame:");
-                    dpg.add_text(0, tag=self.ID.ID_nb_frame, color=gui_color.color_info);
+                    dpg.add_text(0, tag=self.ID.ID_nb_frame, color=gui_color.color_node_value);
                 with dpg.group(horizontal=True):
                     dpg.add_text("Prediction:");
-                    dpg.add_text(0, tag=self.ID.ID_nb_prediction, color=gui_color.color_info);
+                    dpg.add_text(0, tag=self.ID.ID_nb_prediction, color=gui_color.color_node_value);
         self.position_node()
 
     def build_plot(self, label, tag_y, tag_plot):

@@ -29,22 +29,23 @@ class Control_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l1, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=100, callback=self.update_sock_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.update_sock_port);
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l2, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=100, callback=self.update_sock_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.update_sock_port);
 
             # HTTPS
             with dpg.node_attribute(tag=self.ID.ID_http_client, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
+        self.colorize_node()
 
     # Update function
     def update_node(self):
@@ -72,6 +73,5 @@ class Control_node(node.Node):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["cloud"]["control"])
     def colorize_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_control)
-        colorization.colorize_item(self.ID.ID_sock_server_l1_port, input_text)
-        colorization.colorize_item(self.ID.ID_sock_server_l2_port, input_text)
+        colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
+        colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")

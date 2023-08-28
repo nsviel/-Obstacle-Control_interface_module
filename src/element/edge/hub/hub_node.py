@@ -17,7 +17,7 @@ class Hub_node(node.Node):
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
             # Icone & status button
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
-                with dpg.table(header_row=False, borders_innerH=False, policy=dpg.mvTable_SizingStretchProp):
+                with dpg.table(header_row=False, borders_innerH=False, policy=dpg.mvTable_SizingStretchProp, width=100):
                     dpg.add_table_column()
                     dpg.add_table_column()
                     with dpg.table_row():
@@ -30,11 +30,11 @@ class Hub_node(node.Node):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Edge ID: [")
-                    dpg.add_text("", tag=self.ID.ID_edge_id, color=gui_color.color_info)
+                    dpg.add_text("", tag=self.ID.ID_edge_id, color=gui_color.color_node_sub)
                     dpg.add_text("]")
                 with dpg.group(horizontal=True):
                     dpg.add_text("Country: [")
-                    dpg.add_text("", tag=self.ID.ID_edge_country, color=gui_color.color_info)
+                    dpg.add_text("", tag=self.ID.ID_edge_country, color=gui_color.color_node_sub)
                     dpg.add_text("]")
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
@@ -43,7 +43,7 @@ class Hub_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_mqtt_client, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
                     dpg.add_input_text(tag=self.ID.ID_mqtt_client_name, default_value="ai_module", width=90, on_enter=True, callback=self.callback_operator)
                 dpg.add_button(label="False alarm", callback=self.command_false_alarm)
                 with dpg.drawlist(width=100, height=1):
@@ -53,12 +53,12 @@ class Hub_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l1, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
                     dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.callback_module_edge);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l1, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Source:");
@@ -71,16 +71,16 @@ class Hub_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l2, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
                     dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.callback_module_edge);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Source:");
-                    dpg.add_text("Lidar 2", tag=self.ID.ID_sock_client_l2_source, color=gui_color.color_info)
+                    dpg.add_text("Lidar 2", tag=self.ID.ID_sock_client_l2_source)
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
 
@@ -88,12 +88,12 @@ class Hub_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_http_client, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
             with dpg.node_attribute(tag=self.ID.ID_http_server, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
 
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
@@ -104,12 +104,11 @@ class Hub_node(node.Node):
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["hub"])
 
     def colorize_node(self):
-        colorization.colorize_item(self.ID.ID_sock_server_l1_port, "input_port")
-        colorization.colorize_item(self.ID.ID_sock_server_l2_port, "input_port")
-        colorization.colorize_item(self.ID.ID_mqtt_client_name, "input_port")
-        colorization.colorize_item(self.ID.ID_combo_lidar_source, "input_text")
-        colorization.colorize_item(self.ID.ID_wallet, "input_text")
-        colorization.colorize_item(self.ID.ID_ip, "input_text")
+        colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
+        colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
+        colorization.colorize_item(self.ID.ID_mqtt_client_name, "node_value")
+        colorization.colorize_item(self.ID.ID_combo_lidar_source, "node_value")
+        colorization.colorize_item(self.ID.ID_sock_client_l2_source, "node_value")
 
     def command_false_alarm(self):
         print("[\033[1;32mOK\033[0m] Send false alarm")

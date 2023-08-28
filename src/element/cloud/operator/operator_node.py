@@ -27,12 +27,13 @@ class Operator_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_mqtt_broker, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT", color=gui_color.color_title);
-                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=100, callback=self.callback_operator);
+                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=75, callback=self.callback_operator);
                 with dpg.group(horizontal=True):
                     dpg.add_text("Topic");
-                    dpg.add_input_text(tag=self.ID.ID_mqtt_topic, default_value="-", width=100, on_enter=True, callback=self.callback_operator)
+                    dpg.add_input_text(tag=self.ID.ID_mqtt_topic, default_value="-", width=90, on_enter=True, callback=self.callback_operator)
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
+        self.colorize_node()
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
@@ -44,11 +45,8 @@ class Operator_node(node.Node):
         dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_edge["cloud_operator"]["mqtt_topic"])
 
     def colorize_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_operator)
-        colorization.colorize_item(self.ID.ID_mqtt_broker_port, input_text)
-        colorization.colorize_item(self.ID.ID_mqtt_topic, input_text)
-        colorization.colorize_item(self.ID.ID_wallet, input_text)
-        colorization.colorize_item(self.ID.ID_ip, input_text)
+        colorization.colorize_item(self.ID.ID_mqtt_broker_port, "node_value")
+        colorization.colorize_item(self.ID.ID_mqtt_topic, "node_value")
 
     def callback_operator(self):
         param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)

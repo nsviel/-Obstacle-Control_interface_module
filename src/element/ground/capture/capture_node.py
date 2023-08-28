@@ -28,23 +28,23 @@ class Capture_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l1, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_sock_server_l1_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_sock_server_l1_port, color=gui_color.color_node_value);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l1, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l2, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_sock_server_l2_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_sock_server_l2_port, color=gui_color.color_node_value);
             with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
-                    dpg.add_text("client", color=gui_color.color_info);
+                    dpg.add_text("client", color=gui_color.color_node_sub);
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
 
@@ -52,8 +52,8 @@ class Capture_node(node.Node):
             with dpg.node_attribute(tag=self.ID.ID_http_server, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("HTTPS");
-                    dpg.add_text("server", color=gui_color.color_info);
-                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_port);
+                    dpg.add_text("server", color=gui_color.color_node_sub);
+                    dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
 
@@ -69,5 +69,3 @@ class Capture_node(node.Node):
 
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_http_server_port, input_text)
-        colorization.colorize_item(self.ID.ID_wallet, input_text)
-        colorization.colorize_item(self.ID.ID_ip, input_text)

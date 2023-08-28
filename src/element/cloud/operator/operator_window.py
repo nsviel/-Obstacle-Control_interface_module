@@ -6,6 +6,7 @@ from src.gui.style import gui_color
 from src.utils import parser_json
 from src.element.misc.wallet import wallet_logic
 from src.connection.HTTPS import https_client_post
+from src.gui.style import colorization
 import dearpygui.dearpygui as dpg
 
 
@@ -33,3 +34,8 @@ class Operator_window(window.Window):
         data = parser_json.get_pos_from_json()
         data["cloud"]["operator"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)
+
+    def colorize_window():
+        colorization.colorize_status(self.ID.ID_status_light, param_control.status_operator)
+        colorization.colorize_item(self.ID.ID_wallet, input_text)
+        colorization.colorize_item(self.ID.ID_ip, input_text)

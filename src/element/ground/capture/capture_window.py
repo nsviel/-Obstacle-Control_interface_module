@@ -6,6 +6,7 @@ from src.element.misc.wallet import wallet_logic
 from src.base import window
 from src.utils import parser_json
 from src.connection.HTTPS import https_client_post
+from src.gui.style import colorization
 import dearpygui.dearpygui as dpg
 
 
@@ -31,6 +32,8 @@ class Capture_window(window.Window):
         dpg.set_value(self.ID.ID_wallet, param_control.state_edge["module_capture"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_edge["module_capture"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_ground["self"]["nb_thread"])
+        colorization.colorize_item(self.ID.ID_wallet, input_text)
+        colorization.colorize_item(self.ID.ID_ip, input_text)
     def update_address(self):
         capture_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(capture_ip != None):

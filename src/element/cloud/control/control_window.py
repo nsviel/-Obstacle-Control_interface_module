@@ -4,6 +4,7 @@ from src.gui.background import gui_ID
 from src.gui.style import gui_color
 from src.base import window
 from src.utils import parser_json
+from src.gui.style import colorization
 import dearpygui.dearpygui as dpg
 
 
@@ -33,3 +34,6 @@ class Control_window(window.Window):
         data = parser_json.get_pos_from_json()
         data["cloud"]["control"] = dpg.get_item_pos(self.ID.ID_node)
         parser_json.upload_file(param_control.path_node_coordinate, data)
+
+    def colorize_window():
+        colorization.colorize_status(self.ID.ID_status_light, param_control.status_control)
