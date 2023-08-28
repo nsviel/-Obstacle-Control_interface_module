@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_control
-from src.element.base import node
+from src.base import node
 from src.gui.style import colorization
 from src.gui.style import gui_color
 from src.gui.background import gui_ID

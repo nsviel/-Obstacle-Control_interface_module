@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_control
-from src.element.base import window
+from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
 import dearpygui.dearpygui as dpg

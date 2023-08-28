@@ -1,5 +1,5 @@
 #---------------------------------------------
-from src.element.base import node
+from src.base import node
 from src.gui.style import colorization
 from src.gui.background import gui_ID
 from src.gui.style import gui_color

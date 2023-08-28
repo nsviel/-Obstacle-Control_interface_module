@@ -2,7 +2,7 @@
 from src.param import param_control
 from src.gui.background import gui_ID
 from src.element.edge.network import network_command
-from src.element.base import window
+from src.base import window
 from src.utils import parser_json
 import dearpygui.dearpygui as dpg
 

@@ -1,7 +1,7 @@
 #---------------------------------------------
 from src.param import param_control
 from src.utils import terminal
-from src.utils import daemon
+from src.base import daemon
 
 import socket
 

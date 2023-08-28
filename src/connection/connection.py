@@ -4,7 +4,7 @@ from src.connection.HTTPS import https_client_get
 from src.connection.HTTPS import https_client_post
 
 from src.element import element
-from src.utils import daemon
+from src.base import daemon
 from src.utils import saving
 from src.utils import parser_json
 from src.utils import signal

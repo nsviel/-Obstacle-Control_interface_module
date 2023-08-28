@@ -2,7 +2,7 @@
 from src.param import param_control
 from src.connection.HTTPS import https_client_get
 from src.utils import terminal
-from src.utils import daemon
+from src.base import daemon
 
 
 class Data_image(daemon.Daemon):

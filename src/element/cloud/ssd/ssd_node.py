@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.gui.style import colorization
-from src.element.base import node
+from src.base import node
 from src.utils import parser_json
 from src.gui.style import gui_color
 import dearpygui.dearpygui as dpg
