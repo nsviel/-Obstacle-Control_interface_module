@@ -19,7 +19,7 @@ class Data_image(daemon.Daemon):
 
     def update_image():
         # Update image but if format problem close the program
-        width, height, channels, data = dpg.load_image(param_control.path_image)
+        width, height, channels, data = dpg.load_image(param_control.path_state_current + "image")
         if(width == param_control.image_w and height == param_control.image_h):
             dpg.set_value("image_in", data)
         else:

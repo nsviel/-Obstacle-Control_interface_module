@@ -32,4 +32,4 @@ def connection_edge_open(edge_ID):
         https_client_post.post_param_value("edge", "self", "lidar_main", param_control.state_edge["self"]["lidar_main"])
 
 def connection_edge_close():
-    param_control.state_control["edge_1"]["http_connected"] = False
+    param_control.state_control["edge"]["http_connected"] = False

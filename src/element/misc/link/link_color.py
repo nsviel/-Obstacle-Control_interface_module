@@ -23,9 +23,9 @@ def update_color_edge_1():
     update_link_connection(param_control.state_edge["ai"]["http_connected"], "link_edge_1_ai_http")
 
     # Edge <-> Control
-    update_link_connection(param_control.state_control["edge_1"]["http_connected"], "link_edge_1_control_http")
-    update_link_socket(param_control.state_control["edge_1"]["sock_l1_connected"], "link_edge_1_interface_l1_sock")
-    update_link_socket(param_control.state_control["edge_1"]["sock_l2_connected"], "link_edge_1_interface_l2_sock")
+    update_link_connection(param_control.state_control["edge"]["http_connected"], "link_edge_1_control_http")
+    update_link_socket(param_control.state_control["edge"]["sock_l1_connected"], "link_edge_1_interface_l1_sock")
+    update_link_socket(param_control.state_control["edge"]["sock_l2_connected"], "link_edge_1_interface_l2_sock")
 
     # Edge <-> Capture
     update_link_connection(param_control.state_edge["module_capture"]["http_connected"], "link_edge_1_capture_http")
@@ -39,12 +39,7 @@ def update_color_edge_2():
     update_link_socket(param_control.state_edge_2["slam"]["sock_connected"], "link_edge_2_processing_sock")
     update_link_connection(param_control.state_edge_2["slam"]["http_connected"], "link_edge_2_processing_http")
     update_link_connection(param_control.state_edge_2["ai"]["http_connected"], "link_edge_2_ai_http")
-
-    # Edge <-> Control
-    update_link_connection(param_control.state_control["edge_2"]["http_connected"], "link_edge_2_control_http")
-    update_link_socket(param_control.state_control["edge_2"]["sock_l1_connected"], "link_edge_2_interface_l1_sock")
-    update_link_socket(param_control.state_control["edge_2"]["sock_l2_connected"], "link_edge_2_interface_l2_sock")
-
+    
     # Edge <-> Capture
     update_link_connection(param_control.state_edge_2["module_capture"]["http_connected"], "link_edge_2_capture_http")
 

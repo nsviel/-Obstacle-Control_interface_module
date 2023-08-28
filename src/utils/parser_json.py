@@ -58,7 +58,7 @@ def upload_file(path, data):
     json.dump(data, file, indent=4)
 
 def upload_state():
-    file = open(param_control.path_state_control, "w")
+    file = open(param_control.path_state_current + "state_control.json", "w")
     json.dump(param_control.state_control, file, indent=4)
 
 def update_state_file(path, data):

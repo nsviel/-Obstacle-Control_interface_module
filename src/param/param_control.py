@@ -10,15 +10,10 @@ state_ground = {}
 state_network = {}
 
 # Path
-path_state_control = "src/state/state_control.json"
-path_state_capture = "src/state/state_capture.json"
-path_state_edge_1 = "src/state/state_edge.json"
-path_state_edge_2 = "src/state/state_edge.json"
-path_state_perf = "src/state/state_kpi.json"
-path_image = "src/state/image"
-path_config = "config.json"
+path_state_current = "src/state/current/"
+path_state_initial = "src/state/initial/"
+path_node_coordinate = "src/state/scheme_position.json"
 path_ssd = "/app/lidar_ssd"
-path_node_coordinate = "src/gui/background/scheme_position.json"
 
 # GUI
 gui_fullscreen = False

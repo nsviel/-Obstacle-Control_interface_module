@@ -11,21 +11,19 @@ def load_configuration():
     load_json_file()
     init_state_co()
     init_state_perf()
-    load_config_file()
     upload_state()
     terminal.addLog("#", "Configuration loaded")
 
 def load_json_file():
-    param_control.state_capture = parser_json.load_state(param_control.path_state_capture)
-    param_control.state_edge = parser_json.load_state(param_control.path_state_edge_1)
-    param_control.state_edge_2 = parser_json.load_state(param_control.path_state_edge_2)
-    param_control.state_control = parser_json.load_state(param_control.path_state_control)
-    param_control.state_network = parser_json.load_state(param_control.path_state_perf)
+    param_control.state_capture = parser_json.load_state(param_control.path_state_initial + "state_capture.json")
+    param_control.state_edge = parser_json.load_state(param_control.path_state_initial + "state_edge.json")
+    param_control.state_control = parser_json.load_state(param_control.path_state_initial + "state_control.json")
+    param_control.state_network = parser_json.load_state(param_control.path_state_initial + "state_network.json")
 
 def init_state_co():
     param_control.state_control["self"]["ip"] = signal.get_ip_adress()
     param_control.state_control["path"]["file_name_add"] = ""
-    param_control.state_control["edge_1"]["http_connected"] = False
+    param_control.state_control["edge"]["http_connected"] = False
 
 def init_state_perf():
     param_control.state_network["mongo"]["connected"] = False
@@ -62,37 +60,14 @@ def init_state_perf():
     param_control.state_network["end_to_end"]["time_ai"] = 0
     param_control.state_network["end_to_end"]["time_total"] = 0
 
-def load_config_file():
-    config = parser_json.load_data_from_file(param_control.path_config)
-    param_control.state_control["self"]["sock_server_l1_port"] = config["self"]["sock_server_l1_port"]
-    param_control.state_control["self"]["sock_server_l2_port"] = config["self"]["sock_server_l2_port"]
-    param_control.tic_image = config["self"]["tic_image"]
-    param_control.tic_connection = config["self"]["tic_connection"]
-
-    param_control.state_control["gui"]["width"] = config["gui"]["width"]
-    param_control.state_control["gui"]["height"] = config["gui"]["height"]
-    param_control.state_control["ssd"]["activated"] = config["ssd"]["start_with_save_data"]
-
-    param_control.state_control["edge_1"]["edge_id"] = config["edge_1"]["edge_id"]
-    param_control.state_control["edge_1"]["country"] = config["edge_1"]["country"]
-    param_control.state_control["edge_1"]["ip"] = config["edge_1"]["ip"]
-    param_control.state_control["edge_1"]["http_server_port"] = config["edge_1"]["http_server_port"]
-
-    param_control.state_control["edge_2"]["edge_id"] = config["edge_2"]["edge_id"]
-    param_control.state_control["edge_2"]["country"] = config["edge_2"]["country"]
-    param_control.state_control["edge_2"]["ip"] = config["edge_2"]["ip"]
-    param_control.state_control["edge_2"]["http_server_port"] = config["edge_2"]["http_server_port"]
-
 def upload_state():
-    parser_json.upload_file(param_control.path_state_edge_1, param_control.state_edge)
-    parser_json.upload_file(param_control.path_state_edge_2, param_control.state_edge_2)
-    parser_json.upload_file(param_control.path_state_capture, param_control.state_capture)
-    parser_json.upload_file(param_control.path_state_control, param_control.state_control)
+    parser_json.upload_file(param_control.path_state_current + "state_edge.json", param_control.state_edge)
+    parser_json.upload_file(param_control.path_state_current + "state_capture.json", param_control.state_capture)
+    parser_json.upload_file(param_control.path_state_current + "state_control.json", param_control.state_control)
 
 def update_state():
     param_control.status_control = "Offline"
-    param_control.status_edge_1 = "Offline"
-    param_control.status_edge_2 = "Offline"
+    param_control.status_edge = "Offline"
     param_control.status_capture = "Offline"
     param_control.status_processing = "Offline"
     param_control.status_ai = "Offline"
@@ -106,8 +81,8 @@ def update_state():
     if(param_control.state_control["ssd"]["connected"]):
         param_control.status_ssd = "Online"
 
-    if(param_control.state_control["edge_1"]["http_connected"]):
-        param_control.status_edge_1 = "Online"
+    if(param_control.state_control["edge"]["http_connected"]):
+        param_control.status_edge = "Online"
         if(param_control.state_edge["module_capture"]["http_connected"]):
             param_control.status_capture = "Online"
             if(param_control.state_capture["lidar_1"]["connected"]):
@@ -121,7 +96,7 @@ def update_state():
         if(param_control.state_edge["cloud_operator"]["broker_connected"]):
             param_control.status_operator = "Online"
 
-    if(param_control.status_edge_1 == "Offline"):
+    if(param_control.status_edge == "Offline"):
         param_control.state_edge["data"]["nb_frame"] = 0
         param_control.state_edge["data"]["nb_prediction"] = 0
         param_control.state_edge["self"]["nb_thread"] = 0
@@ -132,18 +107,6 @@ def update_state():
         param_control.state_edge["module_capture"]["http_connected"] = False
         param_control.state_edge["module_capture"]["sock_l1_connected"] = False
         param_control.state_edge["module_capture"]["sock_l2_connected"] = False
-
-    if(param_control.status_edge_2 == "Offline"):
-        param_control.state_edge_2["data"]["nb_frame"] = 0
-        param_control.state_edge_2["data"]["nb_prediction"] = 0
-        param_control.state_edge_2["self"]["nb_thread"] = 0
-        param_control.state_edge_2["cloud_operator"]["broker_connected"] = False
-        param_control.state_edge_2["ai"]["http_connected"] = False
-        param_control.state_edge_2["slam"]["sock_connected"] = False
-        param_control.state_edge_2["slam"]["http_connected"] = False
-        param_control.state_edge_2["module_capture"]["http_connected"] = False
-        param_control.state_edge_2["module_capture"]["sock_l1_connected"] = False
-        param_control.state_edge_2["module_capture"]["sock_l2_connected"] = False
 
     if(param_control.status_capture == "Offline"):
         param_control.state_capture["self"]["nb_thread"] = 0

@@ -19,17 +19,14 @@ def get_state(dest):
     data = https_client_fct.send_https_get(ip, port, connected, command)
     if(data != None):
         try:
-            if(dest == "edge_1"):
-                parser_json.update_state_file(param_control.path_state_edge_1, data)
+            if(dest == "edge"):
+                parser_json.update_state_file(param_control.path_state_current + "state_edge.json", data)
                 param_control.state_edge = json.loads(data)
-            elif(dest == "edge_2"):
-                parser_json.update_state_file(param_control.path_state_edge_2, data)
-                param_control.state_edge_2 = json.loads(data)
             elif(dest == "capture"):
-                parser_json.update_state_file(param_control.path_state_capture, data)
+                parser_json.update_state_file(param_control.path_state_current + "state_capture.json", data)
                 param_control.state_capture = json.loads(data)
             elif(dest == "network"):
-                parser_json.update_state_file(param_control.path_state_perf, data)
+                parser_json.update_state_file(param_control.path_state_current + "state_network.json", data)
                 param_control.state_network = json.loads(data)
         except:
             print("get state marche pas")
@@ -41,7 +38,7 @@ def get_image(dest):
     data = https_client_fct.send_https_get(ip, port, connected, command)
     if(data != None):
         if(len(data) != 0):
-            img = open(param_control.path_image, "wb")
+            img = open(param_control.path_state_current + "image", "wb")
             img.write(data)
             img.close()
             return True
