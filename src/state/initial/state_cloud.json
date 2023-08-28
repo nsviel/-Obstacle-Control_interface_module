@@ -1,0 +1,14 @@
+{
+  "operator": {
+      "add": "localhost",
+      "broker_connected": true,
+      "broker_ip": "127.0.0.1",
+      "broker_port": 1883,
+      "mqtt_client": "P2_module",
+      "mqtt_topic": "alarmes/lidar"
+  },
+  "car": {
+      "http_connected": false,
+      "ip": "127.0.0.1"
+  }
+}

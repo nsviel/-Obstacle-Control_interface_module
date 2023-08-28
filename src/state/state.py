@@ -23,7 +23,7 @@ def load_json_file():
 def init_state_co():
     param_control.state_control["component"]["control"]["ip"] = signal.get_ip_adress()
     param_control.state_control["component"]["ssd"]["path"]["file_name_add"] = ""
-    param_control.state_control["edge"]["http_connected"] = False
+    param_control.state_edge["component"]["hub"]["http"]["connected"] = False
 
 def init_state_perf():
     param_control.state_network["mongo"]["connected"] = False
@@ -81,7 +81,7 @@ def update_state():
     if(param_control.state_control["component"]["ssd"]["connected"]):
         param_control.status_ssd = "Online"
 
-    if(param_control.state_control["edge"]["http_connected"]):
+    if(param_control.state_edge["component"]["hub"]["http"]["connected"]):
         param_control.status_edge = "Online"
         if(param_control.state_edge["interface"]["capture"]["http_connected"]):
             param_control.status_capture = "Online"
@@ -109,7 +109,7 @@ def update_state():
         param_control.state_edge["interface"]["capture"]["sock_l2_connected"] = False
 
     if(param_control.status_capture == "Offline"):
-        param_control.state_ground["self"]["nb_thread"] = 0
+        param_control.state_ground["capture"]["nb_thread"] = 0
         param_control.state_ground["nb_thread"] = 0
 
         param_control.state_ground["lidar_1"]["connected"] = False

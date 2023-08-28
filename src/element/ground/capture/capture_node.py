@@ -61,9 +61,9 @@ class Capture_node(node.Node):
     # Update
     def update(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["interface"]["capture"]["http_connected"])
-        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["self"]["http_server_port"]))
-        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["self"]["sock_server_l1_port"])
-        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["sock_server_l2_port"])
+        dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["capture"]["http"]["server_port"]))
+        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["capture"]["socket"]["server_l1_port"])
+        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["capture"]["socket"]["server_l2_port"])
 
     # Subfunction
     def position_node(self):

@@ -1,86 +1,58 @@
 {
-    "component":{
-      "hub": {
-        "info":{
-          "status": "Offline",
-          "edge_id": 0,
-          "ip": "192.168.154.127",
-          "add": "",
-          "country": "France",
-          "nb_thread": 8
-        },
-        "socket":{
-          "server_l1_port": 344,
-          "server_l2_port": 345,
-          "lidar_main": "lidar_2"
-        },
-        "http":{
-          "connected": false,
-          "server_port": 443
-        }
+    "hub": {
+      "info":{
+        "status": "Offline",
+        "edge_id": 0,
+        "ip": "127.0.0.1",
+        "add": "-",
+        "country": "France",
+        "nb_thread": 8
       },
-      "slam": {
-        "info":{
-          "add": "localhost",
-          "ip": "127.0.0.1"
-        },
-        "socket":{
-          "connected": false,
-          "server_port": 2370
-        },
-        "http":{
-          "connected": false,
-          "server_port": 8888
-        },
-        "parameter":{
-          "with_slam": 0,
-          "cam_view": 0
-        }
+      "socket":{
+        "l1_connected": false,
+        "l2_connected": false,
+        "server_l1_port": 344,
+        "server_l2_port": 345,
+        "lidar_main": "lidar_2"
       },
-      "ai": {
-        "info":{
-          "ip": "127.0.0.1"
-        },
-        "http":{
-          "connected": false,
-          "server_port": 8080
-        },
-        "parameter":{
-          "lidar_height": 0,
-          "threshold": 0
-        }
-      },
-      "data": {
-          "nb_frame": 0,
-          "nb_prediction": 0
+      "http":{
+        "connected": false,
+        "server_port": 443
       }
     },
-    "interface":{
-      "capture": {
-          "ip": "127.0.0.1",
-          "add": "localhost",
-          "http_connected": true,
-          "http_server_port": 314,
-          "sock_l1_connected": false,
-          "sock_l2_connected": true
+    "slam": {
+      "info":{
+        "add": "localhost",
+        "ip": "127.0.0.1"
       },
-      "control": {
-          "ip": "192.168.154.127",
-          "sock_server_l1_port": 321,
-          "sock_server_l2_port": 322
+      "socket":{
+        "connected": false,
+        "server_port": 2370
       },
-
-      "operator": {
-          "add": "localhost",
-          "broker_connected": true,
-          "broker_ip": "127.0.0.1",
-          "broker_port": 1883,
-          "mqtt_client": "P2_module",
-          "mqtt_topic": "alarmes/lidar"
+      "http":{
+        "connected": false,
+        "server_port": 8888
       },
-      "car": {
-          "http_connected": false,
-          "ip": "127.0.0.1"
+      "parameter":{
+        "with_slam": 0,
+        "cam_view": 0
       }
+    },
+    "ai": {
+      "info":{
+        "ip": "127.0.0.1"
+      },
+      "http":{
+        "connected": false,
+        "server_port": 8080
+      },
+      "parameter":{
+        "lidar_height": 0,
+        "threshold": 0
+      }
+    },
+    "data": {
+        "nb_frame": 0,
+        "nb_prediction": 0
     }
 }

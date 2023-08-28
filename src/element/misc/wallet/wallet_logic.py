@@ -9,11 +9,11 @@ def initialization():
     read_wallet_file()
     determine_adresse()
 def determine_adresse():
-    param_control.state_control["edge"]["add"] = get_key_from_ip(param_control.state_control["edge"]["ip"])
+    param_control.state_edge["component"]["hub"]["info"]["add"] = get_key_from_ip(param_control.state_edge["component"]["hub"]["info"]["ip"])
     param_control.state_edge["interface"]["operator"]["add"] = get_key_from_ip(param_control.state_edge["interface"]["operator"]["broker_ip"])
     param_control.state_edge["interface"]["capture"]["add"] = get_key_from_ip(param_control.state_edge["interface"]["capture"]["ip"])
-    param_control.state_ground["lidar_1"]["add"] = get_key_from_ip(param_control.state_ground["lidar_1"]["ip"])
-    param_control.state_ground["lidar_2"]["add"] = get_key_from_ip(param_control.state_ground["lidar_2"]["ip"])
+    param_control.state_ground["lidar_1"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_1"]["info"]["ip"])
+    param_control.state_ground["lidar_2"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_2"]["info"]["ip"])
     parser_json.upload_state()
 
 # IO

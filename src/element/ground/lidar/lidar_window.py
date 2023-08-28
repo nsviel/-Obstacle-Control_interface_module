@@ -100,7 +100,7 @@ class Lidar_window(window.Window):
         https_client_post.post_state("ground", param_control.state_ground)
     def update_device_list(self):
         devices = io.get_list_device_from_state()
-        dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["device"], items=devices, num_items=len(devices))
+        dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["info"]["device"], items=devices, num_items=len(devices))
     def update_address(self):
         ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(ip != None):

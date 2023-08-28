@@ -21,6 +21,6 @@ class Link:
 
     def update(self):
         colorization.colorize_link_http(param_control.state_control["component"]["ssd"]["connected"], self.link_control_ssd)
-        colorization.colorize_link_http(param_control.state_control["edge"]["http_connected"], self.link_http_control_edge)
-        colorization.colorize_link_socket(param_control.state_control["edge"]["sock_l1_connected"], self.link_sock_l1_control_edge)
-        colorization.colorize_link_socket(param_control.state_control["edge"]["sock_l2_connected"], self.link_sock_l2_control_edge)
+        colorization.colorize_link_http(param_control.state_edge["component"]["hub"]["http"]["connected"], self.link_http_control_edge)
+        colorization.colorize_link_socket(param_control.state_edge["component"]["hub"]["socket"]["l1_connected"], self.link_sock_l1_control_edge)
+        colorization.colorize_link_socket(param_control.state_edge["component"]["hub"]["socket"]["l2_connected"], self.link_sock_l2_control_edge)

@@ -26,24 +26,14 @@
                 "dir_l1": "/app/lidar_ssd/capture/lidar_1",
                 "dir_l2": "/app/lidar_ssd/capture/lidar_2",
                 "file_name_add": "",
-                "file_name": "_28-08-2023_20h15.pcap",
-                "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_28-08-2023_20h15.pcap",
-                "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_28-08-2023_20h15.pcap",
+                "file_name": "_28-08-2023_21h08.pcap",
+                "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_28-08-2023_21h08.pcap",
+                "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_28-08-2023_21h08.pcap",
                 "bandwidth": 0
             },
             "connected": false,
             "space_used": 0,
             "space_total": 0
         }
-    },
-    "edge": {
-        "ip": "127.0.0.1",
-        "http_connected": false,
-        "http_server_port": 443,
-        "sock_l1_connected": false,
-        "sock_l2_connected": false,
-        "edge_id": 0,
-        "country": "France",
-        "add": "localhost"
     }
 }

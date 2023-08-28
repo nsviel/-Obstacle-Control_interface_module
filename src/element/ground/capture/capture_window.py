@@ -40,12 +40,12 @@ class Capture_window(window.Window):
         dpg.set_value(self.ID.ID_status, param_control.status_capture)
         dpg.set_value(self.ID.ID_wallet, param_control.state_edge["interface"]["capture"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_edge["interface"]["capture"]["ip"])
-        dpg.set_value(self.ID.ID_thread, param_control.state_ground["self"]["nb_thread"])
+        dpg.set_value(self.ID.ID_thread, param_control.state_ground["capture"]["nb_thread"])
         colorization.colorize_item(self.ID.ID_wallet, input_text)
         colorization.colorize_item(self.ID.ID_ip, input_text)
     def update_address(self):
         capture_ip = wallet_logic.get_ip_from_key(dpg.get_value(self.ID.ID_wallet))
         if(capture_ip != None):
-            param_control.state_ground["self"]["ip"] = capture_ip
+            param_control.state_ground["capture"]["ip"] = capture_ip
             dpg.set_value(self.ID.ID_ip, capture_ip)
             https_client_post.post_state("ground", param_control.state_ground)

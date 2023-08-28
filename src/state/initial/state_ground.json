@@ -1,21 +1,34 @@
 {
-    "self": {
+    "capture": {
+      "info":{
         "ip": "192.168.152.67",
         "add": "-",
-        "nb_thread": 6,
-        "sock_server_l1_port": 8308,
-        "sock_server_l2_port": 8309,
-        "http_server_port": 314
+        "nb_thread": 6
+      },
+      "socket":{
+        "server_l1_port": 8308,
+        "server_l2_port": 8309,
+        "l1_connected": false,
+        "l2_connected": false
+      },
+      "http":{
+        "connected": false,
+        "server_port": 314
+      }
     },
     "lidar_1": {
-        "connected": false,
-        "activated": true,
-        "running": false,
-        "add": "-",
-        "ip": "192.168.1.201",
-        "port": 2368,
-        "device": "enxf8e43b6cdf6c",
-        "speed": 600,
+        "info":{
+          "connected": false,
+          "activated": true,
+          "add": "-",
+          "ip": "192.168.1.201",
+          "port": 2368,
+          "device": "enxf8e43b6cdf6c"
+        },
+        "motor":{
+          "running": false,
+          "speed": 600
+        },
         "throughput": {
             "value": 0,
             "min": 0,
@@ -31,14 +44,18 @@
         }
     },
     "lidar_2": {
-        "connected": false,
-        "activated": true,
-        "running": false,
-        "add": "-",
-        "ip": "192.168.2.201",
-        "port": 2369,
-        "device": "enxf8e43b6cdf6c",
-        "speed": 600,
+        "info":{
+          "connected": false,
+          "activated": true,
+          "add": "-",
+          "ip": "192.168.2.201",
+          "port": 2369,
+          "device": "enxf8e43b6cdf6c"
+        },
+        "motor":{
+          "running": false,
+          "speed": 600
+        },
         "throughput": {
             "value": 0,
             "min": 0,
@@ -52,13 +69,6 @@
             "mean": 0,
             "sent": 0
         }
-    },
-    "edge": {
-        "connected": false,
-        "ip": "192.168.152.67",
-        "sock_server_l1_port": 344,
-        "sock_server_l2_port": 345,
-        "http_server_port": 443
     },
     "device": {
         "0": "wlp2s0",

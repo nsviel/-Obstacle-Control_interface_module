@@ -4,12 +4,14 @@
             "info": {
                 "status": "Offline",
                 "edge_id": 0,
-                "ip": "192.168.154.127",
-                "add": "",
+                "ip": "127.0.0.1",
+                "add": "-",
                 "country": "France",
                 "nb_thread": 8
             },
             "socket": {
+                "l1_connected": false,
+                "l2_connected": false,
                 "server_l1_port": 344,
                 "server_l2_port": 345,
                 "lidar_main": "lidar_2"
