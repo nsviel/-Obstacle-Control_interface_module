@@ -75,3 +75,4 @@ class Control_node(node.Node):
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
         colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
+        colorization.colorize_node(self.ID.ID_node, "cloud")

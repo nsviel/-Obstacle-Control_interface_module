@@ -21,6 +21,7 @@ class Ssd_node(node.Node):
                 with dpg.drawlist(width=100, height=1):
                     dpg.draw_line([0, 0], [125, 0], color=gui_color.color_line)
         self.position_node()
+        self.colorize_node()
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
@@ -36,9 +37,7 @@ class Ssd_node(node.Node):
         dpg.set_value(self.ID.ID_file_name, param_control.state_control["path"]["file_name"])
 
     def colorize_node(self):
-        colorization.colorize_item(self.ID.ID_activated, "checkbox")
-        colorization.colorize_item(self.ID.ID_path_add, "input_text")
-        colorization.colorize_item(self.ID.ID_path, "input_text")
+        colorization.colorize_node(self.ID.ID_node, "cloud")
 
     def init_ID_icon(self):
         self.ID_icon_hub = texture.load_texture("hdd")

@@ -56,6 +56,7 @@ class Capture_node(node.Node):
                     dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
+        self.colorize_node()
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
@@ -68,4 +69,5 @@ class Capture_node(node.Node):
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["self"]["l2_port"])
 
     def colorize_node(self):
-        colorization.colorize_item(self.ID.ID_http_server_port, input_text)
+        colorization.colorize_item(self.ID.ID_http_server_port, "node_value")
+        colorization.colorize_node(self.ID.ID_node, "ground")

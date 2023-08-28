@@ -109,7 +109,8 @@ class Hub_node(node.Node):
         colorization.colorize_item(self.ID.ID_mqtt_client_name, "node_value")
         colorization.colorize_item(self.ID.ID_combo_lidar_source, "node_value")
         colorization.colorize_item(self.ID.ID_sock_client_l2_source, "node_value")
-
+        colorization.colorize_node(self.ID.ID_node, "edge")
+        
     def command_false_alarm(self):
         print("[\033[1;32mOK\033[0m] Send false alarm")
         https_client_post.post_param_value("edge", None, "cloud_operator", "false_alarm")

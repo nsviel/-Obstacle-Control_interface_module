@@ -4,6 +4,7 @@ from src.gui.background import gui_ID
 from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
+from src.gui.style import colorization
 from src.element.misc.wallet import wallet_logic
 from src.connection.HTTPS import https_client_post
 import dearpygui.dearpygui as dpg
@@ -29,6 +30,7 @@ class Slam_window(window.Window):
             with dpg.table_row():
                 dpg.add_button(label="Reset", tag=self.ID.ID_setting_reset, width=50, callback=self.callback_component_process_reset)
         dpg.add_separator()
+        #colorization.colorize_status(self.ID.ID_status_light, param_control.status_slam)
 
     def callback_component_process(self):
         https_client_post.post_param_value("ve", None, "slam", dpg.get_value(self.ID.ID_setting_with_slam))

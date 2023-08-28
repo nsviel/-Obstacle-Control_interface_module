@@ -29,6 +29,7 @@ class Lidar_node(node.Node):
                     dpg.add_text("client", color=gui_color.color_info);
                     dpg.add_text(1, tag=self.ID.ID_sock_client_port, color=gui_color.color_node_value);
         self.position_node()
+        self.colorize_node()
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
@@ -37,3 +38,5 @@ class Lidar_node(node.Node):
     # Update
     def update_node(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.status_lidar_1)
+    def colorize_node(self):
+        colorization.colorize_node(self.ID.ID_node, "ground")

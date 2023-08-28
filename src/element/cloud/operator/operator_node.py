@@ -47,6 +47,7 @@ class Operator_node(node.Node):
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_mqtt_broker_port, "node_value")
         colorization.colorize_item(self.ID.ID_mqtt_topic, "node_value")
+        colorization.colorize_node(self.ID.ID_node, "cloud")
 
     def callback_operator(self):
         param_control.state_edge["cloud_operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)

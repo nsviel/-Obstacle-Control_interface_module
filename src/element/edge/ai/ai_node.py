@@ -28,12 +28,11 @@ class Ai_node(node.Node):
                     dpg.add_text("server", color=gui_color.color_node_sub);
                     dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
         self.position_node()
+        self.colorize_node()
 
     def position_node(self):
         data = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, data["edge"]["ai"])
 
     def colorize_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_ai)
-        colorization.colorize_item(self.ID.ID_setting_threshold, input_text)
-        colorization.colorize_item(self.ID.ID_setting_lidar_height, input_text)
+        colorization.colorize_node(self.ID.ID_node, "edge")

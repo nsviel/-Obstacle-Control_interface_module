@@ -23,6 +23,10 @@ class Data_node(node.Node):
                     dpg.add_text("Prediction:");
                     dpg.add_text(0, tag=self.ID.ID_nb_prediction, color=gui_color.color_node_value);
         self.position_node()
+        self.colorize_node()
+
+    def colorize_node(self):
+        colorization.colorize_node(self.ID.ID_node, "edge")
 
     def build_plot(self, label, tag_y, tag_plot):
         x = []
