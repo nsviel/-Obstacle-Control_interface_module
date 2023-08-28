@@ -16,7 +16,7 @@ class Window:
         with dpg.child_window(tag=self.ID.ID_window, parent=gui_ID.ID_panel_setting, border=True, height=250, autosize_x=True):
             self.build_info()
             self.build_parameter()
-        
+        dpg.bind_item_theme(self.ID_window, gui_color.color_window)
         dpg.hide_item(self.ID.ID_window)
     def build_info(self):
         dpg.add_separator()
