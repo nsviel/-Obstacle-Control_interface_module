@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_control
 from src.element import element
-from src.connection.HTTPS import https_client_post
-from src.connection.HTTPS import https_client_fct
+from src.connection.HTTPS.client import https_client_post
+from src.connection.HTTPS.client import https_client_fct
 
 
 # Test module_edge HTTP connection
@@ -20,7 +20,7 @@ def connection_edge_open():
         param_control.state_edge["hub"]["http"]["connected"] = True
         https_client_post.post_state("edge", param_control.state_control)
         https_client_post.post_state("edge", param_control.state_edge)
-        https_client_post.post_state("edge", param_control.state_capture)
+        https_client_post.post_state("edge", param_control.state_ground)
 
 def connection_edge_close():
     param_control.state_edge["hub"]["http"]["connected"] = False

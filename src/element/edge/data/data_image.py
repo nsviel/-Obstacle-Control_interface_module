@@ -1,8 +1,8 @@
 #---------------------------------------------
 from src.param import param_control
-from src.connection.HTTPS import https_client_get
-from src.utils import terminal
+from src.connection.HTTPS.client import https_client_get
 from src.base import daemon
+import dearpygui.dearpygui as dpg
 
 
 class Data_image(daemon.Daemon):
@@ -12,16 +12,13 @@ class Data_image(daemon.Daemon):
 
         # Update image
         if(image_acquired):
-            update_image()
+            self.update_image()
 
-    name = "Image loader";
-    run_sleep = 0.1;
-
-    def update_image():
+    def update_image(self):
         # Update image but if format problem close the program
         width, height, channels, data = dpg.load_image(param_control.path_state_current + "image")
         try:
             dpg.set_value("image_in", data)
         except:
-            print("[\033[1;31merror\033[0m] Image dimension error [%d/%d] [%d/%d]"% (width, param_control.image_w, height, param_control.image_h))
+            print("[\033[1;31merror\033[0m] Image dimension error")
             param_control.run_loop = False

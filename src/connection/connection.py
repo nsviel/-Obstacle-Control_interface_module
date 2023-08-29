@@ -1,7 +1,7 @@
 #---------------------------------------------
-from src.connection.HTTPS import https_client_con
-from src.connection.HTTPS import https_client_get
-from src.connection.HTTPS import https_client_post
+from src.connection.HTTPS.client import https_client_con
+from src.connection.HTTPS.client import https_client_get
+from src.connection.HTTPS.client import https_client_post
 
 from src.element import element
 from src.base import daemon

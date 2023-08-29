@@ -4,7 +4,7 @@ from src.base import node
 from src.gui.style import colorization
 from src.gui.style import gui_color
 from src.utils import parser_json
-from src.connection.HTTPS import https_client_post
+from src.connection.HTTPS.client import https_client_post
 from src import daemon
 import dearpygui.dearpygui as dpg
 
