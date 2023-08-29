@@ -6,7 +6,6 @@ from src.element import element
 from src.state import state
 from src.utils import saving
 from src.utils import terminal
-from src.utils import parser_json
 from src.element.misc.wallet import wallet_logic
 
 import time
@@ -36,6 +35,6 @@ def loop():
 def end():
     terminal.shutdown()
     #gui.termination()
-    parser_json.upload_state()
+    state.upload_state()
     daemon.stop_daemons()
     terminal.delai()

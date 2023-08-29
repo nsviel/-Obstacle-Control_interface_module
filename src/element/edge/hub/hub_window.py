@@ -64,6 +64,6 @@ class Hub_window(window.Window):
         dpg.set_value(self.ID.ID_http_server_port, edge.state["self"]["http_server_port"])
         dpg.set_value(self.ID.ID_sock_client_l1_lidar_main, s1)
         dpg.set_value(self.ID.ID_sock_client_l2_source, s2)
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_edge)
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.status_edge)
         colorization.colorize_item(self.ID.ID_wallet, "input_text")
         colorization.colorize_item(self.ID.ID_ip, "input_text")

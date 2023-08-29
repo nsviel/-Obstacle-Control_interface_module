@@ -35,7 +35,7 @@ class Window:
                 dpg.add_button(label="X", callback=self.set_invisible)
             with dpg.table_row():
                 dpg.add_text("Status");
-                dpg.add_text("-", tag=self.ID.ID_status, color=(0, 200, 50));
+                dpg.add_text("-", tag=self.ID.ID_status);
             with dpg.table_row():
                 dpg.add_text("Pose")
                 dpg.add_text(tag=self.ID.ID_node_coord)

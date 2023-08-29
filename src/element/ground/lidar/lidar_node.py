@@ -39,5 +39,5 @@ class Lidar_node(node.Node):
 
     # Update
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_ground[self.ID.name]["info"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_ground[self.ID.name]["info"]["connected"])
         dpg.set_value(self.ID.ID_sock_client_port, param_control.state_ground[self.ID.name]["info"]["port"])

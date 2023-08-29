@@ -54,7 +54,7 @@ class Control_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, True)
+        colorization.colorize_status_light(self.ID.ID_status_light, True)
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_control["control"]["socket"]["server_l1_port"])
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_control["control"]["socket"]["server_l2_port"])
     def update_sock_port(self):

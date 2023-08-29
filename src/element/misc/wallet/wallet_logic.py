@@ -14,7 +14,6 @@ def determine_adresse():
     param_control.state_ground["capture"]["info"]["add"] = get_key_from_ip(param_control.state_ground["capture"]["info"]["ip"])
     param_control.state_ground["lidar_1"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_1"]["info"]["ip"])
     param_control.state_ground["lidar_2"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_2"]["info"]["ip"])
-    parser_json.upload_state()
 
 # IO
 def read_wallet_file():

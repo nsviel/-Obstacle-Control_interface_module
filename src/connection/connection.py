@@ -5,8 +5,8 @@ from src.connection.HTTPS import https_client_post
 
 from src.element import element
 from src.base import daemon
+from src.state import state
 from src.utils import saving
-from src.utils import parser_json
 from src.utils import signal
 from src.utils import terminal
 from src.state import state
@@ -24,7 +24,7 @@ class Connection(daemon.Daemon):
         https_client_get.get_state("edge")
         https_client_get.get_state("capture")
         https_client_get.get_state("network")
-        parser_json.upload_state()
+        state.upload_state()
 
         # Update scheme
         signal.update_nb_thread()

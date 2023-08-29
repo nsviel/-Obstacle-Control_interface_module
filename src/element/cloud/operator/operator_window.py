@@ -24,7 +24,7 @@ class Operator_window(window.Window):
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
         dpg.add_separator()
     def colorize_window():
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_cloud["operator"]["info"]["status"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_cloud["operator"]["info"]["status"])
         colorization.colorize_item(self.ID.ID_wallet, input_text)
         colorization.colorize_item(self.ID.ID_ip, input_text)
 

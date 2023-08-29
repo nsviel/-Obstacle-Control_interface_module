@@ -20,13 +20,13 @@ class Lidar_window(window.Window):
             with dpg.table_row():
                 with dpg.group(horizontal=True):
                     dpg.add_text("Activated", color=gui_color.color_title);
-                    dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=True, indent=75);
+                    dpg.add_checkbox(tag=self.ID.ID_activated, label="", default_value=True, indent=75, callback=self.command_parameter);
                 with dpg.group(horizontal=True):
                     dpg.add_button(label="ON ", tag=self.ID.ID_motor_on, width=50, callback=self.command_motor_start)
                     dpg.add_button(label="OFF", tag=self.ID.ID_motor_off, width=50, callback=self.command_motor_stop)
             with dpg.table_row():
                 dpg.add_text("IP");
-                dpg.add_input_text(tag=self.ID.ID_ip, label="", default_value="", width=150);
+                dpg.add_input_text(tag=self.ID.ID_ip, label="", default_value="", width=150, on_enter=True, callback=self.command_parameter);
             with dpg.table_row():
                 dpg.add_text("Address");
                 dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
@@ -52,7 +52,7 @@ class Lidar_window(window.Window):
         dpg.add_separator()
         with dpg.group():
             dpg.add_text("Device")
-            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.command_parameter)
+            dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.command_parameter, width=250)
         self.colorize_window()
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_activated, "checkbox")
@@ -70,8 +70,8 @@ class Lidar_window(window.Window):
         ip = wallet_logic.get_ip_from_key(add)
         if(ip != None):
             dpg.set_value(self.ID.ID_ip, ip)
-            param_control.state_ground[self.ID.name]["ip"] = ip
-            param_control.state_ground[self.ID.name]["add"] = add
+            param_control.state_ground[self.ID.name]["info"]["ip"] = ip
+            param_control.state_ground[self.ID.name]["info"]["add"] = add
             https_client_post.post_state("ground", param_control.state_ground)
     def command_motor_start(self):
         https_client_post.post_commande("ground", self.ID.name, "start")
@@ -83,9 +83,9 @@ class Lidar_window(window.Window):
         https_client_post.post_state("ground", param_control.state_ground)
         https_client_post.post_commande("ground", self.ID.name, "speed")
     def command_parameter(self):
-        param_control.state_ground[self.ID.name]["device"] = dpg.get_value(self.ID.ID_device_list)
-        param_control.state_ground[self.ID.name]["activated"] = dpg.get_value(self.ID.ID_activated)
-        param_control.state_ground[self.ID.name]["ip"] = dpg.get_value(self.ID.ID_ip)
+        param_control.state_ground[self.ID.name]["info"]["device"] = dpg.get_value(self.ID.ID_device_list)
+        param_control.state_ground[self.ID.name]["info"]["activated"] = dpg.get_value(self.ID.ID_activated)
+        param_control.state_ground[self.ID.name]["info"]["ip"] = dpg.get_value(self.ID.ID_ip)
         https_client_post.post_state("ground", param_control.state_ground)
 
     # Update function
@@ -94,6 +94,7 @@ class Lidar_window(window.Window):
         self.update_device_list()
         self.update_lidar_stats()
     def update_info(self):
+        colorization.colorize_status(self.ID.ID_status, param_control.state_ground[self.ID.name]["info"]["status"])
         colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["motor"]["running"])
         dpg.set_value(self.ID.ID_status, param_control.state_ground[self.ID.name]["info"]["status"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground[self.ID.name]["info"]["ip"])

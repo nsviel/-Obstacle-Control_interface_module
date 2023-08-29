@@ -29,7 +29,7 @@ class Ai_window(window.Window):
                 dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.command_ai);
         dpg.add_separator()
     def colorize_window():
-        #colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["ai"]["info"]["status"])
+        #colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["ai"]["info"]["status"])
         colorization.colorize_item(self.ID.ID_setting_threshold, "input_text")
         colorization.colorize_item(self.ID.ID_setting_lidar_height, "input_text")
 

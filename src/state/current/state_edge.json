@@ -2,18 +2,18 @@
     "hub": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
+            "add": "localhost",
             "status": "Offline",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 8
+            "nb_thread": 0
         },
         "socket": {
             "l1_connected": false,
             "l2_connected": false,
             "server_l1_port": 344,
             "server_l2_port": 345,
-            "lidar_main": "lidar_2"
+            "lidar_main": "lidar_1"
         },
         "http": {
             "connected": false,

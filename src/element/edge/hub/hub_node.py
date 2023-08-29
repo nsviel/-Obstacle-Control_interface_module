@@ -117,7 +117,7 @@ class Hub_node(node.Node):
         self.update_info()
         self.update_connection()
     def update_info(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["hub"]["http"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["hub"]["http"]["connected"])
         dpg.set_value(self.ID.ID_edge_id, param_control.state_edge["hub"]["info"]["edge_id"])
         dpg.set_value(self.ID.ID_edge_country, param_control.state_edge["hub"]["info"]["country"])
     def update_connection(self):

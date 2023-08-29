@@ -2,7 +2,7 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "-",
+            "add": "localhost",
             "status": "Offline",
             "nb_thread": 0
         },
@@ -19,10 +19,11 @@
     },
     "lidar_1": {
         "info": {
-            "connected": false,
-            "activated": true,
-            "add": "-",
             "ip": "192.168.1.201",
+            "add": "lidar_1_static",
+            "status": "Offline",
+            "connected": false,
+            "activated": false,
             "port": 2368,
             "device": "enxf8e43b6cdf6c"
         },
@@ -46,10 +47,11 @@
     },
     "lidar_2": {
         "info": {
-            "connected": false,
-            "activated": true,
-            "add": "-",
             "ip": "192.168.2.201",
+            "add": "lidar_2_static",
+            "status": "Offline",
+            "connected": false,
+            "activated": false,
             "port": 2369,
             "device": "enxf8e43b6cdf6c"
         },

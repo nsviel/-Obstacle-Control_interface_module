@@ -31,7 +31,7 @@ class Control_window(window.Window):
                 dpg.add_combo(edges, tag=self.ID.ID_setting_edge_selection, default_value="France_1", width=125)
         dpg.add_separator()
     def colorize_window():
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["control"]["info"]["status"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_control["control"]["info"]["status"])
 
     # Command function
     def save_coord_to_file(self):

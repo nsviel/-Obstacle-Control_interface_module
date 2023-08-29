@@ -125,6 +125,19 @@ def color_buton_gray():
         dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, green, category=dpg.mvThemeCat_Core)
     return theme
 
+def color_text_red():
+    color = (200, 50, 20)
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        dpg.add_theme_color(dpg.mvThemeCol_Text, color, category=dpg.mvThemeCat_Core)
+    return theme
+def color_text_green():
+    color = (20, 200, 20)
+    theme = dpg.add_theme()
+    with dpg.theme_component(dpg.mvAll, parent=theme):
+        dpg.add_theme_color(dpg.mvThemeCol_Text, color, category=dpg.mvThemeCat_Core)
+    return theme
+
 def color_buton_control():
     color = (100, 20, 20)
     theme = dpg.add_theme()

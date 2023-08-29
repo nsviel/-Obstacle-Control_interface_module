@@ -44,10 +44,16 @@ def colorize_item(ID_item, type_name):
         print("[error] Colorization name not good")
     dpg.bind_item_theme(ID_item, color)
 
-def colorize_status(tag, value):
+def colorize_status_light(tag, value):
     on = gui_color.color_buton_green()
     off = gui_color.color_buton_red()
-
+    if(value == "Online" or value == True):
+        dpg.bind_item_theme(tag, on)
+    elif(value == "Offline" or value == False):
+        dpg.bind_item_theme(tag, off)
+def colorize_status(tag, value):
+    on = gui_color.color_text_green()
+    off = gui_color.color_text_red()
     if(value == "Online" or value == True):
         dpg.bind_item_theme(tag, on)
     elif(value == "Offline" or value == False):

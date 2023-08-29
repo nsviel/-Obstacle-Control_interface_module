@@ -97,8 +97,8 @@ class Network_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_ground["capture"]["http"]["connected"])
-        colorization.colorize_status(self.ID.ID_mongo_status_light, param_control.state_network["mongodb"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_ground["capture"]["http"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_mongo_status_light, param_control.state_network["mongodb"]["connected"])
     def update_perf():
         # Throughput
         lidar_main = param_control.state_edge["hub"]["socket"]["lidar_main"]
@@ -123,4 +123,4 @@ class Network_node(node.Node):
 
         # End to end time
         dpg.set_value("perf_time_total", param_control.state_network["time"]["total"])
-        colorization.colorize_status("mongo_server_but", param_control.state_network["mongodb"]["status"])
+        colorization.colorize_status_light("mongo_server_but", param_control.state_network["mongodb"]["status"])

@@ -25,7 +25,7 @@ class Slam_window(window.Window):
             with dpg.table_row():
                 dpg.add_button(label="Reset", tag=self.ID.ID_setting_reset, width=50, callback=self.command_component_process_reset)
         dpg.add_separator()
-        #colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["slam"]["info"]["status"])
+        #colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["slam"]["info"]["status"])
 
     # Command function
     def command_component_process(self):

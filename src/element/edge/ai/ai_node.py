@@ -39,5 +39,5 @@ class Ai_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["ai"]["http"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["ai"]["http"]["connected"])
         dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["ai"]["http"]["server_port"])

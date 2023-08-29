@@ -9,5 +9,5 @@ class Scheme_update(daemon.Daemon):
         element.object.update_nodes()
         element.object.update_windows()
 
-    name = "Scheme_update";
+    name = "Scheme update";
     run_sleep = 0.1;
