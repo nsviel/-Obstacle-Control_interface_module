@@ -42,3 +42,8 @@ class Control_window(window.Window):
     # Update function
     def update(self):
         pass
+    def update_node(self):
+        dpg.set_value(self.ID.ID_status, param_control.state_control["control"]["info"]["status"])
+        dpg.set_value(self.ID.ID_ip, param_control.state_control["control"]["ip"])
+        dpg.set_value(self.ID.ID_thread, param_control.state_control["control"]["nb_thread"])
+        dpg.set_value(self.ID.ID_temperature, signal.get_temps_core(0))

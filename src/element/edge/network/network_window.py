@@ -47,3 +47,11 @@ class Network_window(window.Window):
     # Update function
     def update(self):
         pass
+    def colorize_node(self):
+        colorization.colorize_item(self.ID.ID_mongo_ip, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_port, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_db, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_collection, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_username, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_password, input_text)
+        colorization.colorize_item(self.ID.ID_mongo_nb_data, input_text)

@@ -49,3 +49,5 @@ class Slam_node(node.Node):
     # Update function
     def update(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.state_edge["slam"]["http"]["connected"])
+        dpg.set_value(self.ID.ID_sock_server_port, param_control.state_edge["slam"]["socket"]["server_port"])
+        dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["slam"]["http"]["server_port"])

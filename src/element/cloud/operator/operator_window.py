@@ -43,3 +43,5 @@ class Operator_window(window.Window):
     # Update function
     def update(self):
         pass
+    def update_node(self):
+        dpg.set_value(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])

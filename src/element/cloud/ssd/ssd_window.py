@@ -91,3 +91,11 @@ class Ssd_window(window.Window):
     # Update function
     def update(self):
         pass
+    def update_node(self):
+        dpg.set_value(self.ID.ID_status, param_control.state_control["ssd"]["info"]["status"])
+        dpg.set_value(self.ID.ID_path, param_control.path_ssd)
+        dpg.set_value(self.ID.ID_memory_total, param_control.state_control["ssd"]["space_total"])
+        dpg.set_value(self.ID.ID_memory_used, param_control.state_control["ssd"]["space_used"])
+        dpg.set_value(self.ID.ID_path_l1, param_control.state_control["ssd"]["path"]["dir_l1"])
+        dpg.set_value(self.ID.ID_path_l2, param_control.state_control["ssd"]["path"]["dir_l2"])
+        dpg.set_value(self.ID.ID_file_name, param_control.state_control["ssd"]["path"]["file_name"])
