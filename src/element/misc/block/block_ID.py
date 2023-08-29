@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Block_ID:
@@ -25,6 +25,6 @@ class Block_ID:
         self.ID_legend_control = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_ground = texture.load_texture("train")
-        self.ID_icon_edge = texture.load_texture("server")
-        self.ID_icon_cloud = texture.load_texture("cloud")
+        self.ID_icon_ground = gui_texture.load_texture("train")
+        self.ID_icon_edge = gui_texture.load_texture("server")
+        self.ID_icon_cloud = gui_texture.load_texture("cloud")

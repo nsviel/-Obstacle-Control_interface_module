@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Lidar_ID:
@@ -42,4 +42,4 @@ class Lidar_ID:
         self.ID_sock_client_port = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_lidar = texture.load_texture("lidar")
+        self.ID_icon_lidar = gui_texture.load_texture("lidar")

@@ -3,7 +3,7 @@ from src.element import element
 from src.gui.style import gui_color
 from src.gui.style import colorization
 from src.gui.background import gui_ID
-from src.gui.background import texture
+from src.gui.background import gui_texture
 import dearpygui.dearpygui as dpg
 
 

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Operator_ID:
@@ -35,4 +35,4 @@ class Operator_ID:
         self.ID_mqtt_client_name = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_hub = texture.load_texture("train")
+        self.ID_icon_hub = gui_texture.load_texture("train")

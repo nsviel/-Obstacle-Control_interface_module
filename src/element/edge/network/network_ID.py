@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Network_ID:
@@ -46,5 +46,5 @@ class Network_ID:
         self.ID_mongo_nb_data = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_network = texture.load_texture("wifi")
-        self.ID_icon_database = texture.load_texture("database")
+        self.ID_icon_network = gui_texture.load_texture("wifi")
+        self.ID_icon_database = gui_texture.load_texture("database")

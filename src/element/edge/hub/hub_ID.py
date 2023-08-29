@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Hub_ID:
@@ -60,4 +60,4 @@ class Hub_ID:
         self.ID_setting_threshold = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_hub = texture.load_texture("hub")
+        self.ID_icon_hub = gui_texture.load_texture("hub")

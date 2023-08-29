@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Ssd_ID:
@@ -42,4 +42,4 @@ class Ssd_ID:
         self.ID_path_l2_visibility = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_hub = texture.load_texture("hdd")
+        self.ID_icon_hub = gui_texture.load_texture("hdd")

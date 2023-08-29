@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Slam_ID:
@@ -45,4 +45,4 @@ class Slam_ID:
         self.ID_setting_reset = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_gear = texture.load_texture("gear")
+        self.ID_icon_gear = gui_texture.load_texture("gear")

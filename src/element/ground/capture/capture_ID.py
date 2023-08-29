@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Capture_ID:
@@ -45,4 +45,4 @@ class Capture_ID:
         self.ID_device_l2 = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_capture = texture.load_texture("computer")
+        self.ID_icon_capture = gui_texture.load_texture("computer")

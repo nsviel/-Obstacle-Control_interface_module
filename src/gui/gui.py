@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_control
-from src.gui.interface import gui_scheme
+from src.gui import scheme
 from src.gui.style import gui_theme
 from src.gui.panel import panel
 from src.gui.background import gui_ID
@@ -26,7 +26,7 @@ def build_gui():
     with dpg.window(tag=gui_ID.ID_window, no_background=True):
         with dpg.group(horizontal=True):
             panel.build_panel()
-            gui_scheme.build_scheme()
+            scheme.build_scheme()
 
 def setup_gui():
     dpg.create_viewport(title='Control Interface', width=param_control.gui_width, height=param_control.gui_height)

@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.utils import function
-from src.gui.background import texture
+from src.gui.background import gui_texture
 
 
 class Control_ID:
@@ -42,4 +42,4 @@ class Control_ID:
         self.ID_sock_server_l2_port = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon = texture.load_texture("compute")
+        self.ID_icon = gui_texture.load_texture("compute")
