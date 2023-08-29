@@ -24,7 +24,6 @@ class Connection(daemon.Daemon):
         https_client_get.get_state("edge")
         https_client_get.get_state("capture")
         https_client_get.get_state("network")
-        state.update_state()
         parser_json.upload_state()
 
         # Update scheme

@@ -19,10 +19,11 @@
     },
     "lidar_1": {
         "info":{
+          "ip": "192.168.1.201",
+          "add": "-",
+          "status": "Offline",
           "connected": false,
           "activated": true,
-          "add": "-",
-          "ip": "192.168.1.201",
           "port": 2368,
           "device": "enxf8e43b6cdf6c"
         },
@@ -46,10 +47,11 @@
     },
     "lidar_2": {
         "info":{
+          "ip": "192.168.2.201",
+          "add": "-",
+          "status": "Offline",
           "connected": false,
           "activated": true,
-          "add": "-",
-          "ip": "192.168.2.201",
           "port": 2369,
           "device": "enxf8e43b6cdf6c"
         },

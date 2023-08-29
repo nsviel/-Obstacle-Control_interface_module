@@ -46,7 +46,7 @@ class Operator_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.state_cloud["operator"]["broker_connected"])
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_cloud["operator"]["broker"]["connected"])
     def update_node(self):
         dpg.set_value(self.ID.ID_status, param_control.status_operator)
         dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_cloud["operator"]["broker_port"])
