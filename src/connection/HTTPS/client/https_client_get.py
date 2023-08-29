@@ -19,7 +19,6 @@ def get_state(dest):
     if(data != None and data != b''):
         try:
             if(dest == "edge"):
-                print(data)
                 parser_json.update_state_file(param_control.path_state_current + "state_edge.json", data)
                 param_control.state_edge = json.loads(data)
             elif(dest == "ground"):

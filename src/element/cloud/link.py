@@ -22,8 +22,8 @@ class Link:
     def update(self):
         colorization.colorize_link_http(param_control.state_control["control"]["interface"]["ssd_connected"], self.link_control_ssd)
         colorization.colorize_link_http(param_control.state_control["control"]["interface"]["edge_http_connected"], self.link_http_control_edge)
-        colorization.colorize_link_socket(param_control.state_edge["hub"]["socket"]["l1_connected"], self.link_sock_l1_control_edge)
-        colorization.colorize_link_socket(param_control.state_edge["hub"]["socket"]["l2_connected"], self.link_sock_l2_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["control"]["interface"]["edge_sock_l1_connected"], self.link_sock_l1_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["control"]["interface"]["edge_sock_l2_connected"], self.link_sock_l2_control_edge)
 
     def update_dependencies(self):
         param_control.state_control["ssd"]["info"]["status"] = "Offline"
@@ -31,7 +31,7 @@ class Link:
             param_control.state_control["ssd"]["info"]["status"] = "Online"
 
         if(param_control.state_control["control"]["interface"]["edge_http_connected"]):
-            if(param_control.state_cloud["operator"]["broker"]["connected"]):
+            if(param_control.state_edge["hub"]["interface"]["operator_broker_connected"]):
                 param_control.state_cloud["operator"]["info"]["status"] = "Online"
         else:
-            param_control.state_cloud["operator"]["broker"]["connected"] = False
+            param_control.state_edge["hub"]["interface"]["operator_broker_connected"] = False
