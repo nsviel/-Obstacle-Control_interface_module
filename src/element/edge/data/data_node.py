@@ -44,17 +44,18 @@ class Data_node(node.Node):
     def colorize_node(self):
         colorization.colorize_node(self.ID.ID_node, "edge")
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"]["data"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["edge"]["data"])
 
     # Update function
     def update(self):
         pass
     def update_node(self):
-        colorization.colorize_status("mongo_server_but", param_control.status_db)
+        colorization.colorize_status("mongo_server_but", param_control.state_network["mongodb"]["status"])
     def update_perf():
         # Throughput
-        value = "%.2f"% param_control.state_ground[param_control.lidar_main]["throughput"]["value"]
+        lidar_main = param_control.state_edge["hub"]["socket"]["lidar_main"]
+        value = "%.2f"% param_control.state_ground[lidar_main]["throughput"]["value"]
         dpg.set_value("perf_throughput_up_val", value)
 
         # Latency

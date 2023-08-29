@@ -24,7 +24,7 @@ class Operator_window(window.Window):
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
         dpg.add_separator()
     def colorize_window():
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_operator)
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_cloud["operator"]["info"]["status"])
         colorization.colorize_item(self.ID.ID_wallet, input_text)
         colorization.colorize_item(self.ID.ID_ip, input_text)
 
@@ -36,9 +36,9 @@ class Operator_window(window.Window):
             dpg.set_value(self.ID.ID_ip, ip_operator)
             https_client_post.post_state("edge", param_control.state_edge)
     def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["cloud"]["operator"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+        pose = parser_json.get_pos_from_json()
+        pose["cloud"]["operator"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_pose, pose)
 
     # Update function
     def update(self):

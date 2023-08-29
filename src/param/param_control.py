@@ -13,7 +13,7 @@ state_cloud = {}
 # Path
 path_state_current = "src/state/current/"
 path_state_initial = "src/state/initial/"
-path_node_coordinate = "src/state/scheme_position.json"
+path_node_pose = "src/state/scheme_position.json"
 path_ssd = "/app/lidar_ssd"
 
 # GUI
@@ -33,7 +33,6 @@ tic_message = 0.05
 # Socket
 sock_server_l1 = None
 sock_server_l2 = None
-lidar_main = "lidar_1"
 
 # Plot
 nb_tic = 1000
@@ -45,21 +44,3 @@ vec_y_l2 = []
 # Wallet - init with just locahost
 wallet_add = ("localhost",)
 wallet_ip = ("127.0.0.1",)
-
-#Image
-image_h = 0
-image_w = 0
-
-# Status
-status_ui = "Development"
-status_control = "Offline"
-status_edge_1 = "Offline"
-status_capture = "Offline"
-status_slam = "Offline"
-status_ai = "Offline"
-status_edge_2 = "Offline"
-status_ssd = "Offline"
-status_operator = "Offline"
-status_lidar_1 = "Offline"
-status_lidar_2 = "Offline"
-status_db = "Offline"

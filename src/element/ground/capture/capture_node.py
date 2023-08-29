@@ -67,8 +67,8 @@ class Capture_node(node.Node):
 
     # Subfunction
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["ground"]["capture"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["ground"]["capture"])
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_http_server_port, "node_value")
         colorization.colorize_node(self.ID.ID_node, "ground")

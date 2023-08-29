@@ -26,6 +26,7 @@ class Hub_window(window.Window):
                 dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
         dpg.add_separator()
+        #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
 
     # Command function
     def command_comboip(self):
@@ -36,9 +37,9 @@ class Hub_window(window.Window):
             https_client_con.test_connection_edge()
             https_client_post.post_state("edge", param_control.state_edge)
     def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["edge"]["hub"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+        pose = parser_json.get_pos_from_json()
+        pose["edge"]["hub"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_pose, pose)
 
     # Update function
     def update(self):

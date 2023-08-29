@@ -17,8 +17,8 @@ def addLog(type, message):
         print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(param_control.tic_message)
 
-def addPost(dest, c1, c2, c3):
-    message = "To %s [%s, %s, %s]"%(dest, c1, c2, c3)
+def addPost(dest, c1, c2):
+    message = "To %s [%s, %s]"%(dest, c1, c2)
 
     print("[\033[1;30mPOST\033[0m]  " + message)
     time.sleep(param_control.tic_message)

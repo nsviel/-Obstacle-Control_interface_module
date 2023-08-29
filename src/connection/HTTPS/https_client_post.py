@@ -17,12 +17,12 @@ import json
 import http.client
 
 
-def post_param_value(dest, lvl1, lvl2, value):
+def post_commande(dest, component, value):
     [ip, port, connected] = https_client_fct.network_info(dest)
-    command = "/" + dest + "_param"
-    payload = json.dumps({lvl1: {lvl2: value}})
+    command = "/command_" + dest
+    payload = json.dumps({component: value})
     https_client_fct.send_https_post(ip, port, connected, command, payload)
-    terminal.addPost(dest, lvl1, lvl2, value)
+    terminal.addPost(dest, component, value)
 
 def post_state(dest, state):
     [ip, port, connected] = https_client_fct.network_info(dest)

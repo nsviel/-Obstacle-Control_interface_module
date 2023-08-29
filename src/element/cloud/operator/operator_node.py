@@ -37,8 +37,8 @@ class Operator_node(node.Node):
         self.position_node()
         self.colorize_node()
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["cloud"]["operator"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["cloud"]["operator"])
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_mqtt_broker_port, "node_value")
         colorization.colorize_item(self.ID.ID_mqtt_topic, "node_value")
@@ -48,7 +48,7 @@ class Operator_node(node.Node):
     def update(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.state_cloud["operator"]["broker"]["connected"])
     def update_node(self):
-        dpg.set_value(self.ID.ID_status, param_control.status_operator)
+        dpg.set_value(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])
         dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_cloud["operator"]["broker_port"])
         dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_cloud["operator"]["mqtt_topic"])
 

@@ -84,9 +84,9 @@ class Ssd_window(window.Window):
         param_control.path_ssd = dpg.get_value(self.ID.ID_path)
         param_control.state_control["ssd"]["activated"] = dpg.get_value(self.ID.ID_activated)
     def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["cloud"]["ssd"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+        pose = parser_json.get_pos_from_json()
+        pose["cloud"]["ssd"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_pose, pose)
 
     # Update function
     def update(self):

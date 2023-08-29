@@ -20,7 +20,7 @@ def load_state(path):
         return data
 
 def load_pos_from_json(name):
-    file = open(param_control.path_node_coordinate, "r")
+    file = open(param_control.path_node_pose, "r")
     data = json.load(file)
     try:
         coord = data[name]
@@ -30,7 +30,7 @@ def load_pos_from_json(name):
     return coord
 
 def get_pos_from_json():
-    file = open(param_control.path_node_coordinate, "r")
+    file = open(param_control.path_node_pose, "r")
     data = json.load(file)
     return data
 

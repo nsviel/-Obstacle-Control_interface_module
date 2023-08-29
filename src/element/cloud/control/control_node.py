@@ -45,8 +45,8 @@ class Control_node(node.Node):
         self.position_node()
         self.colorize_node()
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["cloud"]["control"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["cloud"]["control"])
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
         colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
@@ -56,7 +56,7 @@ class Control_node(node.Node):
     def update(self):
         colorization.colorize_status(self.ID.ID_status_light, True)
     def update_node(self):
-        dpg.set_value(self.ID.ID_status, param_control.status_control)
+        dpg.set_value(self.ID.ID_status, param_control.state_control["control"]["info"]["status"])
         dpg.set_value(self.ID.ID_ip, param_control.state_control["control"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_control["control"]["nb_thread"])
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_control["control"]["socket"]["server_l1_port"])

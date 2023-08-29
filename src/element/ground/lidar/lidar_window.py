@@ -68,9 +68,9 @@ class Lidar_window(window.Window):
 
     # Command function
     def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+        pose = parser_json.get_pos_from_json()
+        pose["ground"][self.ID.name] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_pose, pose)
 
     # Update function
     def update(self):
@@ -113,11 +113,11 @@ class Lidar_window(window.Window):
 
     # LiDAR motor
     def command_motor_start(self):
-        https_client_post.post_param_value("ground", None, self.ID.name, "start")
+        https_client_post.post_commande("ground", self.ID.name, "start")
     def command_motor_stop(self):
-        https_client_post.post_param_value("ground", None, self.ID.name, "stop")
+        https_client_post.post_commande("ground", self.ID.name, "stop")
     def command_motor_speed(self):
         speed = dpg.get_value(self.ID.ID_motor_speed)
         param_control.state_ground[self.ID.name]["speed"] = speed
         https_client_post.post_state("ground", param_control.state_ground)
-        https_client_post.post_param_value("ground", self.ID.name, "speed", speed)
+        https_client_post.post_commande("ground", self.ID.name, "speed")

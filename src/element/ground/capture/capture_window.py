@@ -29,15 +29,15 @@ class Capture_window(window.Window):
 
     # Command function
     def save_coord_to_file(self):
-        data = parser_json.get_pos_from_json()
-        data["ground"]["capture"] = dpg.get_item_pos(self.ID.ID_node)
-        parser_json.upload_file(param_control.path_node_coordinate, data)
+        pose = parser_json.get_pos_from_json()
+        pose["ground"]["capture"] = dpg.get_item_pos(self.ID.ID_node)
+        parser_json.upload_file(param_control.path_node_pose, pose)
 
     # Update function
     def update(self):
         pass
     def update_parameter(self):
-        dpg.set_value(self.ID.ID_status, param_control.status_capture)
+        dpg.set_value(self.ID.ID_status, param_control.state_ground["capture"]["info"]["status"])
         dpg.set_value(self.ID.ID_wallet, param_control.state_ground["capture"]["info"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground["capture"]["info"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_ground["capture"]["nb_thread"])

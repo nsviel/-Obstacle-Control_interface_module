@@ -32,8 +32,8 @@ class Ai_node(node.Node):
         self.position_node()
         self.colorize_node()
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"]["ai"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["edge"]["ai"])
     def colorize_node(self):
         colorization.colorize_node(self.ID.ID_node, "edge")
 

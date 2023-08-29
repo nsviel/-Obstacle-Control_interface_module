@@ -25,8 +25,8 @@ class Ssd_node(node.Node):
         self.position_node()
         self.colorize_node()
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["cloud"]["ssd"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["cloud"]["ssd"])
     def colorize_node(self):
         colorization.colorize_node(self.ID.ID_node, "cloud")
 
@@ -34,7 +34,7 @@ class Ssd_node(node.Node):
     def update(self):
         colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["ssd"]["connected"])
     def update_node(self):
-        dpg.set_value(self.ID.ID_status, param_control.status_ssd)
+        dpg.set_value(self.ID.ID_status, param_control.state_control["ssd"]["info"]["status"])
         dpg.set_value(self.ID.ID_path, param_control.path_ssd)
         dpg.set_value(self.ID.ID_memory_total, param_control.state_control["ssd"]["space_total"])
         dpg.set_value(self.ID.ID_memory_used, param_control.state_control["ssd"]["space_used"])

@@ -16,8 +16,8 @@ class Network_node(node.Node):
             self.build_table_database()
         self.position_node()
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["edge"]["network"])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["edge"]["network"])
 
     # Table functions
     def build_table_kpi(self):
@@ -98,7 +98,7 @@ class Network_node(node.Node):
     def update(self):
         pass
     def update_node(self):
-        colorization.colorize_status(self.ID.ID_status_light, param_control.status_ssd)
+        colorization.colorize_status(self.ID.ID_status_light, param_control.state_control["ssd"]["info"]["status"])
     def colorize_node(self):
         colorization.colorize_item(self.ID.ID_mongo_ip, input_text)
         colorization.colorize_item(self.ID.ID_mongo_port, input_text)

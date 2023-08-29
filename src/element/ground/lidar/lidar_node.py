@@ -33,8 +33,8 @@ class Lidar_node(node.Node):
         self.colorize_node()
 
     def position_node(self):
-        data = parser_json.get_pos_from_json()
-        dpg.set_item_pos(self.ID.ID_node, data["ground"][self.ID.name])
+        pose = parser_json.get_pos_from_json()
+        dpg.set_item_pos(self.ID.ID_node, pose["ground"][self.ID.name])
 
     # Update
     def update(self):
