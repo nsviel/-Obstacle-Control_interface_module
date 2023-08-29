@@ -29,7 +29,7 @@ class Link:
                 param_control.state_ground["capture"]["info"]["status"] = "Online"
                 if(param_control.state_ground["lidar_1"]["info"]["connected"]):
                     param_control.state_ground["lidar_1"]["info"]["status"] = "Online"
-                if(param_control.state_ground["lidar_2"]["connected"]):
+                if(param_control.state_ground["lidar_2"]["info"]["connected"]):
                     param_control.state_ground["lidar_2"]["info"]["status"] = "Online"
         else:
             param_control.state_edge["hub"]["interface"]["capture_http_connected"] = False
