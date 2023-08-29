@@ -46,8 +46,8 @@
             "server_port": 8080
         },
         "parameter": {
-            "lidar_height": 0,
-            "threshold": 0
+            "lidar_height": 2,
+            "threshold": 0.2
         }
     },
     "data": {

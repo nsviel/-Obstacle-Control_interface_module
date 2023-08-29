@@ -46,9 +46,9 @@ class Window:
 
     # Update function
     def update(self):
-        self.update_info()
+        self.update_pose()
         self.update_parameter()
-    def update_info(self):
+    def update_pose(self):
         coord = dpg.get_item_pos(self.ID.ID_node)
         dpg.set_value(self.ID.ID_node_coord, coord)
     def update_parameter(self):

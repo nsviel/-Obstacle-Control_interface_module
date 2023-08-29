@@ -125,6 +125,11 @@ class Hub_node(node.Node):
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_edge["hub"]["socket"]["server_l1_port"])
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_edge["hub"]["socket"]["server_l2_port"])
         dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["hub"]["http"]["server_port"])
+        dpg.set_value(self.ID.ID_combo_lidar_source, param_control.state_edge["hub"]["socket"]["lidar_main"])
+        if(param_control.state_edge["hub"]["socket"]["lidar_main"] == "lidar_1"):
+            dpg.set_value(self.ID.ID_sock_client_l2_source, "lidar_2")
+        else:
+            dpg.set_value(self.ID.ID_sock_client_l2_source, "lidar_1")
 
     # Command function
     def command_false_alarm(self):
