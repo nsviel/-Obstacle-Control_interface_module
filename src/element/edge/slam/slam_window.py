@@ -46,5 +46,5 @@ class Slam_window(window.Window):
         dpg.set_value(self.ID.ID_ip, edge.state["slam"]["ip"])
         dpg.set_value(self.ID.ID_sock_server_port, edge.state["slam"]["sock_server_port"])
         dpg.set_value(self.ID.ID_http_server_port, edge.state["slam"]["http_server_port"])
-        dpg.set_value(self.ID.ID_status, param_control.status_processing)
+        dpg.set_value(self.ID.ID_status, param_control.status_slam)
         dpg.set_value(self.ID.ID_wallet, edge.state["slam"]["add"])

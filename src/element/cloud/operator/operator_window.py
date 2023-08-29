@@ -18,7 +18,7 @@ class Operator_window(window.Window):
             dpg.add_table_column()
             with dpg.table_row():
                 dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["add"], width=120, callback=self.command_comboip)
+                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["info"]["add"], width=120, callback=self.command_comboip)
             with dpg.table_row():
                 dpg.add_text("IP");
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);

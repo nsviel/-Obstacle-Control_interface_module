@@ -23,6 +23,10 @@ class Cloud:
         self.control.node.update()
         self.operator.node.update()
         self.ssd.node.update()
+    def position_nodes(self):
+        self.control.node.position_node()
+        self.operator.node.position_node()
+        self.ssd.node.position_node()
 
     # Window
     def build_windows(self):

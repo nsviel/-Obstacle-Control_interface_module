@@ -57,9 +57,9 @@ def init_state_perf():
     param_control.state_network["cloud_local"]["reliability"]["max"] = 0
     param_control.state_network["cloud_local"]["reliability"]["mean"] = 0
 
-    param_control.state_network["end_to_end"]["time_slam"] = 0
-    param_control.state_network["end_to_end"]["time_ai"] = 0
-    param_control.state_network["end_to_end"]["time_total"] = 0
+    param_control.state_network["time"]["slam"] = 0
+    param_control.state_network["time"]["ai"] = 0
+    param_control.state_network["time"]["total"] = 0
 
 def upload_state():
     parser_json.upload_file(param_control.path_state_current + "state_edge.json", param_control.state_edge)
@@ -70,7 +70,7 @@ def update_state():
     param_control.status_control = "Offline"
     param_control.status_edge = "Offline"
     param_control.status_capture = "Offline"
-    param_control.status_processing = "Offline"
+    param_control.status_slam = "Offline"
     param_control.status_ai = "Offline"
     param_control.status_ssd = "Offline"
     param_control.status_operator = "Offline"
@@ -93,7 +93,7 @@ def update_state():
         if(param_control.state_edge["ai"]["http_connected"]):
             param_control.status_ai = "Online"
         if(param_control.state_edge["slam"]["http_connected"]):
-            param_control.status_processing = "Online"
+            param_control.status_slam = "Online"
         if(param_control.state_cloud["operator"]["broker_connected"]):
             param_control.status_operator = "Online"
 
@@ -136,7 +136,7 @@ def update_state():
         param_control.state_ground["lidar_2"]["throughput"]["mean"] = 0
         param_control.state_ground["lidar_2"]["throughput"]["max"] = 0
 
-    if(param_control.status_processing == "Offline"):
+    if(param_control.status_slam == "Offline"):
         param_control.state_edge["slam"]["sock_connected"] = False
 
     if(param_control.state_network["mongodb"]["connected"]):

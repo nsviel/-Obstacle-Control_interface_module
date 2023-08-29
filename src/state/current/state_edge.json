@@ -1,10 +1,10 @@
 {
     "hub": {
         "info": {
-            "status": "Offline",
-            "edge_id": 0,
             "ip": "127.0.0.1",
             "add": "-",
+            "status": "Offline",
+            "edge_id": 0,
             "country": "France",
             "nb_thread": 8
         },
@@ -22,8 +22,7 @@
     },
     "slam": {
         "info": {
-            "add": "localhost",
-            "ip": "127.0.0.1"
+            "status": "Offline"
         },
         "socket": {
             "connected": false,
@@ -40,7 +39,7 @@
     },
     "ai": {
         "info": {
-            "ip": "127.0.0.1"
+            "status": "Offline"
         },
         "http": {
             "connected": false,

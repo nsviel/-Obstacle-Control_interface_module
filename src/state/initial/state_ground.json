@@ -1,9 +1,10 @@
 {
     "capture": {
       "info":{
-        "ip": "192.168.152.67",
+        "ip": "127.0.0.1",
         "add": "-",
-        "nb_thread": 6
+        "status": "Offline",
+        "nb_thread": 0
       },
       "socket":{
         "server_l1_port": 8308,

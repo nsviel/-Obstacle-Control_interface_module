@@ -10,7 +10,7 @@ def initialization():
     determine_adresse()
 def determine_adresse():
     param_control.state_edge["hub"]["info"]["add"] = get_key_from_ip(param_control.state_edge["hub"]["info"]["ip"])
-    param_control.state_cloud["operator"]["add"] = get_key_from_ip(param_control.state_cloud["operator"]["broker_ip"])
+    param_control.state_cloud["operator"]["info"]["add"] = get_key_from_ip(param_control.state_cloud["operator"]["info"]["ip"])
     param_control.state_ground["capture"]["info"]["add"] = get_key_from_ip(param_control.state_ground["capture"]["info"]["ip"])
     param_control.state_ground["lidar_1"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_1"]["info"]["ip"])
     param_control.state_ground["lidar_2"]["info"]["add"] = get_key_from_ip(param_control.state_ground["lidar_2"]["info"]["ip"])

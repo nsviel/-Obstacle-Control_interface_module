@@ -1,14 +1,25 @@
 {
   "operator": {
-      "add": "localhost",
-      "broker_connected": true,
-      "broker_ip": "127.0.0.1",
-      "broker_port": 1883,
-      "mqtt_client": "P2_module",
-      "mqtt_topic": "alarmes/lidar"
+      "info":{
+        "ip": "127.0.0.1",
+        "add": "localhost",
+        "status": "Offline"
+      },
+      "broker":{
+        "client": "P2_module",
+        "topic": "alarmes/lidar",
+        "port": 1883,
+        "connected": false
+      }
   },
   "car": {
-      "http_connected": false,
-      "ip": "127.0.0.1"
+    "info":{
+      "ip": "127.0.0.1",
+      "add": "localhost",
+      "status": "Offline"
+    },
+    "http":{
+      "connected": false
+    }
   }
 }

@@ -74,4 +74,4 @@ class Data_node(node.Node):
         dpg.set_value("perf_interruption_val", value)
 
         # End to end time
-        dpg.set_value("perf_time_total", param_control.state_network["end_to_end"]["time_total"])
+        dpg.set_value("perf_time_total", param_control.state_network["time"]["total"])

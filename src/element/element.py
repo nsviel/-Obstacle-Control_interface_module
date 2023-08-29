@@ -35,6 +35,10 @@ class Element():
         self.ground.update_nodes()
         self.edge.update_nodes()
         self.cloud.update_nodes()
+    def position_nodes(self):
+        self.ground.position_nodes()
+        self.edge.position_nodes()
+        self.cloud.position_nodes()
 
     # Event
     def setup_handlers(self):

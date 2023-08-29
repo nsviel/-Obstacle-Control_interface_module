@@ -31,6 +31,12 @@ class Edge:
         self.data.node.update()
         self.hub.node.update()
         self.network.node.update()
+    def position_nodes(self):
+        self.slam.node.position_node()
+        self.ai.node.position_node()
+        self.data.node.position_node()
+        self.hub.node.position_node()
+        self.network.node.position_node()
 
     # Window
     def build_windows(self):

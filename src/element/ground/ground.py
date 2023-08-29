@@ -22,6 +22,10 @@ class Ground:
         self.capture.node.update()
         self.lidar_1.node.update()
         self.lidar_2.node.update()
+    def position_nodes(self):
+        self.capture.node.position_node()
+        self.lidar_1.node.position_node()
+        self.lidar_2.node.position_node()
 
     # Window
     def build_windows(self):
