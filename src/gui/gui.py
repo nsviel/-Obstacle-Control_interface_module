@@ -1,6 +1,6 @@
 #---------------------------------------------
 from src.param import param_control
-from src.gui import scheme
+from src.gui.scheme import scheme
 from src.gui.style import gui_theme
 from src.gui.panel import panel
 from src.gui.background import gui_ID

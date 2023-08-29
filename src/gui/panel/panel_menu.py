@@ -18,7 +18,6 @@ def callback_wallet():
 def menu():
     demo = panel_demo.Demo()
     with dpg.menu_bar():
-        dpg.add_button(label="Close", callback=callback_close)
-        with dpg.menu(label="Option"):
-            dpg.add_menu_item(label="Demo", callback=demo.demo)
+        dpg.add_menu_item(label="Close", callback=callback_close)
+        dpg.add_menu_item(label="Demo", callback=demo.demo)
         dpg.add_menu_item(label="Wallet", callback=callback_wallet)

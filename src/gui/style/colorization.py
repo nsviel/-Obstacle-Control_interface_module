@@ -38,6 +38,8 @@ def colorize_item(ID_item, type_name):
         color = gui_color.color_yaxis_0()
     elif(type_name == "node_value"):
         color = gui_color.theme_node_value()
+    elif(type_name == "node_sub"):
+        color = gui_color.theme_node_sub()
     else:
         print("[error] Colorization name not good")
     dpg.bind_item_theme(ID_item, color)

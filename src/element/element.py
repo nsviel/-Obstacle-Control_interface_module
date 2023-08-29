@@ -57,8 +57,6 @@ class Element():
         self.ground.link.setup()
         self.edge.link.setup(self.ground, self.cloud)
         self.cloud.link.setup(self.edge)
-
-
     def update_links(self):
         self.ground.link.update()
         self.edge.link.update()
@@ -68,10 +66,12 @@ class Element():
         self.edge.link.update_dependencies()
         self.cloud.link.update_dependencies()
 
+    # Update
     def update_scheme(self):
         self.update_links()
         self.update_link_dependencies()
         self.update_nodes()
+        self.update_windows()
 
 
 

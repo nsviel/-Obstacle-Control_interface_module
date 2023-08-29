@@ -21,9 +21,9 @@ def init():
     state.load_state_initial()
     saving.determine_path()
     element.object.init_objects()
-    daemon.start_daemons()
     wallet_logic.initialization()
     gui.initialization()
+    daemon.start_daemons()
     terminal.addLog("OK", "Program initialized...")
     terminal.addLine()
 
@@ -31,7 +31,6 @@ def loop():
     is_running = True
     param_control.run_loop = True
     while param_control.run_loop and is_running:
-        element.object.update_scheme()
         is_running = gui.loop()
 
 def end():
