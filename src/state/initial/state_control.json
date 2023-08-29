@@ -1,7 +1,7 @@
 {
   "control": {
     "info":{
-      "ip": "192.168.71.42",
+      "ip": "127.0.0.1",
       "add": "-",
       "status": "Offline",
       "nb_thread": 0

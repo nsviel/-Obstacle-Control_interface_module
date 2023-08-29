@@ -42,7 +42,7 @@ class Link:
         #colorization.colorize_link_socket(self.edge.state.state_interface["train"]["sock"]["l1_connected"], self.link_sock_l1_cap_hub)
         #colorization.colorize_link_socket(self.edge.state.state_interface["train"]["sock"]["l2_connected"], self.link_sock_l2_cap_hub)
 
-    def update_dependencies():
+    def update_dependencies(self):
         param_control.state_edge["hub"]["info"]["status"] = "Offline"
         param_control.state_edge["slam"]["info"]["status"] = "Offline"
         param_control.state_edge["ai"]["info"]["status"] = "Offline"
