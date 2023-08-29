@@ -1,4 +1,0 @@
-localhost 127.0.0.1
-black_hole 99.99.99.99
-lidar_1_static 192.168.1.201
-lidar_2_static 192.168.2.201

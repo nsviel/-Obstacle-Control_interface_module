@@ -10,5 +10,5 @@ sudo docker run \
     --env=DISPLAY=$DISPLAY \
     -p 321:321 \
     -p 322:322 \
-    module_interface
+    control_interface
 xhost - >/dev/null

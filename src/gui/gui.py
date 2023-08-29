@@ -1,65 +1,35 @@
 #---------------------------------------------
-from src.param import param_co
-
-from src import loop
-from src.misc import state
-from src.misc import wallet
-
-from src.scheme import scheme
-from src.scheme import scheme_theme
-from src.scheme import scheme_update
-from src.scheme import scheme_visibility
-from src.scheme import scheme_link
-
-from src.gui import gui_menu
-from src.gui import gui_image
-from src.gui import gui_wallet
-from src.gui import gui_theme
-from src.gui import gui_module
-
+from src.param import param_control
+from src.gui.scheme import scheme
+from src.gui.style import gui_theme
+from src.gui.panel import panel
+from src.gui.background import gui_ID
+from src.gui.style import gui_color
 import dearpygui.dearpygui as dpg
 
 
-def program():
+# GUI creation / Destruction
+def initialization():
     dpg.create_context()
-
-    #Initialization
-    state.load_configuration()
-    gui_image.init_image()
-    wallet.read_wallet()
-    wallet.determine_adresse()
     gui_theme.gui_font()
+    gui_theme.gui_theme()
+    build_gui()
+    setup_gui()
+def loop():
+    dpg.render_dearpygui_frame()
+    return dpg.is_dearpygui_running()
+def termination():
+    dpg.destroy_context()
 
-    #Build GUI
-    with dpg.window(label="Wallet", autosize=True, no_resize=True, show=False, tag="win_wallet"):
-        gui_wallet.build_window()
-    with dpg.window(tag="window", label="module_interface"):
-        dpg.bind_font(param_co.gui_font_def)
-        gui_menu.menu()
-        scheme.build_scheme()
-    scheme_theme.scheme_theme_dev()
+# GUI setup
+def build_gui():
+    with dpg.window(tag=gui_ID.ID_window, no_background=True):
+        with dpg.group(horizontal=True):
+            panel.build_panel()
+            scheme.build_scheme()
 
-    # Setup GUI
-    gui_width = param_co.state_co["gui"]["width"]
-    gui_height = param_co.state_co["gui"]["height"]
-    dpg.create_viewport(title='module_interface', width=gui_width, height=gui_height)
-    dpg.set_viewport_resizable(False)
+def setup_gui():
+    dpg.create_viewport(title='Control Interface', width=param_control.gui_width, height=param_control.gui_height)
     dpg.setup_dearpygui()
     dpg.show_viewport()
-    dpg.set_primary_window("window", True)
-    scheme_update.update_add()
-
-    # Init variables
-    loop.init()
-    scheme_visibility.set_mode()
-
-    # Start main loop program
-    while param_co.run_loop and dpg.is_dearpygui_running():
-        loop.loop()
-        dpg.render_dearpygui_frame()
-
-    # End thread
-    loop.end()
-
-    # Finish program
-    dpg.destroy_context()
+    dpg.set_primary_window(gui_ID.ID_window, True)
