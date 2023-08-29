@@ -16,19 +16,20 @@ def get_state(dest):
     [ip, port, connected] = https_client_fct.network_info(dest)
     command = "/get_state_" + dest
     data = https_client_fct.send_https_get(ip, port, connected, command)
-    if(data != None):
+    if(data != None and data != b''):
         try:
             if(dest == "edge"):
+                print(data)
                 parser_json.update_state_file(param_control.path_state_current + "state_edge.json", data)
                 param_control.state_edge = json.loads(data)
-            elif(dest == "capture"):
+            elif(dest == "ground"):
                 parser_json.update_state_file(param_control.path_state_current + "state_ground.json", data)
                 param_control.state_ground = json.loads(data)
             elif(dest == "network"):
                 parser_json.update_state_file(param_control.path_state_current + "state_network.json", data)
                 param_control.state_network = json.loads(data)
         except:
-            print("[error] GET working problem")
+            print("[error] GET working problem dest [%s]"% dest)
 
 def get_image(dest):
     [ip, port, connected] = https_client_fct.network_info(dest)

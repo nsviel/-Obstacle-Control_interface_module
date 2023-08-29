@@ -48,7 +48,7 @@ class Link:
         param_control.state_edge["ai"]["info"]["status"] = "Offline"
         param_control.state_network["mongodb"]["status"] = "Offline"
 
-        if(param_control.state_edge["hub"]["http"]["connected"]):
+        if(param_control.state_control["control"]["interface"]["edge_http_connected"]):
             param_control.state_edge["hub"]["info"]["status"] = "Online"
             if(param_control.state_edge["ai"]["http"]["connected"]):
                 param_control.state_edge["ai"]["info"]["status"] = "Online"

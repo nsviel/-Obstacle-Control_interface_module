@@ -32,4 +32,4 @@ class Ssd_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_control["ssd"]["connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_control["control"]["interface"]["ssd_connected"])

@@ -7,12 +7,13 @@ import dearpygui.dearpygui as dpg
 
 class Data_image(daemon.Daemon):
     def thread_function(self):
+        pass
         # Load current image
-        image_acquired = https_client_get.get_image("edge")
+        #image_acquired = https_client_get.get_image("edge")
 
         # Update image
-        if(image_acquired):
-            self.update_image()
+        #if(image_acquired):
+        #    self.update_image()
 
     def update_image(self):
         # Update image but if format problem close the program

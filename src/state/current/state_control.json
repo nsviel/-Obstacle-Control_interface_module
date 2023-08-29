@@ -10,12 +10,15 @@
             "server_l1_port": 321,
             "server_l2_port": 322
         },
+        "interface": {
+            "ssd_connected": false,
+            "edge_http_connected": false
+        },
         "nb_thread": 6
     },
     "ssd": {
         "info": {
             "status": "Offline",
-            "connected": false,
             "activated": false,
             "space_total": 0,
             "space_used": 0
@@ -25,12 +28,11 @@
             "dir_l1": "/app/lidar_ssd/capture/lidar_1",
             "dir_l2": "/app/lidar_ssd/capture/lidar_2",
             "file_name_add": "",
-            "file_name": "_29-08-2023_16h51.pcap",
-            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_29-08-2023_16h51.pcap",
-            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_29-08-2023_16h51.pcap",
+            "file_name": "_29-08-2023_18h18.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_29-08-2023_18h18.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_29-08-2023_18h18.pcap",
             "bandwidth": 0
         },
-        "connected": false,
         "space_used": 0,
         "space_total": 0
     }

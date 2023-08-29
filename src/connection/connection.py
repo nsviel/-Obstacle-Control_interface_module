@@ -22,8 +22,9 @@ class Connection(daemon.Daemon):
 
         # Update state
         https_client_get.get_state("edge")
-        https_client_get.get_state("capture")
+        https_client_get.get_state("ground")
         https_client_get.get_state("network")
+        https_client_get.get_state("cloud")
         state.upload_state()
 
         # Update scheme
