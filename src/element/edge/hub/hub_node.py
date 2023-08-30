@@ -21,6 +21,7 @@ class Hub_node(node.Node):
             self.build_connection()
         self.position_node()
         self.colorize_node()
+        self.init_values()
     def build_info(self):
         # Icone & status button
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
@@ -61,7 +62,7 @@ class Hub_node(node.Node):
             with dpg.group(horizontal=True):
                 dpg.add_text("Socket");
                 dpg.add_text("server", color=gui_color.color_node_sub);
-                dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.command_port_socket);
+                dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, min_value=0, width=75, callback=self.command_port_socket);
         with dpg.node_attribute(tag=self.ID.ID_sock_client_l1, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
             with dpg.group(horizontal=True):
                 dpg.add_text("Socket");
@@ -79,7 +80,7 @@ class Hub_node(node.Node):
             with dpg.group(horizontal=True):
                 dpg.add_text("Socket");
                 dpg.add_text("server", color=gui_color.color_node_sub);
-                dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.command_port_socket);
+                dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, min_value=0, callback=self.command_port_socket);
         with dpg.node_attribute(tag=self.ID.ID_sock_client_l2, attribute_type=dpg.mvNode_Attr_Output, shape=dpg.mvNode_PinShape_QuadFilled):
             with dpg.group(horizontal=True):
                 dpg.add_text("Socket");
@@ -111,21 +112,22 @@ class Hub_node(node.Node):
         colorization.colorize_item(self.ID.ID_combo_lidar_source, "node_value")
         colorization.colorize_item(self.ID.ID_sock_client_l2_source, "node_value")
         colorization.colorize_node(self.ID.ID_node, "edge")
+    def init_values(self):
+        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_edge["hub"]["socket"]["server_l1_port"])
+        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_edge["hub"]["socket"]["server_l2_port"])
+        dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["hub"]["http"]["server_port"])
+        dpg.set_value(self.ID.ID_combo_lidar_source, param_control.state_edge["hub"]["socket"]["lidar_main"])
 
     # Update function
     def update(self):
         self.update_info()
         self.update_connection()
     def update_info(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_control["control"]["interface"]["edge_http_connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_control["interface"]["edge"]["http_connected"])
         dpg.set_value(self.ID.ID_edge_id, param_control.state_edge["hub"]["info"]["edge_id"])
         dpg.set_value(self.ID.ID_edge_country, param_control.state_edge["hub"]["info"]["country"])
     def update_connection(self):
         dpg.set_value(self.ID.ID_mqtt_client_name, param_control.state_cloud["operator"]["broker"]["client"])
-        dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_edge["hub"]["socket"]["server_l1_port"])
-        dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_edge["hub"]["socket"]["server_l2_port"])
-        dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["hub"]["http"]["server_port"])
-        dpg.set_value(self.ID.ID_combo_lidar_source, param_control.state_edge["hub"]["socket"]["lidar_main"])
         if(param_control.state_edge["hub"]["socket"]["lidar_main"] == "lidar_1"):
             dpg.set_value(self.ID.ID_sock_client_l2_source, "lidar_2")
         else:

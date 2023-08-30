@@ -31,13 +31,15 @@ class Ai_node(node.Node):
                     dpg.add_text(1, tag=self.ID.ID_http_server_port, color=gui_color.color_node_value);
         self.position_node()
         self.colorize_node()
+        self.init_values()
     def position_node(self):
         pose = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, pose["edge"]["ai"])
     def colorize_node(self):
         colorization.colorize_node(self.ID.ID_node, "edge")
+    def init_values(self):
+        dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["ai"]["http"]["server_port"])
 
     # Update function
     def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["hub"]["interface"]["ai_http_connected"])
-        dpg.set_value(self.ID.ID_http_server_port, param_control.state_edge["ai"]["http"]["server_port"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["ai"]["http"]["connected"])

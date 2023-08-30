@@ -18,9 +18,9 @@ class Socket_l2(daemon.Daemon):
         try:
             packet, (address, port) = param_control.sock_server_l2.recvfrom(4096)
             data.process_l2_data(packet)
-            param_control.state_control["control"]["interface"]["edge_sock_l2_connected"] = True
+            param_control.state_control["interface"]["edge"]["sock_l2_connected"] = True
         except:
-            param_control.state_control["control"]["interface"]["edge_sock_l2_connected"] = False
+            param_control.state_control["interface"]["edge"]["sock_l2_connected"] = False
 
     def thread_end(self):
         param_control.sock_server_l2.close()

@@ -24,15 +24,15 @@ class Link:
         param_control.state_ground["lidar_1"]["info"]["status"] = "Offline"
         param_control.state_ground["lidar_2"]["info"]["status"] = "Offline"
 
-        if(param_control.state_control["control"]["interface"]["edge_http_connected"]):
-            if(param_control.state_edge["hub"]["interface"]["capture_http_connected"]):
+        if(param_control.state_control["interface"]["edge"]["http_connected"]):
+            if(param_control.state_edge["interface"]["capture"]["http_connected"]):
                 param_control.state_ground["capture"]["info"]["status"] = "Online"
                 if(param_control.state_ground["lidar_1"]["info"]["connected"]):
                     param_control.state_ground["lidar_1"]["info"]["status"] = "Online"
                 if(param_control.state_ground["lidar_2"]["info"]["connected"]):
                     param_control.state_ground["lidar_2"]["info"]["status"] = "Online"
         else:
-            param_control.state_edge["hub"]["interface"]["capture_http_connected"] = False
+            param_control.state_edge["interface"]["capture"]["http_connected"] = False
             param_control.state_ground["capture"]["socket"]["l1_connected"] = False
             param_control.state_ground["capture"]["socket"]["l2_connected"] = False
 

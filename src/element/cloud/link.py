@@ -20,18 +20,18 @@ class Link:
         dpg.add_node_link(edge.hub.ID.ID_sock_client_l2, self.cloud.control.ID.ID_sock_server_l2, tag=self.link_sock_l2_control_edge)
 
     def update(self):
-        colorization.colorize_link_http(param_control.state_control["control"]["interface"]["ssd_connected"], self.link_control_ssd)
-        colorization.colorize_link_http(param_control.state_control["control"]["interface"]["edge_http_connected"], self.link_http_control_edge)
-        colorization.colorize_link_socket(param_control.state_control["control"]["interface"]["edge_sock_l1_connected"], self.link_sock_l1_control_edge)
-        colorization.colorize_link_socket(param_control.state_control["control"]["interface"]["edge_sock_l2_connected"], self.link_sock_l2_control_edge)
+        colorization.colorize_link_http(param_control.state_control["interface"]["ssd_connected"], self.link_control_ssd)
+        colorization.colorize_link_http(param_control.state_control["interface"]["edge"]["http_connected"], self.link_http_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["interface"]["edge"]["sock_l1_connected"], self.link_sock_l1_control_edge)
+        colorization.colorize_link_socket(param_control.state_control["interface"]["edge"]["sock_l2_connected"], self.link_sock_l2_control_edge)
 
     def update_dependencies(self):
         param_control.state_control["ssd"]["info"]["status"] = "Offline"
-        if(param_control.state_control["control"]["interface"]["ssd_connected"]):
+        if(param_control.state_control["interface"]["ssd_connected"]):
             param_control.state_control["ssd"]["info"]["status"] = "Online"
 
-        if(param_control.state_control["control"]["interface"]["edge_http_connected"]):
-            if(param_control.state_edge["hub"]["interface"]["operator_broker_connected"]):
+        if(param_control.state_control["interface"]["edge"]["http_connected"]):
+            if(param_control.state_edge["interface"]["operator"]["broker_connected"]):
                 param_control.state_cloud["operator"]["info"]["status"] = "Online"
         else:
-            param_control.state_edge["hub"]["interface"]["operator_broker_connected"] = False
+            param_control.state_edge["interface"]["operator"]["broker_connected"] = False

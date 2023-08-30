@@ -4,6 +4,7 @@ from src.base import node
 from src.gui.style import colorization
 from src.gui.style import gui_color
 from src.utils import parser_json
+from src.utils import function
 from src.connection.HTTPS.client import https_client_post
 from src import daemon
 import dearpygui.dearpygui as dpg
@@ -30,12 +31,12 @@ class Control_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_node_sub);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, width=75, callback=self.update_sock_port);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l1_port, default_value=1, min_value=0, width=75, callback=self.command_port);
             with dpg.node_attribute(tag=self.ID.ID_sock_server_l2, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
                 with dpg.group(horizontal=True):
                     dpg.add_text("Socket");
                     dpg.add_text("server", color=gui_color.color_node_sub);
-                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, width=75, callback=self.update_sock_port);
+                    dpg.add_input_int(tag=self.ID.ID_sock_server_l2_port, default_value=1, min_value=0, width=75, callback=self.command_port);
 
             # HTTPS
             with dpg.node_attribute(tag=self.ID.ID_http_client, attribute_type=dpg.mvNode_Attr_Input, shape=dpg.mvNode_PinShape_QuadFilled):
@@ -44,6 +45,7 @@ class Control_node(node.Node):
                     dpg.add_text("client", color=gui_color.color_node_sub);
         self.position_node()
         self.colorize_node()
+        self.init_values()
     def position_node(self):
         pose = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, pose["cloud"]["control"])
@@ -51,21 +53,24 @@ class Control_node(node.Node):
         colorization.colorize_item(self.ID.ID_sock_server_l1_port, "node_value")
         colorization.colorize_item(self.ID.ID_sock_server_l2_port, "node_value")
         colorization.colorize_node(self.ID.ID_node, "cloud")
-
-    # Update function
-    def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, True)
+    def init_values(self):
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_control["control"]["socket"]["server_l1_port"])
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_control["control"]["socket"]["server_l2_port"])
-    def update_sock_port(self):
+
+    # Command function
+    def command_port(self):
         l1_port = dpg.get_value(self.ID.ID_sock_server_l1_port)
         l2_port = dpg.get_value(self.ID.ID_sock_server_l2_port)
-        if(l1_port != l2_port and l1_port > 0 and l2_port > 0):
+        if(function.check_port_compatibility(l1_port, l2_port)):
             param_control.state_control["control"]["socket"]["server_l1_port"] = l1_port
             param_control.state_control["control"]["socket"]["server_l2_port"] = l2_port
             daemon.daemon_socket_l1.restart_daemon()
             daemon.daemon_socket_l2.restart_daemon()
 
-            param_control.state_edge["interface"]["control"]["socket"]["server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
-            param_control.state_edge["interface"]["control"]["socket"]["server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
+            param_control.state_edge["interface"]["server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
+            param_control.state_edge["interface"]["server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
             https_client_post.post_state("edge", param_control.state_edge)
+
+    # Update function
+    def update(self):
+        colorization.colorize_status_light(self.ID.ID_status_light, True)

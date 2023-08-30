@@ -97,7 +97,7 @@ class Network_node(node.Node):
 
     # Update function
     def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["hub"]["interface"]["capture_http_connected"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["interface"]["capture"]["http_connected"])
         colorization.colorize_status_light(self.ID.ID_mongo_status_light, param_control.state_network["mongodb"]["connected"])
     def update_perf():
         # Throughput

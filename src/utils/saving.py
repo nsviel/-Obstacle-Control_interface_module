@@ -12,11 +12,11 @@ def test_ssd_con():
     path = param_control.path_ssd
     if(os.path.exists(path) and path.find("lidar_ssd") != -1):
         hdd = psutil.disk_usage(param_control.path_ssd)
-        param_control.state_control["control"]["interface"]["ssd_connected"] = True
+        param_control.state_control["interface"]["ssd_connected"] = True
         param_control.state_control["ssd"]["space_used"] = int(hdd.used / (2**30))
         param_control.state_control["ssd"]["space_total"] = int(hdd.total / (2**30))
     else:
-        param_control.state_control["control"]["interface"]["ssd_connected"] = False
+        param_control.state_control["interface"]["ssd_connected"] = False
         param_control.state_control["ssd"]["space_used"] = 0
         param_control.state_control["ssd"]["space_total"] = 0
 
@@ -35,7 +35,7 @@ def get_formatedge_2_time():
     return str(date)
 
 def check_directories():
-    connected = param_control.state_control["control"]["interface"]["ssd_connected"]
+    connected = param_control.state_control["interface"]["ssd_connected"]
     if(connected):
         # Capture directory
         path = param_control.state_control["ssd"]["path"]["dir_capture"]

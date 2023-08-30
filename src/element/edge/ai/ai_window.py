@@ -24,9 +24,13 @@ class Ai_window(window.Window):
                 dpg.add_input_float(tag=self.ID.ID_setting_threshold, default_value=0.2, width=100, step=0.01, min_value=0, max_value=1, callback=self.command_parameter);
         dpg.add_separator()
         self.colorize_window()
+        self.init_values()
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_setting_threshold, "node_sub")
         colorization.colorize_item(self.ID.ID_setting_lidar_height, "node_sub")
+    def init_values(self):
+        dpg.set_value(self.ID.ID_setting_lidar_height, param_control.state_edge["ai"]["parameter"]["lidar_height"])
+        dpg.set_value(self.ID.ID_setting_threshold, param_control.state_edge["ai"]["parameter"]["threshold"])
 
     # Command function
     def command_parameter(self):
@@ -42,5 +46,3 @@ class Ai_window(window.Window):
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_edge["ai"]["info"]["status"])
         dpg.set_value(self.ID.ID_status, param_control.state_edge["ai"]["info"]["status"])
-        dpg.set_value(self.ID.ID_setting_lidar_height, param_control.state_edge["ai"]["parameter"]["lidar_height"])
-        dpg.set_value(self.ID.ID_setting_threshold, param_control.state_edge["ai"]["parameter"]["threshold"])

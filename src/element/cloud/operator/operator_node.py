@@ -29,13 +29,14 @@ class Operator_node(node.Node):
                 with dpg.group(horizontal=True):
                     dpg.add_text("MQTT");
                     dpg.add_text("broker", color=gui_color.color_node_sub);
-                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, width=75, callback=self.command_mqtt);
+                    dpg.add_input_int(tag=self.ID.ID_mqtt_broker_port, default_value=1, min_value=0, width=75, callback=self.command_mqtt);
                 with dpg.group(horizontal=True):
                     dpg.add_text("Topic");
                     dpg.add_input_text(tag=self.ID.ID_mqtt_topic, default_value="-", width=90, on_enter=True, callback=self.command_mqtt)
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
         self.colorize_node()
+        self.init_values()
     def position_node(self):
         pose = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, pose["cloud"]["operator"])
@@ -43,12 +44,13 @@ class Operator_node(node.Node):
         colorization.colorize_item(self.ID.ID_mqtt_broker_port, "node_value")
         colorization.colorize_item(self.ID.ID_mqtt_topic, "node_value")
         colorization.colorize_node(self.ID.ID_node, "cloud")
+    def init_values(self):
+        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_cloud["operator"]["broker"]["port"])
+        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_cloud["operator"]["broker"]["topic"])
 
     # Update function
     def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["hub"]["interface"]["operator_broker_connected"])
-        dpg.set_value(self.ID.ID_mqtt_broker_port, param_control.state_cloud["operator"]["broker"]["port"])
-        dpg.set_value(self.ID.ID_mqtt_topic, param_control.state_cloud["operator"]["broker"]["topic"])
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["interface"]["operator"]["broker_connected"])
 
     # Command function
     def command_mqtt(self):

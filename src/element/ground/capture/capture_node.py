@@ -57,13 +57,15 @@ class Capture_node(node.Node):
             #dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         self.position_node()
         self.colorize_node()
-
-    # Update
-    def update(self):
-        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["hub"]["interface"]["capture_http_connected"])
+        self.init_values()
+    def init_values(self):
         dpg.set_value(self.ID.ID_http_server_port, int(param_control.state_ground["capture"]["http"]["server_port"]))
         dpg.set_value(self.ID.ID_sock_server_l1_port, param_control.state_ground["capture"]["socket"]["server_l1_port"])
         dpg.set_value(self.ID.ID_sock_server_l2_port, param_control.state_ground["capture"]["socket"]["server_l2_port"])
+
+    # Update
+    def update(self):
+        colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["interface"]["capture"]["http_connected"])
 
     # Subfunction
     def position_node(self):

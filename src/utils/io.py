@@ -9,7 +9,7 @@ import pcapy
 
 def write_lidar_data(path, packet):
     activated = param_control.state_control["ssd"]["activated"]
-    connected = param_control.state_control["control"]["interface"]["ssd_connected"]
+    connected = param_control.state_control["interface"]["ssd_connected"]
     if(activated and connected and len(packet) == 1206):
         wrpcap(path, packet, append=True)
 
