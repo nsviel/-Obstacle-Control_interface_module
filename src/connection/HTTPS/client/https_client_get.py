@@ -19,13 +19,10 @@ def get_state(dest):
     if(data != None and data != b''):
         try:
             if(dest == "edge"):
-                parser_json.update_state_file(param_control.path_state_current + "state_edge.json", data)
                 param_control.state_edge = json.loads(data)
             elif(dest == "ground"):
-                parser_json.update_state_file(param_control.path_state_current + "state_ground.json", data)
                 param_control.state_ground = json.loads(data)
             elif(dest == "network"):
-                parser_json.update_state_file(param_control.path_state_current + "state_network.json", data)
                 param_control.state_network = json.loads(data)
         except:
             print("[error] GET working problem dest [%s]"% dest)

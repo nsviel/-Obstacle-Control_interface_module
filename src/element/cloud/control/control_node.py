@@ -64,12 +64,9 @@ class Control_node(node.Node):
         if(function.check_port_compatibility(l1_port, l2_port)):
             param_control.state_control["control"]["socket"]["server_l1_port"] = l1_port
             param_control.state_control["control"]["socket"]["server_l2_port"] = l2_port
+            https_client_post.post_state("control", param_control.state_control)
             daemon.daemon_socket_l1.restart_daemon()
             daemon.daemon_socket_l2.restart_daemon()
-
-            param_control.state_edge["interface"]["server_l1_port"] = dpg.get_value(self.ID.ID_sock_server_l1_port)
-            param_control.state_edge["interface"]["server_l2_port"] = dpg.get_value(self.ID.ID_sock_server_l2_port)
-            https_client_post.post_state("edge", param_control.state_edge)
 
     # Update function
     def update(self):

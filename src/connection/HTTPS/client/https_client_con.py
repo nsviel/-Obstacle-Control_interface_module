@@ -18,9 +18,9 @@ def test_connection_edge():
 def connection_edge_open():
     if(param_control.state_control["interface"]["edge"]["http_connected"] == False):
         param_control.state_control["interface"]["edge"]["http_connected"] = True
-        https_client_post.post_state("edge", param_control.state_control)
+        https_client_post.post_state("control", param_control.state_control)
         https_client_post.post_state("edge", param_control.state_edge)
-        https_client_post.post_state("edge", param_control.state_ground)
+        https_client_post.post_state("ground", param_control.state_ground)
 
 def connection_edge_close():
     param_control.state_control["interface"]["edge"]["http_connected"] = False

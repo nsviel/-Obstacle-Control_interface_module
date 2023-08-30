@@ -74,14 +74,14 @@ class Lidar_window(window.Window):
             param_control.state_ground[self.ID.name]["info"]["add"] = add
             https_client_post.post_state("ground", param_control.state_ground)
     def command_motor_start(self):
-        https_client_post.post_commande("ground", self.ID.name, "start")
+        https_client_post.post_command(self.ID.name, "start")
     def command_motor_stop(self):
-        https_client_post.post_commande("ground", self.ID.name, "stop")
+        https_client_post.post_command(self.ID.name, "stop")
     def command_motor_speed(self):
         speed = dpg.get_value(self.ID.ID_motor_speed)
         param_control.state_ground[self.ID.name]["speed"] = speed
         https_client_post.post_state("ground", param_control.state_ground)
-        https_client_post.post_commande("ground", self.ID.name, "speed")
+        https_client_post.post_command(self.ID.name, "speed")
     def command_parameter(self):
         param_control.state_ground[self.ID.name]["info"]["device"] = dpg.get_value(self.ID.ID_device_list)
         param_control.state_ground[self.ID.name]["info"]["activated"] = dpg.get_value(self.ID.ID_activated)

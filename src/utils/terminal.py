@@ -17,8 +17,8 @@ def addLog(type, message):
         print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(param_control.tic_message)
 
-def addPost(dest, c1, c2):
-    message = "To %s [%s, %s]"%(dest, c1, c2)
+def add_post_command(dest, payload):
+    message = "To %s [%s]"%(dest, payload)
 
     print("[\033[1;30mPOST\033[0m]  " + message)
     time.sleep(param_control.tic_message)
@@ -32,9 +32,11 @@ def addDaemon(type, status, message):
         print("[\033[1;31merror\033[0m] Daemon ", flush=True, end='')
 
     if(status == "ON"):
-        print("\033[1;32m"+status+"\033[0m - "+message)
+        print("\033[1;32mON\033[0m - "+message)
     elif(status == "OFF"):
-        print("\033[1;31m"+status+"\033[0m - "+message)
+        print("\033[1;31mOFF\033[0m - "+message)
+    elif(status == "restart"):
+        print("\033[1;30mRESTART\033[0m - "+message)
 
     time.sleep(param_control.tic_message)
 

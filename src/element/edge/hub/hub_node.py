@@ -135,8 +135,7 @@ class Hub_node(node.Node):
 
     # Command function
     def command_false_alarm(self):
-        print("[\033[1;32mOK\033[0m] Send false alarm")
-        https_client_post.post_commande("edge", "operator", "false_alarm")
+        https_client_post.post_command("operator", "false_alarm")
     def command_port_socket(self):
         l1_port = dpg.get_value(self.ID.ID_sock_server_l1_port)
         l2_port = dpg.get_value(self.ID.ID_sock_server_l2_port)
@@ -145,12 +144,9 @@ class Hub_node(node.Node):
             param_control.state_edge["hub"]["socket"]["server_l2_port"] = l2_port
             https_client_post.post_state("edge", param_control.state_edge)
     def command_mqtt(self):
-        pass
-        #param_control.state_cloud["operator"]["broker_port"] = dpg.get_value(object.object.operator.ID_mqtt_broker_port)
-        #param_control.state_cloud["operator"]["mqtt_topic"] = dpg.get_value(object.object.operator.ID_mqtt_topic)
-        #param_control.state_cloud["operator"]["mqtt_client"] = dpg.get_value(object.object.edge_1.ID_mqtt_client_name)
-        #https_client_post.post_state("edge", param_control.state_edge)
-        #https_client_post.post_commande("edge", "operator", "reset")
+        param_control.state_cloud["operator"]["broker"]["client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
+        https_client_post.post_state("cloud", param_control.state_cloud)
+        https_client_post.post_command("operator", "reset")
     def command_combo_lidar_main(self):
-        lidar_main = dpg.get_value(self.ID.ID_combo_lidar_source)
-        param_control.state_edge["hub"]["socket"]["lidar_main"] = lidar_main
+        param_control.state_edge["hub"]["socket"]["lidar_main"] = dpg.get_value(self.ID.ID_combo_lidar_source)
+        https_client_post.post_state("edge", param_control.state_edge)
