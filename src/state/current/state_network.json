@@ -39,7 +39,7 @@
         }
     },
     "cloud_local": {
-        "timestamp": 1693399936.8444853,
+        "timestamp": 1693403857.1141872,
         "latency": {
             "value": 0,
             "min": 0,
@@ -54,8 +54,8 @@
         }
     },
     "time": {
-        "slam": 60.0,
+        "slam": 0,
         "ai": 0,
-        "total": 60.0
+        "total": 0
     }
 }
