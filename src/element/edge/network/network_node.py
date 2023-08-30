@@ -99,28 +99,30 @@ class Network_node(node.Node):
     def update(self):
         colorization.colorize_status_light(self.ID.ID_status_light, param_control.state_edge["interface"]["capture"]["http_connected"])
         colorization.colorize_status_light(self.ID.ID_mongo_status_light, param_control.state_network["mongodb"]["connected"])
-    def update_perf():
-        # Throughput
+        self.update_perf()
+    def update_perf(self):
         lidar_main = param_control.state_edge["hub"]["socket"]["lidar_main"]
-        value = "%.2f"% param_control.state_ground[lidar_main]["throughput"]["value"]
-        dpg.set_value("perf_throughput_up_val", value)
+        if(param_control.state_edge["interface"]["capture"]["http_connected"]):
+            throughput_up = "%.2f"% param_control.state_ground[lidar_main]["throughput"]["value"]
+            latency_up = "%.2f"% param_control.state_network["local_cloud"]["latency"]["value"]
+            latency_down = "%.2f"% param_control.state_network["cloud_local"]["latency"]["value"]
+            reliability_up = "%.2f"% param_control.state_network["local_cloud"]["reliability"]["value"]
+            reliability_down = "%.2f"% param_control.state_network["cloud_local"]["reliability"]["value"]
+            time_interruption = "%.2f"% param_control.state_network["local_cloud"]["interruption"]["value"]
+            time_processing = "%.2f"% param_control.state_network["time"]["total"]
+        else:
+            throughput_up = 0
+            latency_up = 0
+            latency_down = 0
+            reliability_up = 0
+            reliability_down = 0
+            time_interruption = 0
+            time_processing = 0
 
-        # Latency
-        value = "%.2f"% param_control.state_network["local_cloud"]["latency"]["value"]
-        dpg.set_value("perf_latency_up_val", value)
-        value = "%.2f"% param_control.state_network["cloud_local"]["latency"]["value"]
-        dpg.set_value("perf_latency_do_val", value)
-
-        # Reliability
-        value = "%.2f"% param_control.state_network["local_cloud"]["reliability"]["value"]
-        dpg.set_value("perf_reliability_up_val", value)
-        value = "%.2f"% param_control.state_network["cloud_local"]["reliability"]["value"]
-        dpg.set_value("perf_reliability_do_val", value)
-
-        # Interruption time
-        value = "%.2f"% param_control.state_network["local_cloud"]["interruption"]["value"]
-        dpg.set_value("perf_interruption_val", value)
-
-        # End to end time
-        dpg.set_value("perf_time_total", param_control.state_network["time"]["total"])
-        colorization.colorize_status_light("mongo_server_but", param_control.state_network["mongodb"]["status"])
+        dpg.set_value(self.ID.ID_perf_throughput_up, throughput_up)
+        dpg.set_value(self.ID.ID_perf_latency_up, latency_up)
+        dpg.set_value(self.ID.ID_perf_latency_down, latency_down)
+        dpg.set_value(self.ID.ID_perf_reliability_up, reliability_up)
+        dpg.set_value(self.ID.ID_perf_reliability_down, reliability_down)
+        dpg.set_value(self.ID.ID_perf_time_interruption, time_interruption)
+        dpg.set_value(self.ID.ID_perf_time_processing, time_processing)

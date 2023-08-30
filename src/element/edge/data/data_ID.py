@@ -41,4 +41,4 @@ class Data_ID:
         self.ID_plot_l2 = function.id_generator();
 
     def init_ID_icon(self):
-        self.ID_icon_image = gui_texture.load_texture("image_empty")
+        self.ID_image = gui_texture.load_texture("image_empty")

@@ -3,7 +3,7 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "localhost",
-            "status": "Online",
+            "status": "Offline",
             "nb_thread": 0
         },
         "socket": {

@@ -43,19 +43,18 @@ class Link:
         #colorization.colorize_link_socket(self.edge.state.state_interface["train"]["sock"]["l2_connected"], self.link_sock_l2_cap_hub)
 
     def update_dependencies(self):
-        param_control.state_edge["hub"]["info"]["status"] = "Offline"
-        param_control.state_edge["slam"]["info"]["status"] = "Offline"
-        param_control.state_edge["ai"]["info"]["status"] = "Offline"
-        param_control.state_network["mongodb"]["status"] = "Offline"
-
         if(param_control.state_control["interface"]["edge"]["http_connected"]):
             param_control.state_edge["hub"]["info"]["status"] = "Online"
             if(param_control.state_edge["ai"]["http"]["connected"]):
                 param_control.state_edge["ai"]["info"]["status"] = "Online"
+            else:
+                param_control.state_edge["ai"]["info"]["status"] = "Offline"
             if(param_control.state_edge["slam"]["http"]["connected"]):
                 param_control.state_edge["slam"]["info"]["status"] = "Online"
-
-        if(param_control.state_edge["hub"]["info"]["status"] == "Offline"):
+            else:
+                param_control.state_edge["slam"]["info"]["status"] = "Offline"
+        else:
+            param_control.state_edge["hub"]["info"]["status"] = "Offline"
             param_control.state_edge["data"]["nb_frame"] = 0
             param_control.state_edge["data"]["nb_prediction"] = 0
             param_control.state_edge["hub"]["info"]["nb_thread"] = 0
@@ -68,3 +67,5 @@ class Link:
 
         if(param_control.state_network["mongodb"]["connected"]):
             param_control.state_network["mongodb"]["status"] = "Online"
+        else:
+            param_control.state_network["mongodb"]["status"] = "Offline"
