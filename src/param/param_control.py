@@ -41,6 +41,6 @@ vec_x = []
 vec_y_l1 = []
 vec_y_l2 = []
 
-# Wallet - init with just locahost
-wallet_add = ("localhost",)
-wallet_ip = ("127.0.0.1",)
+# Wallet
+wallet = {}
+wallet_path = "src/element/misc/wallet/wallet.json"

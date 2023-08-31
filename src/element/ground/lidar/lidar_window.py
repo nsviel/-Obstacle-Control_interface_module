@@ -36,7 +36,7 @@ class Lidar_window(window.Window):
                 dpg.add_input_text(tag=self.ID.ID_ip, label="", default_value="", width=150, on_enter=True, callback=self.command_parameter);
             with dpg.table_row():
                 dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
+                dpg.add_combo(list(param_control.wallet.keys()), tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
             with dpg.table_row():
                 dpg.add_text("Speed");
                 with dpg.group(horizontal=True):
@@ -54,12 +54,11 @@ class Lidar_window(window.Window):
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_throughtput_value, color=gui_color.color_info);
                     dpg.add_text("MB/s");
-            with dpg.table_row():
-                with dpg.group(horizontal=True):
-                    dpg.add_text("[");
-                    dpg.add_text(0, tag=self.ID.ID_throughtput_range, color=gui_color.color_info);
-                    dpg.add_text("]");
-                    dpg.add_text("MB/s");
+        with dpg.group(horizontal=True):
+            dpg.add_text("[");
+            dpg.add_text(0, tag=self.ID.ID_throughtput_range, color=gui_color.color_info);
+            dpg.add_text("]");
+            dpg.add_text("MB/s");
     def build_device(self):
         dpg.add_text("Device")
         dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.command_parameter, width=250)
@@ -78,7 +77,7 @@ class Lidar_window(window.Window):
         parser_json.upload_file(param_control.path_node_pose, pose)
     def command_new_add(self):
         add = dpg.get_value(self.ID.ID_wallet)
-        ip = wallet_logic.get_ip_from_key(add)
+        ip = wallet_logic.get_ip_from_add(add)
         if(ip != None):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_ground[self.ID.name]["info"]["ip"] = ip
@@ -108,7 +107,7 @@ class Lidar_window(window.Window):
     def update_info(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_ground[self.ID.name]["info"]["status"])
         colorization.colorize_onoff(self.ID.ID_motor_on, self.ID.ID_motor_off, param_control.state_ground[self.ID.name]["motor"]["running"])
-        dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
+        dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
         dpg.set_value(self.ID.ID_status, param_control.state_ground[self.ID.name]["info"]["status"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground[self.ID.name]["info"]["ip"])
         dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["info"]["add"])
@@ -121,6 +120,6 @@ class Lidar_window(window.Window):
         min = param_control.state_ground[self.ID.name]["throughput"]["min"]
         mean = param_control.state_ground[self.ID.name]["throughput"]["mean"]
         max = param_control.state_ground[self.ID.name]["throughput"]["max"]
-        range = "%.2f, %.2f, %.2f"% (min, mean, max)
+        range = "%.3f, %.3f, %.3f"% (min, mean, max)
         dpg.set_value(self.ID.ID_throughtput_value, value)
         dpg.set_value(self.ID.ID_throughtput_range, range)

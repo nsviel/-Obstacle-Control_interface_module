@@ -26,7 +26,7 @@ class Capture_window(window.Window):
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
                 dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
+                dpg.add_combo(list(param_control.wallet.keys()), tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
             with dpg.table_row():
                 dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
@@ -43,7 +43,7 @@ class Capture_window(window.Window):
         parser_json.upload_file(param_control.path_node_pose, pose)
     def command_new_add(self):
         add = dpg.get_value(self.ID.ID_wallet)
-        ip = wallet_logic.get_ip_from_key(add)
+        ip = wallet_logic.get_ip_from_add(add)
         if(ip != None):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_ground["capture"]["info"]["ip"] = ip
@@ -53,7 +53,8 @@ class Capture_window(window.Window):
     # Update function
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_ground["capture"]["info"]["status"])
-        dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
+        dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
+        dpg.set_value(self.ID.ID_wallet, wallet_logic.get_add_from_ip(param_control.state_ground["capture"]["info"]["ip"]))
         dpg.set_value(self.ID.ID_status, param_control.state_ground["capture"]["info"]["status"])
         dpg.set_value(self.ID.ID_wallet, param_control.state_ground["capture"]["info"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground["capture"]["info"]["ip"])

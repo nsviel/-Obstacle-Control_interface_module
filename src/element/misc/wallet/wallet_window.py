@@ -31,10 +31,10 @@ class Wallet_window(window.Window):
             dpg.add_table_column(label="Address")
             dpg.add_table_column(label="IP")
             dpg.add_table_column(label="", width_fixed=True, init_width_or_weight=20)
-            for i in range(len(param_control.wallet_add)):
+            for i in range(len(list(param_control.wallet.keys()))):
                 with dpg.table_row():
-                    dpg.add_text(param_control.wallet_add[i])
-                    dpg.add_text(param_control.wallet_ip[i])
+                    dpg.add_text(list(param_control.wallet.keys())[i])
+                    dpg.add_text(list(param_control.wallet.values())[i])
                     if(i >= 4):
                         dpg.add_button(label="X", tag=str(i), callback=self.remove_add)
     def rebuild_list_element(self):

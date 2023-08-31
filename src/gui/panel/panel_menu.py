@@ -1,4 +1,5 @@
 #---------------------------------------------
+from src.param import param_control
 from src.gui.panel import panel_demo
 from src.gui.background import gui_ID
 from src.element import element

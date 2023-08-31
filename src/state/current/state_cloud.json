@@ -2,7 +2,7 @@
     "operator": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "localhost",
+            "add": "127.0.0.1",
             "status": "Online"
         },
         "broker": {

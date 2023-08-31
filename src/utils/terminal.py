@@ -19,7 +19,6 @@ def addLog(type, message):
 
 def add_post_command(dest, payload):
     message = "To %s [%s]"%(dest, payload)
-
     print("[\033[1;30mPOST\033[0m]  " + message)
     time.sleep(param_control.tic_message)
 
