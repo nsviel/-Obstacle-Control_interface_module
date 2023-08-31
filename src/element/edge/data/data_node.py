@@ -8,6 +8,12 @@ import dearpygui.dearpygui as dpg
 
 
 class Data_node(node.Node):
+    def __init__(self, ID, plot):
+        self.ID = ID
+        self.status = "Offline"
+        self.is_visible = True
+        self.plot = plot
+
     # Build function
     def build(self):
         self.ID.init_ID_icon()
@@ -29,7 +35,7 @@ class Data_node(node.Node):
     def build_plot(self, label, tag_y, tag_plot):
         x = []
         y = []
-        for i in range(0, param_control.nb_tic):
+        for i in range(0, self.plot.nb_tic):
             x.append(i)
             y.append(0)
         with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):

@@ -4,7 +4,7 @@
             "ip": "127.0.0.1",
             "add": "-",
             "status": "Online",
-            "nb_thread": 9
+            "nb_thread": 7
         },
         "socket": {
             "server_l1_port": 8308,
@@ -53,13 +53,13 @@
             "speed": 600
         },
         "throughput": {
-            "value": 0.958,
+            "value": 0.961,
             "min": 0.955,
             "max": 0.961,
-            "mean": 0.9590526315789474
+            "mean": 0.9592631578947368
         },
         "packet": {
-            "value": 120346
+            "value": 151108
         },
         "running": true
     },

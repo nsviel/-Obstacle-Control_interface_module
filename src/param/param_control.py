@@ -30,13 +30,6 @@ run_loop = True;
 tic_loop = 0.033
 tic_message = 0.05
 
-# Plot
-nb_tic = 1000
-last_x = 0
-vec_x = []
-vec_y_l1 = []
-vec_y_l2 = []
-
 # Wallet
 wallet = {}
 wallet_path = "src/element/misc/wallet/wallet.json"

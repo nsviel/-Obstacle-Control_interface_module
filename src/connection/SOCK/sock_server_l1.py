@@ -2,7 +2,7 @@
 from src.param import param_control
 from src.utils import terminal
 from src.base import daemon
-from src.element.edge.data import data_plot
+from src.element import element
 import socket
 
 
@@ -20,7 +20,7 @@ class Socket_l1(daemon.Daemon):
     def thread_function(self):
         try:
             packet, (address, port) = self.socket.recvfrom(4096)
-            data_plot.process_l1_data(packet)
+            element.object.edge.data.plot.process_l1_data(packet)
             param_control.state_control["interface"]["edge"]["sock_l1_connected"] = True
         except:
             param_control.state_control["interface"]["edge"]["sock_l1_connected"] = False
