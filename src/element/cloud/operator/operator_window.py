@@ -15,16 +15,21 @@ class Operator_window(window.Window):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()
-            with dpg.table_row():
-                dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["info"]["add"], width=120, callback=self.command_new_add)
-            with dpg.table_row():
-                dpg.add_text("IP");
-                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+            self.build_info()
         dpg.add_separator()
         self.colorize_window()
+        self.init_values()
+    def build_info(self):
+        with dpg.table_row():
+            dpg.add_text("IP");
+            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+        with dpg.table_row():
+            dpg.add_text("Address");
+            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["info"]["add"], width=120, callback=self.command_new_add)
     def colorize_window(self):
         pass
+    def init_values(self):
+        dpg.set_value(self.ID.ID_wallet, param_control.state_cloud["operator"]["info"]["add"])
 
     # Command function
     def save_coord_to_file(self):
@@ -43,4 +48,5 @@ class Operator_window(window.Window):
     # Update function
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])
+        dpg.configure_item(self.ID.ID_wallet, items=param_control.wallet_add)
         dpg.set_value(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])

@@ -16,20 +16,25 @@ class Hub_window(window.Window):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()
-            with dpg.table_row():
-                dpg.add_text("Address");
-                dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
-            with dpg.table_row():
-                dpg.add_text("IP");
-                dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
-            with dpg.table_row():
-                dpg.add_text("Nb thread");
-                dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
+            self.build_info()
         dpg.add_separator()
         self.colorize_window()
+        self.init_values()
+    def build_info(self):
+        with dpg.table_row():
+            dpg.add_text("IP");
+            dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
+        with dpg.table_row():
+            dpg.add_text("Address");
+            dpg.add_combo(param_control.wallet_add, tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
+        with dpg.table_row():
+            dpg.add_text("Nb thread");
+            dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
         colorization.colorize_item(self.ID.ID_ip, "node_sub")
+    def init_values(self):
+        dpg.set_value(self.ID.ID_wallet, param_control.state_edge["hub"]["info"]["add"])
 
     # Command function
     def save_coord_to_file(self):
@@ -53,6 +58,5 @@ class Hub_window(window.Window):
         dpg.set_value(self.ID.ID_status, param_control.state_edge["hub"]["info"]["status"])
         dpg.set_value(self.ID.ID_edge_id, param_control.state_edge["hub"]["info"]["edge_id"])
         dpg.set_value(self.ID.ID_edge_country, param_control.state_edge["hub"]["info"]["country"])
-        dpg.set_value(self.ID.ID_wallet, param_control.state_edge["hub"]["info"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_edge["hub"]["info"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_edge["hub"]["info"]["nb_thread"])

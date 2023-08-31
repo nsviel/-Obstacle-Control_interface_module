@@ -16,8 +16,8 @@ class Link:
         dpg.add_node_link(self.ground.lidar_2.ID.ID_sock_client, self.ground.capture.ID.ID_sock_server_l2, tag=self.link_l2_capture)
 
     def update(self):
-        pass#colorization.colorize_link_socket(self.ground.state["component"]["lidar_1"]["connected"], self.link_l1_capture)
-        #colorization.colorize_link_socket(self.ground.state["component"]["lidar_2"]["connected"], self.link_l2_capture)
+        colorization.colorize_link_socket(self.link_l1_capture, param_control.state_ground["lidar_1"]["info"]["connected"])
+        colorization.colorize_link_socket(self.link_l2_capture, param_control.state_ground["lidar_2"]["info"]["connected"])
 
     def update_dependencies(self):
         param_control.state_ground["capture"]["info"]["status"] = "Offline"

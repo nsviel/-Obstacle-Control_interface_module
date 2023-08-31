@@ -71,18 +71,18 @@ def colorize_onoff(tag_on, tag_off, state):
         dpg.bind_item_theme(tag_off, color_off)
 
 # Link colorization
-def colorize_link_http(state, tag):
+def colorize_link_http(ID, state):
     if(state):
-        conn = gui_color.color_link_green()
-        dpg.bind_item_theme(tag, conn)
+        connected = gui_color.color_link_green()
+        dpg.bind_item_theme(ID, connected)
     else:
-        disconn = gui_color.color_link_red()
-        dpg.bind_item_theme(tag, disconn)
+        disconnected = gui_color.color_link_red()
+        dpg.bind_item_theme(ID, disconnected)
 
-def colorize_link_socket(state, tag):
+def colorize_link_socket(ID, state):
     if(state):
-        conn = gui_color.color_link_blue()
-        dpg.bind_item_theme(tag, conn)
+        connected = gui_color.color_link_blue()
+        dpg.bind_item_theme(ID, connected)
     else:
-        disconn = gui_color.color_link_whiteblue()
-        dpg.bind_item_theme(tag, disconn)
+        disconnected = gui_color.color_link_whiteblue()
+        dpg.bind_item_theme(ID, disconnected)

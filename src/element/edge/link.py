@@ -33,14 +33,14 @@ class Link:
         dpg.add_node_link(self.edge.hub.ID.ID_mqtt_client, cloud.operator.ID.ID_mqtt_broker, tag=self.link_mqtt_hub_operator)
 
     def update(self):
-        colorization.colorize_link_http(param_control.state_edge["slam"]["http"]["connected"], self.link_http_hub_slam)
-        colorization.colorize_link_http(param_control.state_edge["ai"]["http"]["connected"], self.link_http_hub_ai)
-        colorization.colorize_link_http(param_control.state_edge["interface"]["capture"]["http_connected"], self.link_http_cap_hub)
-        colorization.colorize_link_http(param_control.state_edge["interface"]["operator"]["broker_connected"], self.link_mqtt_hub_operator)
+        colorization.colorize_link_http(self.link_http_hub_slam, param_control.state_edge["slam"]["http"]["connected"])
+        colorization.colorize_link_http(self.link_http_hub_ai, param_control.state_edge["ai"]["http"]["connected"])
+        colorization.colorize_link_http(self.link_http_cap_hub, param_control.state_edge["interface"]["capture"]["http_connected"])
+        colorization.colorize_link_http(self.link_mqtt_hub_operator, param_control.state_edge["interface"]["operator"]["broker_connected"])
 
-        colorization.colorize_link_socket(param_control.state_edge["slam"]["socket"]["connected"], self.link_sock_hub_slam)
-        #colorization.colorize_link_socket(self.edge.state.state_interface["train"]["sock"]["l1_connected"], self.link_sock_l1_cap_hub)
-        #colorization.colorize_link_socket(self.edge.state.state_interface["train"]["sock"]["l2_connected"], self.link_sock_l2_cap_hub)
+        colorization.colorize_link_socket(self.link_sock_hub_slam, param_control.state_edge["slam"]["socket"]["connected"])
+        #colorization.colorize_link_socket(self.link_sock_l1_cap_hub, self.edge.state.state_interface["train"]["sock"]["l1_connected"])
+        #colorization.colorize_link_socket(self.link_sock_l2_cap_hub, self.edge.state.state_interface["train"]["sock"]["l2_connected"])
 
     def update_dependencies(self):
         if(param_control.state_control["interface"]["edge"]["http_connected"]):
