@@ -13,6 +13,11 @@ import dearpygui.dearpygui as dpg
 class Capture_window(window.Window):
     # Build function
     def build_parameter(self):
+        self.build_setting()
+        dpg.add_separator()
+        self.colorize_window()
+        self.init_values()
+    def build_setting(self):
         with dpg.table(header_row=False, borders_innerH=True):
             dpg.add_table_column()
             dpg.add_table_column()
@@ -25,9 +30,6 @@ class Capture_window(window.Window):
             with dpg.table_row():
                 dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
-        dpg.add_separator()
-        self.colorize_window()
-        self.init_values()
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
         colorization.colorize_item(self.ID.ID_ip, "node_sub")

@@ -31,6 +31,7 @@ class Hub_ID:
         self.ID_edge_country = function.id_generator();
         self.ID_wallet = function.id_generator();
         self.ID_thread = function.id_generator();
+        self.ID_table = function.id_generator();
 
     def init_ID_http(self):
         self.ID_http_client = function.id_generator();

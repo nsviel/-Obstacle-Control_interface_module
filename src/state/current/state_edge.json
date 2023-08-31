@@ -16,7 +16,7 @@
         "http": {
             "server_port": 443
         },
-        "nb_thread": 8
+        "nb_thread": 9
     },
     "slam": {
         "info": {
