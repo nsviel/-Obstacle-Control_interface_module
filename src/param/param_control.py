@@ -30,10 +30,6 @@ run_loop = True;
 tic_loop = 0.033
 tic_message = 0.05
 
-# Socket
-sock_server_l1 = None
-sock_server_l2 = None
-
 # Plot
 nb_tic = 1000
 last_x = 0

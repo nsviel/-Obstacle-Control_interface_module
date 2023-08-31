@@ -33,6 +33,7 @@ class Link:
         dpg.add_node_link(self.edge.hub.ID.ID_mqtt_client, cloud.operator.ID.ID_mqtt_broker, tag=self.link_mqtt_hub_operator)
 
     def update(self):
+        self.update_dependencies()
         colorization.colorize_link_http(self.link_http_hub_slam, param_control.state_edge["slam"]["http"]["connected"])
         colorization.colorize_link_http(self.link_http_hub_ai, param_control.state_edge["ai"]["http"]["connected"])
         colorization.colorize_link_http(self.link_http_cap_hub, param_control.state_edge["interface"]["capture"]["http_connected"])
@@ -53,6 +54,7 @@ class Link:
                 param_control.state_edge["slam"]["info"]["status"] = "Online"
             else:
                 param_control.state_edge["slam"]["info"]["status"] = "Offline"
+                param_control.state_edge["slam"]["socket"]["connected"] = False
         else:
             param_control.state_edge["hub"]["info"]["status"] = "Offline"
             param_control.state_edge["data"]["nb_frame"] = 0

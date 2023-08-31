@@ -20,6 +20,7 @@ class Link:
         dpg.add_node_link(edge.hub.ID.ID_sock_client_l2, self.cloud.control.ID.ID_sock_server_l2, tag=self.link_sock_l2_control_edge)
 
     def update(self):
+        self.update_dependencies()
         colorization.colorize_link_http(self.link_control_ssd, param_control.state_control["interface"]["ssd_connected"])
         colorization.colorize_link_http(self.link_http_control_edge, param_control.state_control["interface"]["edge"]["http_connected"])
         colorization.colorize_link_socket(self.link_sock_l1_control_edge, param_control.state_control["interface"]["edge"]["sock_l1_connected"])

@@ -9,6 +9,5 @@ class Scheme_update(daemon.Daemon):
 
     def thread_function(self):
         element.object.update_links()
-        element.object.update_link_dependencies()
         element.object.update_nodes()
         element.object.update_windows()
