@@ -2,7 +2,7 @@
     "hub": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "127.0.0.1",
+            "add": "localhost",
             "status": "Online",
             "edge_id": 0,
             "country": "France",

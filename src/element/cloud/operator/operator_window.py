@@ -29,7 +29,9 @@ class Operator_window(window.Window):
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
     def init_values(self):
-        dpg.set_value(self.ID.ID_wallet, param_control.state_cloud["operator"]["info"]["add"])
+        add = wallet_logic.get_add_from_ip(param_control.state_cloud["operator"]["info"]["ip"])
+        param_control.state_cloud["operator"]["info"]["add"] = add
+        dpg.set_value(self.ID.ID_wallet, add)
 
     # Command function
     def save_coord_to_file(self):

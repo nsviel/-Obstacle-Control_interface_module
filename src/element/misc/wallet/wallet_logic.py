@@ -5,17 +5,6 @@ import pandas as pd
 import json
 
 
-# Initialisation function
-def initialization():
-    read_wallet_file()
-    determine_adresse()
-def determine_adresse():
-    param_control.state_edge["hub"]["info"]["add"] = get_add_from_ip(param_control.state_edge["hub"]["info"]["ip"])
-    param_control.state_cloud["operator"]["info"]["add"] = get_add_from_ip(param_control.state_cloud["operator"]["info"]["ip"])
-    param_control.state_ground["capture"]["info"]["add"] = get_add_from_ip(param_control.state_ground["capture"]["info"]["ip"])
-    param_control.state_ground["lidar_1"]["info"]["add"] = get_add_from_ip(param_control.state_ground["lidar_1"]["info"]["ip"])
-    param_control.state_ground["lidar_2"]["info"]["add"] = get_add_from_ip(param_control.state_ground["lidar_2"]["info"]["ip"])
-
 # IO
 def read_wallet_file():
     param_control.wallet = parser_json.load_data_from_file(param_control.wallet_path)
@@ -40,5 +29,5 @@ def get_ip_from_add(add):
 def get_add_from_ip(ip):
     for key, value in param_control.wallet.items():
         if(ip == value):
-            return param_control.wallet[key]
+            return key
     return "-"

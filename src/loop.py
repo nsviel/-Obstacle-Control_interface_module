@@ -20,7 +20,6 @@ def init():
     state.load_state_initial()
     saving.determine_path()
     element.object.init_objects()
-    wallet_logic.initialization()
     gui.initialization()
     daemon.start_daemons()
     terminal.addLog("OK", "Program initialized...")

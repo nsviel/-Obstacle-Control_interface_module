@@ -8,5 +8,5 @@ from src.element.misc.wallet import wallet_logic
 class Wallet:
     def __init__(self):
         self.ID = wallet_ID.Wallet_ID()
-        wallet_logic.initialization()
+        wallet_logic.read_wallet_file()
         self.window = wallet_window.Wallet_window(self.ID)

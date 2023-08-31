@@ -12,7 +12,7 @@
         "connected": false
     },
     "local_cloud": {
-        "timestamp": 1693480526.5848932,
+        "timestamp": 1693481236.1916816,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,10 +20,10 @@
             "mean": 0
         },
         "latency": {
-            "value": 0.053,
-            "min": 0.032,
-            "max": 0.085,
-            "mean": 0.0529
+            "value": 0.043,
+            "min": 0.043,
+            "max": 0.073,
+            "mean": 0.0531
         },
         "reliability": {
             "value": 100.0,
@@ -39,12 +39,12 @@
         }
     },
     "cloud_local": {
-        "timestamp": 1693480527.102032,
+        "timestamp": 1693481236.6956425,
         "latency": {
-            "value": 0.064,
-            "min": 0.033,
-            "max": 0.111,
-            "mean": 0.06970000000000001
+            "value": 0.054,
+            "min": 0.03,
+            "max": 0.142,
+            "mean": 0.06150000000000001
         },
         "reliability": {
             "value": 100.0,

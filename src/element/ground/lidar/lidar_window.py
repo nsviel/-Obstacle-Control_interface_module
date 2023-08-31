@@ -68,7 +68,9 @@ class Lidar_window(window.Window):
         colorization.colorize_item(self.ID.ID_motor_speed, "node_sub")
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
     def init_values(self):
-        dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["info"]["add"])
+        add = wallet_logic.get_add_from_ip(param_control.state_ground[self.ID.name]["info"]["ip"])
+        param_control.state_ground[self.ID.name]["info"]["add"] = add
+        dpg.set_value(self.ID.ID_wallet, add)
 
     # Command function
     def save_coord_to_file(self):
@@ -110,7 +112,6 @@ class Lidar_window(window.Window):
         dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
         dpg.set_value(self.ID.ID_status, param_control.state_ground[self.ID.name]["info"]["status"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground[self.ID.name]["info"]["ip"])
-        dpg.set_value(self.ID.ID_wallet, param_control.state_ground[self.ID.name]["info"]["add"])
     def update_device_list(self):
         devices = io.get_list_device_from_state()
         dpg.configure_item(self.ID.ID_device_list, default_value=param_control.state_ground[self.ID.name]["info"]["device"], items=devices, num_items=len(devices))

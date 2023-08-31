@@ -34,7 +34,9 @@ class Capture_window(window.Window):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
         colorization.colorize_item(self.ID.ID_ip, "node_sub")
     def init_values(self):
-        dpg.set_value(self.ID.ID_wallet, param_control.state_ground["capture"]["info"]["add"])
+        add = wallet_logic.get_add_from_ip(param_control.state_ground["capture"]["info"]["ip"])
+        param_control.state_ground["capture"]["info"]["add"] = add
+        dpg.set_value(self.ID.ID_wallet, add)
 
     # Command function
     def save_coord_to_file(self):
@@ -54,8 +56,6 @@ class Capture_window(window.Window):
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_ground["capture"]["info"]["status"])
         dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
-        dpg.set_value(self.ID.ID_wallet, wallet_logic.get_add_from_ip(param_control.state_ground["capture"]["info"]["ip"]))
         dpg.set_value(self.ID.ID_status, param_control.state_ground["capture"]["info"]["status"])
-        dpg.set_value(self.ID.ID_wallet, param_control.state_ground["capture"]["info"]["add"])
         dpg.set_value(self.ID.ID_ip, param_control.state_ground["capture"]["info"]["ip"])
         dpg.set_value(self.ID.ID_thread, param_control.state_ground["capture"]["info"]["nb_thread"])

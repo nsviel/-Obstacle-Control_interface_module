@@ -34,7 +34,9 @@ class Hub_window(window.Window):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
         colorization.colorize_item(self.ID.ID_ip, "node_sub")
     def init_values(self):
-        dpg.set_value(self.ID.ID_wallet, param_control.state_edge["hub"]["info"]["add"])
+        add = wallet_logic.get_add_from_ip(param_control.state_edge["hub"]["info"]["ip"])
+        param_control.state_edge["hub"]["info"]["add"] = add
+        dpg.set_value(self.ID.ID_wallet, add)
 
     # Command function
     def save_coord_to_file(self):
