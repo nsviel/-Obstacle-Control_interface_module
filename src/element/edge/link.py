@@ -39,8 +39,8 @@ class Link:
         colorization.colorize_link_http(self.link_mqtt_hub_operator, param_control.state_edge["interface"]["operator"]["broker_connected"])
 
         colorization.colorize_link_socket(self.link_sock_hub_slam, param_control.state_edge["slam"]["socket"]["connected"])
-        #colorization.colorize_link_socket(self.link_sock_l1_cap_hub, self.edge.state.state_interface["train"]["sock"]["l1_connected"])
-        #colorization.colorize_link_socket(self.link_sock_l2_cap_hub, self.edge.state.state_interface["train"]["sock"]["l2_connected"])
+        colorization.colorize_link_socket(self.link_sock_l1_cap_hub, param_control.state_edge["interface"]["capture"]["sock_l1_connected"])
+        colorization.colorize_link_socket(self.link_sock_l2_cap_hub, param_control.state_edge["interface"]["capture"]["sock_l2_connected"])
 
     def update_dependencies(self):
         if(param_control.state_control["interface"]["edge"]["http_connected"]):

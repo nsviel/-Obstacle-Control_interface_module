@@ -24,7 +24,7 @@ def system_clear():
     os.system('clear')
 
 def update_nb_thread():
-    param_control.state_control["control"]["nb_thread"] = threading.active_count()
+    param_control.state_control["control"]["info"]["nb_thread"] = threading.active_count()
 
 def check_for_root():
     if not os.geteuid() == 0:

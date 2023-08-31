@@ -7,6 +7,9 @@ import dearpygui.dearpygui as dpg
 
 
 class Data_image(daemon.Daemon):
+    def __init__(self):
+        self.name = "Data image";
+
     def thread_function(self):
         # Load current image
         image_acquired = https_client_get.get_image("edge")
