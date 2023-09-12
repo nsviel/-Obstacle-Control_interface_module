@@ -16,9 +16,12 @@ class Network_node(node.Node):
             self.build_table_kpi()
             self.build_table_database()
         self.position_node()
+        self.colorize_node()
     def position_node(self):
         pose = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, pose["edge"]["network"])
+    def colorize_node(self):
+        colorization.colorize_node(self.ID.ID_node, "network")
 
     # Table functions
     def build_table_kpi(self):
@@ -104,11 +107,11 @@ class Network_node(node.Node):
         lidar_main = param_control.state_edge["hub"]["socket"]["lidar_main"]
         if(param_control.state_edge["interface"]["capture"]["http_connected"]):
             throughput_up = "%.2f"% param_control.state_ground[lidar_main]["throughput"]["value"]
-            latency_up = "%.2f"% param_control.state_network["local_cloud"]["latency"]["value"]
-            latency_down = "%.2f"% param_control.state_network["cloud_local"]["latency"]["value"]
-            reliability_up = "%.2f"% param_control.state_network["local_cloud"]["reliability"]["value"]
-            reliability_down = "%.2f"% param_control.state_network["cloud_local"]["reliability"]["value"]
-            time_interruption = "%.2f"% param_control.state_network["local_cloud"]["interruption"]["value"]
+            latency_up = "%.2f"% param_control.state_network["ground_to_edge"]["latency"]["value"]
+            latency_down = "%.2f"% param_control.state_network["edge_to_ground"]["latency"]["value"]
+            reliability_up = "%.2f"% param_control.state_network["ground_to_edge"]["reliability"]["value"]
+            reliability_down = "%.2f"% param_control.state_network["edge_to_ground"]["reliability"]["value"]
+            time_interruption = "%.2f"% param_control.state_network["ground_to_edge"]["interruption"]["value"]
             time_processing = "%.2f"% param_control.state_network["time"]["total"]
         else:
             throughput_up = 0

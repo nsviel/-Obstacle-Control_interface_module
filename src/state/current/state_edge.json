@@ -3,10 +3,10 @@
         "info": {
             "ip": "127.0.0.1",
             "add": "localhost",
-            "status": "Offline",
+            "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 0
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 344,
@@ -53,12 +53,12 @@
     },
     "interface": {
         "operator": {
-            "broker_connected": false
+            "broker_connected": true
         },
         "capture": {
             "sock_l1_connected": false,
             "sock_l2_connected": false,
-            "http_connected": false
+            "http_connected": true
         }
     }
 }
