@@ -5,7 +5,7 @@ from src.element.misc.block import block
 
 class Misc:
     def __init__(self, ID):
-        self.ID_misc = "misc_" + str(ID)
+        self.ID = "misc_" + str(ID)
         self.wallet = wallet.Wallet()
         self.block = block.Block()
 

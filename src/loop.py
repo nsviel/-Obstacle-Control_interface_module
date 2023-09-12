@@ -6,8 +6,6 @@ from src.element import element
 from src.state import state
 from src.utils import saving
 from src.utils import terminal
-from src.element.misc.wallet import wallet_logic
-
 import time
 
 

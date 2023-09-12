@@ -6,7 +6,6 @@ from src.gui.style import gui_color
 from src.gui.style import colorization
 from src.connection.HTTPS.client import https_client_post
 from src.utils import parser_json
-from src.element.misc.wallet import wallet_logic
 import dearpygui.dearpygui as dpg
 
 

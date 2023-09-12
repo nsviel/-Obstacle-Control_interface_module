@@ -5,29 +5,33 @@ import pandas as pd
 import json
 
 
-# IO
-def read_wallet_file():
-    param_control.wallet = parser_json.load_data_from_file(param_control.wallet_path)
-def write_wallet_file():
-    parser_json.upload_file(param_control.wallet_path, param_control.wallet)
+class Wallet_logic:
+    def __init__(self):
+        self.wallet = {}
+        self.read_wallet_file()
 
-# Add / Suppress wallet element
-def add_new_item(new_add, new_ip):
-    new_item = {new_add:new_ip}
-    param_control.wallet.update(new_item)
-    write_wallet_file()
-def remove_item(add):
-    param_control.wallet.pop(add)
-    write_wallet_file()
-def remove_item_id(id):
-    del param_control.wallet[int(id)]
-    write_wallet_file()
+    # IO
+    def read_wallet_file(self):
+        self.wallet = parser_json.load_data_from_file(param_control.path_wallet)
+    def write_wallet_file(self):
+        parser_json.upload_file(param_control.path_wallet, self.wallet)
+    def get_list_add(self):
+        return list(self.wallet.keys())
 
-# Subfunction
-def get_ip_from_add(add):
-    return param_control.wallet[add]
-def get_add_from_ip(ip):
-    for key, value in param_control.wallet.items():
-        if(ip == value):
-            return key
-    return "-"
+    # Add / Suppress wallet element
+    def add_new_item(self, new_add, new_ip):
+        new_item = {new_add:new_ip}
+        self.wallet.update(new_item)
+        self.write_wallet_file()
+    def remove_item_id(self, id):
+        self.wallet.pop(list(self.wallet.keys())[int(id)])
+        self.write_wallet_file()
+
+    # Subfunction
+    def get_ip_from_add(self, add):
+        return self.wallet[add]
+    def get_add_from_ip(self, ip):
+        for key, value in self.wallet.items():
+            if(ip == value):
+                return key
+        return "-"

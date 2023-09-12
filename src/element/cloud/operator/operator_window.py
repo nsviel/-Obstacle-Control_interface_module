@@ -3,7 +3,7 @@ from src.param import param_control
 from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
-from src.element.misc.wallet import wallet_logic
+from src.element import element
 from src.connection.HTTPS.client import https_client_post
 from src.gui.style import colorization
 import dearpygui.dearpygui as dpg
@@ -25,11 +25,11 @@ class Operator_window(window.Window):
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
                 dpg.add_text("Address");
-                dpg.add_combo(list(param_control.wallet.keys()), tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["info"]["add"], width=120, callback=self.command_new_add)
+                dpg.add_combo(element.object.misc.wallet.logic.get_list_add(), tag=self.ID.ID_wallet, label="", default_value=param_control.state_cloud["operator"]["info"]["add"], width=120, callback=self.command_new_add)
     def colorize_window(self):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
     def init_values(self):
-        add = wallet_logic.get_add_from_ip(param_control.state_cloud["operator"]["info"]["ip"])
+        add = element.object.misc.wallet.logic.get_add_from_ip(param_control.state_cloud["operator"]["info"]["ip"])
         param_control.state_cloud["operator"]["info"]["add"] = add
         dpg.set_value(self.ID.ID_wallet, add)
 
@@ -40,7 +40,7 @@ class Operator_window(window.Window):
         parser_json.upload_file(param_control.path_node_pose, pose)
     def command_new_add(self):
         add = dpg.get_value(self.ID.ID_wallet)
-        ip = wallet_logic.get_ip_from_add(add)
+        ip = element.object.misc.wallet.logic.get_ip_from_add(add)
         if(ip != None):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_cloud["operator"]["broker"]["ip"] = ip
@@ -50,5 +50,5 @@ class Operator_window(window.Window):
     # Update function
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])
-        dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
+        dpg.configure_item(self.ID.ID_wallet, items=element.object.misc.wallet.logic.get_list_add())
         dpg.set_value(self.ID.ID_status, param_control.state_cloud["operator"]["info"]["status"])

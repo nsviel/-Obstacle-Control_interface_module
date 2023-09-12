@@ -14,6 +14,7 @@ state_cloud = {}
 path_state_current = "src/state/current/"
 path_state_initial = "src/state/initial/"
 path_node_pose = "src/state/scheme_position.json"
+path_wallet = "src/state/wallet.json"
 path_ssd = "/app/lidar_ssd"
 
 # GUI
@@ -29,7 +30,3 @@ run_loop = True;
 # Tic delay
 tic_loop = 0.033
 tic_message = 0.05
-
-# Wallet
-wallet = {}
-wallet_path = "src/element/misc/wallet/wallet.json"

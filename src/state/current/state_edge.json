@@ -1,8 +1,8 @@
 {
     "hub": {
         "info": {
-            "ip": "10.17.231.40",
-            "add": "VM_1_MEC_spanish",
+            "ip": "127.0.0.1",
+            "add": "localhost",
             "status": "Offline",
             "edge_id": 0,
             "country": "France",

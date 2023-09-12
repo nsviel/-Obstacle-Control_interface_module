@@ -3,7 +3,7 @@ from src.param import param_control
 from src.base import window
 from src.gui.style import gui_color
 from src.utils import parser_json
-from src.element.misc.wallet import wallet_logic
+from src.element import element
 from src.connection.HTTPS.client import https_client_con
 from src.connection.HTTPS.client import https_client_post
 from src.gui.style import colorization
@@ -26,7 +26,7 @@ class Hub_window(window.Window):
                 dpg.add_text("127.0.0.1", tag=self.ID.ID_ip, color=gui_color.color_info);
             with dpg.table_row():
                 dpg.add_text("Address");
-                dpg.add_combo(list(param_control.wallet.keys()), tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
+                dpg.add_combo(element.object.misc.wallet.logic.get_list_add(), tag=self.ID.ID_wallet, label="", default_value="-", width=120, callback=self.command_new_add)
             with dpg.table_row():
                 dpg.add_text("Nb thread");
                 dpg.add_text(1, tag=self.ID.ID_thread, color=gui_color.color_info);
@@ -34,7 +34,7 @@ class Hub_window(window.Window):
         colorization.colorize_item(self.ID.ID_wallet, "node_sub")
         colorization.colorize_item(self.ID.ID_ip, "node_sub")
     def init_values(self):
-        add = wallet_logic.get_add_from_ip(param_control.state_edge["hub"]["info"]["ip"])
+        add = element.object.misc.wallet.logic.get_add_from_ip(param_control.state_edge["hub"]["info"]["ip"])
         param_control.state_edge["hub"]["info"]["add"] = add
         dpg.set_value(self.ID.ID_wallet, add)
 
@@ -45,7 +45,7 @@ class Hub_window(window.Window):
         parser_json.upload_file(param_control.path_node_pose, pose)
     def command_new_add(self):
         add = dpg.get_value(self.ID.ID_wallet)
-        ip = wallet_logic.get_ip_from_add(add)
+        ip = element.object.misc.wallet.logic.get_ip_from_add(add)
         if(ip != None):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_edge["hub"]["info"]["ip"] = ip
@@ -56,7 +56,7 @@ class Hub_window(window.Window):
     # Update function
     def update(self):
         colorization.colorize_status(self.ID.ID_status, param_control.state_edge["hub"]["info"]["status"])
-        dpg.configure_item(self.ID.ID_wallet, items=list(param_control.wallet.keys()))
+        dpg.configure_item(self.ID.ID_wallet, items=element.object.misc.wallet.logic.get_list_add())
         dpg.set_value(self.ID.ID_status, param_control.state_edge["hub"]["info"]["status"])
         dpg.set_value(self.ID.ID_edge_id, param_control.state_edge["hub"]["info"]["edge_id"])
         dpg.set_value(self.ID.ID_edge_country, param_control.state_edge["hub"]["info"]["country"])
