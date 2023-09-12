@@ -1,6 +1,7 @@
 #---------------------------------------------
 from src.param import param_control
 from src.utils import parser_json
+from src.utils import signal
 import pandas as pd
 import json
 
@@ -9,6 +10,7 @@ class Wallet_logic:
     def __init__(self):
         self.wallet = {}
         self.read_wallet_file()
+        self.add_control_address()
 
     # IO
     def read_wallet_file(self):
@@ -26,6 +28,8 @@ class Wallet_logic:
     def remove_item_id(self, id):
         self.wallet.pop(list(self.wallet.keys())[int(id)])
         self.write_wallet_file()
+    def add_control_address(self):
+        self.add_new_item("Control_interface", signal.get_ip_adress())
 
     # Subfunction
     def get_ip_from_add(self, add):

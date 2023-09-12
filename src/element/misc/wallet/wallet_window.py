@@ -38,7 +38,7 @@ class Wallet_window(window.Window):
                 with dpg.table_row():
                     dpg.add_text(self.logic.get_list_add()[i])
                     dpg.add_text(list(self.logic.wallet.values())[i])
-                    if(i > 6):
+                    if(i > 7):
                         dpg.add_button(label="X", tag=str(i), callback=self.remove_add)
     def rebuild_list_element(self):
         dpg.delete_item(self.ID.ID_table,)
