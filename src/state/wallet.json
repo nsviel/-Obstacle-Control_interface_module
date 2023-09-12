@@ -5,6 +5,7 @@
     "lidar_2_static": "192.168.2.201",
     "VM_1_MEC_spanish": "10.17.231.40",
     "VM_2_MEC_french": "10.17.231.41",
+    "VM_MongoDB": "10.17.216.35",
     "Capture": "10.17.212.21",
     "Control_interface": "192.168.152.40"
 }
