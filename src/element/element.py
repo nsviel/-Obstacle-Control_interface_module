@@ -61,7 +61,7 @@ class Element():
         self.ground.link.update()
         self.edge.link.update()
         self.cloud.link.update()
-        
+
     # Update
     def update_scheme(self):
         self.update_links()

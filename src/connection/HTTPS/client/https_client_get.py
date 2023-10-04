@@ -20,6 +20,7 @@ def get_state(dest):
         try:
             if(dest == "edge"):
                 param_control.state_edge = json.loads(data)
+                param_control.state_edge["hub"]["info"]["status"] = "Online"
             elif(dest == "ground"):
                 param_control.state_ground = json.loads(data)
             elif(dest == "network"):

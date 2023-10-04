@@ -78,7 +78,7 @@ class Network_node(node.Node):
                     dpg.add_text("Interruption")
                     with dpg.group(horizontal=True):
                         dpg.add_text(0, tag=self.ID.ID_perf_time_interruption, color=gui_color.color_info);
-                        dpg.add_text("s");
+                        dpg.add_text("s [max]");
                     dpg.add_text("< 1 s");
                 # Time
                 with dpg.table_row():
@@ -111,7 +111,7 @@ class Network_node(node.Node):
             latency_down = "%.2f"% param_control.state_network["edge_to_ground"]["latency"]["value"]
             reliability_up = "%.2f"% param_control.state_network["ground_to_edge"]["reliability"]["value"]
             reliability_down = "%.2f"% param_control.state_network["edge_to_ground"]["reliability"]["value"]
-            time_interruption = "%.2f"% param_control.state_network["ground_to_edge"]["interruption"]["value"]
+            time_interruption = "%.2f"% param_control.state_network["ground_to_edge"]["interruption"]["max"]
             time_processing = "%.2f"% param_control.state_network["time"]["total"]
         else:
             throughput_up = 0

@@ -1,14 +1,16 @@
 {
     "capture": {
         "info": {
-            "ip": "127.0.0.1",
-            "add": "localhost",
+            "ip": "10.17.212.21",
+            "add": "Capture",
             "status": "Offline",
             "nb_thread": 0
         },
         "socket": {
             "server_l1_port": 8308,
-            "server_l2_port": 8309
+            "server_l2_port": 8309,
+            "l1_connected": false,
+            "l2_connected": false
         },
         "http": {
             "server_port": 314
