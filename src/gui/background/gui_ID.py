@@ -9,7 +9,7 @@ ID_handler_registry = function.id_generator();
 ID_scheme = function.id_generator();
 ID_scheme_mouse = function.id_generator();
 
-# Panel
+# GUI_render_panel
 ID_block_visibility = function.id_generator();
 ID_panel_node_selected = function.id_generator();
 ID_panel_setting = function.id_generator();

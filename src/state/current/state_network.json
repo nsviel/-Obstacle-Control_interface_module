@@ -4,7 +4,7 @@
         "add": "-",
         "status": "Online",
         "port": 27017,
-        "database": "07092023_5gmed_UC3_P2",
+        "database": "20102023_5gmed_UC3_P2",
         "collection": "kpis",
         "username": "",
         "password": "",
@@ -12,7 +12,7 @@
         "connected": true
     },
     "ground_to_edge": {
-        "timestamp": 1696414212.0003238,
+        "timestamp": 1698249926.8775196,
         "throughput": {
             "value": 0,
             "min": 0,
@@ -20,31 +20,31 @@
             "mean": 0
         },
         "latency": {
-            "value": 28.4,
-            "min": 20.2,
-            "max": 41.1,
-            "mean": 30.529999999999994
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "reliability": {
-            "value": 100.0,
-            "min": 33.333299999999994,
-            "max": 100.0,
-            "mean": 93.33333
+            "value": 0,
+            "min": 0,
+            "max": 0,
+            "mean": 0
         },
         "interruption": {
             "value": 0,
-            "min": 1.662389,
-            "max": 799.859703,
-            "mean": 151.77250733333332
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "edge_to_ground": {
-        "timestamp": 1696417930.340736,
+        "timestamp": 0,
         "latency": {
-            "value": 54.5,
-            "min": 23.5,
-            "max": 97.2,
-            "mean": 40.9
+            "value": 57.7,
+            "min": 49.4,
+            "max": 92.7,
+            "mean": 61.739999999999995
         },
         "reliability": {
             "value": 100.0,
@@ -54,8 +54,8 @@
         }
     },
     "time": {
-        "slam": 0,
+        "slam": 0.0,
         "ai": 0,
-        "total": 0
+        "total": 0.0
     }
 }
