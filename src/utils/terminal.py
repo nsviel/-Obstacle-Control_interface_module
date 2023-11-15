@@ -17,6 +17,21 @@ def addLog(type, message):
         print("[\033[1;30mPOST\033[0m]  "+ message)
     time.sleep(param_control.tic_message)
 
+def addConnection(dest, state):
+    if(dest == "edge"):
+        dest = "Edge"
+    elif(dest == "ground"):
+        dest = "Ground"
+    elif(dest == "slam"):
+        dest = "SLAM"
+    elif(dest == "ai"):
+        dest = "AI"
+
+    if(state == "on"):
+        print("[\033[1;36mCON\033[0m]   Connection \033[1;32mON\033[0m  - "+ dest)
+    elif(state == "off"):
+        print("[\033[1;36mCON\033[0m]   Connection \033[1;31mOFF\033[0m - "+ dest)
+        
 def add_post_command(dest, payload):
     message = "To %s [%s]"%(dest, payload)
     print("[\033[1;30mPOST\033[0m]  " + message)

@@ -3,6 +3,7 @@ from src.param import param_control
 from src.element import element
 from src.connection.HTTPS.client import https_client_post
 from src.connection.HTTPS.client import https_client_fct
+from src.utils import terminal
 
 
 # Test module_edge HTTP connection

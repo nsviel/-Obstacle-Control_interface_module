@@ -3,10 +3,9 @@
     "black_hole": "99.99.99.99",
     "lidar_1_static": "192.168.1.201",
     "lidar_2_static": "192.168.2.201",
+    "Train": "10.17.212.21",
     "VM_1_MEC_spanish": "10.17.231.40",
     "VM_2_MEC_french": "10.17.231.41",
     "VM_MongoDB": "10.17.216.35",
-    "Capture": "10.17.212.21",
-    "Control_interface": "10.17.235.75",
-    "Capture_2": "10.17.217.31"
+    "Control_IP": "10.17.235.75"
 }

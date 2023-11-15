@@ -1,10 +1,10 @@
 {
     "capture": {
         "info": {
-            "ip": "127.0.0.1",
-            "add": "localhost",
-            "status": "Offline",
-            "nb_thread": 0
+            "ip": "10.17.235.75",
+            "add": "Control_IP",
+            "status": "Online",
+            "nb_thread": 6
         },
         "socket": {
             "server_l1_port": 8308,
@@ -71,23 +71,12 @@
         }
     },
     "device": {
-        "0": "wlp2s0",
-        "1": "ztwdjfturv",
-        "2": "lo",
-        "3": "br-de470ff68a90",
-        "4": "br-fc5d7334c3b2",
-        "5": "bluetooth-monitor",
-        "6": "nfqueue",
-        "7": "dbus-session",
-        "8": "dbus-session",
-        "9": "dbus-session",
-        "10": "dbus-system",
-        "11": "veth5fd752f",
-        "12": "veth83826ab"
+        "0": "wlp0s20f3",
+        "1": "vpn0"
     },
     "interface": {
         "edge": {
-            "http_connected": false
+            "http_connected": true
         }
     }
 }

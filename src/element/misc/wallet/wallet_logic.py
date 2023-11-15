@@ -29,7 +29,7 @@ class Wallet_logic:
         self.wallet.pop(list(self.wallet.keys())[int(id)])
         self.write_wallet_file()
     def add_control_address(self):
-        self.add_new_item("Control_interface", signal.get_ip_adress())
+        self.add_new_item("Control_IP", signal.get_ip_adress())
 
     # Subfunction
     def get_ip_from_add(self, add):
