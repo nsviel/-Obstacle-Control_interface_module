@@ -51,7 +51,7 @@ class Hub_window(window.Window):
             param_control.state_edge["hub"]["info"]["ip"] = ip
             param_control.state_edge["hub"]["info"]["add"] = add
             https_client_con.test_connection_edge()
-            https_client_post.post_state("edge", param_control.state_edge)
+            https_client_post.post_state_edge("edge", param_control.state_edge)
 
     # Update function
     def update(self):

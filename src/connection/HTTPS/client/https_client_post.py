@@ -18,8 +18,8 @@ def post_command(dest, payload):
     https_client_fct.send_https_post(ip, port, connected, command, payload)
     terminal.add_post_command(dest, payload)
 
-def post_state(dest, state):
-    [ip, port, connected] = https_client_fct.network_info(dest)
-    command = "/post_state_" + dest
+def post_state_edge(name, state):
+    [ip, port, connected] = https_client_fct.network_info("edge")
+    command = "/post_state_" + name
     payload = json.dumps(state).encode(encoding='utf_8')
     https_client_fct.send_https_post(ip, port, connected, command, payload)

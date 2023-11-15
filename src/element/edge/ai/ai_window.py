@@ -35,7 +35,7 @@ class Ai_window(window.Window):
     def command_parameter(self):
         param_control.state_edge["ai"]["parameter"]["lidar_height"] = dpg.get_value(self.ID.ID_setting_lidar_height)
         param_control.state_edge["ai"]["parameter"]["threshold"] = dpg.get_value(self.ID.ID_setting_threshold)
-        https_client_post.post_state("edge", param_control.state_edge)
+        https_client_post.post_state_edge("edge", param_control.state_edge)
     def save_coord_to_file(self):
         pose = parser_json.get_pos_from_json()
         pose["edge"]["ai"] = dpg.get_item_pos(self.ID.ID_node)

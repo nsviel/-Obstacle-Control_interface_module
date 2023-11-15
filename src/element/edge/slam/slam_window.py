@@ -33,7 +33,7 @@ class Slam_window(window.Window):
     def command_parameter(self):
         param_control.state_edge["slam"]["parameter"]["with_slam"] = dpg.get_value(self.ID.ID_setting_with_slam)
         param_control.state_edge["slam"]["parameter"]["cam_view"] = dpg.get_value(self.ID.ID_setting_cam_view)
-        https_client_post.post_state("edge", param_control.state_edge)
+        https_client_post.post_state_edge("edge", param_control.state_edge)
     def command_command_reset(self):
         https_client_post.post_command("slam", "reset")
 

@@ -142,11 +142,11 @@ class Hub_node(node.Node):
         if(function.check_port_compatibility(l1_port, l2_port)):
             param_control.state_edge["hub"]["socket"]["server_l1_port"] = l1_port
             param_control.state_edge["hub"]["socket"]["server_l2_port"] = l2_port
-            https_client_post.post_state("edge", param_control.state_edge)
+            https_client_post.post_state_edge("edge", param_control.state_edge)
     def command_mqtt(self):
         param_control.state_cloud["operator"]["broker"]["client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
-        https_client_post.post_state("cloud", param_control.state_cloud)
+        https_client_post.post_state_edge("cloud", param_control.state_cloud)
         https_client_post.post_command("operator", "reset")
     def command_combo_lidar_main(self):
         param_control.state_edge["hub"]["socket"]["lidar_main"] = dpg.get_value(self.ID.ID_combo_lidar_source)
-        https_client_post.post_state("edge", param_control.state_edge)
+        https_client_post.post_state_edge("edge", param_control.state_edge)

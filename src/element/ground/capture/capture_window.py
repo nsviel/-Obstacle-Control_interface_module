@@ -50,7 +50,7 @@ class Capture_window(window.Window):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_ground["capture"]["info"]["ip"] = ip
             param_control.state_ground["capture"]["info"]["add"] = add
-            https_client_post.post_state("ground", param_control.state_ground)
+            https_client_post.post_state_edge("ground", param_control.state_ground)
 
     # Update function
     def update(self):

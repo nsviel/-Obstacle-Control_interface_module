@@ -45,7 +45,7 @@ class Operator_window(window.Window):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_cloud["operator"]["broker"]["ip"] = ip
             param_control.state_cloud["operator"]["broker"]["add"] = add
-            https_client_post.post_state("edge", param_control.state_edge)
+            https_client_post.post_state_edge("edge", param_control.state_edge)
 
     # Update function
     def update(self):

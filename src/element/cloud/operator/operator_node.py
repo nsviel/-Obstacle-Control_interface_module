@@ -57,4 +57,4 @@ class Operator_node(node.Node):
         param_control.state_cloud["operator"]["broker_port"] = dpg.get_value(self.ID.ID_mqtt_broker_port)
         param_control.state_cloud["operator"]["broker"]["topic"] = dpg.get_value(self.ID.ID_mqtt_topic)
         param_control.state_cloud["operator"]["mqtt_client"] = dpg.get_value(self.ID.ID_mqtt_client_name)
-        https_client_post.post_state("edge", param_control.state_edge)
+        https_client_post.post_state_edge("edge", param_control.state_edge)

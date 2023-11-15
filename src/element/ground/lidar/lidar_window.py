@@ -84,7 +84,7 @@ class Lidar_window(window.Window):
             dpg.set_value(self.ID.ID_ip, ip)
             param_control.state_ground[self.ID.name]["info"]["ip"] = ip
             param_control.state_ground[self.ID.name]["info"]["add"] = add
-            https_client_post.post_state("ground", param_control.state_ground)
+            https_client_post.post_state_edge("ground", param_control.state_ground)
     def command_motor_start(self):
         https_client_post.post_command(self.ID.name, "start")
     def command_motor_stop(self):
@@ -92,13 +92,13 @@ class Lidar_window(window.Window):
     def command_motor_speed(self):
         speed = dpg.get_value(self.ID.ID_motor_speed)
         param_control.state_ground[self.ID.name]["speed"] = speed
-        https_client_post.post_state("ground", param_control.state_ground)
+        https_client_post.post_state_edge("ground", param_control.state_ground)
         https_client_post.post_command("ground", "reset")
     def command_parameter(self):
         param_control.state_ground[self.ID.name]["info"]["device"] = dpg.get_value(self.ID.ID_device_list)
         param_control.state_ground[self.ID.name]["info"]["activated"] = dpg.get_value(self.ID.ID_activated)
         param_control.state_ground[self.ID.name]["info"]["ip"] = dpg.get_value(self.ID.ID_ip)
-        https_client_post.post_state("ground", param_control.state_ground)
+        https_client_post.post_state_edge("ground", param_control.state_ground)
         https_client_post.post_command("ground", "reset")
 
     # Update function

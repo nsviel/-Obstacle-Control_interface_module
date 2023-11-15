@@ -59,7 +59,7 @@ class Network_window(window.Window):
         param_control.state_network["mongodb"]["username"] = dpg.get_value(self.ID.ID_mongo_username)
         param_control.state_network["mongodb"]["password"] = dpg.get_value(self.ID.ID_mongo_password)
         param_control.state_network["mongodb"]["nb_data"] = dpg.get_value(self.ID.ID_mongo_nb_data)
-        https_client_post.post_state("network", param_control.state_network)
+        https_client_post.post_state_edge("network", param_control.state_network)
 
     # Update function
     def update(self):
