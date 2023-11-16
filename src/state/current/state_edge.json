@@ -6,7 +6,7 @@
             "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 8
+            "nb_thread": 9
         },
         "socket": {
             "server_l1_port": 344,
@@ -22,12 +22,12 @@
             "status": "Offline"
         },
         "socket": {
-            "connected": false,
+            "connected": true,
             "server_port": 2370
         },
         "http": {
-            "connected": false,
-            "server_port": 8888
+            "connected": true,
+            "server_port": 8889
         },
         "parameter": {
             "with_slam": 0,
@@ -48,7 +48,7 @@
         }
     },
     "data": {
-        "nb_frame": 0,
+        "nb_frame": 40,
         "nb_prediction": 0
     },
     "interface": {
@@ -56,7 +56,7 @@
             "broker_connected": false
         },
         "capture": {
-            "sock_l1_connected": true,
+            "sock_l1_connected": false,
             "sock_l2_connected": true,
             "http_connected": true
         }

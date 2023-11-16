@@ -20,8 +20,12 @@ class Socket_l1(daemon.Daemon):
     def thread_function(self):
         try:
             packet, (address, port) = self.socket.recvfrom(4096)
-            element.object.edge.data.plot.process_l1_data(packet)
-            param_control.state_control["interface"]["edge"]["sock_l1_connected"] = True
+            if(len(packet) > 100):
+                element.object.edge.data.plot.process_l1_data(packet)
+                param_control.state_control["interface"]["edge"]["sock_l1_connected"] = True
+            else:
+                element.object.edge.data.plot.update_plot_l1(0)
+                param_control.state_control["interface"]["edge"]["sock_l1_connected"] = False
         except:
             param_control.state_control["interface"]["edge"]["sock_l1_connected"] = False
 

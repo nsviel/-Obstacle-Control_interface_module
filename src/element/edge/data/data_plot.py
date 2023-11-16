@@ -41,9 +41,7 @@ class Data_plot:
     # Packet processing
     def process_l1_data(self, packet):
         path = param_control.state_control["ssd"]["path"]["path_l1_file"]
-        #io.write_lidar_data(path, packet)
         self.update_plot_l1(len(packet))
     def process_l2_data(self, packet):
         path = param_control.state_control["ssd"]["path"]["path_l2_file"]
-        #io.write_lidar_data(path, packet)
         self.update_plot_l2(len(packet))

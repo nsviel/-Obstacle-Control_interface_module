@@ -24,9 +24,9 @@
             "dir_l1": "/app/lidar_ssd/capture/lidar_1",
             "dir_l2": "/app/lidar_ssd/capture/lidar_2",
             "file_name_add": "",
-            "file_name": "_16-11-2023_11h15.pcap",
-            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_16-11-2023_11h15.pcap",
-            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_16-11-2023_11h15.pcap",
+            "file_name": "_16-11-2023_11h48.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_16-11-2023_11h48.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_16-11-2023_11h48.pcap",
             "bandwidth": 0
         },
         "space_used": 0,
@@ -36,7 +36,7 @@
         "edge": {
             "http_connected": true,
             "sock_l1_connected": true,
-            "sock_l2_connected": true
+            "sock_l2_connected": false
         },
         "ssd_connected": false
     }

@@ -2,7 +2,7 @@
     "capture": {
         "info": {
             "ip": "127.0.0.1",
-            "add": "localhost",
+            "add": "-",
             "status": "Online",
             "nb_thread": 8
         },
@@ -18,7 +18,7 @@
         "info": {
             "ip": "192.168.1.201",
             "add": "-",
-            "status": "Offline",
+            "status": "Online",
             "connected": false,
             "activated": true,
             "simulated": true,
@@ -55,19 +55,20 @@
             "speed": 600
         },
         "throughput": {
-            "value": 7.688,
-            "min": 7.632,
+            "value": 7.648,
+            "min": 7.64,
             "max": 7.696,
-            "mean": 7.672
+            "mean": 7.673684210526315
         },
         "packet": {
-            "value": 1546906
+            "value": 469638
         }
     },
     "device": {
         "0": "wlp0s20f3",
         "1": "enxa0cec8737a9e",
-        "2": "vpn0"
+        "2": "vpn0",
+        "3": "veth7dcef6a"
     },
     "interface": {
         "edge": {
