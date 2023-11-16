@@ -53,12 +53,12 @@ class Lidar_window(window.Window):
                 dpg.add_text("Throughput");
                 with dpg.group(horizontal=True):
                     dpg.add_text(0, tag=self.ID.ID_throughtput_value, color=gui_color.color_info);
-                    dpg.add_text("MB/s");
+                    dpg.add_text("Mb/s");
         with dpg.group(horizontal=True):
             dpg.add_text("[");
             dpg.add_text(0, tag=self.ID.ID_throughtput_range, color=gui_color.color_info);
             dpg.add_text("]");
-            dpg.add_text("MB/s");
+            dpg.add_text("Mb/s");
     def build_device(self):
         dpg.add_text("Device")
         dpg.add_listbox(tag=self.ID.ID_device_list, callback=self.command_parameter, width=250)

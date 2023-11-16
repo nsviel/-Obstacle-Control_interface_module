@@ -1,17 +1,17 @@
 {
     "hub": {
         "info": {
-            "ip": "10.17.231.40",
-            "add": "VM_1_MEC_spanish",
+            "ip": "127.0.0.1",
+            "add": "localhost",
             "status": "Online",
             "edge_id": 0,
             "country": "France",
-            "nb_thread": 6
+            "nb_thread": 8
         },
         "socket": {
             "server_l1_port": 344,
             "server_l2_port": 345,
-            "lidar_main": "lidar_1"
+            "lidar_main": "lidar_2"
         },
         "http": {
             "server_port": 443
@@ -56,8 +56,8 @@
             "broker_connected": false
         },
         "capture": {
-            "sock_l1_connected": false,
-            "sock_l2_connected": false,
+            "sock_l1_connected": true,
+            "sock_l2_connected": true,
             "http_connected": true
         }
     }

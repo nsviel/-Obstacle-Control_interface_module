@@ -1,40 +1,43 @@
 {
-  "control": {
-    "info":{
-      "ip": "127.0.0.1",
-      "add": "-",
-      "status": "Online",
-      "nb_thread": 0
+    "control": {
+        "info": {
+            "ip": "192.168.153.29",
+            "add": "-",
+            "status": "Online",
+            "nb_thread": 5
+        },
+        "socket": {
+            "server_l1_port": 321,
+            "server_l2_port": 322
+        }
     },
-    "socket":{
-      "server_l1_port": 321,
-      "server_l2_port": 322
-    }
-  },
-  "ssd": {
-    "info":{
-      "connected": false,
-      "status": "Online",
-      "activated": false,
-      "space_total": 0,
-      "space_used": 0
+    "ssd": {
+        "info": {
+            "connected": false,
+            "status": "Offline",
+            "activated": false,
+            "space_total": 0,
+            "space_used": 0
+        },
+        "path": {
+            "dir_capture": "/app/lidar_ssd/capture",
+            "dir_l1": "/app/lidar_ssd/capture/lidar_1",
+            "dir_l2": "/app/lidar_ssd/capture/lidar_2",
+            "file_name_add": "",
+            "file_name": "_16-11-2023_10h32.pcap",
+            "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_16-11-2023_10h32.pcap",
+            "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_16-11-2023_10h32.pcap",
+            "bandwidth": 0
+        },
+        "space_used": 0,
+        "space_total": 0
     },
-    "path": {
-        "dir_capture": "/app/lidar_ssd/capture",
-        "dir_l1": "/app/lidar_ssd/capture/lidar_1",
-        "dir_l2": "/app/lidar_ssd/capture/lidar_2",
-        "file_name_add": "",
-        "file_name": "_26-08-2023_00h14.pcap",
-        "path_l1_file": "/app/lidar_ssd/capture/lidar_1/_26-08-2023_00h14.pcap",
-        "path_l2_file": "/app/lidar_ssd/capture/lidar_2/_26-08-2023_00h14.pcap",
-        "bandwidth": 0
+    "interface": {
+        "edge": {
+            "http_connected": false,
+            "sock_l1_connected": false,
+            "sock_l2_connected": false
+        },
+        "ssd_connected": false
     }
-  },
-  "interface":{
-    "edge":{
-      "http_connected": false,
-      "sock_l1_connected": false,
-      "sock_l2_connected": false
-    }
-  }
 }

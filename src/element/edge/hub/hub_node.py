@@ -149,4 +149,6 @@ class Hub_node(node.Node):
         https_client_post.post_command("operator", "reset")
     def command_combo_lidar_main(self):
         param_control.state_edge["hub"]["socket"]["lidar_main"] = dpg.get_value(self.ID.ID_combo_lidar_source)
+        param_control.state_edge["interface"]["capture"]["sock_l1_connected"] = False
+        param_control.state_edge["interface"]["capture"]["sock_l2_connected"] = False
         https_client_post.post_state_edge("edge", param_control.state_edge)
