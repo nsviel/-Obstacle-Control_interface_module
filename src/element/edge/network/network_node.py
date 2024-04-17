@@ -106,7 +106,7 @@ class Network_node(node.Node):
     def update_perf(self):
         lidar_main = param_control.state_edge["hub"]["socket"]["lidar_main"]
         if(param_control.state_edge["interface"]["capture"]["http_connected"]):
-            throughput_up = "%.2f"% param_control.state_ground[lidar_main]["throughput"]["value"]
+            throughput_up = "%.2f"% param_control.state_network["ground_to_edge"]["throughput"]["value"]
             latency_up = "%.2f"% param_control.state_network["ground_to_edge"]["latency"]["value"]
             latency_down = "%.2f"% param_control.state_network["edge_to_ground"]["latency"]["value"]
             reliability_up = "%.2f"% param_control.state_network["ground_to_edge"]["reliability"]["value"]

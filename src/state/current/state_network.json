@@ -2,7 +2,7 @@
     "mongodb": {
         "ip": "10.17.216.35",
         "add": "-",
-        "status": "Online",
+        "status": "Offline",
         "port": 27017,
         "database": "20102023_5gmed_UC3_P2",
         "collection": "kpis",
@@ -12,18 +12,18 @@
         "connected": false
     },
     "ground_to_edge": {
-        "timestamp": 1713366285.6827567,
+        "timestamp": 1713370905.3801732,
         "throughput": {
-            "value": 0,
+            "value": 7.688,
             "min": 0,
             "max": 0,
             "mean": 0
         },
         "latency": {
-            "value": 0.017,
-            "min": 0.016,
-            "max": 0.065,
-            "mean": 0.0251
+            "value": 0.03,
+            "min": 0.014,
+            "max": 0.046,
+            "mean": 0.024699999999999996
         },
         "reliability": {
             "value": 100.0,
@@ -33,18 +33,18 @@
         },
         "interruption": {
             "value": 0,
-            "min": 2.003117,
-            "max": 24.059097,
-            "mean": 7.2169614
+            "min": 0,
+            "max": 0,
+            "mean": 0
         }
     },
     "edge_to_ground": {
         "timestamp": 0,
         "latency": {
-            "value": 0.04,
-            "min": 0.014,
-            "max": 0.05,
-            "mean": 0.024900000000000002
+            "value": 0.016,
+            "min": 0.012,
+            "max": 0.043,
+            "mean": 0.019700000000000002
         },
         "reliability": {
             "value": 100.0,
