@@ -32,9 +32,10 @@ def get_image(dest):
     [ip, port, connected] = https_client_fct.network_info(dest)
     command = "/get_image"
     data = https_client_fct.send_https_get(ip, port, connected, command)
+    #print(data != None)
     if(data != None):
         if(len(data) != 0):
-            img = open(param_control.path_state_current + "image", "wb")
+            img = open(param_control.path_state_current + "image.bmp", "wb")
             img.write(data)
             img.close()
             return True
