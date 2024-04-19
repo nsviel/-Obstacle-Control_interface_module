@@ -35,7 +35,7 @@ def get_image(dest):
     #print(data != None)
     if(data != None):
         if(len(data) != 0):
-            img = open(param_control.path_state_current + "image.bmp", "wb")
+            img = open(param_control.path_state_current + "image", "wb")
             img.write(data)
             img.close()
             return True

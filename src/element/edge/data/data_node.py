@@ -19,6 +19,7 @@ class Data_node(node.Node):
         self.ID.init_ID_icon()
         with dpg.node(label=self.ID.name, tag=self.ID.ID_node):
             with dpg.node_attribute(attribute_type=dpg.mvNode_Attr_Static):
+
                 dpg.add_image(self.ID.ID_image)
                 #dpg.add_image(self.ID.ID_image, width=300, height=150)
             self.build_plot("lidar 1", self.ID.ID_yaxis_l1, self.ID.ID_plot_l1)
@@ -55,14 +56,15 @@ class Data_node(node.Node):
         pose = parser_json.get_pos_from_json()
         dpg.set_item_pos(self.ID.ID_node, pose["edge"]["data"])
     def init_values(self):
-        width, height, channels, data = dpg.load_image(param_control.path_state_initial + "image.bmp")
+        width, height, channels, data = dpg.load_image(param_control.path_state_initial + "image")
         dpg.set_value(self.ID.ID_image, data)
 
     # Update function
     def update(self):
         pass
     def update_image(self):
-        width, height, channels, data = dpg.load_image(param_control.path_state_current + "image.bmp")
+
+        width, height, channels, data = dpg.load_image(param_control.path_state_current + "image")
         try:
             dpg.set_value(self.ID.ID_image, data)
         except:
